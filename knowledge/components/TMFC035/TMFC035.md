@@ -11,8 +11,30 @@ source:
   sha256: 55767e30f6d6f60123d36d3985a090c91a5d575881c4977bcf3227b961b79d1d
   raw_path: references/components/TMFC035/TMFC035_Permissions_Management_v1.1.0.pdf
 links:
-  apis: []
-  use_cases: []
+  apis:
+    - id: TMF632
+      name: party-management-api
+    - id: TMF669
+      name: party-role-management-api
+    - id: TMF672
+      name: user-role-permission-management-api
+    - id: TMF701
+      name: process-flow-management-api
+  use_cases:
+    - id: TMFS001
+      name: New Party – Create your accounts
+    - id: TMFS005
+      name: Billing - Fiber Contract
+    - id: TMFS006
+      name: Legal Guardian
+    - id: TMFS016
+      name: Prospect to Order for the SASE, (CPQ)
+    - id: TMFS020
+      name: Multi Domain B2B2X Contract Management
+    - id: TMFS026
+      name: Commercializing CAMARA APIs with Operate APIs
+    - id: TMFS031
+      name: Problem Management
 yaml_spec_version: 1.1.1
 ---
 

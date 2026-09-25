@@ -11,8 +11,26 @@ source:
   sha256: 8143ffd9a2ee512224b4a2884eefecbecbee37422eaf34a08a5b7c4498aabc2b
   raw_path: references/components/TMFC036/TMFC036_Lead_and_Opportunity_Management_v1.2.1.pdf
 links:
-  apis: []
-  use_cases: []
+  apis:
+    - id: TMF620
+      name: product-catalog-management-api
+    - id: TMF622
+      name: product-ordering-management-api
+    - id: TMF632
+      name: party-management-api
+    - id: TMF648
+      name: quote-management-api
+    - id: TMF651
+      name: agreement-management-api
+    - id: TMF669
+      name: party-role-management-api
+    - id: TMF699
+      name: sales-management-api
+    - id: TMF701
+      name: process-flow-management-api
+  use_cases:
+    - id: TMFS020
+      name: Multi Domain B2B2X Contract Management
 yaml_spec_version: 1.2.0
 ---
 

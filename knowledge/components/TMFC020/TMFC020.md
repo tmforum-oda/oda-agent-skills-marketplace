@@ -11,8 +11,24 @@ source:
   sha256: d4772360a6e2dc20d8a254714ff75b1ad8049d9fa522cf5e4317bf012b123896
   raw_path: references/components/TMFC020/TMFC020_Digital_Identity_Management_v1.1.0.pdf
 links:
-  apis: []
-  use_cases: []
+  apis:
+    - id: TMF632
+      name: party-management-api
+    - id: TMF669
+      name: party-role-management-api
+    - id: TMF701
+      name: process-flow-management-api
+    - id: TMF720
+      name: digital-identity-management-api
+  use_cases:
+    - id: TMFS001
+      name: New Party – Create your accounts
+    - id: TMFS016
+      name: Prospect to Order for the SASE, (CPQ)
+    - id: TMFS020
+      name: Multi Domain B2B2X Contract Management
+    - id: TMFS021
+      name: Orchestration of a Multi Party, Multi domain Sales Order
 yaml_spec_version: 1.1.0
 ---
 

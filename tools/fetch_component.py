@@ -123,6 +123,10 @@ def fetch_one(comp_id, folder_map):
             "retrieved": _dt.date.today().isoformat(),
             "sha256": hashlib.sha256(raw).hexdigest(),
         },
+        # Placeholder -- tools/build_index.py's sync_component_links() fills this
+        # in on its next run: links.apis (forward, read straight back out of this
+        # same component.yaml) and links.use_cases (reverse, from the corpus-wide
+        # used_by it already computes) -- spec/spec-components.md 4.
         "links": {"apis": [], "use_cases": []},
     }
     write_json(meta_path, envelope)

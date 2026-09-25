@@ -11,8 +11,30 @@ source:
   sha256: a95de6f3fe4faf47ceeacad55bfc95269bad349c5fe194fbc5752b605ee4d320
   raw_path: references/components/TMFC014/TMFC014_Location_Management_v1.2.0.pdf
 links:
-  apis: []
-  use_cases: []
+  apis:
+    - id: TMF669
+      name: party-role-management-api
+    - id: TMF673
+      name: geographic-address-management-api
+    - id: TMF674
+      name: geographic-site-management-api
+    - id: TMF675
+      name: geographic-location-management-api
+    - id: TMF701
+      name: process-flow-management-api
+  use_cases:
+    - id: TMFS003
+      name: Order Capture - Fiber Contract
+    - id: TMFS007
+      name: TMFS007
+    - id: TMFS012
+      name: Product Catalog - Launching a New Product Offering
+    - id: TMFS016
+      name: Prospect to Order for the SASE, (CPQ)
+    - id: TMFS018
+      name: Wholesale Broadband
+    - id: TMFS030
+      name: Satellite Direct-to-Device – Wholesaling Non-Terrestrial Networks capacity to Mobile Network Operators
 yaml_spec_version: 1.2.1
 ---
 

@@ -11,8 +11,66 @@ source:
   sha256: 36aab54807f945e9a4911ab31373282879aa54355cb0cafae074978bb66bb2ef
   raw_path: references/components/TMFC001/TMFC001_Product_Catalog_Management_v2.1.2.pdf
 links:
-  apis: []
-  use_cases: []
+  apis:
+    - id: TMF620
+      name: product-catalog-management-api
+    - id: TMF632
+      name: party-management-api
+    - id: TMF633
+      name: service-catalog-management-api
+    - id: TMF634
+      name: resource-catalog-management-api
+    - id: TMF651
+      name: agreement-management-api
+    - id: TMF662
+      name: entity-catalog-management-api
+    - id: TMF669
+      name: party-role-management-api
+    - id: TMF671
+      name: promotion-management-api
+    - id: TMF673
+      name: geographic-address-management-api
+    - id: TMF674
+      name: geographic-site-management-api
+    - id: TMF675
+      name: geographic-location-management-api
+    - id: TMF701
+      name: process-flow-management-api
+  use_cases:
+    - id: TMFS002
+      name: Browse B2C Catalogue and Check Fiber Technical Eligibility
+    - id: TMFS003
+      name: Order Capture - Fiber Contract
+    - id: TMFS004
+      name: Order Delivery – Fiber contract
+    - id: TMFS005
+      name: Billing - Fiber Contract
+    - id: TMFS007
+      name: TMFS007
+    - id: TMFS008
+      name: Service and Resource Order Management for Postpaid Mobile Subscribers
+    - id: TMFS009
+      name: Usage and Balance Management
+    - id: TMFS010
+      name: ODA Flow with NaaS Support
+    - id: TMFS012
+      name: Product Catalog - Launching a New Product Offering
+    - id: TMFS014
+      name: 5G Slice Management
+    - id: TMFS016
+      name: Prospect to Order for the SASE, (CPQ)
+    - id: TMFS018
+      name: Wholesale Broadband
+    - id: TMFS019
+      name: TMFS019
+    - id: TMFS020
+      name: Multi Domain B2B2X Contract Management
+    - id: TMFS026
+      name: Commercializing CAMARA APIs with Operate APIs
+    - id: TMFS028
+      name: End to End Modelling of Cloud Based VPN
+    - id: TMFS030
+      name: Satellite Direct-to-Device – Wholesaling Non-Terrestrial Networks capacity to Mobile Network Operators
 yaml_spec_version: 2.1.2
 ---
 

@@ -11,8 +11,54 @@ source:
   sha256: 4f9e6cd54f5361192ecad29adc52bea0fa76406c5226bfbadcdfde6008c0a833
   raw_path: references/components/TMFC027/TMFC027_ProductConfigurator_v2.1.1.pdf
 links:
-  apis: []
-  use_cases: []
+  apis:
+    - id: TMF620
+      name: product-catalog-management-api
+    - id: TMF622
+      name: product-ordering-management-api
+    - id: TMF632
+      name: party-management-api
+    - id: TMF637
+      name: product-inventory-management-api
+    - id: TMF645
+      name: service-qualification-management-api
+    - id: TMF651
+      name: agreement-management-api
+    - id: TMF662
+      name: entity-catalog-management-api
+    - id: TMF666
+      name: account-management-api
+    - id: TMF669
+      name: party-role-management-api
+    - id: TMF673
+      name: geographic-address-management-api
+    - id: TMF674
+      name: geographic-site-management-api
+    - id: TMF679
+      name: product-offering-qualification-management-api
+    - id: TMF701
+      name: process-flow-management-api
+    - id: TMF760
+      name: product-configuration-management-api
+    - id: TMF921
+      name: intent-management-api
+  use_cases:
+    - id: TMFS002
+      name: Browse B2C Catalogue and Check Fiber Technical Eligibility
+    - id: TMFS003
+      name: Order Capture - Fiber Contract
+    - id: TMFS007
+      name: TMFS007
+    - id: TMFS010
+      name: ODA Flow with NaaS Support
+    - id: TMFS016
+      name: Prospect to Order for the SASE, (CPQ)
+    - id: TMFS018
+      name: Wholesale Broadband
+    - id: TMFS019
+      name: TMFS019
+    - id: TMFS030
+      name: Satellite Direct-to-Device – Wholesaling Non-Terrestrial Networks capacity to Mobile Network Operators
 yaml_spec_version: 2.1.1
 ---
 

@@ -11,7 +11,45 @@
     "sha256": "61b65d3333f07ab46efc8b0cab042ec47a9c99991a6a6602bc6ab7b639c32d89"
   },
   "links": {
-    "apis": [],
-    "use_cases": []
+    "apis": [
+      {
+        "id": "TMF620",
+        "name": "product-catalog-management-api"
+      },
+      {
+        "id": "TMF622",
+        "name": "product-ordering-management-api"
+      },
+      {
+        "id": "TMF632",
+        "name": "party-management-api"
+      },
+      {
+        "id": "TMF648",
+        "name": "quote-management-api"
+      },
+      {
+        "id": "TMF651",
+        "name": "agreement-management-api"
+      },
+      {
+        "id": "TMF669",
+        "name": "party-role-management-api"
+      },
+      {
+        "id": "TMF699",
+        "name": "sales-management-api"
+      },
+      {
+        "id": "TMF701",
+        "name": "process-flow-management-api"
+      }
+    ],
+    "use_cases": [
+      {
+        "id": "TMFS020",
+        "name": "Multi Domain B2B2X Contract Management"
+      }
+    ]
   }
 }

@@ -11,6 +11,15 @@
   },
   "links": {
     "apis": [],
-    "use_cases": []
+    "use_cases": [
+      {
+        "id": "TMFS007",
+        "name": "TMFS007"
+      },
+      {
+        "id": "TMFS020",
+        "name": "Multi Domain B2B2X Contract Management"
+      }
+    ]
   }
 }

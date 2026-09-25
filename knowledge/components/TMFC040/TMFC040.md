@@ -11,8 +11,26 @@ source:
   sha256: d7b253880df331fd1dbf1a4b82021a697606d6622cf6b7edf96f313e18902323
   raw_path: references/components/TMFC040/TMFC040_Product_Usage_Management_v1.1.0.pdf
 links:
-  apis: []
-  use_cases: []
+  apis:
+    - id: TMF620
+      name: product-catalog-management-api
+    - id: TMF632
+      name: party-management-api
+    - id: TMF635
+      name: usage-management-api
+    - id: TMF637
+      name: product-inventory-management-api
+    - id: TMF669
+      name: party-role-management-api
+    - id: TMF677
+      name: usage-consumption-management-api
+    - id: TMF701
+      name: process-flow-management-api
+  use_cases:
+    - id: TMFS005
+      name: Billing - Fiber Contract
+    - id: TMFS009
+      name: Usage and Balance Management
 yaml_spec_version: 1.1.0
 ---
 

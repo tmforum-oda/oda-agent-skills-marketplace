@@ -11,6 +11,11 @@
   },
   "links": {
     "apis": [],
-    "use_cases": []
+    "use_cases": [
+      {
+        "id": "TMFS006",
+        "name": "Legal Guardian"
+      }
+    ]
   }
 }

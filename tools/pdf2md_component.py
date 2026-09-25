@@ -639,7 +639,7 @@ envelope = {
         "sha256": hashlib.sha256(open(SRC, "rb").read()).hexdigest(),
         "raw_path": SRC.replace("\\", "/"),
     },
-    "links": {"apis": [], "use_cases": []},
+    "links": {"apis": [], "use_cases": []},  # filled in by build_index.py's sync_component_links() -- spec/spec-components.md 4
 }
 
 meta_path = os.path.join(os.path.dirname(OUT), "component.meta.json")

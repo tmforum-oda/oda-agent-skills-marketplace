@@ -11,8 +11,32 @@ source:
   sha256: 4265e509a65c86613aba70d3049c0f82f104e74ae8bfa34e7aa9a416af0fcefa
   raw_path: references/components/TMFC039/TMFC039_Agreement_Management_v1.1.0.pdf
 links:
-  apis: []
-  use_cases: []
+  apis:
+    - id: TMF620
+      name: product-catalog-management-api
+    - id: TMF632
+      name: party-management-api
+    - id: TMF637
+      name: product-inventory-management-api
+    - id: TMF651
+      name: agreement-management-api
+    - id: TMF667
+      name: document-management-api
+    - id: TMF669
+      name: party-role-management-api
+    - id: TMF701
+      name: process-flow-management-api
+  use_cases:
+    - id: TMFS019
+      name: TMFS019
+    - id: TMFS019A
+      name: "Part I: Partner On-boarding with Agreement Management"
+    - id: TMFS020
+      name: Multi Domain B2B2X Contract Management
+    - id: TMFS026
+      name: Commercializing CAMARA APIs with Operate APIs
+    - id: TMFS030
+      name: Satellite Direct-to-Device – Wholesaling Non-Terrestrial Networks capacity to Mobile Network Operators
 yaml_spec_version: 1.1.0
 ---
 

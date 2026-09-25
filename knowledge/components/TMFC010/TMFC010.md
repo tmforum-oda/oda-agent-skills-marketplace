@@ -11,8 +11,30 @@ source:
   sha256: 8e24251ffcf9b3546e5a0487450c24b32526d3aa1fbb291e73dfe869f8154f10
   raw_path: references/components/TMFC010/TMFC010_Resource_Catalog_Management_v1.3.1.pdf
 links:
-  apis: []
-  use_cases: []
+  apis:
+    - id: TMF632
+      name: party-management-api
+    - id: TMF634
+      name: resource-catalog-management-api
+    - id: TMF662
+      name: entity-catalog-management-api
+    - id: TMF669
+      name: party-role-management-api
+    - id: TMF701
+      name: process-flow-management-api
+  use_cases:
+    - id: TMFS004
+      name: Order Delivery – Fiber contract
+    - id: TMFS008
+      name: Service and Resource Order Management for Postpaid Mobile Subscribers
+    - id: TMFS011
+      name: Order Fallout Management
+    - id: TMFS014
+      name: 5G Slice Management
+    - id: TMFS025
+      name: Cloud Native Function Management
+    - id: TMFS028
+      name: End to End Modelling of Cloud Based VPN
 yaml_spec_version: 1.3.2
 ---
 

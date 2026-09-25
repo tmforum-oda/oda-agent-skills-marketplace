@@ -11,8 +11,60 @@ source:
   sha256: 6b7c6fab4cef4d130f1c022b70b0ea28c72783c58f5ff608ee6387da0526cad7
   raw_path: references/components/TMFC005/TMFC005_Product_Inventory_v1.0.3.pdf
 links:
-  apis: []
-  use_cases: []
+  apis:
+    - id: TMF620
+      name: product-catalog-management-api
+    - id: TMF622
+      name: product-ordering-management-api
+    - id: TMF632
+      name: party-management-api
+    - id: TMF637
+      name: product-inventory-management-api
+    - id: TMF638
+      name: service-inventory-management-api
+    - id: TMF639
+      name: resource-inventory-management-api
+    - id: TMF651
+      name: agreement-management-api
+    - id: TMF666
+      name: account-management-api
+    - id: TMF669
+      name: party-role-management-api
+    - id: TMF673
+      name: geographic-address-management-api
+    - id: TMF674
+      name: geographic-site-management-api
+    - id: TMF675
+      name: geographic-location-management-api
+    - id: TMF701
+      name: process-flow-management-api
+  use_cases:
+    - id: TMFS003
+      name: Order Capture - Fiber Contract
+    - id: TMFS004
+      name: Order Delivery – Fiber contract
+    - id: TMFS005
+      name: Billing - Fiber Contract
+    - id: TMFS007
+      name: TMFS007
+    - id: TMFS008
+      name: Service and Resource Order Management for Postpaid Mobile Subscribers
+    - id: TMFS009
+      name: Usage and Balance Management
+    - id: TMFS011
+      name: Order Fallout Management
+    - id: TMFS014
+      name: 5G Slice Management
+    - id: TMFS016
+      name: Prospect to Order for the SASE, (CPQ)
+    - id: TMFS018
+      name: Wholesale Broadband
+    - id: TMFS021
+      name: Orchestration of a Multi Party, Multi domain Sales Order
+    - id: TMFS028
+      name: End to End Modelling of Cloud Based VPN
+    - id: TMFS030
+      name: Satellite Direct-to-Device – Wholesaling Non-Terrestrial Networks capacity to Mobile Network Operators
 yaml_spec_version: 1.0.4
 ---
 

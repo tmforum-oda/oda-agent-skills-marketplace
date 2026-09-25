@@ -11,7 +11,93 @@
     "sha256": "9a315ad6e3ccc4958d91a9f26471748ef239dac0e65e8406e6c042ee66a294a2"
   },
   "links": {
-    "apis": [],
-    "use_cases": []
+    "apis": [
+      {
+        "id": "TMF632",
+        "name": "party-management-api"
+      },
+      {
+        "id": "TMF634",
+        "name": "resource-catalog-management-api"
+      },
+      {
+        "id": "TMF639",
+        "name": "resource-inventory-management-api"
+      },
+      {
+        "id": "TMF646",
+        "name": "appointment-management-api"
+      },
+      {
+        "id": "TMF652",
+        "name": "resource-order-management-api"
+      },
+      {
+        "id": "TMF664",
+        "name": "resource-function-activation-management-api"
+      },
+      {
+        "id": "TMF669",
+        "name": "party-role-management-api"
+      },
+      {
+        "id": "TMF673",
+        "name": "geographic-address-management-api"
+      },
+      {
+        "id": "TMF674",
+        "name": "geographic-site-management-api"
+      },
+      {
+        "id": "TMF675",
+        "name": "geographic-location-management-api"
+      },
+      {
+        "id": "TMF685",
+        "name": "resource-pool-management-api"
+      },
+      {
+        "id": "TMF701",
+        "name": "process-flow-management-api"
+      },
+      {
+        "id": "TMF702",
+        "name": "resource-activation-management-api"
+      }
+    ],
+    "use_cases": [
+      {
+        "id": "TMFS004",
+        "name": "Order Delivery \u2013 Fiber contract"
+      },
+      {
+        "id": "TMFS007",
+        "name": "TMFS007"
+      },
+      {
+        "id": "TMFS008",
+        "name": "Service and Resource Order Management for Postpaid Mobile Subscribers"
+      },
+      {
+        "id": "TMFS011",
+        "name": "Order Fallout Management"
+      },
+      {
+        "id": "TMFS014",
+        "name": "5G Slice Management"
+      },
+      {
+        "id": "TMFS025",
+        "name": "Cloud Native Function Management"
+      },
+      {
+        "id": "TMFS028",
+        "name": "End to End Modelling of Cloud Based VPN"
+      },
+      {
+        "id": "TMFS030",
+        "name": "Satellite Direct-to-Device \u2013 Wholesaling Non-Terrestrial Networks capacity to Mobile Network Operators"
+      }
+    ]
   }
 }

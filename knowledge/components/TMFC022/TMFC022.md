@@ -11,8 +11,22 @@ source:
   sha256: be087399b1ea5d2826dc909b578f81985062a780cedf1d682f4ef46942b20d10
   raw_path: references/components/TMFC022/TMFC022_Party_Privacy_Management_v1.1.1.pdf
 links:
-  apis: []
-  use_cases: []
+  apis:
+    - id: TMF620
+      name: product-catalog-management-api
+    - id: TMF632
+      name: party-management-api
+    - id: TMF644
+      name: privacy-management-api
+    - id: TMF667
+      name: document-management-api
+    - id: TMF669
+      name: party-role-management-api
+    - id: TMF701
+      name: process-flow-management-api
+  use_cases:
+    - id: TMFS001
+      name: New Party – Create your accounts
 yaml_spec_version: 1.1.0
 ---
 

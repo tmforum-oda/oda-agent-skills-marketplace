@@ -11,8 +11,38 @@ source:
   sha256: 732081b471bbb14cd2172c71e004e9dfd44419b3e2d55932d8e6fade0852f39b
   raw_path: references/components/TMFC023/TMFC023_Party_Interaction_Management_v1.1.1.pdf
 links:
-  apis: []
-  use_cases: []
+  apis:
+    - id: TMF632
+      name: party-management-api
+    - id: TMF662
+      name: entity-catalog-management-api
+    - id: TMF667
+      name: document-management-api
+    - id: TMF669
+      name: party-role-management-api
+    - id: TMF681
+      name: communication-management-api
+    - id: TMF683
+      name: party-interaction-management-api
+    - id: TMF701
+      name: process-flow-management-api
+  use_cases:
+    - id: TMFS001
+      name: New Party – Create your accounts
+    - id: TMFS002
+      name: Browse B2C Catalogue and Check Fiber Technical Eligibility
+    - id: TMFS003
+      name: Order Capture - Fiber Contract
+    - id: TMFS004
+      name: Order Delivery – Fiber contract
+    - id: TMFS006
+      name: Legal Guardian
+    - id: TMFS016
+      name: Prospect to Order for the SASE, (CPQ)
+    - id: TMFS020
+      name: Multi Domain B2B2X Contract Management
+    - id: TMFS031
+      name: Problem Management
 yaml_spec_version: 1.1.2
 ---
 

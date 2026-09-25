@@ -11,8 +11,48 @@ source:
   sha256: 26b78d5de4214f40c586577db981b3850df0bdaeedaf57ac3718d3bb280d9ac7
   raw_path: references/components/TMFC050/TMFC050_Product_Recommendation_Management_v1.1.0.pdf
 links:
-  apis: []
-  use_cases: []
+  apis:
+    - id: TMF620
+      name: product-catalog-management-api
+    - id: TMF621
+      name: trouble-ticket-management-api
+    - id: TMF622
+      name: product-ordering-management-api
+    - id: TMF629
+      name: customer-management-api
+    - id: TMF632
+      name: party-management-api
+    - id: TMF635
+      name: usage-management-api
+    - id: TMF637
+      name: product-inventory-management-api
+    - id: TMF663
+      name: shopping-cart-management-api
+    - id: TMF666
+      name: account-management-api
+    - id: TMF669
+      name: party-role-management-api
+    - id: TMF671
+      name: promotion-management-api
+    - id: TMF673
+      name: geographic-address-management-api
+    - id: TMF675
+      name: geographic-location-management-api
+    - id: TMF678
+      name: customer-bill-management-api
+    - id: TMF679
+      name: product-offering-qualification-management-api
+    - id: TMF680
+      name: recommendation-management-api
+    - id: TMF701
+      name: process-flow-management-api
+  use_cases:
+    - id: TMFS002
+      name: Browse B2C Catalogue and Check Fiber Technical Eligibility
+    - id: TMFS016
+      name: Prospect to Order for the SASE, (CPQ)
+    - id: TMFS020
+      name: Multi Domain B2B2X Contract Management
 yaml_spec_version: 1.0.0
 ---
 

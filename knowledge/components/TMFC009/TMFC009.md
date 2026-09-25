@@ -11,8 +11,50 @@ source:
   sha256: 7db9795c15e893d6078f26b56e16ed5838b4b07116c41eb51277c0f7b9e3847b
   raw_path: references/components/TMFC009/TMFC009_Service_Qualification_v1.1.0.pdf
 links:
-  apis: []
-  use_cases: []
+  apis:
+    - id: TMF632
+      name: party-management-api
+    - id: TMF633
+      name: service-catalog-management-api
+    - id: TMF634
+      name: resource-catalog-management-api
+    - id: TMF638
+      name: service-inventory-management-api
+    - id: TMF639
+      name: resource-inventory-management-api
+    - id: TMF645
+      name: service-qualification-management-api
+    - id: TMF669
+      name: party-role-management-api
+    - id: TMF673
+      name: geographic-address-management-api
+    - id: TMF674
+      name: geographic-site-management-api
+    - id: TMF675
+      name: geographic-location-management-api
+  use_cases:
+    - id: TMFS002
+      name: Browse B2C Catalogue and Check Fiber Technical Eligibility
+    - id: TMFS003
+      name: Order Capture - Fiber Contract
+    - id: TMFS004
+      name: Order Delivery – Fiber contract
+    - id: TMFS007
+      name: TMFS007
+    - id: TMFS008
+      name: Service and Resource Order Management for Postpaid Mobile Subscribers
+    - id: TMFS010
+      name: ODA Flow with NaaS Support
+    - id: TMFS014
+      name: 5G Slice Management
+    - id: TMFS016
+      name: Prospect to Order for the SASE, (CPQ)
+    - id: TMFS018
+      name: Wholesale Broadband
+    - id: TMFS028
+      name: End to End Modelling of Cloud Based VPN
+    - id: TMFS030
+      name: Satellite Direct-to-Device – Wholesaling Non-Terrestrial Networks capacity to Mobile Network Operators
 yaml_spec_version: 1.1.0
 ---
 

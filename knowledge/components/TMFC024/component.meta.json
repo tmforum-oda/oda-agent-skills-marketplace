@@ -11,7 +11,45 @@
     "sha256": "ced2b05760ae2e85565a9eb8f2b14d644d41b31a40f82d3af4410a155196338a"
   },
   "links": {
-    "apis": [],
-    "use_cases": []
+    "apis": [
+      {
+        "id": "TMF632",
+        "name": "party-management-api"
+      },
+      {
+        "id": "TMF666",
+        "name": "account-management-api"
+      },
+      {
+        "id": "TMF669",
+        "name": "party-role-management-api"
+      },
+      {
+        "id": "TMF670",
+        "name": "payment-method-management-api"
+      },
+      {
+        "id": "TMF676",
+        "name": "payment-management-api"
+      },
+      {
+        "id": "TMF701",
+        "name": "process-flow-management-api"
+      }
+    ],
+    "use_cases": [
+      {
+        "id": "TMFS003",
+        "name": "Order Capture - Fiber Contract"
+      },
+      {
+        "id": "TMFS005",
+        "name": "Billing - Fiber Contract"
+      },
+      {
+        "id": "TMFS030",
+        "name": "Satellite Direct-to-Device \u2013 Wholesaling Non-Terrestrial Networks capacity to Mobile Network Operators"
+      }
+    ]
   }
 }

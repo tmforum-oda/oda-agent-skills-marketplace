@@ -46,11 +46,20 @@ Usage:
 import glob
 import json
 import os
+import re
 import subprocess
 import sys
 
 import _yaml_lite
 import build_etom_index
+import yaml
+
+# A component's own component.yaml declares its exposed/dependent APIs by TMFxxx
+# id -- a genuine forward link (spec/spec.md 5.0), unlike the reverse use_cases
+# link below. Some function blocks (managementFunction's metrics/dependentAPI
+# entries) carry template placeholder ids (e.g. "exposedAPI_id") instead of a
+# real TMFxxx id -- this pattern is what tells a real API apart from a stub.
+TMF_API_ID_RE = re.compile(r"^TMF\d+$")
 
 REPO_ROOT = os.path.join(os.path.dirname(__file__), "..")
 KNOWLEDGE_DIR = os.path.join(REPO_ROOT, "knowledge")
@@ -158,10 +167,67 @@ def add_reconciled_component_used_by(rows, use_cases):
     return rows
 
 
+def extract_forward_apis(yaml_path):
+    """Every real TMFxxx id a component's own component.yaml declares as an
+    exposed or dependent API, across coreFunction/managementFunction/
+    securityFunction -- the forward link half of spec/spec.md 5.0's
+    links.apis, authored straight from the component's own spec, not
+    computed from anything else in the corpus."""
+    with open(yaml_path, encoding="utf-8") as f:
+        spec = yaml.safe_load(f) or {}
+    body = spec.get("spec", {}) or {}
+    apis = {}
+    for block_name in ("coreFunction", "managementFunction", "securityFunction"):
+        block = body.get(block_name, {}) or {}
+        for key in ("exposedAPIs", "dependentAPIs"):
+            for api in block.get(key, []) or []:
+                api_id = api.get("id")
+                if api_id and TMF_API_ID_RE.match(str(api_id)):
+                    apis.setdefault(api_id, api.get("name"))
+    return [{"id": api_id, "name": apis[api_id]} for api_id in sorted(apis)]
+
+
+def sync_component_links(components, use_cases):
+    """Writes links.apis (forward, from the component's own component.yaml)
+    and links.use_cases (reverse, reconciled used_by already computed above)
+    back into each component's own component.meta.json and TMFCxxx.md
+    frontmatter, so a skill reading a single component file sees both
+    without a second index lookup -- see spec/spec.md 5.0/5.2 and the
+    add_reconciled_component_used_by docstring above for how used_by itself
+    is derived."""
+    name_by_use_case = {uc["id"]: uc["name"] for uc in use_cases}
+
+    for row in components:
+        comp_id = row["id"]
+        comp_dir = os.path.join(KNOWLEDGE_DIR, "components", comp_id)
+        yaml_path = os.path.join(comp_dir, "component.yaml")
+        apis = extract_forward_apis(yaml_path) if os.path.exists(yaml_path) else []
+        use_case_ids = sorted({entry["use_case"] for entry in row["used_by"]})
+        use_cases_links = [{"id": uc_id, "name": name_by_use_case.get(uc_id, uc_id)} for uc_id in use_case_ids]
+        links = {"apis": apis, "use_cases": use_cases_links}
+
+        meta_path = os.path.join(comp_dir, "component.meta.json")
+        if os.path.exists(meta_path):
+            with open(meta_path, encoding="utf-8") as f:
+                meta = json.load(f)
+            meta["links"] = links
+            with open(meta_path, "w", encoding="utf-8") as f:
+                json.dump(meta, f, indent=2)
+                f.write("\n")
+
+        md_path = os.path.join(comp_dir, f"{comp_id}.md")
+        if os.path.exists(md_path):
+            with open(md_path, encoding="utf-8") as f:
+                data, body = _yaml_lite.split(f.read())
+            data["links"] = links
+            _yaml_lite.write(md_path, data, body)
+
+
 def main():
     use_cases = load_use_cases()
     components = add_reconciled_component_used_by(load_meta_rows("components"), use_cases)
     apis = add_reverse_links(load_meta_rows("apis"), use_cases, "apis")
+    sync_component_links(components, use_cases)
 
     os.makedirs(INDEX_DIR, exist_ok=True)
     outputs = {

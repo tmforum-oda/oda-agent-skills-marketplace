@@ -11,8 +11,26 @@ source:
   sha256: f80853849d6aa0fbbe55e8c6832b7d47bedfb74cb7cff169a6271ec1dbb0bd52
   raw_path: references/components/TMFC024/TMFC024_Billing_Account_Management_v2.1.0.pdf
 links:
-  apis: []
-  use_cases: []
+  apis:
+    - id: TMF632
+      name: party-management-api
+    - id: TMF666
+      name: account-management-api
+    - id: TMF669
+      name: party-role-management-api
+    - id: TMF670
+      name: payment-method-management-api
+    - id: TMF676
+      name: payment-management-api
+    - id: TMF701
+      name: process-flow-management-api
+  use_cases:
+    - id: TMFS003
+      name: Order Capture - Fiber Contract
+    - id: TMFS005
+      name: Billing - Fiber Contract
+    - id: TMFS030
+      name: Satellite Direct-to-Device – Wholesaling Non-Terrestrial Networks capacity to Mobile Network Operators
 yaml_spec_version: 2.1.1
 ---
 

@@ -11,7 +11,53 @@
     "sha256": "0bc8d7899f88cad06077ea3c92e8542573bc83d93bbe94e06eb3ffbb8734a5a3"
   },
   "links": {
-    "apis": [],
-    "use_cases": []
+    "apis": [
+      {
+        "id": "TMF669",
+        "name": "party-role-management-api"
+      },
+      {
+        "id": "TMF673",
+        "name": "geographic-address-management-api"
+      },
+      {
+        "id": "TMF674",
+        "name": "geographic-site-management-api"
+      },
+      {
+        "id": "TMF675",
+        "name": "geographic-location-management-api"
+      },
+      {
+        "id": "TMF701",
+        "name": "process-flow-management-api"
+      }
+    ],
+    "use_cases": [
+      {
+        "id": "TMFS003",
+        "name": "Order Capture - Fiber Contract"
+      },
+      {
+        "id": "TMFS007",
+        "name": "TMFS007"
+      },
+      {
+        "id": "TMFS012",
+        "name": "Product Catalog - Launching a New Product Offering"
+      },
+      {
+        "id": "TMFS016",
+        "name": "Prospect to Order for the SASE, (CPQ)"
+      },
+      {
+        "id": "TMFS018",
+        "name": "Wholesale Broadband"
+      },
+      {
+        "id": "TMFS030",
+        "name": "Satellite Direct-to-Device \u2013 Wholesaling Non-Terrestrial Networks capacity to Mobile Network Operators"
+      }
+    ]
   }
 }

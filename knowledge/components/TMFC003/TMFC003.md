@@ -11,8 +11,52 @@ source:
   sha256: f69f583be6de3e93787d8aa5f4301317641b2acd24dae040da3b79ecb7b32dca
   raw_path: references/components/TMFC003/TMFC003_Product_Order_Delivery_Orchestration_and_Management_v2.0.0.pdf
 links:
-  apis: []
-  use_cases: []
+  apis:
+    - id: TMF620
+      name: product-catalog-management-api
+    - id: TMF622
+      name: product-ordering-management-api
+    - id: TMF633
+      name: service-catalog-management-api
+    - id: TMF634
+      name: resource-catalog-management-api
+    - id: TMF637
+      name: product-inventory-management-api
+    - id: TMF638
+      name: service-inventory-management-api
+    - id: TMF639
+      name: resource-inventory-management-api
+    - id: TMF641
+      name: service-ordering-management-api
+    - id: TMF652
+      name: resource-order-management-api
+    - id: TMF669
+      name: party-role-management-api
+    - id: TMF701
+      name: process-flow-management-api
+  use_cases:
+    - id: TMFS004
+      name: Order Delivery – Fiber contract
+    - id: TMFS007
+      name: TMFS007
+    - id: TMFS008
+      name: Service and Resource Order Management for Postpaid Mobile Subscribers
+    - id: TMFS010
+      name: ODA Flow with NaaS Support
+    - id: TMFS012
+      name: Product Catalog - Launching a New Product Offering
+    - id: TMFS014
+      name: 5G Slice Management
+    - id: TMFS016
+      name: Prospect to Order for the SASE, (CPQ)
+    - id: TMFS021
+      name: Orchestration of a Multi Party, Multi domain Sales Order
+    - id: TMFS026
+      name: Commercializing CAMARA APIs with Operate APIs
+    - id: TMFS028
+      name: End to End Modelling of Cloud Based VPN
+    - id: TMFS030
+      name: Satellite Direct-to-Device – Wholesaling Non-Terrestrial Networks capacity to Mobile Network Operators
 yaml_spec_version: 1.1.1
 ---
 

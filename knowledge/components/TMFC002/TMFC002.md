@@ -11,8 +11,74 @@ source:
   sha256: 6854cf686a5635492e7415534c66b2991dd3611968229da22b46947e43b28baf
   raw_path: references/components/TMFC002/TMFC002_Product_Order_Capture_Validation_v2.1.1.pdf
 links:
-  apis: []
-  use_cases: []
+  apis:
+    - id: TMF620
+      name: product-catalog-management-api
+    - id: TMF632
+      name: party-management-api
+    - id: TMF637
+      name: product-inventory-management-api
+    - id: TMF638
+      name: service-inventory-management-api
+    - id: TMF639
+      name: resource-inventory-management-api
+    - id: TMF646
+      name: appointment-management-api
+    - id: TMF648
+      name: quote-management-api
+    - id: TMF651
+      name: agreement-management-api
+    - id: TMF663
+      name: shopping-cart-management-api
+    - id: TMF666
+      name: account-management-api
+    - id: TMF669
+      name: party-role-management-api
+    - id: TMF673
+      name: geographic-address-management-api
+    - id: TMF674
+      name: geographic-site-management-api
+    - id: TMF676
+      name: payment-management-api
+    - id: TMF679
+      name: product-offering-qualification-management-api
+    - id: TMF683
+      name: party-interaction-management-api
+    - id: TMF687
+      name: stock-management-api
+    - id: TMF701
+      name: process-flow-management-api
+    - id: TMF716
+      name: resource-reservation
+    - id: TMF760
+      name: product-configuration-management-api
+  use_cases:
+    - id: TMFS003
+      name: Order Capture - Fiber Contract
+    - id: TMFS004
+      name: Order Delivery – Fiber contract
+    - id: TMFS007
+      name: TMFS007
+    - id: TMFS008
+      name: Service and Resource Order Management for Postpaid Mobile Subscribers
+    - id: TMFS009
+      name: Usage and Balance Management
+    - id: TMFS012
+      name: Product Catalog - Launching a New Product Offering
+    - id: TMFS014
+      name: 5G Slice Management
+    - id: TMFS016
+      name: Prospect to Order for the SASE, (CPQ)
+    - id: TMFS018
+      name: Wholesale Broadband
+    - id: TMFS021
+      name: Orchestration of a Multi Party, Multi domain Sales Order
+    - id: TMFS026
+      name: Commercializing CAMARA APIs with Operate APIs
+    - id: TMFS028
+      name: End to End Modelling of Cloud Based VPN
+    - id: TMFS030
+      name: Satellite Direct-to-Device – Wholesaling Non-Terrestrial Networks capacity to Mobile Network Operators
 yaml_spec_version: 2.1.0
 ---
 

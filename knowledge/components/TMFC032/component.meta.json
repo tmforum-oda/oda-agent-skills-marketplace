@@ -11,6 +11,19 @@
   },
   "links": {
     "apis": [],
-    "use_cases": []
+    "use_cases": [
+      {
+        "id": "TMFS003",
+        "name": "Order Capture - Fiber Contract"
+      },
+      {
+        "id": "TMFS004",
+        "name": "Order Delivery \u2013 Fiber contract"
+      },
+      {
+        "id": "TMFS008",
+        "name": "Service and Resource Order Management for Postpaid Mobile Subscribers"
+      }
+    ]
   }
 }

@@ -11,8 +11,64 @@ source:
   sha256: 5f14a8010a91a94591302a0fc65884175653e66ed9f0653432eb214bb9ef219c
   raw_path: references/components/TMFC007/TMFC007_Service_Order_Management_v1.2.2.pdf
 links:
-  apis: []
-  use_cases: []
+  apis:
+    - id: TMF632
+      name: party-management-api
+    - id: TMF633
+      name: service-catalog-management-api
+    - id: TMF634
+      name: resource-catalog-management-api
+    - id: TMF638
+      name: service-inventory-management-api
+    - id: TMF639
+      name: resource-inventory-management-api
+    - id: TMF640
+      name: service-activation-management-api
+    - id: TMF641
+      name: service-ordering-management-api
+    - id: TMF645
+      name: service-qualification-management-api
+    - id: TMF646
+      name: appointment-management-api
+    - id: TMF652
+      name: resource-order-management-api
+    - id: TMF653
+      name: service-test-management-api
+    - id: TMF669
+      name: party-role-management-api
+    - id: TMF673
+      name: geographic-address-management-api
+    - id: TMF674
+      name: geographic-site-management-api
+    - id: TMF675
+      name: geographic-location-management-api
+    - id: TMF681
+      name: communication-management-api
+    - id: TMF697
+      name: work-order-management-api
+    - id: TMF701
+      name: process-flow-management-api
+  use_cases:
+    - id: TMFS004
+      name: Order Delivery – Fiber contract
+    - id: TMFS007
+      name: TMFS007
+    - id: TMFS008
+      name: Service and Resource Order Management for Postpaid Mobile Subscribers
+    - id: TMFS010
+      name: ODA Flow with NaaS Support
+    - id: TMFS011
+      name: Order Fallout Management
+    - id: TMFS012
+      name: Product Catalog - Launching a New Product Offering
+    - id: TMFS014
+      name: 5G Slice Management
+    - id: TMFS021
+      name: Orchestration of a Multi Party, Multi domain Sales Order
+    - id: TMFS028
+      name: End to End Modelling of Cloud Based VPN
+    - id: TMFS030
+      name: Satellite Direct-to-Device – Wholesaling Non-Terrestrial Networks capacity to Mobile Network Operators
 yaml_spec_version: 2.0.0
 ---
 

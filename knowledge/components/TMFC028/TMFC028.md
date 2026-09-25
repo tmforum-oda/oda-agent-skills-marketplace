@@ -11,8 +11,42 @@ source:
   sha256: 306c234a26a1104e2484d2812936687723fd387741180550ac9229134fca3bc6
   raw_path: references/components/TMFC028/TMFC028_Party_Management_v2.1.1.pdf
 links:
-  apis: []
-  use_cases: []
+  apis:
+    - id: TMF632
+      name: party-management-api
+    - id: TMF669
+      name: party-role-management-api
+    - id: TMF673
+      name: geographic-address-management-api
+    - id: TMF674
+      name: geographic-site-management-api
+    - id: TMF675
+      name: geographic-location-management-api
+    - id: TMF688
+      name: event-management-api
+    - id: TMF701
+      name: process-flow-management-api
+  use_cases:
+    - id: TMFS001
+      name: New Party – Create your accounts
+    - id: TMFS003
+      name: Order Capture - Fiber Contract
+    - id: TMFS004
+      name: Order Delivery – Fiber contract
+    - id: TMFS005
+      name: Billing - Fiber Contract
+    - id: TMFS006
+      name: Legal Guardian
+    - id: TMFS016
+      name: Prospect to Order for the SASE, (CPQ)
+    - id: TMFS020
+      name: Multi Domain B2B2X Contract Management
+    - id: TMFS026
+      name: Commercializing CAMARA APIs with Operate APIs
+    - id: TMFS030
+      name: Satellite Direct-to-Device – Wholesaling Non-Terrestrial Networks capacity to Mobile Network Operators
+    - id: TMFS031
+      name: Problem Management
 yaml_spec_version: 2.1.0
 ---
 

@@ -75,7 +75,7 @@ tm-forum-sdlc/
 │   │       ├── TMF632_v4.0.0.meta.json
 │   │       └── samples/             # OPTIONAL, org-access-gated enrichment (§5.3.1) — absent is fine
 │   │           └── Party_create_1_request.sample.json
-│   ├── etom/                        # RESERVED — empty in v1, see §7
+│   ├── etom/                        # GB921 eTOM v26.0 — processes.json, deleted.json (spec-etom.md)
 │   ├── sid/                         # RESERVED — empty in v1, see §7
 │   └── index/
 │       ├── use-cases.json           # catalog: envelope + extensions, path, links.components[], links.apis[]
@@ -83,13 +83,16 @@ tm-forum-sdlc/
 │       ├── apis.json                # catalog: envelope + reverse links.use_cases[], path
 │       ├── usecase-component-matrix.json   # bipartite graph extracted from IG1228 ch.2 (§5.4)
 │       ├── component-folder-map.json       # {id: folder_name} from the v1.0.0 tree listing (§5.2.1)
+│       ├── etom-index.json          # eTOM by_domain + eTOM-process↔component join (spec-etom.md §5)
+│       ├── etom-anomalies.md        # data-quality findings in the raw eTOM export (spec-etom.md §4.4)
 │       └── id-registry.md           # the ID prefix glossary (§4.1)
 ├── tools/
 │   ├── docx2md.py                   # DOCX → Markdown converter incl. boilerplate strip (already built, §5.1/§5.1.1)
 │   ├── fetch_component.py           # builds component-folder-map.json, pulls each Component YAML (§5.2.1)
 │   ├── fetch_api.py                 # follows specification[].url from a cached component to fetch its APIs (§5.3.1)
 │   ├── extract_usecase_matrix.py    # parses IG1228 ch.2 into usecase-component-matrix.json
-│   ├── build_index.py               # regenerates index/*.json from knowledge/**/*.md + *.yaml frontmatter
+│   ├── build_etom.py                # GB921 eTOM Excel export → knowledge/etom/ (spec-etom.md)
+│   ├── build_index.py               # regenerates index/*.json (+ etom-index.json) from knowledge/**
 │   └── refresh_report.py            # diffs this run's index against the last committed one, writes a changelog entry
 ├── CHANGELOG.md                     # human-readable refresh history (generated + hand-annotated)
 └── skills/                          # pilot Agent Skills consuming knowledge/ (§6, built last)
@@ -104,7 +107,7 @@ tm-forum-sdlc/
 | `TMFSxxx` | Standalone Use Case | `TMFS001` | `knowledge/use-cases/TMFSxxx/` |
 | `TMFCxxx` | ODA Component | `TMFC020` | `knowledge/components/TMFCxxx/` |
 | `TMFxxx` | TM Forum Open API | `TMF632` | `knowledge/apis/TMFxxx/` |
-| `GBxxx` | Guidebook (eTOM = GB921, SID = GB922) | `GB921` | reserved, §7 |
+| `GBxxx` | Guidebook (eTOM = GB921, SID = GB922) | `GB921` | `GB921` → `knowledge/etom/` (`spec-etom.md`); `GB922` reserved, §7 |
 
 This table is also written to `knowledge/index/id-registry.md` so a skill (or a person) can resolve an unfamiliar ID without leaving the repo.
 
@@ -117,7 +120,7 @@ Every knowledge artefact — regardless of type — answers the same five questi
 | Field | Meaning | Example |
 |---|---|---|
 | `id` | Stable identifier, never the title | `TMFS001` |
-| `type` | `use-case` \| `component` \| `api` \| (reserved: `etom-process`, `sid-entity`) | `use-case` |
+| `type` | `use-case` \| `component` \| `api` \| `etom` (the eTOM process corpus — `spec-etom.md`) \| (reserved: `etom-process`, `sid-entity`) | `use-case` |
 | `name` | Human-readable name, for display only — never used as a key or path segment | `New Party – Create your account` |
 | `version` | The artefact's own version string, as TM Forum publishes it | `5.0.5` |
 | `status` | One-line, human-and-agent-readable rollup of "is this safe to use" | `GA · TM Forum Approved` |
@@ -304,7 +307,7 @@ The pilot's single most important finding: **of the six use cases converted, the
 
 ## 7. Extensibility (not built now, but the layout must not block it)
 
-- `knowledge/etom/` and `knowledge/sid/` are reserved. When TM Forum's Sparx EA model is exported (a separate, heavier effort — see project history for the proposed XMI → structured YAML → Markdown pipeline), it lands here with the same provenance-in-frontmatter pattern as §5.1.
+- ~~`knowledge/etom/` and `knowledge/sid/` are reserved.~~ **eTOM (`GB921`) is now built** — see [`spec-etom.md`](./spec-etom.md). TM Forum shipped it as an Excel export (plus a lossy JSON), not the XMI/Sparx path this section anticipated; the corpus lands in `knowledge/etom/` (`processes.json`, `deleted.json`) with a `type: etom` envelope on `GB921.md` and the eTOM↔component join in `knowledge/index/etom-index.json`. `knowledge/sid/` (`GB922`) stays reserved and has the same source shape — a `spec-sid.md` should follow `spec-etom.md`'s pattern.
 - An MCP server is a thin read-only wrapper over `knowledge/index/*.json` and the per-document files — nothing in this layout needs to change to add one later; it would expose `get_use_case(id)`, `list_use_cases(maturity=...)`, `get_component(id)`, `trace_usecase_impact(component_id)` as tools reading exactly the files described above. Still not built (Phase 8 built plugin distribution instead, Claude Code-only); this remains the identified path to cross-agent reach (e.g. GitHub Copilot's MCP client), deliberately deferred rather than built speculatively — see `spec/tasks.md` Phase 8.3.
 - Nothing here assumes only one CSP/deployment context; component and API caches are shared, version-addressed data, not tied to any one use case.
 

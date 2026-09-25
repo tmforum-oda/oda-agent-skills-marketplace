@@ -189,6 +189,7 @@ why `skills/` itself stays flat).
 | Skill | Stage | Given | Produces |
 |---|---|---|---|
 | [`check-usecase-maturity`](skills/check-usecase-maturity/SKILL.md) | Discover | a `TMFSxxx` id | a plain-language "is this safe to build against" verdict from frontmatter alone |
+| [`explain-etom-process`](skills/explain-etom-process/SKILL.md) | Discover | a `GB921` eTOM process id (e.g. `1.2.20`) | a plain-language explanation of the process and which ODA components implement it |
 | [`recommend-oda-components-for-requirement`](skills/recommend-oda-components-for-requirement/SKILL.md) | Discover → Design | a plain-language requirement | the closest matching use case(s) and a starting component/API architecture |
 | [`decompose-requirement-against-oda`](skills/decompose-requirement-against-oda/SKILL.md) | Discover | a requirement with no close use-case match | a structured ODA decomposition (intent, candidate processes/components/APIs/entities, open questions) |
 | [`capture-requirements-from-usecase`](skills/capture-requirements-from-usecase/SKILL.md) | Design | a `TMFSxxx` id | user stories and acceptance criteria, citing real component/API ids |
@@ -203,7 +204,7 @@ why `skills/` itself stays flat).
 | [`audit-implementation-against-usecase`](skills/audit-implementation-against-usecase/SKILL.md) | Run (post-build) | a `TMFSxxx` id + an existing implementation | a drift report against what the use case actually specifies |
 | [`audit-implementation-against-component`](skills/audit-implementation-against-component/SKILL.md) | Run (post-build) | a `TMFCxxx` id + an existing implementation | Core Function and Supporting Function conformance, reported as two separate dimensions |
 | [`review-architecture-against-oda`](skills/review-architecture-against-oda/SKILL.md) | Run (also usable pre-build) | a proposed or existing multi-component architecture | duplicated-ownership, point-to-point coupling, and boundary-bypass findings against the real cached corpus |
-| [`assess-change-impact`](skills/assess-change-impact/SKILL.md) | Run (change management) | a `TMFCxxx`/`TMFxxx` id + proposed change | every use case that depends on it (index reverse links) and a maturity-weighted migration risk report |
+| [`assess-change-impact`](skills/assess-change-impact/SKILL.md) | Run (change management) | a `TMFCxxx`/`TMFxxx`/`GB921` eTOM id + proposed change | every use case that depends on it (index reverse links; eTOM ids resolve via `etom-index.json`) and a maturity-weighted migration risk report |
 | [`deliver-oda-requirement`](skills/deliver-oda-requirement/SKILL.md) | Discover → Run (orchestrator) | a plain-language requirement | the full chain above run end to end — orchestrates the other skills, no ODA reasoning of its own |
 
 **Creators** (`tm-forum-oda-creator`)

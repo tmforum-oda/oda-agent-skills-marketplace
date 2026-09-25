@@ -1,6 +1,8 @@
 """Reads: every knowledge/use-cases/**/*.md frontmatter block; every
-knowledge/{components,apis}/**/*.meta.json.
-Writes: knowledge/index/{use-cases,components,apis}.json.
+knowledge/{components,apis}/**/*.meta.json; (via build_etom_index) every
+knowledge/components/*/component.yaml and knowledge/etom/{processes,deleted}.json.
+Writes: knowledge/index/{use-cases,components,apis}.json, and
+knowledge/index/etom-index.json (delegated to build_etom_index.py).
 Track: shared -- run at the end of either refresh track (or both) to
 regenerate the corpus-wide index; gates on validate_envelope.py.
 
@@ -48,6 +50,7 @@ import subprocess
 import sys
 
 import _yaml_lite
+import build_etom_index
 
 REPO_ROOT = os.path.join(os.path.dirname(__file__), "..")
 KNOWLEDGE_DIR = os.path.join(REPO_ROOT, "knowledge")
@@ -174,6 +177,10 @@ def main():
     print(f"use-cases.json: {len(use_cases)} rows")
     print(f"components.json: {len(components)} rows")
     print(f"apis.json: {len(apis)} rows")
+
+    # eTOM corpus <-> component join (spec/spec-etom.md 5). No-ops with a message
+    # if knowledge/etom/processes.json isn't there yet (build_etom.py not run).
+    build_etom_index.main()
 
     print("\nRunning validate_envelope.py --strict as the gating check...")
     result = subprocess.run(

@@ -1,0 +1,10 @@
+# Python dependencies for the tools/ pipeline. Install with:
+#   pip install -r tools/requirements.txt
+#
+# The standard library covers most of it; these are the third-party packages
+# each tool actually imports.
+
+PyYAML          # _yaml_lite.py (frontmatter parsing, shared by most tools)
+python-docx     # docx2md.py            -- use-case DOCX -> Markdown
+pdfplumber      # pdf2md_component.py   -- component spec PDF -> Markdown
+openpyxl        # build_etom.py         -- GB921 eTOM Excel export -> knowledge/etom/

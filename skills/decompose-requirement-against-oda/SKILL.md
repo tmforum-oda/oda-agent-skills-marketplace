@@ -29,9 +29,13 @@ Don't paraphrase into generic terms that lose the requirement's actual scope (e.
 
 ## Step 2 — Candidate eTOM processes (bounded, not a taxonomy walk)
 
-`knowledge/etom/` is reserved and empty (`spec.md` §7) — there is no standalone eTOM corpus to search. The only eTOM data that exists in this repo lives inline, per component, in `componentMetadata.eTOMs` (`knowledge/components/{TMFCxxx}/component.yaml`) — pipe-delimited entries shaped `{process_id}|{Process_Name}|v{version}`, e.g. `1.2.20|Product_Catalog_Lifecycle_Management|v24.0`.
+There is now a real eTOM corpus to search: **`knowledge/etom/processes.json`** (`GB921` v26.0, ~2,915 process elements — see `spec-etom.md`). Each entry has `id`, `name`, `level`, `domain`, `brief_description`, `extended_description`, `parent`, `children`.
 
-Search every cached `component.yaml`'s `componentMetadata.eTOMs` list for process names whose words overlap the requirement's own verbs/nouns (a corpus-wide read across `knowledge/components/*/component.yaml`, not an index lookup — `knowledge/index/components.json` doesn't carry this field). List matches as `candidate_processes`, citing the exact `id|Name|version` string found, never a paraphrased name. If nothing overlaps, say so plainly — an empty `candidate_processes` list is a real, valid finding (this requirement may cover ground no cached component's eTOM mapping touches yet), not a sign to search harder until something fits.
+Scan `processes.json` for entries whose `name` or `brief_description` words overlap the requirement's own verbs/nouns. Favour the higher levels (Level 2–4) — a Level-2/3 process names a capability area, which is what a decomposition wants, not a Level-7 leaf activity. List matches as `candidate_processes`, citing `id · name` verbatim (and `uid` for an unambiguous reference), never a paraphrased name. Prefer 3–8 well-matched candidates over an exhaustive list — this is a bounded relevance scan, not a taxonomy walk.
+
+Then, as a **secondary signal**, cross-check `knowledge/index/etom-index.json`'s `implemented_by`: if a candidate process id maps to one or more `TMFCxxx`, that's a strong hint for Step 3's component list (the eTOM activity is already implemented by a real ODA Component). Note that the eTOM↔component join reflects mappings authored against eTOM v21.5–v25.0 — treat `implemented_by` as supporting evidence, not proof.
+
+If nothing overlaps, say so plainly — an empty `candidate_processes` list is a real, valid finding, not a sign to search harder until something fits.
 
 ## Step 3 — Candidate components and APIs
 
@@ -39,7 +43,7 @@ Search `knowledge/index/components.json`/`apis.json` by `name` for entries whose
 
 ## Step 4 — Candidate information entities
 
-List the domain nouns the requirement actually names (e.g. "service," "product," "party"). For each, search every cached `component.yaml`'s `componentMetadata.SIDs` list (pipe-delimited, e.g. `Product_Domain|Product_Configuration_ABE|v25.0`) for an entity that already covers it. This is the narrowed, groundable slice of full SID-entity reasoning `spec-skills-consumer.md` §6 describes — a corpus-wide duplication check across what's already cached, not a walk of the full SID model (`knowledge/sid/` is likewise reserved and empty). If a domain noun the requirement names doesn't appear in any component's `SIDs` list, list it as a candidate new information entity, not a silently-assumed-covered one.
+List the domain nouns the requirement actually names (e.g. "service," "product," "party"). For each, search every cached `component.yaml`'s `componentMetadata.SIDs` list (pipe-delimited, e.g. `Product_Domain|Product_Configuration_ABE|v25.0`) for an entity that already covers it. This is the narrowed, groundable slice of full SID-entity reasoning `spec-skills-consumer.md` §6 describes — a corpus-wide duplication check across what's already cached, not a walk of the full SID model (`knowledge/sid/` is still reserved and empty — unlike `knowledge/etom/`, which Step 2 now searches directly). If a domain noun the requirement names doesn't appear in any component's `SIDs` list, list it as a candidate new information entity, not a silently-assumed-covered one.
 
 ## Step 5 — Surface genuine ambiguity, don't resolve it by guessing
 
@@ -56,7 +60,11 @@ business_intent:
   actor: ...
   objective: ...
 candidate_processes:
-  - "1.2.20|Product_Catalog_Lifecycle_Management|v24.0"   # or [] if genuinely none found
+  - id: "1.2.20"
+    name: Product Catalog Lifecycle Management
+    level: 2
+    implemented_by: [TMFC001]   # from etom-index.json, secondary signal — omit if none
+  # or [] if genuinely none found
 candidate_components:
   - id: TMFCxxx
     name: ...
@@ -78,6 +86,6 @@ State plainly, in prose alongside the YAML, which sections came back empty and w
 
 - Does not run instead of `recommend-oda-components-for-requirement` — that skill runs first, always; this one only picks up where it comes up empty (Step 0).
 - Does not invent a `TMFCxxx`/`TMFxxx` id, an eTOM process id, or a SID entity name that isn't found in the real cached corpus — an empty candidate list is always preferable to a fabricated one.
-- Does not attempt full eTOM or SID taxonomy reasoning — `knowledge/etom/`/`knowledge/sid/` are reserved and empty; Steps 2 and 4 are bounded to what's already cached per-component, not a general-purpose eTOM/SID lookup (`spec-skills-consumer.md` §6 explains why the fuller versions of this aren't buildable yet).
+- Does not attempt full eTOM or SID taxonomy reasoning. Step 2 is a bounded relevance scan of `knowledge/etom/processes.json` (the real eTOM v26.0 corpus), not a tree walk or a completeness claim; Step 4's SID check is still bounded to what's cached per-component (`knowledge/sid/` remains reserved and empty — `spec-skills-consumer.md` §6).
 - Does not propose a fix for a genuine gap it finds — that's `propose-component-or-api-extension`'s job, handed off explicitly in Step 6, not attempted here.
 - Does not resolve a genuine ambiguity by picking the more likely-sounding interpretation — Step 5's `questions` list is required output for real ambiguity, not an optional nicety.

@@ -259,12 +259,16 @@ reverse direction's completeness gap this fixes.
 
 The one place OWL's actual strength — subsumption over a real type hierarchy
 — would first apply to this corpus is `knowledge/etom/`/`knowledge/sid/`
-(spec.md §7), reserved and empty today. *If* that export ever lands with
-genuine subtype structure (an eTOM process hierarchy, SID entity
-specialization) *and* a skill genuinely needs "a query about the parent
-should match the child" reasoning, that's the trigger to revisit whether a
-reasoner earns its keep here — not before, and not for the flat
-use-case/component/API catalogs this spec is actually about.
+(spec.md §7). eTOM **has now landed** (`GB921` v26.0, `spec-etom.md`) and
+`processes.json` carries genuine subtype structure (`parent`/`children`, a
+7-level process hierarchy); SID is still reserved. The revisit trigger is
+therefore now half-met on the *data* side — what's still missing is the
+second half: a skill that genuinely needs "a query about a parent process
+should match its children" reasoning. `explain-etom-process` deliberately
+does **not** — it reports the immediate `parent`/`children` and stops
+(spec-etom.md §8). Until a skill actually needs transitive hierarchy
+queries over `processes.json`, a reasoner still isn't earning its keep;
+plain `parent`/`children` traversal in the consuming skill covers it.
 
 ### 8.4 A derived RDF/OWL export — built, on request, as a secondary artifact
 

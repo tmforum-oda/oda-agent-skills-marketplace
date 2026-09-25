@@ -1,5 +1,5 @@
-"""Reads: knowledge/index/*.json (current, on disk) and
-git HEAD:knowledge/index/*.json (previous committed version).
+"""Reads: knowledge/index/*.json and knowledge/etom/processes.json (current,
+on disk) and their git HEAD: versions (previous committed).
 Writes: CHANGELOG.md (appends an entry; creates the file on first use).
 Track: shared -- run after either refresh track, or both, at the very end
 of a refresh cycle (spec.md 6.1 step 6).
@@ -104,6 +104,52 @@ def format_section(title, count_label, rows_by_key, added, removed, changed, add
     return "\n".join(lines)
 
 
+def format_etom_section():
+    """eTOM (GB921) doesn't have an index row of the same shape as the other
+    artefacts -- it's a 2,900-entry process corpus plus a component-join index.
+    Diff processes.json by id (capped, since a Frameworx version bump can add
+    or move hundreds at once) and surface etom-index.json's summary deltas."""
+    old_p = load_git_json("knowledge/etom/processes.json")
+    new_p = load_disk_json("knowledge/etom/processes.json")
+    if not new_p:
+        return None
+
+    added, removed, changed = diff_rows(
+        old_p, new_p, lambda r: r["id"], ["name", "level", "domain", "renamed_from"]
+    )
+    old_idx = load_git_json("knowledge/index/etom-index.json") or {}
+    new_idx = load_disk_json("knowledge/index/etom-index.json") or {}
+    old_sum = old_idx.get("summary", {}) if isinstance(old_idx, dict) else {}
+    new_sum = new_idx.get("summary", {}) if isinstance(new_idx, dict) else {}
+
+    summary_changed = [
+        (k, old_sum.get(k), new_sum.get(k))
+        for k in ("processes_with_an_implementer", "stale_component_refs", "unresolvable_component_refs")
+        if old_sum.get(k) != new_sum.get(k)
+    ]
+
+    if not (added or removed or changed or summary_changed):
+        return None
+
+    lines = [f"**eTOM (GB921):** {len(new_p)} processes, {len(added)} added, {len(removed)} removed, {len(changed)} field change(s)"]
+    CAP = 15
+    for pid in added[:CAP]:
+        lines.append(f"- {pid} added")
+    if len(added) > CAP:
+        lines.append(f"- ...and {len(added) - CAP} more added")
+    for pid in removed[:CAP]:
+        lines.append(f"- {pid} removed")
+    if len(removed) > CAP:
+        lines.append(f"- ...and {len(removed) - CAP} more removed")
+    for key, field, old_val, new_val in changed[:CAP]:
+        lines.append(f"- {key}: {field} {old_val!r} -> {new_val!r}")
+    if len(changed) > CAP:
+        lines.append(f"- ...and {len(changed) - CAP} more field change(s)")
+    for k, o, n in summary_changed:
+        lines.append(f"- etom-index summary: {k} {o!r} -> {n!r}")
+    return "\n".join(lines)
+
+
 def main():
     old_uc = load_git_json("knowledge/index/use-cases.json")
     new_uc = load_disk_json("knowledge/index/use-cases.json")
@@ -134,6 +180,7 @@ def main():
             lambda k: f"{new_api_by_path[k]['id']} {new_api_by_path[k]['version']}: newly cached",
         ),
     ]
+    sections.append(format_etom_section())
     reportable = [s for s in sections if s is not None]
 
     if not reportable:

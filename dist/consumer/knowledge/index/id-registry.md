@@ -10,7 +10,7 @@ not that the ID is invalid.
 | `TMFSxxx` | Standalone Use Case | `TMFS001` | `knowledge/use-cases/TMFSxxx/` |
 | `TMFCxxx` | ODA Component | `TMFC020` | `knowledge/components/TMFCxxx/` |
 | `TMFxxx` | TM Forum Open API | `TMF632` | `knowledge/apis/TMFxxx/` |
-| `GBxxx` | Guidebook (eTOM = GB921, SID = GB922) | `GB921` | reserved, spec.md §7 (eTOM/SID not built in v1) |
+| `GBxxx` | Guidebook (eTOM = GB921, SID = GB922) | `GB921` | `GB921` (eTOM) → `knowledge/etom/` (spec-etom.md); `GB922` (SID) still reserved, spec.md §7 |
 
 Note the `TMFCxxx` / `TMFxxx` distinction: a Component ID always has the `C` (`TMFC020`); an API ID
 never does (`TMF632`). `tools/docx2md.py`'s reference parser relies on exactly this to tell them

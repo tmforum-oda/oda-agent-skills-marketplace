@@ -16,7 +16,7 @@ found along the way: `spec/tasks.md` and `spec/tasks-components.md`.
 | `components/` | `TMFCxxx` — ODA Component specs (machine + narrative) | [components/AGENTS.md](components/AGENTS.md) |
 | `apis/` | `TMFxxx` — Open API schemas + sample payloads | [apis/AGENTS.md](apis/AGENTS.md) |
 | `index/` | Cross-references, ID registry, backlog | [index/AGENTS.md](index/AGENTS.md) |
-| `etom/` | Reserved — not populated in v1 | [etom/AGENTS.md](etom/AGENTS.md) |
+| `etom/` | `GB921` — Business Process Framework (eTOM) v26.0 (`processes.json`, `deleted.json`) | [etom/AGENTS.md](etom/AGENTS.md) |
 | `sid/` | Reserved — not populated in v1 | [sid/AGENTS.md](sid/AGENTS.md) |
 
 ## Rules that apply everywhere under `knowledge/`

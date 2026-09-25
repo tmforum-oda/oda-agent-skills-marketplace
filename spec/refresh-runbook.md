@@ -167,6 +167,32 @@ run (including bumping `source.retrieved` to today even when the fetched
 bytes are byte-identical), so "nothing changed" currently has to be verified
 via `git diff --stat` after the run, not by watching the scripts skip files.
 
+## 6a. eTOM (`GB921`) — assisted, but on the Frameworx schedule
+
+eTOM ships with TM Forum's **Frameworx release train (~2×/year)**, not
+IG1228's 8-week cadence, so most cycles have nothing to do here. The workbook
+is member-gated (same login as step 1).
+
+1. Check the TM Forum Frameworx / `GB921` catalog page for a version newer
+   than the `version` in `knowledge/etom/GB921.md`. If unchanged, skip the
+   rest of this section.
+2. Download the new **`GB921_..._Excel_v<ver>.xlsx`** (and the
+   `etom_v<ver>.json` if still published) into `references/eTOM/`, replacing
+   the old files. Rename nothing — `build_etom.py` hard-codes the v26.0
+   filenames; update the constants in that script (and `spec-etom.md` §3/§4)
+   when the version bumps.
+3. Regenerate:
+
+```bash
+python tools/build_etom.py --retrieved <YYYY-MM-DD> [--origin <url>]
+python tools/build_index.py     # also rebuilds knowledge/index/etom-index.json
+```
+
+4. Review `knowledge/index/etom-anomalies.md` — it's regenerated in full each
+   run. A big swing in the "Build summary" counts, or the eTOM↔component
+   resolution rate in `etom-index.json`'s `summary` moving sharply, is worth
+   a line in this cycle's `CHANGELOG.md` (see step 7).
+
 ## 7. Generate the refresh report
 
 ```bash

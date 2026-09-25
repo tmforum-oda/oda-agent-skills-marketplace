@@ -1,14 +1,42 @@
 ---
 name: assess-change-impact
-description: Given a TM Forum ODA component (TMFCxxx) or Open API (TMFxxx) id and a proposed change (deprecation, breaking version bump, removal), lists every TMFSxxx use case that depends on it, describes specifically how each one uses it, and drafts a maturity-weighted migration/impact report. Use this before deprecating, breaking, or removing a component or API.
+description: Given a TM Forum ODA component (TMFCxxx), Open API (TMFxxx), or eTOM process (GB921 id such as 1.2.20) and a proposed change (deprecation, breaking version bump, removal), lists every TMFSxxx use case that depends on it, describes specifically how each one uses it, and drafts a maturity-weighted migration/impact report. Use this before deprecating, breaking, or removing a component, API, or eTOM process.
 ---
 
 # Assess Change Impact — Skill Instructions
 
 ## What this skill answers
 
-"If we change TMFC020 (or TMF632, or a specific version of it), which use
-cases break, how exactly do they depend on it, and how risky is that?"
+"If we change TMFC020 (or TMF632, or eTOM process 1.2.20, or a specific
+version of an API), which use cases break, how exactly do they depend on
+it, and how risky is that?"
+
+## Step 0 — If the id is an eTOM process, resolve it to components first
+
+A dotted-numeric id (`1.2.20`, optionally written `GB921:1.2.20`) is an
+**eTOM process**, not a component or API. eTOM processes don't link to use
+cases directly — they link through the ODA Components that implement them.
+
+1. Confirm it in `knowledge/etom/processes.json` (an id not there isn't a
+   v26.0 process — check `knowledge/etom/deleted.json`, and if it's gone,
+   say so and stop; `explain-etom-process` is the skill for that lookup).
+2. Read `knowledge/index/etom-index.json` → `implemented_by[<id>]` for the
+   list of `TMFCxxx` ids that map this process. Also check
+   `stale_component_refs` for entries whose `resolved_to` is this id — a
+   component reaching it by renumbered name still counts as a dependent.
+3. If `implemented_by` is empty, the report is short: **no cached ODA
+   Component maps this eTOM activity, so no use case depends on it through
+   the corpus.** Say that plainly rather than reporting zero impact as if
+   it were a clean bill of health — it may just mean the mapping isn't
+   filled in.
+4. Otherwise, run Steps 1–4 below **once per implementing component**, then
+   combine: the affected use cases are the union across all of them. The
+   report must carry the eTOM caveat (see Output format) — the
+   eTOM↔component join is built from mappings authored against eTOM
+   v21.5–v25.0 against a v26.0 corpus, so `implemented_by` is "the join
+   the data supports," not a guaranteed-complete list of implementers.
+
+For a `TMFCxxx` / `TMFxxx` id, skip this step.
 
 ## Step 1 — Identify the id type and look it up
 
@@ -156,6 +184,25 @@ Always state which of the two cases actually applied for this particular
 id — the reconciled component table or the frontmatter-only API list —
 not just that the distinction exists in the abstract.
 
+For an **eTOM process id** (Step 0), open the report by naming the
+implementing components and then give the combined table. Example, for
+"removing eTOM 1.4.5":
+
+> **eTOM 1.4.5 — Service Activation Management** (Level 2, Service Domain).
+> Implemented by 3 cached ODA Components: **TMFC003, TMFC007, TMFC009**
+> (`etom-index.json` `implemented_by`). Use-case impact is assessed through
+> those components:
+>
+> | Component | Use case | Maturity / approval | Source | How it's used |
+> |---|---|---|---|---|
+> | TMFC003 | TMFS009 | GA / TM Forum Approved | confirmed | … |
+> | … | … | … | … | … |
+>
+> **eTOM-join caveat:** `implemented_by` is derived from each component's
+> `spec.componentMetadata.eTOMs`, authored against eTOM v21.5–v25.0 (this
+> corpus is v26.0). A component that implements this activity but hasn't
+> filled in or has an outdated eTOM mapping would not appear here.
+
 ## What this skill does NOT do
 
 - Does not modify anything — this is a read-only impact report to inform a human decision, not an automated approval or rejection of the change.
@@ -163,3 +210,5 @@ not just that the distinction exists in the abstract.
 - Does not treat a component id's `matrix_only` dependents as a footnote — they get reported with the same weight as `confirmed` ones, per Step 2.
 - Does not imply an API id got the same two-source reconciliation a component id gets — `apis.json`'s `used_by` has no `source` tag at all, and the report says so rather than staying silent about it.
 - Does not stop at a bare id list — Step 4's per-use-case detail is required for at least the high-risk dependents, not an optional enrichment.
+- Does not treat an eTOM process's `implemented_by` as a complete list of implementers — it is built from component eTOM mappings authored against an older eTOM release, and the report must say so (Step 0, Output format).
+- Does not chase an eTOM process id's parent/child processes — the change is assessed for the id as given; a caller who means "1.4.5 and everything under it" should ask for the subtree explicitly.

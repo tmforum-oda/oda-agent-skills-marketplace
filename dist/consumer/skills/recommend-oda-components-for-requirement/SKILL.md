@@ -54,6 +54,19 @@ and each API's in `apis.json` — a `not_yet_specified` component or
 `fetch_failed` API is a real caveat for the recommendation, not something
 to omit.
 
+**Secondary cross-check via eTOM.** Scan `${CLAUDE_PLUGIN_ROOT}/knowledge/etom/processes.json`
+for a process whose `name`/`brief_description` matches the requirement's
+own verbs/nouns (favour Level 2–4). For any match, read
+`${CLAUDE_PLUGIN_ROOT}/knowledge/index/etom-index.json` → `implemented_by[<id>]` for the
+`TMFCxxx` ids that implement that eTOM activity. Use this only to
+**corroborate or widen** the Step 1-derived list — a component that shows
+up both via the closest use case *and* via a matching eTOM process is a
+higher-confidence recommendation; one that shows up only via eTOM is worth
+naming as a candidate the use-case analog didn't surface. Don't let it
+replace Step 1: the eTOM↔component join is built from mappings authored
+against eTOM v21.5–v25.0, so it's a supporting signal, not a primary
+source. If no eTOM process matches, skip this — it's not required output.
+
 ## Output format
 
 State the requirement as understood, the closest use case(s) and why they

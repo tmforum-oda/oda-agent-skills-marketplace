@@ -16,7 +16,7 @@ in this folder (and the one in whichever subfolder you're working in) first.
 | [`components/`](components/) | `TMFCxxx` — ODA Component specs (machine-readable + narrative) | 31 (25 with a narrative PDF) |
 | [`apis/`](apis/) | `TMFxxx` — Open API (Swagger/OpenAPI) schemas + sample payloads | 51+ API versions |
 | [`index/`](index/) | Cross-references, ID registry, gap tracking | — |
-| [`etom/`](etom/) | Reserved for a future eTOM process export | not populated in v1 |
+| [`etom/`](etom/) | `GB921` — Business Process Framework (eTOM) process corpus | v26.0 (2,915 processes) |
 | [`sid/`](sid/) | Reserved for a future SID data-model export | not populated in v1 |
 
 ## Where things come from

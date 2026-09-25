@@ -63,6 +63,7 @@ DIST_DIR = os.path.join(REPO_ROOT, "dist")
 # Builds a product using ODA -- reads knowledge/, never writes it.
 CONSUMER_SKILLS = {
     "check-usecase-maturity",
+    "explain-etom-process",
     "recommend-oda-components-for-requirement",
     "decompose-requirement-against-oda",
     "capture-requirements-from-usecase",
@@ -108,6 +109,9 @@ INTERNAL_ONLY_SKILLS = {"process-usecase-media", "process-component-media"}
 SKILL_EXAMPLES = {
     "check-usecase-maturity": [
         "Is TMFS016 safe to build against right now?",
+    ],
+    "explain-etom-process": [
+        "What is eTOM process 1.4.5, and which ODA components implement it?",
     ],
     "recommend-oda-components-for-requirement": [
         "We need to let customers manage their own SIM swaps online -- what ODA components and APIs should this be built on?",

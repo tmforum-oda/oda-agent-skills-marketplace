@@ -2401,6 +2401,47 @@
       }
     },
     {
+      "id": "node.proposed.design.generate-component-svg-diagram.1",
+      "kind": "node",
+      "label": "Generate Component SVG Diagram",
+      "parentId": "node.design",
+      "status": "proposed",
+      "origin": "contributor",
+      "definition": {
+        "shortDefinition": "Renders an ODA Component's architecture as a standalone SVG with D3, straight from its cached component.yaml or a component Helm chart.",
+        "description": "Given a TMFCxxx id (or all), or a component Helm chart compiled with helm template, renders a deterministic SVG architecture diagram in the style of the ODA Component Specification PDFs: the component box with its eTOM business activities and SID data entities, dependent APIs as sockets on the left and exposed APIs as lollipops on the right, colour-coded by core/management/security function. For a chart, the box shows the chart's microservices and how each is wired to its APIs, derived from Service selectors and env vars. Shipped in both the consumer and creator plugins.",
+        "keywords": [
+          "architecture diagram",
+          "component diagram",
+          "SVG",
+          "D3",
+          "TMFCxxx",
+          "Helm chart",
+          "exposed APIs",
+          "dependent APIs"
+        ]
+      },
+      "typeSpecific": {
+        "processInput": "A TMFCxxx component id (or 'all'), or a directory containing a component Helm chart.",
+        "processActivity": "Runs bundled Node scripts that model the component.yaml (or the kind: Component document from helm template) and draw it with D3, then verifies the SVG against the source and, for charts, independently audits every drawn link against the raw helm output.",
+        "processOutput": "A standalone SVG architecture diagram per component, plus a verification report (and optional HTML gallery).",
+        "precedes": [],
+        "follows": [],
+        "rolesInvolved": "Solution architect or developer documenting a component they build against or implement; contributor illustrating a component they propose or extend.",
+        "gates": "Verification pass (SVG counts and API ids against the YAML); for charts, an independent link audit whose warnings must be reported, not hidden.",
+        "handoffs": "Illustrates designs for validate-design-against-oda and review-architecture-against-oda; renders charts produced by implement-oda-component; illustrates proposals from propose-component-or-api-extension.",
+        "evidenceProduced": "SVG diagram artifacts and verify/audit output."
+      },
+      "evidenceRefs": [
+        "evidence.innovation-network.skill-generate-component-svg-diagram"
+      ],
+      "createdBy": {
+        "owner": "Lester",
+        "email": "katenewbury@hotmail.co.uk",
+        "organization": "Innovation Network"
+      }
+    },
+    {
       "id": "node.proposed.design.draft-event-design-for-component.1",
       "kind": "node",
       "label": "Draft Event Design for Component",
@@ -3117,7 +3158,7 @@
         "consumerType": "human",
         "workloadType": "",
         "functionCapability": "Discovers, designs against, builds, tests, and audits implementations using the ODA knowledge base and consumer skill set.",
-        "interactionPattern": "Invokes consumer skills (e.g. recommend-oda-components-for-requirement, capture-requirements-from-usecase, generate-implementation-scaffold-from-usecase, implement-oda-component, generate-test-cases-from-usecase, audit-implementation-against-usecase) via an AI coding agent.",
+        "interactionPattern": "Invokes consumer skills (e.g. recommend-oda-components-for-requirement, capture-requirements-from-usecase, generate-implementation-scaffold-from-usecase, implement-oda-component, generate-test-cases-from-usecase, generate-component-svg-diagram, audit-implementation-against-usecase) via an AI coding agent.",
         "capabilityDescription": "Builds a product or system against the existing ODA reference architecture, from requirement discovery through to an audited implementation, without modifying the ODA corpus itself.",
         "autonomyLevel": "supervised",
         "riskBoundary": "Cannot alter accepted ODA nodes or the knowledge corpus; consumer skills only read the cached knowledge base and, in the case of implement-oda-component, may build/push images and deploy via Helm into the caller's own environment.",
@@ -3155,7 +3196,7 @@
         "consumerType": "human",
         "workloadType": "",
         "functionCapability": "Authors new use cases, harvests capability gaps from the existing corpus, proposes matrix corrections, and drafts component/API extensions for the central authority to review.",
-        "interactionPattern": "Invokes creator skills (e.g. draft-new-usecase-from-scenario, feedback-harvest-gaps-from-lessons-learned, feedback-propose-matrix-correction, lint-usecase-draft, propose-component-or-api-extension) via an AI coding agent, producing proposed contributions for TM Forum review.",
+        "interactionPattern": "Invokes creator skills (e.g. draft-new-usecase-from-scenario, feedback-harvest-gaps-from-lessons-learned, feedback-propose-matrix-correction, lint-usecase-draft, propose-component-or-api-extension, generate-component-svg-diagram) via an AI coding agent, producing proposed contributions for TM Forum review.",
         "capabilityDescription": "Extends and improves the ODA reference architecture itself -- new use cases, gap backlogs, matrix corrections, and component/API extension proposals -- submitted as proposed contributions for the central authority to accept.",
         "autonomyLevel": "supervised",
         "riskBoundary": "Can only create status='proposed' contributions; accepted nodes can only be set by the central authority (TM Forum Trustworthy AI & Data Mission), never mutated directly by a contributor.",
@@ -3545,6 +3586,23 @@
       "fileName": "dist/consumer/skills/draft-architecture-diagram-from-usecase/SKILL.md",
       "documentId": "",
       "abstract": "Emits a Mermaid sequence or architecture diagram for a use case, drawn only from its real sequence-diagram content and component/API links.",
+      "createdBy": {
+        "owner": "Lester",
+        "email": "katenewbury@hotmail.co.uk",
+        "organization": "Innovation Network"
+      }
+    },
+    {
+      "id": "evidence.innovation-network.skill-generate-component-svg-diagram",
+      "status": "proposed",
+      "primary": true,
+      "sourceType": "private_doc",
+      "title": "Generate Component SVG Diagram -- SKILL.md",
+      "publicUrl": "",
+      "odaDocumentNumber": "",
+      "fileName": "dist/consumer/skills/generate-component-svg-diagram/SKILL.md",
+      "documentId": "",
+      "abstract": "Renders an ODA Component's architecture as a standalone SVG with D3, straight from its cached component.yaml or a component Helm chart.",
       "createdBy": {
         "owner": "Lester",
         "email": "katenewbury@hotmail.co.uk",

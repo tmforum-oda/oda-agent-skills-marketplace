@@ -1,0 +1,22 @@
+{
+  "$comment": "ODA Canvas / platform endpoints that component microservices reach through env vars. A match turns the host into a dependent API of the named function instead of a 'platform services' note. Add entries here as new charts reveal them.",
+  "apis": [
+    {
+      "hosts": ["info.canvas.svc.cluster.local", "info.canvas"],
+      "id": "TMF638",
+      "name": "service-inventory-management-api",
+      "apiType": "openapi",
+      "function": "management",
+      "discoversDependentAPIs": true,
+      "description": "ODA Canvas info service (TMF638 Service Inventory) used to discover the URLs of the component's dependent APIs at runtime"
+    },
+    {
+      "hosts": ["observability-opentelemetry-collector.monitoring.svc.cluster.local", "observability-opentelemetry-collector.monitoring"],
+      "name": "opentelemetry",
+      "label": "OpenTelemetry (OTLP)",
+      "apiType": "otlp",
+      "function": "management",
+      "description": "Canvas OpenTelemetry collector receiving traces/metrics over OTLP"
+    }
+  ]
+}

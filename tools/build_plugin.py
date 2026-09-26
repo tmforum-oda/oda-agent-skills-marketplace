@@ -1,8 +1,8 @@
 """Reads: skills/**, knowledge/**.
 Writes: dist/consumer/** and dist/creator/** (each a self-contained Claude
-Code plugin: skills/ subset with knowledge/ path references rewritten to
-${CLAUDE_PLUGIN_ROOT}/knowledge/..., a full verbatim copy of knowledge/, and
-.claude-plugin/plugin.json).
+Code plugin: skills/ subset with knowledge/ and skills/{own-name}/ path
+references rewritten to ${CLAUDE_PLUGIN_ROOT}/..., a full verbatim copy of
+knowledge/, and .claude-plugin/plugin.json).
 Track: n/a -- packaging step, not part of either refresh track. Run after
 any change to skills/ or knowledge/ to regenerate both distributable plugin
 bundles in dist/.
@@ -36,14 +36,21 @@ keeping one canonical source (plain paths) and mechanically rewriting
 `knowledge/` -> `${CLAUDE_PLUGIN_ROOT}/knowledge/` only in the copies
 under dist/, the same "generate the packaged form, never hand-maintain
 two versions" pattern this repo already uses for knowledge/ itself
-(generated from references/).
+(generated from references/). A skill that bundles its own scripts
+(generate-component-svg-diagram) names them the same way --
+skills/{name}/scripts/... relative to the repo root -- so its own
+`skills/{name}/` prefix gets the same ${CLAUDE_PLUGIN_ROOT} rewrite.
+Only the skill's own name is rewritten, never a bare `skills/`, so prose
+mentioning other skills' folders or upstream URLs is left untouched.
+node_modules/ (from a local `npm install` of those scripts) is never
+copied into dist/.
 
 Must be idempotent (spec.md principle 7): dist/ is deleted and rebuilt
 from scratch every run, so two consecutive runs with no source changes
 produce an identical file set and identical file content.
 
 Every skill directory under skills/ must appear in exactly one of
-CONSUMER_SKILLS, CREATOR_SKILLS, or INTERNAL_ONLY_SKILLS below -- main()
+CONSUMER_SKILLS, CREATOR_SKILLS, SHARED_SKILLS, or INTERNAL_ONLY_SKILLS below -- main()
 fails loudly if a skill is unclassified (new skill added, not sorted into
 a bucket yet) or double-classified, rather than silently dropping it from
 both plugins or shipping it in both.
@@ -53,6 +60,7 @@ Usage:
 """
 import json
 import os
+import re
 import shutil
 
 REPO_ROOT = os.path.join(os.path.dirname(__file__), "..")
@@ -90,6 +98,16 @@ CREATOR_SKILLS = {
     "draft-new-usecase-from-scenario",
     "propose-component-or-api-extension",
     "lint-usecase-draft",
+}
+
+# Useful to both audiences, so shipped in both plugins -- listed once
+# here rather than in both CONSUMER_SKILLS and CREATOR_SKILLS, so the
+# "exactly one bucket" check below still catches accidental duplicates.
+# generate-component-svg-diagram: consumers diagram the components they
+# build against (or their own Helm chart); creators diagram a component
+# they're proposing or extending.
+SHARED_SKILLS = {
+    "generate-component-svg-diagram",
 }
 
 # Repo-maintenance skill that writes to this repo's own knowledge/ (spec.md
@@ -176,22 +194,29 @@ SKILL_EXAMPLES = {
     "lint-usecase-draft": [
         "Check my draft use-case DOCX for anything that will convert badly before I submit it to TM Forum.",
     ],
+    "generate-component-svg-diagram": [
+        "Draw the TMFC001 Product Catalog Management architecture diagram as an SVG, including its security and management APIs.",
+        "Diagram my component's Helm chart in ./charts/productcatalog -- which microservices implement which APIs?",
+    ],
 }
 
+# Bump a plugin's version whenever any skill it ships changes (semver):
+# a new skill is a feature release (minor, e.g. 1.0.0 -> 1.1.0); a change
+# to an existing skill is at least a patch. A SHARED_SKILLS change bumps both.
 PLUGINS = {
     "consumer": {
         "name": "tm-forum-oda-consumer",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "description": "TM Forum ODA use cases, components, and Open APIs as a provenance-tracked knowledge base, queryable via Agent Skills -- for building a product against ODA.",
         "author": {"name": "Lester Thomas"},
-        "skills": CONSUMER_SKILLS,
+        "skills": CONSUMER_SKILLS | SHARED_SKILLS,
     },
     "creator": {
         "name": "tm-forum-oda-creator",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "description": "TM Forum ODA use cases, components, and Open APIs as a provenance-tracked knowledge base, queryable via Agent Skills -- for drafting and extending ODA itself.",
         "author": {"name": "Lester Thomas"},
-        "skills": CREATOR_SKILLS,
+        "skills": CREATOR_SKILLS | SHARED_SKILLS,
     },
 }
 
@@ -200,14 +225,21 @@ def rewrite_knowledge_paths(text):
     return text.replace("knowledge/", "${CLAUDE_PLUGIN_ROOT}/knowledge/")
 
 
+def rewrite_own_skill_paths(text, skill_name):
+    # Not preceded by a path/word character, so an upstream URL like
+    # .../tree/master/skills/{name}/ is never rewritten.
+    return re.sub(rf"(?<![\w/.-])skills/{re.escape(skill_name)}/", f"${{CLAUDE_PLUGIN_ROOT}}/skills/{skill_name}/", text)
+
+
 def check_classification():
     all_skills = {name for name in os.listdir(SKILLS_SRC) if os.path.isdir(os.path.join(SKILLS_SRC, name))}
-    classified = CONSUMER_SKILLS | CREATOR_SKILLS | INTERNAL_ONLY_SKILLS
+    buckets = [CONSUMER_SKILLS, CREATOR_SKILLS, SHARED_SKILLS, INTERNAL_ONLY_SKILLS]
+    classified = set().union(*buckets)
     unclassified = all_skills - classified
     unknown = classified - all_skills
-    overlap = (CONSUMER_SKILLS & CREATOR_SKILLS) | (CONSUMER_SKILLS & INTERNAL_ONLY_SKILLS) | (CREATOR_SKILLS & INTERNAL_ONLY_SKILLS)
+    overlap = {name for name in classified if sum(name in bucket for bucket in buckets) > 1}
     if unclassified:
-        raise SystemExit(f"build_plugin.py: unclassified skill(s), add to CONSUMER_SKILLS/CREATOR_SKILLS/INTERNAL_ONLY_SKILLS: {sorted(unclassified)}")
+        raise SystemExit(f"build_plugin.py: unclassified skill(s), add to CONSUMER_SKILLS/CREATOR_SKILLS/SHARED_SKILLS/INTERNAL_ONLY_SKILLS: {sorted(unclassified)}")
     if unknown:
         raise SystemExit(f"build_plugin.py: classified skill(s) no longer exist under skills/: {sorted(unknown)}")
     if overlap:
@@ -219,18 +251,20 @@ def copy_skills(plugin_dir, skill_names):
     os.makedirs(dst, exist_ok=True)
     rewritten = 0
     for name in sorted(skill_names):
-        shutil.copytree(os.path.join(SKILLS_SRC, name), os.path.join(dst, name))
+        shutil.copytree(os.path.join(SKILLS_SRC, name), os.path.join(dst, name),
+                        ignore=shutil.ignore_patterns("node_modules"))
     for root, _, files in os.walk(dst):
         for name in files:
             if name != "SKILL.md":
                 continue
             path = os.path.join(root, name)
+            skill_name = os.path.basename(root)
             with open(path, encoding="utf-8") as f:
                 text = f.read()
-            new_text = rewrite_knowledge_paths(text)
+            new_text = rewrite_own_skill_paths(rewrite_knowledge_paths(text), skill_name)
             with open(path, "w", encoding="utf-8") as f:
                 f.write(new_text)
-            rewritten += new_text.count("${CLAUDE_PLUGIN_ROOT}/knowledge/")
+            rewritten += new_text.count("${CLAUDE_PLUGIN_ROOT}/")
     return rewritten
 
 
@@ -313,7 +347,7 @@ def main():
         })
 
         skill_count = len(spec["skills"])
-        print(f"dist/{key}/skills/: {skill_count} skill(s), {rewritten} knowledge/ path reference(s) rewritten to ${{CLAUDE_PLUGIN_ROOT}}")
+        print(f"dist/{key}/skills/: {skill_count} skill(s), {rewritten} knowledge/ or own-skill path reference(s) rewritten to ${{CLAUDE_PLUGIN_ROOT}}")
         print(f"dist/{key}/skills/README.md: written ({skill_count} skill(s) listed)")
         print(f"dist/{key}/knowledge/: copied from {KNOWLEDGE_SRC}")
         print(f"dist/{key}/.claude-plugin/plugin.json: written ({spec['name']})")

@@ -24,7 +24,11 @@ directly in `components.json` (not left for every skill to re-derive), and a
 derived OWL/RDF export of the same graph is generated at
 `knowledge/index/ontology.ttl` — both covered in
 [`spec/spec-ontology.md`](spec/spec-ontology.md), including why the JSON
-stays the primary, skill-facing lookup path either way.
+stays the primary, skill-facing lookup path either way. The bundled
+`generate-component-svg-diagram` skill (vendored from
+[`LesterThomas/component-svg-diagram-skill`](https://github.com/LesterThomas/component-svg-diagram-skill))
+has its own pair, [`spec/spec-svg-diagram.md`](spec/spec-svg-diagram.md)
+and [`spec/tasks-svg-diagram.md`](spec/tasks-svg-diagram.md).
 
 ## Using the marketplace 
 
@@ -173,7 +177,14 @@ finding that a newly-changed use case is very likely pre-GA.
 ## Skills
 
 Built against `knowledge/`, read-only, no network calls needed at
-skill-run time. Two audiences, packaged as two separate plugins
+skill-run time. One exception to "instructions only":
+`generate-component-svg-diagram` bundles Node scripts (D3 + jsdom), so it
+needs Node ≥ 18 and a one-time `npm install` in its `scripts/` folder, and
+writes its SVGs into `diagrams/` in your working directory. Rendering a
+Helm chart additionally needs `helm` on `PATH`.
+
+![TMFC001 Product Catalog Management, rendered by generate-component-svg-diagram](images/TMFC001-architecture.svg)
+ Two audiences, packaged as two separate plugins
 (`tm-forum-oda-consumer` / `tm-forum-oda-creator`, see
 [`tools/build_plugin.py`](tools/build_plugin.py)) so each install's skill
 list stays focused on what that audience actually invokes: **consumers**
@@ -194,6 +205,7 @@ why `skills/` itself stays flat).
 | [`decompose-requirement-against-oda`](skills/decompose-requirement-against-oda/SKILL.md) | Discover | a requirement with no close use-case match | a structured ODA decomposition (intent, candidate processes/components/APIs/entities, open questions) |
 | [`capture-requirements-from-usecase`](skills/capture-requirements-from-usecase/SKILL.md) | Design | a `TMFSxxx` id | user stories and acceptance criteria, citing real component/API ids |
 | [`draft-architecture-diagram-from-usecase`](skills/draft-architecture-diagram-from-usecase/SKILL.md) | Design | a `TMFSxxx` id | a Mermaid diagram redrawn from the use case's own sequence diagrams |
+| [`generate-component-svg-diagram`](skills/generate-component-svg-diagram/SKILL.md) | Design (also post-build) | a `TMFCxxx` id, `all`, or a component Helm chart | ⚙ Runs Node — a standalone SVG architecture diagram (eTOMs, SIDs, dependent/exposed APIs colour-coded by function) rendered with D3 from the cached `component.yaml`; for a chart, the microservices and how each is wired to its APIs. Also in `tm-forum-oda-creator` |
 | [`draft-event-design-for-component`](skills/draft-event-design-for-component/SKILL.md) | Design | a `TMFCxxx` id + the APIs it exposes/depends on | a drafted `eventNotification` entry grounded in the API's own schema and any existing sibling precedent |
 | [`validate-design-against-oda`](skills/validate-design-against-oda/SKILL.md) | Design (pre-build gate) | a proposed component/API design | a drift report checking its claimed dependencies against the real cached specs |
 | [`generate-api-mocks-from-usecase`](skills/generate-api-mocks-from-usecase/SKILL.md) | Build (enabling) | a `TMFSxxx` id | mock/fixture payloads for its linked APIs, from cached schemas and real sample payloads |
@@ -216,6 +228,7 @@ why `skills/` itself stays flat).
 | [`draft-new-usecase-from-scenario`](skills/draft-new-usecase-from-scenario/SKILL.md) | a business scenario | a new use-case document in this corpus's own structure |
 | [`propose-component-or-api-extension`](skills/propose-component-or-api-extension/SKILL.md) | a capability gap | a draft component skeleton (real IG1242 shape) or API schema extension |
 | [`lint-usecase-draft`](skills/lint-usecase-draft/SKILL.md) | a draft use-case document | a pre-submission check against known conversion-breaking document shapes |
+| [`generate-component-svg-diagram`](skills/generate-component-svg-diagram/SKILL.md) | a `TMFCxxx` id, `all`, or a component Helm chart | the same SVG architecture diagram as in the Consumer table — shipped in both plugins |
 
 Using these skills from another repository? Install
 [`tm-forum-oda-consumer`](dist/consumer/) and/or

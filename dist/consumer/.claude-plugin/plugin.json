@@ -1,6 +1,6 @@
 {
   "name": "tm-forum-oda-consumer",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "TM Forum ODA use cases, components, and Open APIs as a provenance-tracked knowledge base, queryable via Agent Skills -- for building a product against ODA.",
   "author": {
     "name": "Lester Thomas"

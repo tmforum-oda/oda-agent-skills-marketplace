@@ -200,17 +200,20 @@ SKILL_EXAMPLES = {
     ],
 }
 
+# Bump a plugin's version whenever any skill it ships changes (semver):
+# a new skill is a feature release (minor, e.g. 1.0.0 -> 1.1.0); a change
+# to an existing skill is at least a patch. A SHARED_SKILLS change bumps both.
 PLUGINS = {
     "consumer": {
         "name": "tm-forum-oda-consumer",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "description": "TM Forum ODA use cases, components, and Open APIs as a provenance-tracked knowledge base, queryable via Agent Skills -- for building a product against ODA.",
         "author": {"name": "Lester Thomas"},
         "skills": CONSUMER_SKILLS | SHARED_SKILLS,
     },
     "creator": {
         "name": "tm-forum-oda-creator",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "description": "TM Forum ODA use cases, components, and Open APIs as a provenance-tracked knowledge base, queryable via Agent Skills -- for drafting and extending ODA itself.",
         "author": {"name": "Lester Thomas"},
         "skills": CREATOR_SKILLS | SHARED_SKILLS,

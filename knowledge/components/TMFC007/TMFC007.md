@@ -69,6 +69,8 @@ links:
       name: End to End Modelling of Cloud Based VPN
     - id: TMFS030
       name: Satellite Direct-to-Device – Wholesaling Non-Terrestrial Networks capacity to Mobile Network Operators
+    - id: TMFS033
+      name: Communication Interaction Management
 yaml_spec_version: 2.0.0
 ---
 

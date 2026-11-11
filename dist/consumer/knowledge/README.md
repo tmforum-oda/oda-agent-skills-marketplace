@@ -12,7 +12,7 @@ in this folder (and the one in whichever subfolder you're working in) first.
 
 | Folder | What it holds | How many |
 |---|---|---|
-| [`use-cases/`](use-cases/) | `TMFSxxx` — narrative ODA use cases | 24 converted |
+| [`use-cases/`](use-cases/) | `TMFSxxx` — narrative ODA use cases | 25 converted |
 | [`components/`](components/) | `TMFCxxx` — ODA Component specs (machine-readable + narrative) | 31 (25 with a narrative PDF) |
 | [`apis/`](apis/) | `TMFxxx` — Open API (Swagger/OpenAPI) schemas + sample payloads | 51+ API versions |
 | [`index/`](index/) | Cross-references, ID registry, gap tracking | — |

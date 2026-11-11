@@ -11,6 +11,11 @@
   },
   "links": {
     "apis": [],
-    "use_cases": []
+    "use_cases": [
+      {
+        "id": "TMFS009",
+        "name": "Usage and Balance Management"
+      }
+    ]
   }
 }

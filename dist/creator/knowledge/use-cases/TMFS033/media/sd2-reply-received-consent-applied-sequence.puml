@@ -1,0 +1,38 @@
+@startuml
+title SD2 : Reply received and consent applied
+
+actor Recipient
+participant "Channel Transport" as CT
+participant "//Communication Interaction Management//" as CIM
+participant "Party Privacy Management" as PPM
+participant "Party Interaction Management" as PIM
+
+Recipient -> CT : 1 replies "STOP" to the\norder-confirmation SMS
+CT -> CIM : 2 inbound message "STOP"\n(on the SMS transport; no ODA interface)
+activate CIM
+note right of CIM
+  No ODA component terminates this ingress today.
+  Recorded in §5.2.
+end note
+CIM -> CIM : 3 recognise "STOP" as a consent keyword;\nassociate with the notification dispatched in SD-1 (I1)
+CIM -> PPM : 4 **TMF644 Privacy Management** record the consent change\nfor Alice — marketing withdrawn\n(resource level — see Table 12)
+activate PPM
+PPM --> CIM : 5 **TMF644** 200 OK
+deactivate PPM
+note right of PPM
+  Privacy Management masters the profile.
+  Enforcement occurs at dispatch (X6).
+end note
+CIM -> PIM : 6 **TMF683 Party Interaction Management** POST /partyInteraction\n(direction="inbound", status="completed", channel[{name="sms"}],\nreason="STOP", relatedParty[{id="Alice"}],\ninteractionRelationship[{id=<the SD-1 interaction>,\nrelationshipType="replyTo"}])
+activate PIM
+PIM --> CIM : 7 **TMF683** 201 Created (id)
+deactivate PIM
+note right of PIM
+  `direction` and `interactionRelationship` exist in
+  TMF683 v4.0.0. The reply and its association with the
+  preceding notification require no extension (I2).
+end note
+CIM -> CIM : 8 marketing to Alice now suppressed for every\nnotifying component; the regulatory and statutory\nclasses are unaffected (I3)
+deactivate CIM
+
+@enduml

@@ -23,7 +23,7 @@ person -> EM : 102 provide contactMethod
 person -> EM : 103 choose day of the bill
 
 == Send information to the process ==
-EM -> POCV : 104 **TMF701 Process Flow** PATCH /processFlow/4/taskFlow/8\nSessionId, day=1
+EM -> POCV : 104 **TMF701 Process** PATCH /process/4/task/8\nSessionId, day=1
 activate POCV
 
 opt

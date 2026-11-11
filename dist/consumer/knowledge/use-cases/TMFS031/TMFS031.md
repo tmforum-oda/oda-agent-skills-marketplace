@@ -2,14 +2,14 @@
 id: TMFS031
 type: use-case
 name: Problem Management
-version: 1.0.0
-status: Alpha - Member Evaluated
+version: 2.0.0
+status: Beta - Team Approved
 source:
-  origin: "https://www.tmforum.org/resources/introductory-guide/tmfs031-use-case-problem-management-v1-0-0/"
+  origin: "https://www.tmforum.org/resources/introductory-guide/tmfs031-use-case-problem-management-v2-0-0/"
   license: RAND
-  retrieved: 2026-08-19
-  sha256: b0199d2e05826c22cac2a9e157300ae2f49571bc6e94dbde60723baca094c809
-  raw_path: ../references/use-cases/TMFS031/TMFS031_v1.0.0.docx
+  retrieved: 2026-11-11
+  sha256: 6ef0cd98a87822cf83f3624fc4941bbca445fb5722ba97b6818cc7eeafa124e0
+  raw_path: ../references/use-cases/TMFS031/TMFS031_v2.0.0.docx
 links:
   components:
     - id: TMFC023
@@ -17,12 +17,12 @@ links:
     - id: TMFC028
       name: Party Management
     - id: TMFC035
-      name: Party Role Management
+      name: Permission Management
   apis:
     - id: TMF683
       name: Party Interaction Management
     - id: TMF701
-      name: Process Flow Management
+      name: Process Management
     - id: TMF632
       name: Party Management
     - id: TMF669
@@ -30,11 +30,11 @@ links:
     - id: TMF621
       name: Trouble Ticket Management
   use_cases: []
-maturity: Alpha
-approval_status: Member Evaluated
+maturity: Beta
+approval_status: Team Approved
 release_status: Pre-production
-team_approved: 2026-05-28
-published: 2026-06-02
+team_approved: 2026-10-01
+published: 2026-10-14
 sid_references: []
 ---
 
@@ -62,7 +62,7 @@ The key observations are outlined below:
 
 **Scope of Party Problem Management component**
 
-As per the current agreement, the scope of the Party Problem Management component is limited to collecting and managing the lifecycle of problems reported by parties, such as customers, partners, or suppliers. The actual resolution of the problem is outside the responsibility of this component.
+As per the current agreement, the scope of the Party Problem Management component is limited to collecting and managing the lifecycle of problems reported by parties, defined by Party Roles, such as customers, partners, or suppliers. The actual resolution of the problem is outside the responsibility of this component.
 
 If this is the case, the reported problem must either:
 
@@ -108,15 +108,15 @@ In addition, the API does not fully cover all types of issues that the problem m
 
 - General questions regarding products purchased and used by the party.
 
-- etc
+- Etc.
 
 **TMF621 Trouble Ticket Management API**
 
 The TMF621 API currently does not appear to be mapped to any specific ODA component. The scope of this API is defined as follows:
 
-*Provides a standardized client interface to Trouble Ticket Management Systems for creating, tracking and managing trouble tickets among partners as a result of an issue or problem identified by a customer or another system. Examples of Trouble Ticket API clients include CRM applications, network management or fault management systems, or other trouble ticket management systems (e.g. B2B).*
+*Provides a standardized client interface to Trouble Ticket Management Systems for creating, **tracking** and managing trouble tickets among partners **as a result of** an issue or problem identified by a customer or another system. Examples of Trouble Ticket API clients include CRM applications, network management or fault management systems, or other trouble ticket management systems (**e.g.** B2B).*
 
-These API is rightly positioned to handle the party problem management requirements covering both the partners and customer related issues. The only issues is with the API client example that includes Network Management or Fault management systems, this example blurs the scope of incident management and trouble ticket. While techinically it is correct but from the scope perspective TMF624 is primary API that Network or Fault management system should interact with. Also, this API needs enhancement like modelling need to improve and its relationship with Party Problem Management needs to be defined.
+These API is rightly positioned to handle the party problem management requirements covering both the partners and customer related issues. The only issues is with the API client example that includes bill dispute, Network Management or Fault management systems, this example blurs the scope of incident management and trouble ticket. While techinically it is correct but from the scope perspective TMF624 is primary API that Network or Fault management system should interact with. Also, this API needs enhancement like modelling needs to improve and its relationship with Party Problem Management needs to be defined.
 
 **TMFC043 Fault Management ODA Component and TMF656 Service Problem Management API**
 
@@ -176,9 +176,9 @@ General assumptions:
 
 | Actor | The Customer, IVR, The Customer Care Agent, Customer Care portal, Interaction Management, Party Problem Management, Party Management |
 | --- | --- |
-| Pre-conditions | Party exists and Party Role as Customer is in place Customer has already had active Product Offering |
+| Pre-conditions | Party exists and Party Role as Customer is in place Customer is already having active Product Offering |
 | Begins When | Customer is not able to make calls from his phone. |
-| Description | Customer calls the IVR system. IVR triggers a TMF701 Process Flow to Party Interaction IVR presents options to the customer. Customer selects “Report Problem”. IVR forwards the call/request to the Helpdesk Agent. Helpdesk Agent logs into the Customer Care Portal. Customer identity verification and validation are completed by Helpdesk Agent Agent records the customer problem in the portal Portal sends request to Party Problem Management to create the ticket Party Problem Management system creates the ticket and returns confirmation (201 Created). Helpdesk Agent informs the customer about the ticket creation |
+| Description | Customer calls the IVR system. IVR triggers a TMF701 Process to Party Interaction IVR presents options to the customer. Customer selects “Report Problem”. IVR forwards the call/request to the Helpdesk Agent. Helpdesk Agent logs into the Customer Care Portal. Customer identity verification and validation are completed by Helpdesk Agent Agent records the customer problem in the portal Portal sends request to Party Problem Management to create the ticket Party Problem Management system creates the ticket and returns confirmation (201 Created) Helpdesk Agent informs the customer about the ticket creation |
 | Ends when | Incident Ticket is created |
 | Post-conditions | Ticket is assigned to the right team for further investigation |
 
@@ -202,12 +202,34 @@ Lifecycle of a Trouble ticket
 
 ## Sequence diagrams
 
-This sequence diagram illustrates an end-to-end customer support and incident handling flow aligned with TM Forum Open APIs and ODA principles. The interaction begins when a customer initiates contact through the IVR channel to report a problem. Customer interaction details and workflow context are captured and maintained throughout the journey using Party Interaction Management and Process Flow Management APIs. The process then transitions from automated IVR handling to assisted support through a helpdesk agent, ensuring continuity of customer context across channels.
+This sequence diagram illustrates an end-to-end customer support and incident handling flow aligned with TM Forum Open APIs and ODA principles. The interaction begins when a customer initiates contact through the IVR channel to report a problem. Customer interaction details and workflow context are captured and maintained throughout the journey using Party Interaction Management and Process Management APIs. The process then transitions from automated IVR handling to assisted support through a helpdesk agent, ensuring continuity of customer context across channels.
 
 During the assisted support phase, the customer identity is validated using Party and Party Role Management APIs, after which the detailed issue information is captured and associated with the ongoing interaction. A trouble ticket is subsequently created using Trouble Ticket Management APIs to initiate incident resolution and lifecycle tracking.
 
 ![](media/customer-support-incident-handling-sequence.png)
 *([PlantUML source](media/customer-support-incident-handling-sequence.puml))*
+
+# Extending the Use Case to Problem Ticket
+
+As discussed earlier, a **Problem Ticket** is raised by the Helpdesk when multiple incidents of a similar nature are reported by one or more customers. Rather than handling each incident independently, the Helpdesk creates a Problem Ticket to investigate and identify the underlying root cause.
+
+All related incident tickets are then linked to the Problem Ticket, enabling the issue to be tracked and managed centrally while ensuring that the root cause is addressed consistently across all affected customers.
+
+| Actor | The Customer, IVR, The Customer Care Agent, Customer Care portal, Interaction Management, Party Problem Management, Party Management |
+| --- | --- |
+| Pre-conditions | Customer reports problem of similar type in the given region. |
+| Begins When | Agents is prompted or itself identifies similar incident reported by multiple customers in the given region. |
+| Description | Helpdesk Agent informs the customer about the ticket creation. Or System Prompts Agent informing them of similar incidents reported by multiple customers in this region. Helpdesk Agent identifies that multiple customers in the same geographical region have reported similar problems. Helpdesk Agent creates a Problem Ticket to investigate the potential common underlying cause and assigns it to the appropriate Technical Team for root cause analysis and resolution. Helpdesk Agent links all existing customer-reported tickets relating to the same or similar problem to the Problem Ticket, enabling the tracking and management of all related customer issues. |
+| Ends when | Problem Ticket is created |
+| Post-conditions | Problem Ticket is assigned to the right Technical team for further investigation |
+
+![](media/similar-incidents-problem-ticket-agent-ui-mockup.png)
+*([text description](media/similar-incidents-problem-ticket-agent-ui-mockup.text-description.md))*
+
+## Sequence Diagram
+
+![](media/agent-problem-ticket-creation-sequence.png)
+*([PlantUML source](media/agent-problem-ticket-creation-sequence.puml))*
 
 # Conclusion
 
@@ -215,21 +237,18 @@ During the assisted support phase, the customer identity is validated using Part
 
 This document is still under development. This section will be updated as the work matures and the requirements and recommendations are further refined.
 
-## Impacts identified
-
-- **Clear boundary definition for Party Problem Management:** The use case clarified that Party Problem Management should focus on capturing, tracking, correlating, and governing problem lifecycle activities, while technical resolution remains outside its scope. Correlation with other party, service, or resource problems is important for end-to-end lifecycle tracking.
-
 - **ODA component-to-API alignment requires clarification:** APIs such as TMF621 and TMF724 do not have clearly defined ODA component ownership, creating ambiguity in implementation responsibility and Party Problem Management specification.
-
-- **Support for reactive and proactive assurance scenarios:** Current Party Problem Management scope mainly addresses customer-reported (reactive) issues and requires enhancement to support proactively detected service or network issues.
-
-- **Definition of responsible handling teams:** Although resolution is outside the component scope, technical ownership for different issue categories (e.g., billing, application, network) should be clearly defined to ensure efficient routing and lifecycle management.
 
 - **Standardized trouble ticket lifecycle states:** Consistent lifecycle states such as Acknowledged, In Progress, On Hold, Resolved, Closed, and Cancelled are required across implementations.
 
 - **TMF621 as a strong candidate API:** TMF621 aligns well with external issue and trouble ticket lifecycle management, though clearer positioning relative to network fault management APIs is still needed.
 
-- **Gap in Service Problem Management :** The use case identified a gap in the ODA architecture regarding ownership of Service Problem Management capabilities and exposure of the TMF656 API. Clear ODA component definition is required to support end-to-end service problem management and correlation between network faults and customer-impacting service issues, especially for proactive assurance scenarios. However, this raises the question of whether similar architectural clarification is required for Product Problem Management and Resource Problem Management. This lesson learned highlights the need for a broader review and alignment across TMF artifacts to ensure consistent ownership, capability definition, and API exposure patterns
+## Impacts identified
+
+| Asset | Description |   |
+| --- | --- | --- |
+| ODA Component | Clear boundary definition for Party Problem Management: The use case clarified that Party Problem Management should focus on capturing, tracking, correlating, and governing problem lifecycle activities, while technical resolution remains outside its scope. Correlation with other party, service, or resource problems is important for end-to-end lifecycle tracking. Support for reactive and proactive assurance scenarios: Current Party Problem Management scope mainly addresses customer-reported (reactive) issues and requires enhancement to support proactively detected service or network issues. Definition of responsible handling teams: Although resolution is outside the component scope, technical ownership for different issue categories (e.g., billing, application, network) should be clearly defined to ensure efficient routing and lifecycle management. | TAC-1417 - Input to Party Problem Management Component  backlog <br>![](media/done-checkmark-icon.png)<br>*([text description](media/done-checkmark-icon.text-description.md))* |
+| ODA Component | Gap in Service Problem Management : The use case identified a gap in the ODA architecture regarding ownership of Service Problem Management capabilities and exposure of the TMF656 API. Clear ODA component definition is required to support end-to-end service problem management and correlation between network faults and customer-impacting service issues, especially for proactive assurance scenarios. However, this raises the question of whether similar architectural clarification is required for Product Problem Management and Resource Problem Management. This lesson learned highlights the need for a broader review and alignment across TMF artifacts to ensure consistent ownership, capability definition, and API exposure patterns. | TAC-1418 - Do we need a Service Problem Management?  backlog <br>![](media/done-checkmark-icon.png)<br>*([text description](media/done-checkmark-icon.text-description.md))* |
 
 Although the above impacts have been identified, this work is still at an early stage, and the current use case covers a very limited scope. Additional scenarios and use cases need to be incorporated into the document to further validate the findings and enable the creation of well-defined JIRA items with clear scope, ownership, and implementation boundaries.
 

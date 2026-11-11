@@ -11,7 +11,7 @@ end box
 
 box "Core Systems"
 participant "Party Interaction\n(TMFC023)" as PartyInteraction
-participant "Party Role & Permission\n(TMFC035)" as PartyRolePermission
+participant "Permission Management\n(TMFC035)" as PartyRolePermission
 participant "Party Problem Management\n(TMFC047)" as PartyProblemMgmt
 end box
 
@@ -19,8 +19,8 @@ end box
 User -> IVR : 1. Call IVR
 IVR -> PartyInteraction : 2. POST /partyInteraction (channel=IVR)
 PartyInteraction --> IVR : 3. 201 Created (interaction.id)
-IVR -> PartyInteraction : 4. POST /processFlow (Incident Reporting)
-PartyInteraction --> IVR : 5. 201 Created (processFlow.id,\nstate=started)
+IVR -> PartyInteraction : 4. POST /process (Incident Reporting)
+PartyInteraction --> IVR : 5. 201 Created (process.id,\nstate=started)
 IVR -> User : 6. Present IVR menu options
 User -> IVR : 7. Select "Report Problem"
 
@@ -28,23 +28,23 @@ User -> IVR : 7. Select "Report Problem"
 IVR -> IVR : 8. Capture issue category & basic details
 IVR -> PartyInteraction : 9. PATCH /partyInteraction (add IVR inputs)
 PartyInteraction --> IVR : 10. 200 OK
-IVR -> PartyInteraction : 11. PATCH /processFlow\n(state=IVR_Completed,\ncategory=problem)
+IVR -> PartyInteraction : 11. PATCH /process\n(state=IVR_Completed,\ncategory=problem)
 PartyInteraction --> IVR : 12. 200 OK
 
 == Step 3: Transfer to Helpdesk Agent ==
 IVR -> Agent : 13. Transfer call with captured context
 Agent -> Portal : 14. Open customer session
-Portal -> PartyInteraction : 15. PATCH /processFlow\n(state=Agent_Handling)
+Portal -> PartyInteraction : 15. PATCH /process\n(state=Agent_Handling)
 PartyInteraction --> Portal : 16. 200 OK
 
 == Step 4: Customer identification & validation ==
 group Validate Customer Identity
-Agent -> User : 17. Request customer details
-User -> Agent : 18. Provide details
+Portal -> User : 17. Request customer details
+User -> Portal : 18. Provide details
 Portal -> PartyRolePermission : 19. GET /partyRole
 PartyRolePermission --> Portal : 20. 200 OK (customer profile)
 note right of PartyRolePermission
-  Party Role & Permission may
+  Permission may
   retrieve Party details from
   Party Management if required.
 end note
@@ -68,7 +68,7 @@ note right of PartyProblemMgmt
   IVR + Agent
 end note
 PartyProblemMgmt --> Portal : 27. 201 Created (problem.id)
-Portal -> PartyInteraction : 28. PATCH /processFlow\n(state=Problem_Created)
+Portal -> PartyInteraction : 28. PATCH /process\n(state=Problem_Created)
 PartyInteraction --> Portal : 29. 200 OK
 Portal -> PartyInteraction : 30. PATCH /partyInteraction\n(link problem.id)
 PartyInteraction --> Portal : 31. 200 OK

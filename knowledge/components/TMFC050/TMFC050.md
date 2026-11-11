@@ -51,8 +51,6 @@ links:
       name: Browse B2C Catalogue and Check Fiber Technical Eligibility
     - id: TMFS016
       name: Prospect to Order for the SASE, (CPQ)
-    - id: TMFS020
-      name: Multi Domain B2B2X Contract Management
 yaml_spec_version: 1.0.0
 ---
 

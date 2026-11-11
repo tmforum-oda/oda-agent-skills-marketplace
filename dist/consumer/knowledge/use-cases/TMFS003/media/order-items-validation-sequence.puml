@@ -16,8 +16,8 @@ EM -> POCV : 60 **TMF622 Product Order Mgt** GET /productOrder/7\nor **TMF663 Sh
 POCV --> EM : 61 **TMF622** 200 OK\nproductOrder #7\nor **TMF663** 200 OK\nshoppingCart #7
 
 EM -> EM : 62 Display all items and tariff
-person -> EM : 63 confirm global approval
-EM -> POCV : 64 **TMF701 Process Flow** PATCH /processFlow/4/taskFlow/4\nSessionId, validate Order OK
+person --> EM : 63 confirm global approval
+EM -> POCV : 64 **TMF701 Process** PATCH /process/4/task/4\nSessionId, validate Order OK
 
 opt
     POCV -> PI : 65 **TMF637 Product Inventory Mgt** POST /product

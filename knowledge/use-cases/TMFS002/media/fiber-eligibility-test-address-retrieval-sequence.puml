@@ -1,0 +1,46 @@
+@startuml
+title Step 3 - Test Fiber Product Technical Eligibility (address retrieved before Service Qualification)
+
+actor person
+participant "EngagementManagement" as EM
+participant "PartyInteractionManagement" as PIM
+participant "ProductInventory" as PI
+participant "LocationManagement" as LM
+participant "ServiceQualificationManagement" as SQM
+
+alt person provides telephone number
+    person -> EM : 20 provide phone number
+    activate EM
+    EM -> PI : 21 **TMF637 Product Inventory** GET /product (phone number)
+    activate PI
+    PI --> EM : 22 **TMF637** Product result (including place / address)
+    deactivate PI
+    deactivate EM
+end
+
+alt person provides address
+    person -> EM : 23 provide address
+    activate EM
+    EM -> LM : 24 **TMF673 GeographicAddress** POST /geographicAddressValidation (adress)
+    activate LM
+    LM --> EM : 25 **TMF673** Geographic address validation result
+    deactivate LM
+    person -> EM : 26 confirm address
+    deactivate EM
+end
+
+person -> EM : 27 start feasibility
+activate EM
+EM -> SQM : 28 **TMF645 Service Qualification** POST /checkServiceQualification\n(CFSSpec(s), place/address)
+activate SQM
+SQM --> EM : 29 **TMF645** 201 Created\nFeasibility result
+deactivate SQM
+EM -> EM : 30 display Feasibility result
+deactivate EM
+
+person -> EM : 31 select an offer
+activate EM
+EM -> PIM : 32 **TMF701 Process** PATCH /process/3/task/2\nsessionId, taskId2 (start order), offering25, partyId8
+activate PIM
+
+@enduml

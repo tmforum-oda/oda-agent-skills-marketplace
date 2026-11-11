@@ -1,0 +1,50 @@
+@startuml
+title SD4 : Coordination between notifications
+
+' The source image labels the lifeline that answers the TMF667 Document Management
+' call "Party Management"; kept as drawn.
+
+actor Recipient
+participant "Customer Bill" as CB
+participant "Billing Account Management" as BAM
+participant "//Communication Interaction Management//" as CIM
+participant "Party Management" as PM
+participant "Channel Transport" as CT
+
+CB -> CIM : 1 **TMF681** POST /communicationMessage\n(receiver[].party.id="Alice",\ncontent="Your September bill is ready. EUR 61.99.",\nattachment[{id="bill-4471-2026-09"}],\ncharacteristic[messageClass="statutory"], priority="normal")
+activate CIM
+CIM --> CB : 2 **TMF681** 201 Created (state="initial")
+CIM -> PM : 3 **TMF667 Document Management**\nGET /document/bill-4471-2026-09
+activate PM
+PM --> CIM : 4 **TMF667** 200 OK\n(name, documentType="bill", lifecycleState,\nbinaryAttachment[{mimeType="application/pdf", url,\nsize{amount, units}, validFor}])
+deactivate PM
+note right of PM
+  TMF667 binaryAttachment[] and TMF681 attachment[] carry
+  the same fields, so the document maps into the message
+  without transformation (5.1.1). The document is
+  referenced, never copied - Document Management remains
+  the store (X5).
+end note
+
+BAM -> CIM : 5 **TMF681** POST /communicationMessage\n(receiver[].party.id="Alice",\ncontent="Your account is EUR 48.60 overdue ...",\ncharacteristic[messageClass="regulatory"], priority="high")
+CIM --> BAM : 6 **TMF681** 201 Created (state="initial")
+
+CIM -> CIM : 7 coordinate — both address Alice within the same hour:\narrears ("high") before bill ("normal"); minimum spacing;\nhold time by class; daily frequency cap not reached
+CIM -> CT : 8 dispatch the arrears notice first
+activate CT
+CT --> Recipient : 9 "Your account is EUR 48.60 overdue. Pay by\n26 Sep to avoid restriction."
+deactivate CT
+CIM -> CIM : 10 hold the bill notice for the spacing interval
+CIM -> CT : 11 dispatch the bill notice\n(SMS cannot carry a PDF, so the rendered message\ncarries the binaryAttachment url instead)
+activate CT
+CT --> Recipient : 12 "Your September bill is ready. EUR 61.99.\nView it here: vf.com/b/4471"
+deactivate CT
+deactivate CIM
+note over CIM
+  Customer Bill cannot know an arrears notice is in flight,
+  and Account Management cannot know a bill notice is, as
+  each sees only its own traffic (C3). GB1033 v24.0 contains
+  no function for this determination. Recorded in §5.2.
+end note
+
+@enduml

@@ -1,352 +1,345 @@
 ---
 id: TMFS020
 type: use-case
-name: Multi Domain B2B2X Contract Management
-version: 1.1.0
-status: GA - TM Forum Approved
+name: Multi Domain B2B2X Selling & Order Capture
+version: 2.0.0
+status: GA - Team Approved
 source:
-  origin: "https://www.tmforum.org/resources/technical-specification/tmfs020-use-case-multi-party-multi-domain-contract-management-for-a-large-enterprise-v1-1-0/"
+  origin: "https://www.tmforum.org/resources/use-case/tmfs020-use-case-multi-domain-b2b2x-selling-order-capture-v2-0-0/"
   license: RAND
-  retrieved: 2026-08-19
-  sha256: ed14a57152d4063f2267360db69b316c687dc26b3bd0fb30fd128e21b5f9a482
-  raw_path: ../references/use-cases/TMFS020/TMFS020_v1.1.0.docx
+  retrieved: 2026-11-11
+  sha256: 79e9cfd2820dc20df0db2e94e55f2ff1210b7637ec924b6c445109cde3ef4e99
+  raw_path: ../references/use-cases/TMFS020/TMFS020_v2.0.0.docx
 links:
-  components:
-    - id: TMFC033
-      name: Purchase Management
-    - id: TMFC039
-      name: Agreement Management
-    - id: TMFC050
-      name: Product Recommendation Management
-    - id: TMFC036
-      name: Lead and Opportunity Management
+  components: []
   apis:
-    - id: TMF679
-      name: ProductOfferingQualification see proposition / asks described in TMFS018
+    - id: TMF651
+      name: Agreement Management
   use_cases: []
 maturity: GA
-approval_status: TM Forum Approved
-release_status: Production
-team_approved: 2026-01-22
-published: 2026-01-23
+approval_status: Team Approved
+release_status: Pre-production
+team_approved: 2026-09-24
+published: 2026-10-31
 sid_references: []
 ---
 
+# Executive Summary
+
+The use case outlines how a B2B2x marketplace owner (a Telco) manages complex, multiparty commercial engagements with large enterprises purchasing custom SD‑WAN/SASE solutions. These solutions combine connectivity owned by the Telco with “beyond connectivity” services from multiple partners such as hyperscalers, SaaS vendors, and ICT providers. Because these deals span many sites, domains, and vendors, the sales cycle requires structured Agreement, Quote, and Service Contract management rather than ad hoc negotiation. As stated in the document, *“The Framework Agreement with the commercial terms and conditions plus the features of the solutions should have been defined and agreed… before I start the process of the actual Quote and Order capture.”*
+
+Child Use Case A—Framework Agreement Management—is the focus of this sprint. It defines how the Account Manager creates and negotiates a global agreement that captures commercial terms, legal clauses, customer‑specific pricing, and high‑level technical configurations for all sites. This agreement becomes the foundation for subsequent Quote and Service Contract creation, ensuring consistency, catalog‑driven configuration, and reduced downstream complexity. As the document notes, *“This process also makes the later steps of Quote configuration and Order Management a lot smoother.”*
+
+Child Use Case B and C - Will be updated after they are completed in the Oct - Dec Sprint. 
+
 # Introduction
 
-The B2B2x's set of use cases aim is to propose a consistent approach to design, implement, operate and monetize offers based on / relying on / that consist in partners' assets. The following use cases (from TMFS019 to TMFS024) will illustrate, through several configurations (Partnerings, ProductOfferings) how TMF Frameworks support interaction and digitalization between all stakeholders.
+The Use case explains the activities of Agreement management, Quote and Contract management between marketplace owner and large enterprise customers where the entire sales and over process is for a custom solution that is made up of components from different vendors which are tied to the connectivity offered by the marketplace owner. 
 
-Regarding partnering, several configurations can be proposed 
+Sometimes the contract is a tripartite agreement between the end customer, the marketplace owner and the partner (vendor) and in some cases it is a bipartite agreement between the marketplace owner (B2B2X Telco) and the end customer. In both cases the marketplace owner needs to have separate agreements with the vendor and that is given in a separate use case.
 
-![](media/b2b2x-stakeholders-relationships-diagram.png)
-*([text description](media/b2b2x-stakeholders-relationships-diagram.text-description.md))*
+*This and the other Use Cases around B2B2x assume that the person reading this has gone through the other documentation done earlier which provides the context to the topic of marketplaces. **A few of** them **are listed** here*
 
-The Organization will provide an Offer (ProductOffering) which is based on its own and Suppliers's assets. 
+[https://www.tmforum.org/resources/exploratory-report/tr302-oda-ecosystem-challenges-and-roadmap-proposal-v2-0-1/](https://www.tmforum.org/resources/exploratory-report/tr302-oda-ecosystem-challenges-and-roadmap-proposal-v2-0-1/)
 
-Even if the figure describes here the main relationships (**↔**), other relationships can exist and / or have to be managed.
+[https://www.tmforum.org/resources/introductory-guide/ig1317-oda-dse-platform-extensions-patterns-for-b2b-b2b2x-partner-ecosystems-v3-0-0/](https://www.tmforum.org/resources/introductory-guide/ig1317-oda-dse-platform-extensions-patterns-for-b2b-b2b2x-partner-ecosystems-v3-0-0/)
 
-B2B2x use cases will illustrate
+[https://www.tmforum.org/resources/reference/ig1282-oda-design-challenges-in-applying-b2c-solutions-to-b2b-b2b2x-requirements-v1-0-0/](https://www.tmforum.org/resources/reference/ig1282-oda-design-challenges-in-applying-b2c-solutions-to-b2b-b2b2x-requirements-v1-0-0/)* *
 
-- Partner On-boarding with Agreement Management (TMFS019)
-*An Organization will manage Framework Agreement with ad hoc Suppliers (SDWAN Vendors, Cloud Providers, SSE Editors, ...) to be able to provide a SASE solution to its customers*
+[https://www.tmforum.org/resources/introductory-guide/ig1262-software-marketplaces-a-new-go-to-market-opportunity-for-communications-service-providers-v1-2-0/](https://www.tmforum.org/resources/introductory-guide/ig1262-software-marketplaces-a-new-go-to-market-opportunity-for-communications-service-providers-v1-2-0/)
 
-- **Multi Party Contract Management for a large enterprise (TMFS020)**
-***An Organization will manage Framework Agreement, Implementation Agreement(s) regarding Customer's Intent (incl. Framework Agreement Implementation with its Suppliers) through SASE Solution.***
+[IG1279 Zero-Touch Partnering Vision & Strategy v3.1.0](https://projects.tmforum.org/wiki/pages/viewpage.action?pageId=309825995)
 
-- Orchestration of a multi party, multi domain, multi tenant Product Offering sold as a solution (TMFS021)
+[https://www.tmforum.org/resources/introductory-guide/tr303a-federated-identity-and-authentication-management-for-multi-domain-zero-trust-architecture-v4-0-0/](https://www.tmforum.org/resources/introductory-guide/tr303a-federated-identity-and-authentication-management-for-multi-domain-zero-trust-architecture-v4-0-0/)
 
-- Cross domain event correlation, event to incident (TMFS022)
-
-- Multi party Usage Management and Charging (TMFS023)
-
-- Settlement with partner for Type 2 marketplaces (TMFS024)
+[GB1027C Zero-Touch Partnering Use-Cases v6.0.0](https://projects.tmforum.org/wiki/display/PUB/GB1027C+Zero-Touch+Partnering+Use-Cases+v6.0.0)
 
 ## Context or Background
 
-To illustrate Multi Party Contract Management for a large enterprise, we propose to use the following configuration: 
+![](media/b2b2x-marketplace-ecosystem-context-diagram.png)
+*([text description](media/b2b2x-marketplace-ecosystem-context-diagram.text-description.md))*
 
-![](media/sase-solution-stakeholders-simplified-diagram.png)
-*([text description](media/sase-solution-stakeholders-simplified-diagram.text-description.md))*
+**Fig 1-1 Digital Eco-System of a B2B2x marketplace**
 
-An Organization (a Communication Service Provider aka CSP) provides to its Customers a SASE Solution based on its own assets and some provided by dedicated Suppliers.
+In the diagram above there are 3 stakeholders in the marketplace. 
 
-To provide such an offer, the CSP define / enrich
-- SASE Solution in its catalog that refers to Products provided by Suppliers 
-- Framework Agreement Specification / Implementation Agreement Specification for its Customers
-  note: Implementation Agreement Specification can include specific Terms and Conditions linked to Framework Agreement signed with its Suppliers
+- The Marketplace owner i.e. Telco
 
-| <br>![](media/csp-offer-catalog-modeling-diagram.png)<br>*([PlantUML source](media/csp-offer-catalog-modeling-diagram.puml))* | <br>![](media/framework-agreement-catalog-illustration.png)<br>*([PlantUML source](media/framework-agreement-catalog-illustration.puml))* |
-| --- | --- |
-| Catalog Modeling illustration | Framework Agreement illustration |
+**Marketplace owner (B2B2xTelco)** who owns the connectivity i.e. Active assets at Customer site, Customer edge ,the Provider Edge Routers and the backbone. It maybe a case where one of the sites is Off Net and a different CSP as a partner may come in. However, because that scenario is being covered in the wholesale Broadband scenarios, in this Use Cases it is assumed that the Telco has Connectivity across sites and the partners will provide the Beyond Connectivity offering
 
-Based on those elements, the Organization (aka the CSP) will be able to address Customer's business intent regarding SASE requirements.
+- Business partners like Hyperscalers, SW vendors
+
+**Business Partners (Cloud Services Vendor, SDx vendor SAAS Vendor, CAAS vendors, ICT vendors etc.)** are the providers of the beyond connectivity services like SD-WAN services, Cloud Compute, SW services and even Computing HW
+
+- Customer who is a large enterprise or a government agency
+
+ **Customer (A large enterprise)** who purchases the solution of connectivity and beyond connectivity services which are spanning across multiple partners, multiple domains and installed across multiple sites i.e. The Enterprise has many offices which require the connectivity and beyond Connectivity services. The connectivity can be MPLS-VPN or Business Internet shared connection as the case may be. Layer 2 VPN is configured across all the sites. Some sites have dedicated SAAS SW and some do not. Hence, the configuration needs to happen per site, so Service Feasibility check per site is very important
+
+The value stream of Opportunity 2 Order in the Digital Eco System shown above will be described in the subsequent sections of the Use Case.
+
+*The scenario for this UseCase:*
+
+ A SD-WAN solution is being negotiated for a 100 site implementation. There will be a global level Framework Agreement for that entire SD-WAN solution across the 100 sites. For each site or a set of sites, there will be quotes specific to that site based on Service Qualification but under the umbrella of the terms and conditions spelled out in the agreement. For each quote, there will be a Service Contract detailing the technical configuration like the entitlements and SLAs for each installation
 
 ## Objective of the use case
 
-The objective of the use case is to illustrate how TMF Frameworks support contractualization between an Organization (the CSP) and its Customer based on business intent and relying on Multi Party, Multi Domain assets and contracts.
+Due to the complexity, we are splitting this UseCase TMFS020 into 3 Child Use Cases
 
-As a CSP (the Organization), I want
- - to manage Customer business Intent
- - to be able to propose an ad hoc solution / bundle based on my assets and some provided by my Suppliers
- - to manage contractualization with my Customer including Supplier's commitment
+### Child Use Case A 
 
-As a Customer, I want to find an ad hoc solution regarding my requirements (Secured Network for 300 Sites for next 5 years) and to be able to organise sites deployement regarding my agenda. 
+As an Account Manager / Account Executive 
+
+I want to.... create a Sales or a Framework agreement with my large enterprise customer 
+
+So that... All the commercial terms and conditions, legal clauses and global level technical configurations common to all parts of the customer (large enterprise with many offices) will be defined and agreed in this agreement before I start the process of the actual Quote and Order capture
+
+*Entry Criterion:*
+
+Partnership agreement with the business partners to supply and provide the components and services required for the custom solution that is sold are completed (Defined in TMFS019)
+
+The components and services (with the SLAs and entitlements) belonging to the partners are onboarded into the Marketplace catalog (Currently not defined in any UseCase)
+
+The Party (Customer Account) who is purchasing the SD-WAN / SASE solution from the marketplace owner (<Managed services provider) is available along with the related parties (contacts)
+
+*Exit Criterion:*
+
+The Framework Agreement with the commercial terms and conditions plus the features of the solutions should have been defined and agreed between the marketplace owner and the large enterprise customer. 
+
+Customer specific pricing and customer specific service limits if any are defined and confirmed by both the parties
+
+The agreement is formally accepted as the frameworks for all future Quotes and Contracts between both the parties
+
+### Child Use Case B
+
+As a Sales manager
+
+I want to.... create a Commercial quote for the customer by referring to the Agreement
+
+So that... All the commercial and legal terms and conditions defined in the Framework Agreement are followed and the Quote configuration happens using the Framework Agreement / Product Agreement as the reference. 
+
+*Entry Criterion:*
+
+The customer account with the Agreement is existing and the Agreement (Framework / Product Agreement ) against the account is in confirmed state. 
+
+The Framework Agreement  / Product Agreement (Terminology to be decided) is completed, confirmed by both the parties and can be referred for the Quote configuration. 
+
+The required details of the Framework / Product Agreement (Exact terminology?) including the Customer negotiated pricing, configuration done (using the product Configuration) are available for the Quote configuration and Quote calculation
+
+*Exit Criterion:*
+
+The commercial Quote should have been confirmed by the customer.
+
+### Child Use Case C
+
+As a Solution Architect
+
+I want to.... create a Service Contract / Implementation agreement / Implementation contract (Exact terminoogy??) for the customer based on the quote that was approved / confirmed by the customer
+
+So that... The technical SLA and entitlements that the customer is entitled to are configured before they are submitted for fulfillment
+
+*Entry Criterion:*
+
+The Commercial quote is confirmed  
+
+The relationships of the SLAs and entitlements of the contract should be defined against the Product offerings that were configured in the quote stage
+
+*Exit Criterion:*
+
+The compatibility of the SLA s configured, and new entitlements added is checked against the product Offerings and the associated product Specifications of the Quote line Items
 
 ## Scope and assumptions
 
 ### Scope
 
-This use case focuses on contractualization between an Organization (the CSP) and its Customer. 
+The Use Case has 3 parts and Child Use Case A is in scope for this sprint. 
 
-This contractualization is based on
- - the definition of the scope of the deal, through a Framework Agreement between CSP and its Customer regarding SASE solution
-   ensuring Customer and CSP (the Organization) from one side and CSP (the Organization) and its Suppliers on the other side clearly agreed on the scope of the commitment
- - the instanciation of this Framework Agreement through Implementation Agreement(s) between the CSP and its Customer (and the CSP and its Suppliers regarding CSP's Customer order))
+*In Scope: *
 
-Out of Scope:
+The scope of this Use case encompasses 3 activities in the Selling and Order Capture processes when a B2B2x custom solution is sold to a large enterprise or a government agency 
 
-Operations are done regarding CSP / Supplier Agreements, meaning if an evolution on Products / Services agreed between CSP and its Suppliers, they will have to update the agreement through TMFS019.
-Some call flows have been simplified because described in other use cases
+-  **Child Use Case A: **Negotiating an agreement ( type = Framework Agreement) with the large enterprise / Government agency. The Framework Agreement Management process is a cross-functional workflow that 
 
-This is the first version of the use case, it will be enriched later (operational models, ...).
+- Governs the creation, validation, approval, and confirmation of Framework Agreements.
+
+- Ensures all agreements are properly documented, comply with internal policies and partner requirements, and are aligned with account-specific commitments, Account specific pricing and SLAs before being sent to the customer for signature.
+
+- **Child Use Case B: **Creating** **one or more quotes against the Framework / Product Agreement and using the agreement terms and conditions as reference 
+
+- Governs the configuration, service qualification checks for each site, approval, and confirmation of the quote(s).  
+
+- Ensures the Quote configuration with the product offering and the associated Product Specification are in line with the configuration specified during the Framework agreement. 
+
+- One Agreement can have multiple quotes, and all the quotes will be created based on the Agreement terms and conditions
+
+*Out of Scope:*
+
+- Onboarding Partner product offerings to the Product catalog.
+
+- Setting up the Product catalog and defining new architectural patterns to store the customer negotiated product price.
+
+- Relationship of the partner Agreement with the Product Offerings.
+
+- Setting up the Customer Account with the hierarchy including the billing profile.
 
 ### Assumptions
 
-It is assumed that this is a happy path and there are no Order errors or fallout.
-
 **Pre-Requisites for this use Case:**
 
-- The Partner onboarding is completed and a Framework Agreement between the CSP and its Suppliers / Partners has been approved for the Partner Product Offerings (see TMFS019)
-
-- The Customer Account (Party) of the large enterprise is already created and is active
-*Information View, Sequence diagram, ... will not describe steps linked to Customer management (at organization level nor individuals)*
+- Provided in the Entry and Exit criterion above
 
 # Description
 
-A Customer express a Business Intent to the CSP regarding SASE Solution (new Lead).
+## GUI Flow for Child Use Case A The flow is indicative with sample fields not meant to be taken as a design guideline. 
 
-Step A
+It describes the flow when the Sales Account Manager for a Large Corporate interested in the SDx solution shown in the Information model section 3.1.4 is creating an Agreement of type <Framework Agreement> between the Marketplace owner (Telco) and the large enterprise. It is assumed that an opportunity already exists with the Account details. 
 
-Regarding Customer Intent, the CSP will propose a "high level" ProductOffering (via an Opportunity) and the Customer and the CSP will establish a Framework Agreement that will describe the general rules, prices, ... under which the CSP and the Customer will work together. A Framework Agreement can include a set of Framework Agreement Items that may concern, as examples:
+![](media/framework-agreement-from-opportunity-gui-flow.png)
+*([text description](media/framework-agreement-from-opportunity-gui-flow.text-description.md))*
 
-- Negotiated Prices of ProductOfferingSpecification (here SASE) according to volumes, examples for SASE:
+## GUI Flow for Child Use Case B
 
-- Number of sites: 300 Sites (200 small / 75 medium / 20 large / 5 specific)
+![](media/quote-from-agreement-gui-flow.png)
+*([text description](media/quote-from-agreement-gui-flow.text-description.md))*
 
-- Commited support for 200 hours a month
+The actual configuration steps are not shown in the diagram because the shopping cart is not specific to B2B2x. The configuration is driven by the Product Offerings from the catalog with the  terms & conditions and pricing carried over from the framework / product agreement. 
 
-- Support level: Gold for 100 / Silver for 200
+# Views
 
-- Restriction on ProductSpecification Characteristics possible values through ProductConfigSpec,
+## Information View
 
-- Restriction on AllowedProductAction,
+### Agreement Logical model
 
-- Ethic clauses,
+This is a draft because this is currently WIP with the API teams. The Agreement is being detailed as Product Agreement / Framework Agreement (Terminology with definitions?).  Once the latest version of the TMF 651 API resource models is published, this diagram will be updated in the next version. The customer specific price in the Agreement here is present in the TMF651 specification but not detailed as a resource. This can be considered as a requirement to the Open API team. 
+The other consideration for the Customer Price Agreement when large enterprise deals involving B2B / B2B2x services scenarios is - there are very low volume of customers who purchase these B2B/B2B2x customer / bespoke solutions. Hence, the pricing is different for each customer even though the same POs with different configurations are stitched together to create the custom / bespoke solution. 
 
-- Security clauses,
+In normal B2C and SMB scenarios, the pricing should be driven off the definition in the catalog and there may not be the need for an Agreement. 
 
-- Privacy clauses,
+![](media/agreement-logical-model.png)
+*([PlantUML source](media/agreement-logical-model.puml))*
 
-- Non disclosure clauses,
+### Quote Logical Model
 
-- Payment clauses,
+The Quote information model isi given below. This largely refernces the TMF 648 resourece model and a coupolke of enhancements are being proposed in thise model considering the B2B2x sceanrios
 
-- Liquidated damages,
+- Quote Item and Quote relationship to Customer price agreement (If this has been considered considered in the latest version of TMF 648 resource model, then this enhancment is not needed) 
 
-- Responsibility,
+- Geographic site to Quote Item as Service location in multi Site VPNs is aginst the line item and not the header
 
-- Target geographical areas…
+- Approval is being modelled on the Quote item also as multi site VPNs or connectivity deals for Commercial Aerospace etc.,  will have approvals at Item level.
 
-Step B
+![](media/quote-information-model.png)
+*([PlantUML source](media/quote-information-model.puml))*
 
-In accordance with this Framework Agreement, the Customer will order, as many as necessary, SASE Solutions to the CSP leading to Implementation Agreement(s).
-       For example, an order (via a new Opportunity) could be
+### Service Contract Logical Model
 
-- Solution: SASE
+### Product Offering Logical Model
 
-- Number of sites: 10 sites (9 Small / 1 Medium)
+The logical model of the Product Offer bundle (SASE Custom solution bundle) is given below. The name of the PO bundle is SASE Custom solution bundle i.e A Customer orders a set of underlay connectivity with dedicated access and / or shared internet for X number of sites and has SDx services at every site with network and security policies managing the WAN. Additional services like Cloud, SaaS, SI services are also in the bundle as optional PO s.
+This is to emphasize that the Catalog is driving the process and the Opportunity configuration and Agreement configuration should be based on the catalog definition instead of free text or document / spreadsheet uploads. 
+In Use Case A, only the Product Offerings will be driving the configuration.
 
-- Commited support for 20 hours a month
+In Use Cases B & C (not in scope for sprint ending on Oct 1st), the Product Offerings and Product Specifications will be driving the configuration. 
 
-- Support level: Gold (1) / Silver (9)
+![](media/sase-custom-solution-product-offering-model.png)
+*([PlantUML source](media/sase-custom-solution-product-offering-model.puml))*
 
-- ...
+## Value Network / Streams View
 
-At this stage,
+# Diagrams
 
-- a ProductOffering proposition will be provided by the CSP to its Customer (via a dedicated Opportunity)
-*In this illustration, the ProductOffering proposition includes Supplier's commitment and 1st quotation*.
-*note: several quotations can be done*
+## Sequence Diagrams 
 
-- Customer will accept one of the quotes, this acceptance will trigger
+The Sequence diagrams for the 3 child Use Cases are given below. 
 
-- the production of an Implementation Agreement (according to Implementation Agreement Specification) between the CSP and its Customer,
+**Note: **Channel management i..e Engagement layer is not in the scope of these usecases. The aim of the is to show the flow from Opportunity to Agreement (Framework Agreement / Product Agreement) to Quote to Contract(Service Contract / Implemenation contract) and the dependency of the ODA components with the TMF APis and identify any enhancements needed. Same way, the Party interaction ODA component is not being considered because the focus of these use cases is in the B2B2x aspects rather than repeating the common patterns for the B2C usecases whcih have already been defined in the other use cases.
 
-- the generation of a Customer Product Order,
+### Sequence diagram for Agreements
 
-- the generation of ad hoc assets in the ProductInventory,
+![](media/agreement-management-sequence.png)
+*([PlantUML source](media/agreement-management-sequence.puml))*
 
-- the production of an Implementation Agreement between the CSP and its Suppliers,
+Description:
 
-- the generation of Business Partner Product Orders (orders from the CSP to its Suppliers).
+The Sequence flow is described below
 
-Please note that, depending on the CSP's policies, the Customer ProductOrder may be generated before or after the Implementation Agreement approval (signature) by the CSP and the Customer.
+| Operation | Operation Type  = API | ODA Components involved | Open APIs involved | Description |
+| --- | --- | --- | --- | --- |
+| Create opportunity for Account - | No | Lead & Opportunity Management - TMFC036 (Server) | NA | The Account manager creates an opportunity against the Customer Account of the Large enterprise interested in the B2B2x managed services custom solution PO bundle with underlay & overlay services |
+| Update Account with Opportunity -: TMF 632 Party Management | Yes | Party Management - TMFC028 (Server) Lead & Opportunity Management - TMFC036 (Client) | TMF 632: Party Management | The Opportunity created is updated against the Party (Customer described above). These relationships are important because currently the ODA components do not have the dependency or relationships among them. They will be detailed in Section 4.2 |
+| Start negotiation with customer | No | NA | NA | The Account manager starts negotiation with the customer in an effort to convert the Opportunity into Framework Agreement. It is not mandatory to always have a Framework Agreement, and the Opportunity can be converted to a quote. It is suggested that the Framework Agreement be used for large complex deals involving a multitude of services and installed across many sites. |
+| Describes the need | No | NA | NA | This is the needs analysis phase. There is no ODA component that maps to this functionality. The one that remotely comes close is Sales Management. But for the purpose of this use case this is kept as an offline interaction since the focus of this Use Case is Framework Agreement Management |
+| Update Opportunity with Opportunity values and PO | No | Lead & Opportunity Management - TMFC036 (Server) | NA | Based on the understanding of the customer need, the Account manager updates the opportunity |
+| Configure Opportunity Product - TMF760: Product Configuration management | Yes | Product Configuration - TMFC027 (Server) Lead & Opportunity Management - TMFC036 (Client) | TMF760: Product Configuration management | The PO bundle is configured at a very high level against the Opportunity. This will require a relationship of the ODA Component Product Configurator with Sales Management. Currently, Product Configurator only has a relationship with Product Order capture and validation. Note: The configuration done here is optional and if done is very high level with the POs only with minimal configuration and is intended to replace the notes that are usually written against an opportunity. In B2B2x services free text notes leads to errors due to the complexity. |
+| Fetch PO and POP - TMF 620 Product Catalog Management | Yes | Product Catalog Management - TMFC001 (Server) Product Configuration - TMFC027 (Client) | TMF 620 Product Catalog Management | The product configurator that has been invoked by the Opportunity fetches the PO(s) and the corresponding default POP |
+| Consume PO with POP | Yes: Response | Product Catalog Management - TMFC001 (Server) Product Configuration - TMFC027 (Client) | TMF 620 Product Catalog Management | Product Configurator has the PO(s) and the corresponding POP ready for configuration |
+| Build Configuration for the PO(s) | No | Product Configuration - TMFC027 | NA | The configuration is now done by the product Configuration component |
+| Consume Configuration | Yes: Response | Product Configuration - TMFC027 (Server) Lead & Opportunity Management - TMFC036 (Client) | TMF760: Product Configuration management | The configuration is consumed by the opportunity to generate the opportunity product with the high level configuration |
+| Oppty PO configuration built | No | Lead & Opportunity Management - TMFC036 | NA | Same as aboove |
+| View Opportunity with value, PO (s) and other data | No | NA | NA | Account Manager views the configuration against the Opportunity |
+| Ready to create a Sales / Framework Agreement | No | NA | NA | Custoemr has reached the stage in negotiation to start the Agreement process |
+| Update Opportunity status and start agreement configuration | No | Lead & Opportunity Management - TMFC036 | NA | Account manager updates the opportunity as converted to Agreement  / Agreement being created and starts the Agreement process |
+| Opportunity is converted to Framework Agreement | No | Lead & Opportunity Management - TMFC036 | NA | Opportunity is converted to Agreement / Opportunity is updated as ready for Agreement stage (Next stage in the Opportunity lifecycle if defiend) |
+| Create Framework Agreement for Party: TMF 651: Agreement Management | Yes | Agreement Management - TMFC039 (Server) Lead & Opportunity Management - TMFC036 (Client) | TMF 651: Agreement Management | The agreement of type =FrameworkAgreement is created. Note: The agreement API currently is classified as a Business partner API and in this case, the Agreement needs to be created between the end customer and the marketplace owner and hence the necessary changes in the API map need to be made. |
+| Create agreement for Customer Account | No | Agreement Management - TMFC039 | NA | The Framework Agreement for the customer is created with a unique Agreement ID etc. |
+| Update Account with Agreement : TMF 632 Party Management | Yes | Party Management - TMFC028 (Server) Agreement Management - TMFC039 (Client) | TMF 632 Party Management | The Customer Account (party) is updated with the Agreement ID and status of the Agreement and other basic details. Note: Currently ODA does not have these relationships are dependencies except s resource models in the API s or SID Models. But ODA component to component relationship does not exist and these relationships and dependencies should be defined. |
+| OPTIONAL: Fetch PO and POP - TMF 620 Product Catalog Management | Yes | Product Catalog Management - TMFC001 (Server) Product Configuration - TMFC027 (Client) | TMF 620 Product Catalog Management | OPTIONAL: The product configurator that has been invoked by the Agreement fetches the PO(s) and the corresponding default POP |
+| OPTIONAL: Consume PO with POP | Yes: Response | Product Catalog Management - TMFC001 (Server) Product Configuration - TMFC027 (Client) | TMF 620 Product Catalog Management | OPTIONAL: Product Configurator has the PO(s) and the corresponding POP ready for configuration |
+| Create Configuration for Agreement for the PO(s): TMF 760 | Yes | Product Configuration - TMFC027 (Server) Lead & Opportunity Management - TMFC036 (Client) | TMF760: Product Configuration management | The PO bundle with the child POs is configured at a very high level against the Agreement. This will require a relationship of the ODA Component Product Configurator with Agreement Management. Currently, Product Configurator only has a relationship with Product Order capture and validation. Note: This is a global level configuration and is not a site specific configuration. This is done during the negotiation for the entire Installation and sets the terms and conditions for the installation across all the sites. Hence, the Agreement is usually at the legal  / parent Account |
+| Build Configuration for the PO(s) | No | Product Configuration - TMFC027 | NA | The configuration is now done by the product Configuration component |
+| Consume Configuration | Yes: Response | Product Configuration - TMFC027 (Server) Agreement Management - TMFC039 (Client) | TMF760: Product Configuration management | The configuration is consumed by the Agreement |
+| Agreement configuration for the PO (s) | No | Agreement Management - TMFC039 | NA | Generate  the Agreement items (Line Items) with the high level configuration |
+| Configure Customer specific configuration: TMF 679 - Product Offering Qualification management | Yes | Product Configuration - TMFC027 (Server) Agreement Management - TMFC039 (Client) | TMF 679 - Product Offering Qualification management | The Customer specific pricing, PO attributes, terms and conditions (catalog driven) are configured. This is a global level configuration and not a site specific configuration. |
+| Verify and update configuration | No | Product Configuration - TMFC027 (Server) | NA | The eligibility, compatibility checks is made, and the configuration is completed. |
+| Consume Configuration | Yes: Response | Product Configuration - TMFC027 (Server) Agreement Management - TMFC039 (Client) | TMF760: Product Configuration management | The configuration is consumed by the Agreement |
+| Create agreement (Line) Items | No | Agreement Management - TMFC039 | NA | The Agreement's configuration is deeper than Opportunity because this is driven actively by the customer. Hence, it is suggested the line item (Agreement items)need to be specified without the detailed configuration based on Service Qualification. For example, the Agreement at the global level says, all Employee Mobiles (Items in the Agreement and later Quote and Product Order) should only get 4G data. Or All sites in the SD-WAN installation should be limited to 1G with branch offices limited to 500M. This process also makes the later steps of Quote configuration and Order Management a lot smoother. |
+| View Agreement configuration with (Line) Items | No | NA | NA | Account Manager views the configuration against the Agreement |
+| Update Global level SLAs and terms and Conditions | No | Agreement Management - TMFC039 | NA | The Account manager configure the Global values against the Agreement Items (Line Items) |
+| Update SLAs, T&C etc | No | Agreement Management - TMFC039 | NA | The terms and conditions and SLAs are updated. Not as free text to the best extent possible as attributes against the Agreement items. |
+| View Agreement with SLAs and T&C | No | NA | NA | Account Manager views the configuration against the Agreement |
+| Update Customer specific price against Agreement and Agreement (Line) Items | No | Agreement Management - TMFC039 | NA | The customer negotiated price is captured in the Agreement as Customer Price agreement, by the Account Manager. |
+| Update price for agreement (Line) items | No | Agreement Management - TMFC039 | NA | The agreement is updated with the Customer price agreement. (The resource model is WIP for the TMF 651 team ) |
+| View Agreement with Line Items and Customer specific price (For the entire installation and Item level ) | No | NA | NA | The Account manager views the Agreement with the high level configuration (commercial at the global level across the SD-WAN installation instead of site specific configuration) |
+| Check Agreement to Quote flag | No | Agreement Management - TMFC039 | NA | Mark that Agreement T&C, pricing will override Quote when Quote is created from Agreement i.e. This results in a Sales Quote Agreement |
+| Confirm Agreement | No | Agreement Management - TMFC039 | NA | Account manager confirms the Agreement |
+| Update Agreement status against Party: TMF 632 Party Management | Yes | Party Management -TMFC028 (Server) Agreement Management - TMFC039 (Client) | TMF 632 Party Management | The confirmed agreement is now updated (Agreement status is updated) against the Customer Account |
 
-# Information View
+### Sequence diagrams for Quotes
 
-## 3. A Framework Agreement definition between the CSP and its Customer
+Important note: Should the Agreement to Quote relationship be 1:1 or 1:n? The assumption is it should be 1:n because a single Agreement (Framework / Product Agreement?) may result in multiple Quotes
 
-This figure illustrates CSP's IT System the definition of the Framework Agreement signed with its Customer (referring to its FrameworkAgreementSpec for Cust / ImplementationAgreementSpec for Cust and its Catalog / FrameworkAgreement with its Supplier).
+![](media/quote-management-sequence.png)
+*([PlantUML source](media/quote-management-sequence.puml))*
 
-![](media/framework-agreement-definition-csp-customer-illustration.png)
-*([PlantUML source](media/framework-agreement-definition-csp-customer-illustration.puml))*
+### Sequence diagrams for Service Contract
 
-Please see a more detailed illustration (restricted view to CSP's IT System) in SID documentation *(abstract from in progress SID 25.5, available in PROLABORATE Tools)*
+## ODA component and canvas interaction diagrams
 
-*note: this **representation** includes SalesLead and Sales Opportunity not described above*
+### Agreements - Component diagram
 
-| <br>![](media/framework-agreement-csp-customer-object-diagram.png)<br>*([PlantUML source](media/framework-agreement-csp-customer-object-diagram.puml))* | <br>![](media/framework-agreement-csp-customer-object-diagram-description.png)<br>*([text description](media/framework-agreement-csp-customer-object-diagram-description.text-description.md))* |
-| --- | --- |
+Important: As can be seen in the diagram below, the Agreement is driven by the catalog. This ensures that the product offering is configured for the agreement instead of manual documents and spreadsheets serving as the Agreement.
 
-## 3.B Framework Agreement instanciation through Implementation Agreement between CSP and its Customer 
+![](media/agreements-component-diagram.png)
+*([text description](media/agreements-component-diagram.text-description.md))*
 
-This figure illustrates Framework Agreement instanciation trough
+### Quotes - Component diagram
 
-- the production of an Implementation Agreement (according to Implementation Agreement Specification) between the CSP and its Customer
-
-- the generation of a Customer Product Order
-
-- the generation of ad hoc assets in the ProductInventory 
-
-- the production of an Implementation Agreement between the CSP and its Suppliers
-
-- the generation of Business Partner Product Orders (orders from the CSP to its Suppliers)
-
-Please note that, depending on the CSP's policies, the Customer Product Order may be generated before or after the Implementation Agreement approval (signature) by the CSP and the Customer. 
-
-![](media/implementation-agreement-instanciation-catalog-order-purchase-illustration.png)
-*([PlantUML source](media/implementation-agreement-instanciation-catalog-order-purchase-illustration.puml))*
-
-In real life, a lot of situations can be encountered: 
- - quote can be done with / without qualification with Suppliers, 
- - Implementation Agreement instanciation can be realised during Order Delivery, after Order Delivery...
- - ..
-
-Please see a more detailed illustration (restricted view to CSP's IT System) in SID documentation *(asbtract from in progress SID 25.5, available in PROLABORATE Tools)*
-
-| implementationAgreement between CSP and Customer | implementationAgreement between CSP and Customer |
-| --- | --- |
-| <br>![](media/implementation-agreement-csp-customer-object-diagram.png)<br>*([PlantUML source](media/implementation-agreement-csp-customer-object-diagram.puml))* | <br>![](media/implementation-agreement-csp-customer-object-diagram-description.png)<br>*([text description](media/implementation-agreement-csp-customer-object-diagram-description.text-description.md))* |
-| implementationAgreement between CSP and Supplier | implementationAgreement between CSP and Supplier |
-| <br>![](media/implementation-agreement-csp-supplier-object-diagram.png)<br>*([PlantUML source](media/implementation-agreement-csp-supplier-object-diagram.puml))* | <br>![](media/implementation-agreement-csp-supplier-object-diagram-description.png)<br>*([text description](media/implementation-agreement-csp-supplier-object-diagram-description.text-description.md))* |
-
-# Sequence diagrams
-
-Regarding Customer needs, Customer and CSP will agree on assets that will contribute to SASE Solution, and potentially other solutions, for Customer's context and validate Framework Agreement.
-
-## 4.A Step 1 Framework Agreement definition between the CSP and its Customer
-
-![](media/framework-agreement-definition-sequence.png)
-*([PlantUML source](media/framework-agreement-definition-sequence.puml))*
-
-Main ODA Components involved in this process
-
-- At CSP level
-
-- TMFC001 Product Catalog (incl. Supplier Catalog involved in Framework Agreement
-
-- TMFC002 Product Order Capture & Validation
-
-- TMFC039 Agreement Management
-
-- TMFC050 (Product) Recommendation Management
-
-- TMFC??? ProductOffering Qualification / TMFC??? Resource Qualification (tbc)
-
-- TMFC023 Party Interaction Mgt / TMFC??? Party Request Management (to be analysed with TMFS031) 
-
-- TMFC036 Lead and Opportunity Management
-
-- At Supplier level 
-
-- TMFC002 Product Order Capture & Validation
-
-"Opening the box"
-*note: some elements here are proposition of "in progress" topics linked to enrichment proposed by other UC (TMFS018, ...)*
-
-| Customer Intent Management / SalesLead | Customer Intent Management / SalesLead |
-| --- | --- |
-| <br>![](media/customer-intent-management-pattern-sequence.png)<br>*([PlantUML source](media/customer-intent-management-pattern-sequence.puml))* | <br>![](media/customer-intent-management-component-diagram.png)<br>*([text description](media/customer-intent-management-component-diagram.text-description.md))* |
-| Product Offering proposition / SalesOpportunity | Product Offering proposition / SalesOpportunity |
-| <br>![](media/product-offering-proposition-sequence.png)<br>*([PlantUML source](media/product-offering-proposition-sequence.puml))* | <br>![](media/product-offering-proposition-component-diagram.png)<br>*([text description](media/product-offering-proposition-component-diagram.text-description.md))* |
-| Definition of Framework Agreement / FrameworkAgreement | Definition of Framework Agreement / FrameworkAgreement |
-| <br>![](media/framework-agreement-mgt-detail-sequence.png)<br>*([PlantUML source](media/framework-agreement-mgt-detail-sequence.puml))* | <br>![](media/framework-agreement-mgt-component-diagram.png)<br>*([text description](media/framework-agreement-mgt-component-diagram.text-description.md))* |
-
-## 4.B Step 2 Framework Agreement instanciation through Implementation Agreement between CSP and its Customer 
-
-*(kept for comment consideration, to be removed) *
-
-![](media/framework-agreement-implementation-agreement-sequence.png)
-*([PlantUML source](media/framework-agreement-implementation-agreement-sequence.puml))*
-
-Main ODA Components involved in this process
-
-- At CSP level
-
-- TMFC001 Product Catalog (incl. Supplier Catalog involved in Framework Agreement
-
-- TMFC002 Product Order Capture & Validation and / or TMFC??? Party Request Management (to be analysed with TMFS031)
-
-- TMFC033 Purchase Management 
-At this level, ODA Component TMFC033 Purchase Management will be in charge of order that will be done by the CSP to its Suppliers regarding its Customer's order.
-
-- TMFC039 Agreement Management
-
-- TMFC050 (Product) Recommendation Management
-
-- TMFC??? ProductOffering Qualification / TMFC??? Resource Qualification (tbc)
-
-- TMFC023 Party Interaction Mgt / TMFC??? Party Request Management (to be analysed with TMFS031) 
-
-- TMFC036 Lead and Opportunity Management
-
-- At Supplier level 
-
-- TMFC002 Product Order Capture & Validation
-
-"Opening the box"
-*note: some elements here are proposition of "in progress" topics linked to enrichment proposed by other UC (TMFS018, ...)*
-
- 
-
-| Customer Intent Management (10 Sites) / Sales Opportunity   → see description done for step 1 Framework Agreement definition between the CSP and its Customer | Customer Intent Management (10 Sites) / Sales Opportunity   → see description done for step 1 Framework Agreement definition between the CSP and its Customer |
-| --- | --- |
-| Product Offering proposition  → not detailed here, see requirements addressed for TMFS018     see description done for step 1 Framework Agreement definition between the CSP and its Customer regarding step 2.4, how does Commercial and Technical eligibility are done internally at PO/P/S/R level (API, Components) ? (cf TMFS018) regarding step 2.5, how does Commercial and Technical eligibility are done externally at PO/P level (API) ? (cf TMFS018) | Product Offering proposition  → not detailed here, see requirements addressed for TMFS018     see description done for step 1 Framework Agreement definition between the CSP and its Customer regarding step 2.4, how does Commercial and Technical eligibility are done internally at PO/P/S/R level (API, Components) ? (cf TMFS018) regarding step 2.5, how does Commercial and Technical eligibility are done externally at PO/P level (API) ? (cf TMFS018) |
-| instanciation of Implementation Agreement  focus on purchase order from CSP to its Supplier | instanciation of Implementation Agreement  focus on purchase order from CSP to its Supplier |
-| <br>![](media/purchase-order-management-sequence.png)<br>*([PlantUML source](media/purchase-order-management-sequence.puml))* | <br>![](media/purchase-order-management-component-diagram.png)<br>*([text description](media/purchase-order-management-component-diagram.text-description.md))* |
+### Service Contract - Component diagram
 
 # Conclusion
 
-## Lessons learned 
+## Lessons learned
 
-Even if the use case still needs to be detailed, this version illustrates 
- - Framework Agreement management between a CSP and its Customer (incl. reference / consistency with Framework Agreements defined between the CSP and its Suppliers) 
- - Framework Agreement instanciation through Implementation Agreement defintion between a CSP and its Customer (incl. Implementation Agreement between the CSP and its Suppliers regarding CSP's Customer Agreement)
+### Use Case A 
 
-keeping in mind that this is just an illustration, several configuration can occur.
+In large value and low volume B2B and B2B2x deals, the negotiation during the agreement results in a customer negotiated price. 
+
+As per the existing TMF standards this customer negotiated price is captured as Agreement price. The Agreement has a direct relationship to the Customer (party). As shown in the sequence diagram, the Product Catalog Management TMFC001 and Product Configurator TMFC027 will be used to drive the configuration of the Agreement with activities like Product selection,  product offering qualification, checking compatibility and eligibility based on the predefined rules, price calculation based on configuration etc.
+
+*As we go through the other Use cases (Use Case B and Use Case C) in the subsequent sprints, we will update this section*
 
 ## Impacts identified
 
-Some propositions / topics are proposed about
-
- - how Lead / Opportunity / Order can be managed for the different steps 
- - Intent management, proposition to address with ad hoc teams (cf Autonomous Network UC for ODA / AN convergence, TMFS031 vs TMFC??? Party Request Management)
- - ProductOffering / Product / Service / Resource Qualification (internally and with Supplier), proposition to address with ad hoc teams (cf TMFS018)
- - ProductOffering / Product Configuration, proposition to address with ad hoc teams 
- - Purchase Management (sequence flow / interaction diagram) => impact on SID, API, ODA Component Framework
- - BO (Best Offer) / NBO (Next Best Offer) Recommandation process, proposition to address with ad hoc teams (cf Autonomous Network UC for ODA / AN convergence)
-
-as 1st proposition to work on
+### Use Case A: Agreement management
 
 # Appendix
 

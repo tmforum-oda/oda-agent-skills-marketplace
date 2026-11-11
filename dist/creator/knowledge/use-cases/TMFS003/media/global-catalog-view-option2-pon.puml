@@ -1,0 +1,106 @@
+@startuml
+title Global Catalog view - Option 2 (product model aligned with PON)
+
+' Legend (colour key in the source image):
+'   Product Offering (blue outline), Product Specification (green outline),
+'   POP = Product Offering Price (blue fill), Characteristics (green fill),
+'   Resource Spec (orange fill), CFSS (red fill), RFSS (yellow fill)
+
+package "Product Offerings" {
+  class "Premium Fiber Internet" as PFI <<ProductOffering>>
+  class "Shipping charges" as ShipPO <<ProductOffering>> {
+    POP OTC: Express - $30
+    POP OTC: Standard - 0
+  }
+  class "CPE" as CPEPO <<ProductOffering>> {
+    POP MRC: SD $0
+    POP MRC: HD - $5
+  }
+  class "Fiber Internet" as FIPO <<ProductOffering>> {
+    POP MRC: 1 G BW = $60
+    POP MRC: 1.5G BW = $75
+    POP OTC: Installtion Fee = $100
+  }
+  class "TV Pack" as TVPO <<ProductOffering>> {
+    POP MRC: Gold $10
+    POP MRC: Platinum $20
+  }
+}
+
+package "Product Specifications" {
+  class "Shipping" as ShipPS <<ProductSpecification>> {
+    Shipping Address
+    Shipping Type: Express | Standard
+    Shipping label
+  }
+  class "CPE" as CPEPS <<ProductSpecification>> {
+    Make & Model
+    Serial ID
+    Storage
+    Resolution
+  }
+  class "Fiber Internet Service" as FIPS <<ProductSpecification>> {
+    Bandwidth: 1G | 1.5G
+    Service location
+  }
+  class "TV Service" as TVPS <<ProductSpecification>> {
+    Service: Gold | PLatinum
+  }
+}
+
+package "CFSS" {
+  class "FTTH Access" as FTTH <<CFSS>> {
+    Bandwidth: 1G | 1.5G
+    ONT Serial ID
+  }
+  class "IPTV Access" as IPTVA <<CFSS>>
+  class "TV pack CFSS" as TVCFSS <<CFSS>>
+  class "Gold TV pack" as GoldTV <<CFSS>>
+  class "Platinum TV Pack" as PlatTV <<CFSS>>
+}
+
+package "RFSS" {
+  class "OLT - PON" as OLT <<RFSS>>
+  class "IPTV Platform headend" as IPTVH <<RFSS>>
+}
+
+package "Resource Specifications" {
+  class "CPE" as CPERS <<ResourceSpec>> {
+    Make & Model
+    Serial ID
+    Storage
+    Resolution
+  }
+  class "ONT" as ONT <<ResourceSpec>> {
+    MAC Adrdress
+    Serial ID
+  }
+}
+
+PFI --> "0..1" ShipPO
+PFI --> "0..1" CPEPO
+PFI --> "1..1" FIPO
+PFI --> TVPO
+
+ShipPO --> ShipPS
+CPEPO --> CPEPS
+FIPO --> FIPS
+TVPO --> TVPS
+
+CPEPS --> CPERS
+FIPS --> ONT
+FIPS --> FTTH
+TVPS --> IPTVA
+TVPS --> TVCFSS
+
+FTTH --> OLT
+IPTVA --> IPTVH
+TVCFSS --> "0..1" GoldTV
+TVCFSS --> "0..1" PlatTV
+
+ShipPS ..> CPERS : requires
+CPERS ..> ONT : Related to
+OLT ..> ONT : Requires a
+IPTVH ..> OLT : Related to
+
+@enduml

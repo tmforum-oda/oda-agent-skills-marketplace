@@ -11,6 +11,11 @@
   },
   "links": {
     "apis": [],
-    "use_cases": []
+    "use_cases": [
+      {
+        "id": "TMFS007",
+        "name": "TMFS007"
+      }
+    ]
   }
 }

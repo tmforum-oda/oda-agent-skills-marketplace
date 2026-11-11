@@ -1,6 +1,6 @@
 # knowledge/use-cases/
 
-24 TM Forum ODA use cases (`TMFSxxx`), converted from the original,
+25 TM Forum ODA use cases (`TMFSxxx`), converted from the original,
 member-gated use-case DOCX documents into agent-friendly Markdown.
 
 If you're an AI agent, read [`AGENTS.md`](AGENTS.md) here first.

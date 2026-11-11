@@ -1,0 +1,60 @@
+@startuml
+title Quote Management - creating a Quote, optionally based on an Agreement
+
+actor "Account Manager" as AM
+participant "Product Order Capture & validation\nTMFC002" as POCV
+participant "Party Management\nTMFC028" as PM
+participant "Agreement Management\nTMFC039" as AGM
+participant "Product Configurator\nTMFC27" as PC
+participant "Product catalog\nTMFC001" as PCAT
+participant "Service Qualificaiton\nTMFC009" as SQ
+
+activate AM
+AM -> POCV : Create new Quote for Account
+activate POCV
+POCV -> POCV : Create new Quote\nfor the customer
+POCV -> PM : Update Quote against Account: TMF632 -Party Management API
+activate PM
+PM -> PM : Update Party with Quote ID\nand status
+PM --> POCV : Success Acknowledgment
+deactivate PM
+
+POCV -> PC : Configure PO = SD WAN custom solution - TMF 760 - Product Configuration management
+activate PC
+PC -> PCAT : Fetch PO = :TMF 620 -\nProduct Catalog\nManagement
+activate PCAT
+PCAT --> PC : Consume the PO with\nthe default configuration
+deactivate PCAT
+PC -> PC : <color:red>Create Configuration session</color>
+
+group Is Quote based on Agreement? [Yes]
+    PC -> AGM : Fetch Agreement details: TMF 651 - Agreement Management
+    activate AGM
+    AGM --> PC : Consume Agreement details
+    deactivate AGM
+end
+
+PC -> PC : Update configuration with Agreement
+PC --> POCV : Consume the Quote configuration
+deactivate PC
+deactivate AM
+
+POCV -> POCV : <color:red>Map Configuration\n<color:red>session to the Quote</color>
+POCV -> SQ : Conduct Service Feasibility for geographic site = service location: TMF 645 - Service Qualification
+activate SQ
+SQ --> POCV : Consume the service Qualification results for the service location
+deactivate SQ
+POCV -> POCV : Apply Service Qual results to the\ndefault configuration
+
+POCV -> PC : Apply the Servie Qual results to  the configuration: TMF -679 Product Offering  Qualification
+activate PC
+PC -> PC : Config within the Agreement params
+PC --> POCV : Consume the configuration f
+deactivate PC
+deactivate POCV
+
+activate POCV
+POCV -> POCV : Save and close Quote
+deactivate POCV
+
+@enduml

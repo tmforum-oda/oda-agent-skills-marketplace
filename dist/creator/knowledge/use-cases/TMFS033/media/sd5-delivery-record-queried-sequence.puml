@@ -1,0 +1,40 @@
+@startuml
+title SD5 : Delivery record queried
+
+actor "Compliance / Audit" as Audit
+participant "//Communication Interaction Management//" as CIM
+participant "Party Interaction Management" as PIM
+
+Audit -> CIM : 1 **TMF681 Communication Management** GET /communicationMessage\n?receiver.party.id=Alice
+activate CIM
+CIM --> Audit : 2 **TMF681** 200 OK — four records for Alice\n(order confirmation "completed" · marketing offer "cancelled" ·\narrears notice "completed" · bill notice "completed")\neach with state, sendTime, sendTimeComplete, tryTimes, messageType
+deactivate CIM
+
+Audit -> PIM : 3 **TMF683 Party Interaction Management** GET /partyInteraction\n?relatedParty.id=Alice
+activate PIM
+PIM --> Audit : 4 **TMF683** 200 OK — four interactions\n(three outbound dispatched, and the inbound "STOP" of SD-2\ncarrying interactionRelationship to the notification it answered)
+deactivate PIM
+
+note across
+  The query is answerable: what Alice was sent, when, on what
+  channel, and that the marketing offer was suppressed while
+  the arrears notice was not. Two properties are not
+  represented in the published model: the reason a
+  notification was not delivered, and the channel and
+  address used where the route was substituted (§3.1.3).
+end note
+
+Audit -> CIM : 5 **TMF681** POST /hub\n(register a listener for delivery-state transitions)
+activate CIM
+CIM --> Audit : 6 **TMF681** 201 Created\n(the hub accepts the registration; v4.0.0 defines\nno event schema, so the payload is undefined)
+deactivate CIM
+
+note over CIM
+  Delivery state is therefore available by query only (C4).
+  TMF688 Event Management is deprecated, so there is no
+  central event API to subscribe to instead: the events
+  defined on TMF681 are the only event surface, and none
+  are defined. Recorded in §5.1.3 and §5.1.7.
+end note
+
+@enduml

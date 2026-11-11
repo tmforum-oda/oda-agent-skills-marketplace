@@ -9,19 +9,19 @@ participant "ProductRecommendationManagement" as PRM
 
 activate EM
 
-EM -> PIM : 1 **TMF701 Process Flow** PATCH /processFlow/1/taskFlow/1\nSessionId, nextAction: Browse B2C Catalogue
+EM -> PIM : 1 **TMF701 Process** PATCH /process/1/task/1\nSessionId, nextAction: Browse B2C Catalogue
 activate PIM
 PIM --> EM : 2 **TMF701** 200 OK\nProcessId1, TaskId1, task information required,\navailable actions: Disconnect, Start Order, Browse B2C Catalogue, Read News
 deactivate PIM
 
-group Retrieve productCategory
-    EM -> PCM : 3 **TMF620 Product Catalog Mgt** GET /productCategory
+group Retrieve category
+    EM -> PCM : 3 **TMF620 Product Catalog Mgt** GET /category
     activate PCM
-    PCM --> EM : 4 **TMF620** 200 OK\nlist of productCategory
+    PCM --> EM : 4 **TMF620** 200 OK\nlist of category
     deactivate PCM
 end
 
-group Query Intelligence Management for 'best offers'
+group Query Recommendation Management for 'best offers'
     EM -> PRM : 5 **TMF680 Recommendation Mgt** POST /queryProductRecommendation\n(with filter criteria)
     activate PRM
     PRM --> EM : 6 **TMF680** 200 OK\nlist of productCategory/productOffering\nNo resource created

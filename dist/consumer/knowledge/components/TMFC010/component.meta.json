@@ -11,7 +11,53 @@
     "sha256": "85dbf73df642dc2276facb73f5553c78defeeaa80a177ab4bf2e6835818a909a"
   },
   "links": {
-    "apis": [],
-    "use_cases": []
+    "apis": [
+      {
+        "id": "TMF632",
+        "name": "party-management-api"
+      },
+      {
+        "id": "TMF634",
+        "name": "resource-catalog-management-api"
+      },
+      {
+        "id": "TMF662",
+        "name": "entity-catalog-management-api"
+      },
+      {
+        "id": "TMF669",
+        "name": "party-role-management-api"
+      },
+      {
+        "id": "TMF701",
+        "name": "process-flow-management-api"
+      }
+    ],
+    "use_cases": [
+      {
+        "id": "TMFS004",
+        "name": "Order Delivery \u2013 Fiber contract"
+      },
+      {
+        "id": "TMFS008",
+        "name": "Service and Resource Order Management for Postpaid Mobile Subscribers"
+      },
+      {
+        "id": "TMFS011",
+        "name": "Order Fallout Management"
+      },
+      {
+        "id": "TMFS014",
+        "name": "5G Slice Management"
+      },
+      {
+        "id": "TMFS025",
+        "name": "Cloud Native Function Management"
+      },
+      {
+        "id": "TMFS028",
+        "name": "End to End Modelling of Cloud Based VPN"
+      }
+    ]
   }
 }

@@ -384,6 +384,23 @@ for kind, el in flatten(body):
                     envelope["version"] = m.group(1)
             continue
         if drop_until_level is not None:
+            if in_references and ref_block in ("components", "apis"):
+                # Newer use-case template (TMFS002 v3.2.0, TMFS020 v2.0.0, TMFS026 v3.0.0,
+                # TMFS033 v1.0.0): References lists components/APIs as table rows ("Referenced ODA
+                # Components" / "Referenced Open APIs" tables), not list bullets -- so the paragraph
+                # path above never sees them. Read each row's first cell the same way a bullet is
+                # read; ref_block is still set by the plain-paragraph heading above the table.
+                for row_no, tr in enumerate(el._tbl.iter(qn("w:tr"))):
+                    tc = tr.find(qn("w:tc"))
+                    if tc is None:
+                        continue
+                    plain = re.sub(r"\s+", " ", "".join(t.text or "" for t in tc.iter(qn("w:t")))).strip()
+                    if COMPONENT_ID_RE.search(plain):
+                        envelope["links"]["components"].append(parse_component_bullet(plain))
+                    elif API_ID_RE.search(plain):
+                        envelope["links"]["apis"].append(parse_api_bullet(plain))
+                    elif plain and row_no > 0:  # row 0 is the column header ("Component" / "API")
+                        unparsed_refs.append(("component" if ref_block == "components" else "api", plain))
             continue
         lines.append(md)
         lines.append("")

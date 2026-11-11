@@ -18,7 +18,8 @@
       "TMFS016",
       "TMFS018",
       "TMFS028",
-      "TMFS030"
+      "TMFS030",
+      "TMFS033"
     ]
   },
   {
@@ -51,7 +52,8 @@
       "TMFS016",
       "TMFS018",
       "TMFS028",
-      "TMFS030"
+      "TMFS030",
+      "TMFS033"
     ]
   },
   {
@@ -63,7 +65,9 @@
     "source_origin": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF629_Customer/4.0.0/swagger/TMF629_Customer_Management_API_v4.0.0_swagger.json",
     "path": "knowledge/apis/TMF629/TMF629_v4.0.0.json",
     "meta_path": "knowledge/apis/TMF629/TMF629_v4.0.0.meta.json",
-    "used_by": []
+    "used_by": [
+      "TMFS033"
+    ]
   },
   {
     "id": "TMF632",
@@ -80,7 +84,8 @@
       "TMFS006",
       "TMFS016",
       "TMFS030",
-      "TMFS031"
+      "TMFS031",
+      "TMFS033"
     ]
   },
   {
@@ -127,7 +132,8 @@
     "path": "knowledge/apis/TMF635/TMF635_v4.0.0.json",
     "meta_path": "knowledge/apis/TMF635/TMF635_v4.0.0.meta.json",
     "used_by": [
-      "TMFS005"
+      "TMFS005",
+      "TMFS033"
     ]
   },
   {
@@ -148,7 +154,8 @@
       "TMFS016",
       "TMFS018",
       "TMFS028",
-      "TMFS030"
+      "TMFS030",
+      "TMFS033"
     ]
   },
   {
@@ -193,7 +200,9 @@
     "source_origin": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF640_Service_Activation/4.0.0/swagger/TMF640_Service_Activation_Management_API_v4.0.0_swagger.json",
     "path": "knowledge/apis/TMF640/TMF640_v4.0.0.json",
     "meta_path": "knowledge/apis/TMF640/TMF640_v4.0.0.meta.json",
-    "used_by": []
+    "used_by": [
+      "TMFS033"
+    ]
   },
   {
     "id": "TMF641",
@@ -210,7 +219,8 @@
       "TMFS012",
       "TMFS014",
       "TMFS028",
-      "TMFS030"
+      "TMFS030",
+      "TMFS033"
     ]
   },
   {
@@ -223,7 +233,8 @@
     "path": "knowledge/apis/TMF644/TMF644_v4.0.0.json",
     "meta_path": "knowledge/apis/TMF644/TMF644_v4.0.0.meta.json",
     "used_by": [
-      "TMFS001"
+      "TMFS001",
+      "TMFS033"
     ]
   },
   {
@@ -283,6 +294,7 @@
     "used_by": [
       "TMFS016",
       "TMFS019A",
+      "TMFS020",
       "TMFS030"
     ]
   },
@@ -373,7 +385,8 @@
     "used_by": [
       "TMFS005",
       "TMFS016",
-      "TMFS030"
+      "TMFS030",
+      "TMFS033"
     ]
   },
   {
@@ -385,7 +398,9 @@
     "source_origin": "https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/TMF667_Document/4.0.0/swagger/TMF667_Document_Management_API_v4.0.0_swagger.json",
     "path": "knowledge/apis/TMF667/TMF667_v4.0.0.json",
     "meta_path": "knowledge/apis/TMF667/TMF667_v4.0.0.meta.json",
-    "used_by": []
+    "used_by": [
+      "TMFS033"
+    ]
   },
   {
     "id": "TMF669",
@@ -495,7 +510,8 @@
     "path": "knowledge/apis/TMF676/TMF676_v4.0.0.json",
     "meta_path": "knowledge/apis/TMF676/TMF676_v4.0.0.meta.json",
     "used_by": [
-      "TMFS016"
+      "TMFS016",
+      "TMFS033"
     ]
   },
   {
@@ -519,7 +535,8 @@
     "path": "knowledge/apis/TMF678/TMF678_v4.0.0.json",
     "meta_path": "knowledge/apis/TMF678/TMF678_v4.0.0.meta.json",
     "used_by": [
-      "TMFS005"
+      "TMFS005",
+      "TMFS033"
     ]
   },
   {
@@ -535,7 +552,6 @@
       "TMFS002",
       "TMFS016",
       "TMFS018",
-      "TMFS020",
       "TMFS030"
     ]
   },
@@ -563,7 +579,8 @@
     "path": "knowledge/apis/TMF681/TMF681_v4.0.0.json",
     "meta_path": "knowledge/apis/TMF681/TMF681_v4.0.0.meta.json",
     "used_by": [
-      "TMFS004"
+      "TMFS004",
+      "TMFS033"
     ]
   },
   {
@@ -581,7 +598,8 @@
       "TMFS004",
       "TMFS006",
       "TMFS016",
-      "TMFS031"
+      "TMFS031",
+      "TMFS033"
     ]
   },
   {

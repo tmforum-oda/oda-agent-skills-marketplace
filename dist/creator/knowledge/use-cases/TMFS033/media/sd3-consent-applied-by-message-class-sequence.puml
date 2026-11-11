@@ -1,0 +1,40 @@
+@startuml
+title SD3 : Consent applied by message class
+
+actor Recipient
+participant "Marketing" as MKT
+participant "Billing Account Management" as BAM
+participant "//Communication Interaction Management//" as CIM
+participant "Channel Transport" as CT
+
+== marketing — message class permits suppression ==
+MKT -> CIM : 1 **TMF681** POST /communicationMessage\n(receiver[].party.id="Alice",\ncontent="Upgrade to 1 Gbps for EUR 5 a month",\ncharacteristic[messageClass="marketing"])
+activate CIM
+CIM -> CIM : 2 Alice withdrew marketing consent at SD-2;\nmessage class permits suppression
+CIM --> MKT : 3 **TMF681** 201 Created\n(state="cancelled")
+deactivate CIM
+note right of CIM
+  Recorded and cancelled rather than discarded, so that
+  suppression appears in the delivery record (Q2, Q4).
+end note
+
+== arrears — message class does not permit suppression ==
+BAM -> CIM : 4 **TMF681** POST /communicationMessage\n(receiver[].party.id="Alice",\ncontent="Your account is EUR 48.60 overdue ...",\ncharacteristic[messageClass="regulatory"], priority="high")
+activate CIM
+CIM -> CIM : 5 same recipient, same consent state;\nmessage class does not permit suppression
+CIM -> CT : 6 dispatch on the SMS transport
+activate CT
+CT --> Recipient : 7 "Your account is EUR 48.60 overdue. Pay by\n26 Sep to avoid restriction."
+CT --> CIM : 8 **transport receipt** delivered,\ntimestamp
+deactivate CT
+CIM --> BAM : 9 **TMF681** 200 OK (state="completed")
+deactivate CIM
+
+note across
+  One recipient, one consent state, two outcomes,
+  determined by message class at the point of dispatch (C2).
+  Neither Marketing nor Account Management holds the consent
+  state or the class policy, and neither was changed.
+end note
+
+@enduml

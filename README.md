@@ -2,6 +2,10 @@
 
 A set of Agent skills for **Consumers** and **Creators** of the TM Forum Open Digital Architecture, backed by an agent-friendly **knowledge** base.
 
+**Video introduction:** [The ODA Agent Skills Marketplace](https://youtu.be/6ONDbSo3RfY) (11 minutes, part 7 of the ODA Canvas training series) explains why the ODA matters for software engineering agents, what an Agent Skill is, and tours this marketplace and the reference example components its skills have scaffolded.
+
+[![The ODA Agent Skills Marketplace video](https://img.youtube.com/vi/6ONDbSo3RfY/hqdefault.jpg)](https://youtu.be/6ONDbSo3RfY)
+
 The skills are packaged into two plugins `tm-forum-oda-consumer` and `tm-forum-oda-creator` and made available in a Marketplace. You can view the skills in:
 
 [dist/consumer/skills](dist/consumer/skills)

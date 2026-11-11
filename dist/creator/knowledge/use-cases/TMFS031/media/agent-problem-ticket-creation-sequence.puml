@@ -1,0 +1,59 @@
+@startuml
+title Helpdesk Agent creates a problem ticket from similar incidents (TM Forum Open APIs / ODA)
+
+actor "Helpdesk Agent" as Agent
+
+box "Engagement Management"
+participant "Customer Care Portal\n(Not an ODA component)" as Portal
+end box
+
+box "Core Systems"
+participant "Party Interaction\n(TMFC023)" as PartyInteraction
+participant "Party Problem Management\n(TMFC047)" as PartyProblemMgmt
+end box
+
+== Step 1: Helpdesk Agent gets prompt related to similar incidents reported by customer ==
+Agent -> Portal : 1. Logs in
+activate Portal
+Portal -> PartyInteraction : 2. POST /partyInteraction (channel=Portal)
+PartyInteraction --> Portal : 3. 201 Created (interaction.id)
+Portal -> PartyInteraction : 4. POST /process (Agent login)
+PartyInteraction --> Portal : 5. 201 Created (process.id, state=started)
+Portal --> Agent : 6. Prompts regarding similar incidents reported by customers in the given region with an option to View or Dismiss
+Agent -> Portal : 7. Helpdesk Agent selects View
+Portal --> Agent : 8. Displays the reported trouble ticket with option to View All or Dismiss
+
+== Step 2: Helpdesk Agent proceed ahead with creation of problem ticket ==
+Agent -> Portal : 9. Selects Viewall option
+Portal -> PartyInteraction : 10. PATCH /partyInteraction (adds the interaction for creation of problem ticket)
+PartyInteraction --> Portal : 11. 200 OK
+Portal -> PartyProblemMgmt : 12. GET /partyProblem?fields=...&{filtering type="Incident", region="..."}
+PartyProblemMgmt --> Portal : 13. 200 Success
+Portal --> Agent : 14. Displays the incident tickets of similar nature.
+Portal -> PartyInteraction : 15. PATCH /process\n(state=Display incident ticket, category=problem)
+PartyInteraction --> Portal : 16. 200 OK
+
+== Step 3: Creation of problem ticket by Helpdesk Agent ==
+Agent -> Portal : 17. Selects Proceed for creation of problem ticket
+Portal --> Agent : 18. Displays screen for reporting problem
+Agent -> Portal : 19. Enter the problem ticket details\n(Type, Severity, Product/Service, Description)
+Portal -> PartyProblemMgmt : 20. POST /partyProblem (ticket details)
+PartyProblemMgmt --> Portal : 21. 201 Created (id=PR-123456ABC, status=Open, assignedTo="Technical Team")
+Portal -> PartyInteraction : 22. PATCH /process (state=Agent_Handling)
+PartyInteraction --> Portal : 23. 200 OK
+Portal --> Agent : 24. Notify success: Ticket PR-123456ABC created & assigned to the right Technical team.\nDisplay options to Link Tickets or Finish.
+
+opt Helpdesk Agent selects Link Tickets
+    Portal -> PartyProblemMgmt : 25. GET /partyProblem/PR-123456ABC/relatedTickets (Fetch potential target link tickets)
+    PartyProblemMgmt --> Portal : 26. 200 OK (List of candidate tickets)
+    Portal --> Agent : 27. Displays the candidate ticket list to be linked
+    Agent -> Portal : 28. Selects target incident ticket and confirms link
+    Portal -> PartyProblemMgmt : 29. PATCH /partyProblem/PR-123456ABC (Update operational relationships)
+    PartyProblemMgmt --> Portal : 30. 200 OK (Relationship linked successfully)
+    Portal --> Agent : 31. Displays success message of problem ticket association
+end
+
+Portal --> Agent : 32. Returns to Dashboard / Interaction complete
+deactivate Portal
+
+@enduml

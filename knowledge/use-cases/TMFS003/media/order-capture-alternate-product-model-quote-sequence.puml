@@ -1,0 +1,66 @@
+@startuml
+title Order Capture sequence based on the alternate Product model (Premium Fiber Internet, Quote based)
+
+participant "Engagement layer" as EL
+participant "Party Interaction Management\nTMFC023" as PIM
+participant "Party Management\nTMFC028" as PM
+participant "Product Order Capture & validation\nTMFC002" as POCV
+participant "Product Configurator\nTMFC27" as PC
+participant "Product catalog\nTMFC001" as PCAT
+participant "Service Qualificaiton\nTMFC009" as SQ
+
+activate EL
+EL -> PIM : Select Product Offering = Premium\nInternet and stasrt Quote
+activate PIM
+PIM -> PM : Create new customer TMF: 632 - Party Management
+activate PM
+PM -> PM : New Customer\ncreated with ID
+PM --> PIM : New Party - Individual -\nCustomer created
+deactivate PM
+PIM -> POCV : Create Quote for type = New Activation for PO =\nPremium Internet\nTMF648 Quote Management
+deactivate PIM
+activate POCV
+
+EL -> PIM : User permission
+activate PIM
+
+POCV -> POCV : Create new Quote\nfor the customer
+
+POCV -> PC : Configure PO = Premium Internet - TMF 760 -\nProduct Configuration management
+activate PC
+PC -> PCAT : Fetch PO = Premium Internet Offer:TMF 620 -\nProduct Catalog Management
+activate PCAT
+PCAT --> PC : Consume the PO with\nthe default configuration
+PC -> PC : <color:red>Create Configuration\n<color:red>session</color>
+deactivate PCAT
+PC --> POCV : Consume the\nconfiguration for\nPremium Internet\nPO
+deactivate PC
+
+PIM --> EL : User protected\nresource
+deactivate PIM
+
+POCV -> POCV : <color:red>Map Configuration\n<color:red>session to the Quote</color>
+
+POCV -> SQ : Conduct Service Feasibility for geographic site = service location: TMF 645 - Service Qualification
+activate SQ
+SQ --> POCV : Consume the service Qualification results for the service location
+deactivate SQ
+
+POCV -> POCV : Apply Service Qual results to the\ndefault configuration
+deactivate EL
+
+POCV -> PC : Reconfigure and Re price the configuration:\nTMF -679 Product Offering Qualification
+activate PC
+PC --> POCV : Consume the configuration for\nPremium Internet PO
+deactivate PC
+deactivate POCV
+
+activate EL
+activate POCV
+POCV --> EL : View the Quote with the Configuration
+EL -> POCV : Confirm Quote:
+POCV -> POCV : Save and close Quote
+deactivate POCV
+deactivate EL
+
+@enduml

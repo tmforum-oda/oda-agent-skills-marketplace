@@ -64,13 +64,15 @@ links:
     - id: TMFS019
       name: TMFS019
     - id: TMFS020
-      name: Multi Domain B2B2X Contract Management
+      name: Multi Domain B2B2X Selling & Order Capture
     - id: TMFS026
       name: Commercializing CAMARA APIs with Operate APIs
     - id: TMFS028
       name: End to End Modelling of Cloud Based VPN
     - id: TMFS030
       name: Satellite Direct-to-Device – Wholesaling Non-Terrestrial Networks capacity to Mobile Network Operators
+    - id: TMFS033
+      name: Communication Interaction Management
 yaml_spec_version: 2.1.2
 ---
 

@@ -32,7 +32,7 @@ links:
     - id: TMFS019A
       name: "Part I: Partner On-boarding with Agreement Management"
     - id: TMFS020
-      name: Multi Domain B2B2X Contract Management
+      name: Multi Domain B2B2X Selling & Order Capture
     - id: TMFS026
       name: Commercializing CAMARA APIs with Operate APIs
     - id: TMFS030

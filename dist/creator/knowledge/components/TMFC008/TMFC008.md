@@ -11,8 +11,44 @@ source:
   sha256: 8bf1478239b33dbc54f2c0ab77ae828839b19e66a84d6d08b620ed95a2f3223f
   raw_path: references/components/TMFC008/TMFC008_Service_Inventory_v1.2.1.pdf
 links:
-  apis: []
-  use_cases: []
+  apis:
+    - id: TMF632
+      name: party-management-api
+    - id: TMF633
+      name: service-catalog-management-api
+    - id: TMF638
+      name: service-inventory-management-api
+    - id: TMF639
+      name: resource-inventory-management-api
+    - id: TMF641
+      name: service-ordering-management-api
+    - id: TMF669
+      name: party-role-management-api
+    - id: TMF673
+      name: geographic-address-management-api
+    - id: TMF674
+      name: geographic-site-management-api
+    - id: TMF675
+      name: geographic-location-management-api
+    - id: TMF701
+      name: process-flow-management-api
+  use_cases:
+    - id: TMFS004
+      name: Order Delivery – Fiber contract
+    - id: TMFS007
+      name: TMFS007
+    - id: TMFS008
+      name: Service and Resource Order Management for Postpaid Mobile Subscribers
+    - id: TMFS009
+      name: Usage and Balance Management
+    - id: TMFS011
+      name: Order Fallout Management
+    - id: TMFS014
+      name: 5G Slice Management
+    - id: TMFS026
+      name: Commercializing CAMARA APIs with Operate APIs
+    - id: TMFS028
+      name: End to End Modelling of Cloud Based VPN
 yaml_spec_version: 1.2.0
 ---
 

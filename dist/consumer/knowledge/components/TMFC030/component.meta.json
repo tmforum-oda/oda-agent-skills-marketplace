@@ -11,7 +11,45 @@
     "sha256": "b6f1e9a2f0f1bb348268ae81fbe4a2d6162808c02b4e1592043751429bbcc75e"
   },
   "links": {
-    "apis": [],
-    "use_cases": []
+    "apis": [
+      {
+        "id": "TMF632",
+        "name": "party-management-api"
+      },
+      {
+        "id": "TMF637",
+        "name": "product-inventory-management-api"
+      },
+      {
+        "id": "TMF666",
+        "name": "account-management-api"
+      },
+      {
+        "id": "TMF667",
+        "name": "document-management-api"
+      },
+      {
+        "id": "TMF669",
+        "name": "party-role-management-api"
+      },
+      {
+        "id": "TMF676",
+        "name": "payment-management-api"
+      },
+      {
+        "id": "TMF678",
+        "name": "customer-bill-management-api"
+      },
+      {
+        "id": "TMF701",
+        "name": "process-flow-management-api"
+      }
+    ],
+    "use_cases": [
+      {
+        "id": "TMFS005",
+        "name": "Billing - Fiber Contract"
+      }
+    ]
   }
 }

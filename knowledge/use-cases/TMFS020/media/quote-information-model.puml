@@ -1,0 +1,102 @@
+@startuml
+title Quote information model (based on TMF648, with proposed B2B2X enhancements)
+
+' Customer Price Agreement has a red title in the source image (highlighted entity).
+
+class "Quote" as Quote {
+  Quote ID
+  Created On
+  Start Date
+  Expiry Date
+  Requested completion Date
+  Agreement ID
+  Created by
+  Party
+  Description
+  Version
+}
+class "Agreement" as Agreement {
+  Agreement ID
+  Created On
+  Start Date
+  Expiry Date
+  Agreement Type
+  Created by
+  Party A(Marketplace Owner
+  Party B (Customer)
+  Description
+  Statement of Intent
+}
+class "Related Party" as RelatedParty {
+  Party ID
+  Party role
+  Party Name
+}
+class "Approval" as Approval {
+  Approval Date
+  Status
+  Party role
+  Party Name
+}
+class "Quote Price" as QuotePrice {
+  Price Type
+  Value
+  Effective Start Date
+}
+class "Customer Price Agreement" as CustomerPriceAgreement <<highlighted>> {
+  Party Name
+  Party ID
+  Product Offer ID
+  Agreement ID
+  Product Offer Pricing Method
+  Agreement Item price
+}
+class "Quote Item" as QuoteItem {
+  Quote ID
+  Quote Item ID
+  Product Offer ID
+}
+class "Quote Item Price" as QuoteItemPrice {
+  Price Type
+  Value
+  Effective Start Date
+}
+class "Product Offering" as ProductOffering {
+  Product Offer ID
+  Description
+  Product Offer Pricing Method
+  Product Offer Price
+}
+class "Geographic Site" as GeoSite {
+  Location Type = Service Location
+  Location ID
+  Address
+}
+class "Appointment" as Appointment {
+  Quote Item ID
+  Location ID
+  Address
+}
+class "Agreement Item" as AgreementItem {
+  Agreement ID
+  Agreement  Item ID
+  Product Offer ID
+  Created by
+}
+
+Quote "1..*" -- "*..1" Agreement
+RelatedParty "1..*" -- "1..*" Quote
+RelatedParty "0..*" -- QuoteItem
+Approval "1..1" -- Quote
+Approval -- QuoteItem
+Quote -- "1..1" QuotePrice
+Quote -- "1..*" QuoteItem
+QuoteItem -- "1..1" QuoteItemPrice
+QuoteItem -- "1..1" ProductOffering
+GeoSite "1..1" -- QuoteItem
+Appointment "1..1" -- QuoteItem
+QuoteItem -- "1..1" AgreementItem
+QuotePrice -- CustomerPriceAgreement
+QuoteItemPrice -- CustomerPriceAgreement
+
+@enduml

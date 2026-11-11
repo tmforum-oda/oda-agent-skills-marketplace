@@ -1,0 +1,115 @@
+@startuml
+title Agreement Logical model (draft, WIP with the API teams)
+
+' Entities with red titles in the source image are the ones the use case highlights
+' (Geographic Site, Commitment type, Commitment spend, Payment, Customer Price Agreement).
+
+class "Geographic Site" as GeoSite <<highlighted>> {
+  Location Type = Servie Location
+  Location ID
+  Address
+}
+class "Party" as Party {
+  Party ID
+  Party role
+  Party Name
+}
+class "Related Party" as RelatedParty {
+  Party ID
+  Party role
+  Party Name
+}
+class "Agreement" as Agreement {
+  Agreement ID
+  Created On
+  Start Date
+  Expiry Date
+  Agreement Type
+  Created by
+  Party A(Marketplace Owner
+  Party B (Customer)
+  Description
+  Statement of Intent
+}
+class "Associated Agreement" as AssocAgreement {
+  Agreement ID
+  Created On
+  Agreement Type
+  Created by
+  Party A(Marketplace Owner
+  Party B ()
+}
+class "Commitment" as Commitment {
+  Agreement ID
+  Commitment date
+  Duration
+  Renewal Option
+}
+class "Commitment type" as CommitmentType <<highlighted>> {
+  Commitment ID
+  Committed Type
+  Usage
+  Dollar Amount
+}
+class "Commitment spend" as CommitmentSpend <<highlighted>> {
+  Agreement ID
+  Committment ID
+  Committed Type
+  Start date
+  End date
+}
+class "Agreement Item" as AgreementItem {
+  Agreement ID
+  Agreement  Item ID
+  Product Offer ID
+  Created by
+}
+class "Agreement term or condition" as TermOrCondition {
+  Agreement ID
+  Duration(Valid for)
+  Renewal Option
+}
+class "Payment" as Payment <<highlighted>> {
+  Billing cycle
+  Payment method
+  Payment Type
+}
+class "Product Agreement" as ProductAgreement {
+  Product Offer ID
+  Description
+  Product Offer Pricing Method
+  Product Offer Price
+}
+class "Product Item Agreement" as ProductItemAgreement {
+  Product Offer ID
+  Description
+  Product Offer Pricing Method
+  Product Offer Price
+  SLA
+  Availability
+}
+class "Customer Price Agreement" as CustomerPriceAgreement <<highlighted>> {
+  Party Name
+  Party ID
+  Product Offer ID
+  Agreement ID
+  Product Offer Pricing Method
+  Agreement Item price
+}
+
+GeoSite "1..*" -- "1..1" Party
+RelatedParty "1..*" -- "1..*" Party
+Party "1..*" -- "1..*" Agreement
+Agreement -- "1..*" AssocAgreement
+Agreement -- "1..1" Commitment
+CommitmentType "1..1" -- CommitmentSpend
+CommitmentSpend "1..1" -- Agreement
+Agreement -- "1..1" ProductAgreement
+Agreement -- "1..*" AgreementItem
+TermOrCondition "1..1" -- AgreementItem
+AgreementItem -- "1..1" ProductItemAgreement
+AgreementItem -- "1..1" Payment
+ProductAgreement -- ProductItemAgreement
+ProductItemAgreement -- CustomerPriceAgreement
+
+@enduml

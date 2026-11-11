@@ -1,0 +1,68 @@
+@startuml
+title Agreement Management - from Opportunity to Framework Agreement
+
+actor "Customer Contact" as CC
+actor "Account Manager" as AM
+participant "Lead & Opportunity Management -\nTMFC036" as LOM
+participant "Product Configuration\n- TMFC027" as PC
+participant "Product Catalog Management -\nTMFC001" as PCM
+participant "Agreement Management -\nTMFC039" as AGM #LightBlue
+participant "Party Management -\nTMFC028" as PM
+
+AM -> LOM : Create opportunity for Account
+activate LOM
+LOM -> PM : Update Account with Opportunity : TMF 632 Party Management
+AM -> CC : Start negotiation with customer
+CC -> AM : Describes the need
+AM -> LOM : Update Opportunity with\nOppty values and PO
+LOM -> PC : Configure Opportunity Product - TMF760:\nProduct Configuration management
+activate PC
+PC -> PCM : Fetch PO and POP -  TMF 620 Product Catalog Management
+activate PCM
+PCM --> PC : Consume PO with POP
+PC -> PC : Build Configuration\nfor the PO(s)
+PC --> LOM : Consume Configuration
+deactivate PC
+LOM -> LOM : Oppty PO configuration built
+LOM -> AM : View Opportunity with value, PO (s) and other data
+deactivate PCM
+
+CC -> AM : Ready to create a  Sales /\nFramework Agreement
+AM -> LOM : Update Opportunity status and start agreement configuration
+LOM -> LOM : Opportunity is converted\nto Framework Agreement (0..* / 0..*)
+LOM -> AGM : Create Framework agreement for Party: <color:red>TMF 651: Agreement Management</color>
+deactivate LOM
+activate AGM
+AGM -> AGM : Create agreement for\nCustomer Account
+AGM -> PCM : Fetch PO and POP -  TMF 620\nProduct Catalog Management
+activate PCM
+PCM --> AGM : Consume PO with POP
+deactivate PCM
+AGM -> PM : Update Account with Agreement : TMF\n632 Party Management
+AGM -> PC : Create Configuration for Agreement for the PO(s): TMF 760
+activate PC
+PC -> PC : Build Configuration\nfor the PO(s)
+PC -> AGM : Consume Configuration
+AGM -> AGM : Agreement configuration\nfor the PO (s)
+
+loop Until Agreement is confirmed
+    AGM -> PC : Configure Customer specific configuration: TMF 679 - Product Offering Qualification management
+    PC -> PC : Verify and update\nconfiguration
+    PC --> AGM : Consume Configuration
+    AGM -> AGM : Create agreement (Line) Items
+    AGM --> AM : View Agreement configuration with Line Items
+    AM -> AGM : Update Global level SLAs and terms and Conditions
+    AGM -> AGM : Update SLAs, T&C etc
+    AGM --> AM : View Agreement with SLAs and T&C
+    AM -> AGM : Update Customer specific price against Agreement and Agreement (Line) Items
+    AGM -> AGM : Update  price\nfor agreement (Line) items
+    AGM --> AM : View Agreement with Line Items and Customer specific price (For the entire installation and Item level )
+end
+deactivate PC
+
+AM -> AGM : Check Agreement to Quote flag
+AM -> AGM : Confirm Agreement
+AGM -> PM : Update Agreement status against Party: TMF 632 Party Management
+deactivate AGM
+
+@enduml

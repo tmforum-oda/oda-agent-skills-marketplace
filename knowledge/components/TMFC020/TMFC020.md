@@ -26,7 +26,7 @@ links:
     - id: TMFS016
       name: Prospect to Order for the SASE, (CPQ)
     - id: TMFS020
-      name: Multi Domain B2B2X Contract Management
+      name: Multi Domain B2B2X Selling & Order Capture
     - id: TMFS021
       name: Orchestration of a Multi Party, Multi domain Sales Order
 yaml_spec_version: 1.1.0

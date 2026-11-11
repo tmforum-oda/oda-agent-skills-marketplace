@@ -45,6 +45,8 @@ links:
       name: Wholesale Broadband
     - id: TMFS025
       name: Cloud Native Function Management
+    - id: TMFS026
+      name: Commercializing CAMARA APIs with Operate APIs
     - id: TMFS028
       name: End to End Modelling of Cloud Based VPN
     - id: TMFS030

@@ -1,0 +1,56 @@
+@startuml
+title SD1 : Notification requested and delivered
+
+actor Recipient
+participant "Product Order Delivery and Orchestration Management" as PODOM
+participant "//Communication Interaction Management//" as CIM
+participant "Party Management" as PM
+participant "Party Privacy Management" as PPM
+participant "Party Interaction Management" as PIM
+participant "Channel Transport" as CT
+
+PODOM -> CIM : 1 **TMF681 Communication Management** POST /communicationMessage\n(messageType="SMS", receiver[].party.id="Alice",\ncontent="Your order 4471 to add Static IP ... confirmed",\npriority="normal", characteristic[messageClass="transactional"])
+activate CIM
+CIM --> PODOM : 2 **TMF681** 201 Created\n(id, state="initial")
+note right of CIM
+  The request is accepted independently of whether
+  delivery is currently possible (P5, H1).
+end note
+
+CIM -> PM : 3 **TMF632 Party Management** GET /individual/Alice\n(fields=contactMedium)
+activate PM
+PM --> CIM : 4 **TMF632** 200 OK\n(contactMedium[{mediumType="sms", preferred=true, validFor},\n{mediumType="email", preferred=false}])
+deactivate PM
+
+CIM -> PPM : 5 **TMF644 Privacy Management** GET the privacy profile for Alice\n(resource level — see Table 12)
+activate PPM
+PPM --> CIM : 6 **TMF644** 200 OK\n(marketing permitted; no restriction on\n"transactional", "statutory" or "regulatory")
+deactivate PPM
+note right of PPM
+  The profile is read at dispatch rather than held by the
+  delivery capability, which is why X6 leaves mastering of
+  the profile with Party Privacy Management. Enforcement is what
+  moves, not ownership of the consent record.
+end note
+
+CIM -> CIM : 7 consent permits "transactional" for this class;\nwithin send window; not a duplicate;\nnothing else in flight for Alice
+CIM -> CIM : 8 render for SMS, 160 characters, en-IE;\nselect the preferred medium and a route
+CIM -> CT : 9 dispatch on the SMS transport\n(to the mobile number resolved at 4)
+activate CT
+CT --> Recipient : 10 "Your order 4471 to add Static IP to your\nfibre broadband is confirmed.\nActivation by 12 Sep."
+Recipient --> CT : 11 delivery receipt from the handset\n(delivered, timestamp)
+CT --> CIM : 12 **transport receipt** delivered, timestamp,\naddress used
+deactivate CT
+CIM -> CIM : 13 normalise to TMF681 state\n"inProgress" -> "completed"
+CIM -> PIM : 14 **TMF683 Party Interaction Management** POST /partyInteraction\n(direction="outbound", status="completed",\nchannel[{name="sms"}], interactionDate,\nrelatedParty[{id="Alice"}])
+activate PIM
+PIM --> CIM : 15 **TMF683** 201 Created (id)
+deactivate PIM
+deactivate CIM
+note over CIM
+  Delivery state is available by query. TMF681 v4.0.0
+  defines /hub with no event schemas, so there is no
+  event to subscribe to. Recorded in §5.2.
+end note
+
+@enduml

@@ -11,7 +11,41 @@
     "sha256": "151a61558a31fed99c69c71b9e4aad71bdb722f3f99674ae5f194623f102475a"
   },
   "links": {
-    "apis": [],
-    "use_cases": []
+    "apis": [
+      {
+        "id": "TMF634",
+        "name": "resource-catalog-management-api"
+      },
+      {
+        "id": "TMF639",
+        "name": "resource-inventory-management-api"
+      },
+      {
+        "id": "TMF664",
+        "name": "resource-function-activation-management-api"
+      },
+      {
+        "id": "TMF669",
+        "name": "party-role-management-api"
+      },
+      {
+        "id": "TMF702",
+        "name": "resource-activation-management-api"
+      }
+    ],
+    "use_cases": [
+      {
+        "id": "TMFS008",
+        "name": "Service and Resource Order Management for Postpaid Mobile Subscribers"
+      },
+      {
+        "id": "TMFS011",
+        "name": "Order Fallout Management"
+      },
+      {
+        "id": "TMFS025",
+        "name": "Cloud Native Function Management"
+      }
+    ]
   }
 }

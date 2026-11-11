@@ -11,8 +11,40 @@ source:
   sha256: f56efa8d80f4af5dd0a71db8901fed6f026c4181f971485850d24e14709f12bd
   raw_path: references/components/TMFC006/TMFC006_Service_Catalog_Management_v1.2.1.pdf
 links:
-  apis: []
-  use_cases: []
+  apis:
+    - id: TMF632
+      name: party-management-api
+    - id: TMF633
+      name: service-catalog-management-api
+    - id: TMF634
+      name: resource-catalog-management-api
+    - id: TMF657
+      name: service-quality-management-api
+    - id: TMF662
+      name: entity-catalog-management-api
+    - id: TMF669
+      name: party-role-management-api
+    - id: TMF701
+      name: process-flow-management-api
+  use_cases:
+    - id: TMFS004
+      name: Order Delivery – Fiber contract
+    - id: TMFS007
+      name: TMFS007
+    - id: TMFS008
+      name: Service and Resource Order Management for Postpaid Mobile Subscribers
+    - id: TMFS010
+      name: ODA Flow with NaaS Support
+    - id: TMFS012
+      name: Product Catalog - Launching a New Product Offering
+    - id: TMFS014
+      name: 5G Slice Management
+    - id: TMFS021
+      name: Orchestration of a Multi Party, Multi domain Sales Order
+    - id: TMFS028
+      name: End to End Modelling of Cloud Based VPN
+    - id: TMFS030
+      name: Satellite Direct-to-Device – Wholesaling Non-Terrestrial Networks capacity to Mobile Network Operators
 yaml_spec_version: 1.2.0
 ---
 

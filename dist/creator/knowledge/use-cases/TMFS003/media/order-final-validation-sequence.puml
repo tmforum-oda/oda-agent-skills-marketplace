@@ -17,7 +17,7 @@ POCV --> EM : 120 **TMF701** 200 OK\n(SessionId, ProcessId4, available actions:\
 
 EM -> EM : 121 display final order completion form\nand request confirmation
 person -> EM : 122 click on confirm
-EM -> POCV : 123 **TMF701 Process Flow** PATCH /processFlow/4/taskFlow/10\nSessionId, Confirmed
+EM --> POCV : 123 **TMF701 Process** PATCH /process/4/task/10\nSessionId, Confirmed
 
 alt Product inventory updated (if product previously created)
     POCV -> PI : 124 **TMF637 Product Inventory Mgt** PATCH /product/123
@@ -31,7 +31,7 @@ else Product inventory creation (if product not yet created)
     deactivate PI
 end
 
-POCV -> POCV : 128 **TMF622 Product Order Mgt** PATCH /productOrder/7\nto change the status of the productOrder to 'acknowledged'
+POCV --> POCV : 128 **TMF622 Product Order Mgt** PATCH /productOrder/7\nto change the status of the productOrder to 'acknowledged'
 
 note over POCV, EM : Order capture triggers a welcome process to continue the interaction flow with EngagementManagement
 
@@ -45,7 +45,7 @@ opt Management of reservation
     deactivate SCM
 end
 
-POCV -> Event : 133 **TMF688 Event Mgt** POST /processFlowStateChangeEvent\nProcessFlow OrderCapture Completed
+POCV -> Event : 133 **TMF688 Event Mgt** POST /processStateChangeEvent\nProcess OrderCapture Completed
 POCV -> Event : 134 **TMF688 Event Mgt** POST /productOrderStateChangeEvent\nA new order in accepted state
 
 deactivate POCV

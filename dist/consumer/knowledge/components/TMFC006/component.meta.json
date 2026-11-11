@@ -11,7 +11,73 @@
     "sha256": "4fdb6359d29eb7a6e502b218ad836aacaef57d187a82b8cd143a35ed8fb117cd"
   },
   "links": {
-    "apis": [],
-    "use_cases": []
+    "apis": [
+      {
+        "id": "TMF632",
+        "name": "party-management-api"
+      },
+      {
+        "id": "TMF633",
+        "name": "service-catalog-management-api"
+      },
+      {
+        "id": "TMF634",
+        "name": "resource-catalog-management-api"
+      },
+      {
+        "id": "TMF657",
+        "name": "service-quality-management-api"
+      },
+      {
+        "id": "TMF662",
+        "name": "entity-catalog-management-api"
+      },
+      {
+        "id": "TMF669",
+        "name": "party-role-management-api"
+      },
+      {
+        "id": "TMF701",
+        "name": "process-flow-management-api"
+      }
+    ],
+    "use_cases": [
+      {
+        "id": "TMFS004",
+        "name": "Order Delivery \u2013 Fiber contract"
+      },
+      {
+        "id": "TMFS007",
+        "name": "TMFS007"
+      },
+      {
+        "id": "TMFS008",
+        "name": "Service and Resource Order Management for Postpaid Mobile Subscribers"
+      },
+      {
+        "id": "TMFS010",
+        "name": "ODA Flow with NaaS Support"
+      },
+      {
+        "id": "TMFS012",
+        "name": "Product Catalog - Launching a New Product Offering"
+      },
+      {
+        "id": "TMFS014",
+        "name": "5G Slice Management"
+      },
+      {
+        "id": "TMFS021",
+        "name": "Orchestration of a Multi Party, Multi domain Sales Order"
+      },
+      {
+        "id": "TMFS028",
+        "name": "End to End Modelling of Cloud Based VPN"
+      },
+      {
+        "id": "TMFS030",
+        "name": "Satellite Direct-to-Device \u2013 Wholesaling Non-Terrestrial Networks capacity to Mobile Network Operators"
+      }
+    ]
   }
 }

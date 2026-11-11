@@ -1,0 +1,59 @@
+@startuml
+title E2E journey for Service API exposure (Aggregator and CSP)
+
+actor "Application\nProvider\\\nApplication" as App
+box "Aggregator" #E8F5E9
+participant "Partner\nPlatform" as PP
+end box
+box "Operator" #EAF2FB
+participant "OGW\nPlatform" as OGW
+end box
+participant "Operator" as Op
+
+== 1. Channel Partner/CSP Catalog Sync ==
+PP -[#red]> OGW : 1.1 Request API product catalog
+OGW -[#red]-> PP : 1.2 Share available GSMA-compliant APIs
+PP -[#red]> OGW : 1.3 Subscribe to catalog updates
+OGW -[#red]> PP : 1.4 Send catalog updates when available
+PP -> PP : 1.5 Map CSP products to partner offerings
+
+== 2. Organization & Application Onboarding ==
+App -[#green]> PP : 2.1 Register organization
+App -[#green]> PP : 2.4 Register application
+
+== 3. Catalog Browsing ==
+App -[#green]> PP : 3.1 Browse available API products
+PP -[#green]> App : 3.2 Display API catalog with specifications
+App -[#green]> PP : 3.3 Request API documentation
+PP -[#green]> App : 3.4 Provide API documentation and examples
+
+== 4. API Product Management ==
+App -> PP : 4.1 Request API subscription
+PP -[#red]> OGW : 2.2 Create Application Owner
+OGW -[#red]-> PP : 2.3 Approve Application Owner Creation
+PP -[#red]> OGW : 2.5 Create application profile
+OGW -[#red]-> PP : 2.6 Provide application profile
+PP -[#green]> App : 2.7 Deliver account confirmation & application credentials
+PP -[#red]> OGW : 4.2 Create Access Product Order
+OGW -[#red]-> PP : 4.3 Approve Order
+PP -[#green]> App : 4.4 Deliver API Access & usage policies
+
+== 5. API Consumption ==
+App <-[#blue]> Op
+note left of App : Covered in Section 3.1.1.
+
+== 6. API Usage Reporting ==
+OGW -[#red]> PP : 6.1 Generate usage metrics
+PP -[#green]> App : 6.2 Provide usage dashboard
+OGW -[#red]> PP : 6.3 Send billing information
+PP -[#green]> App : 6.4 Invoice for API consumption
+
+legend right
+  **Interaction Types**
+  <color:green>→</color> User Interface
+  <color:red>→</color> TMForum API Call
+  <color:red>→</color> TMForum API Call Response
+  <color:blue>→</color> CAMARA API Call
+endlegend
+
+@enduml

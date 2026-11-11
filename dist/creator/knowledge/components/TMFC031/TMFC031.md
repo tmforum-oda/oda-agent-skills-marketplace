@@ -11,8 +11,26 @@ source:
   sha256: f7794beaaa2924ac2d2652b56331bba38f22e6878e0948b04a1ce96ecb428fd4
   raw_path: references/components/TMFC031/TMFC031_Bill_Calculation_Management_v2.0.0.pdf
 links:
-  apis: []
-  use_cases: []
+  apis:
+    - id: TMF620
+      name: product-catalog-management-api
+    - id: TMF632
+      name: party-management-api
+    - id: TMF635
+      name: usage-management-api
+    - id: TMF637
+      name: product-inventory-management-api
+    - id: TMF666
+      name: account-management-api
+    - id: TMF669
+      name: party-role-management-api
+    - id: TMF678
+      name: customer-bill-management-api
+    - id: TMF701
+      name: process-flow-management-api
+  use_cases:
+    - id: TMFS005
+      name: Billing - Fiber Contract
 yaml_spec_version: 3.0.0
 ---
 

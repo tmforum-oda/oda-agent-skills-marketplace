@@ -1,0 +1,23 @@
+@startuml
+title Step 3 - Test Fiber Product Technical Eligibility (previous diagram, kept for discussion)
+
+actor person
+participant "EngagementManagement" as EM
+participant "PartyInteractionManagement" as PIM
+participant "ServiceQualificationManagement" as SQM
+
+person -> EM : 20 provide address or phoneNumber for eligibility
+EM -> SQM : 21 **TMF645 Service Qualification** POST /checkServiceQualification\n(CFSSpec(s), phone number or address)
+activate EM
+activate SQM
+SQM --> EM : 22 **TMF645** 201 Created\nEligibility result
+deactivate SQM
+deactivate EM
+
+EM -> EM : 23 display eligibility result
+
+person -> EM : 24 select an offer
+EM -> PIM : 25 **TMF701 Process** PATCH /process/3/task/2\nsessionId, taskId2 (start order), offering25, partyId8
+activate PIM
+
+@enduml

@@ -27,6 +27,8 @@ links:
   use_cases:
     - id: TMFS001
       name: New Party – Create your accounts
+    - id: TMFS033
+      name: Communication Interaction Management
 yaml_spec_version: 1.1.0
 ---
 

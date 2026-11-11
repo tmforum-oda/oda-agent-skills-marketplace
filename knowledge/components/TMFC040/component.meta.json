@@ -49,6 +49,10 @@
       {
         "id": "TMFS009",
         "name": "Usage and Balance Management"
+      },
+      {
+        "id": "TMFS033",
+        "name": "Communication Interaction Management"
       }
     ]
   }

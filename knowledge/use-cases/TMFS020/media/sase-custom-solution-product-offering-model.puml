@@ -1,0 +1,119 @@
+@startuml
+title Product Offering Logical Model - SASE custom solution bundle
+
+' Key in the source image: PO / PO Bundle (blue outline), PS (green outline),
+' CFSS (red/orange fill), RS (yellow fill), RFSS (pale yellow fill).
+' Source note: "Resource Functions are not being defined as they are used in the Core commerce
+' layer. They are handled by the product layer"
+
+package "Product Offerings" {
+  class "SASE custom solution" as SASE <<PO Bundle>>
+  class "Internet Connectivity PO" as ICPO <<PO>>
+  class "SD WAN GW PO" as GWPO <<PO>>
+  class "SD WAN Controller PO" as CTLPO <<PO>>
+  class "Cloud services" as CloudPO <<PO>>
+  class "SAAS" as SaasPO <<PO>>
+  class "SI Services" as SIPO <<PO>>
+}
+
+package "Product Specifications" {
+  class "Site Connectivity PS" as SitePS <<PS>>
+  class "Connectivity PS" as ConnPS <<PS>>
+  class "SD WAN Edge PS" as EdgePS <<PS>>
+  class "SD WAN GW PS" as GWPS <<PS>>
+  class "SD WAN Controller PS" as CTLPS <<PS>>
+  class "Cloud StoragePS" as CloudPS <<PS>>
+  class "SAAS 1 PS" as SaasPS <<PS>>
+  class "SI Services" as SIPS <<PS>>
+}
+
+package "CFSS" {
+  class "Access CFSS <Dedicated FTTH>" as AccessCFSS <<CFSS>>
+  class "Edge Node  CFSS" as EdgeCFSS <<CFSS>>
+  class "VAS CFSS" as VasCFSS <<CFSS>>
+  class "Wan GW CFSS" as GWCFSS <<CFSS>>
+  class "Policy CFSS" as PolicyCFSS <<CFSS>>
+  class "SAAS 1 CFSS" as SaasCFSS <<CFSS>>
+}
+
+package "RFSS" {
+  class "OLT" as OLT <<RFSS>>
+  class "VNF RFSS" as VNFRFSS <<RFSS>>
+  class "Firewall GW  RFSS" as FwRFSS <<RFSS>>
+  class "Wan GW RFSS" as GWRFSS <<RFSS>>
+  class "Policy 1 RFSS" as Pol1RFSS <<RFSS>>
+  class "Policy 2 RFSS" as Pol2RFSS <<RFSS>>
+  class "SAAS 1 Policy RFSS" as SaasRFSS <<RFSS>>
+}
+
+package "Resource Specifications" {
+  class "CPE" as CPE <<RS>>
+  class "ONT" as ONT <<RS>>
+  class "Edge Router" as EdgeRouter <<RS>>
+  class "VNF LRS" as VNFLRS <<RS>>
+  class "Firewall LRS" as FwLRS <<RS>>
+  class "SD Wan GW LRS" as GWLRS <<RS>>
+  class "Policy 1 License ID" as Pol1Lic <<RS>>
+  class "Policy 2 License ID" as Pol2Lic <<RS>>
+  class "Cloud Server storage ID LRS" as CloudLRS <<RS>>
+  class "SAAS  1 Licence LRS" as SaasLRS <<RS>>
+}
+
+SASE --> "1..n" ICPO
+SASE --> "1..1" GWPO
+SASE --> "1..1" CTLPO
+SASE --> "0..1" CloudPO
+SASE --> "0..1" SaasPO
+SASE --> "0..1" SIPO
+
+ICPO --> SitePS
+SitePS --> "1..1" ConnPS
+SitePS --> "1..1" EdgePS
+ConnPS --> "1..1" CPE
+ConnPS --> "1..1" AccessCFSS
+ConnPS --> "1..1" ONT
+AccessCFSS --> "1..1" OLT
+OLT ..> ONT : Requires
+OLT ..> CPE : Requires
+
+EdgePS --> "1..1" EdgeRouter
+EdgePS --> VNFLRS
+EdgePS --> EdgeCFSS
+EdgePS --> VasCFSS
+EdgePS --> FwLRS
+EdgeCFSS --> "1..n" VNFRFSS
+VasCFSS --> "1..n" FwRFSS
+VNFLRS ..> EdgeRouter : Related to
+VNFRFSS ..> VNFLRS : Requires
+FwRFSS --> FwLRS : Requires
+
+GWPO --> "1..1" GWPS
+GWPS --> GWCFSS
+GWPS --> GWLRS
+GWCFSS --> GWRFSS
+GWRFSS --> GWLRS : Requires
+
+CTLPO --> "1..1" CTLPS
+CTLPS --> Pol1Lic
+CTLPS --> PolicyCFSS
+CTLPS --> Pol2Lic
+PolicyCFSS --> Pol1RFSS
+PolicyCFSS --> Pol2RFSS
+Pol1RFSS --> Pol1Lic
+Pol2RFSS --> Pol2Lic
+Pol1RFSS ..> VNFRFSS : Related to
+Pol2RFSS ..> VNFRFSS : Related to
+
+CloudPO --> "1..1" CloudPS
+CloudPS --> "1..1" CloudLRS
+
+SaasPO --> "1..1" SaasPS
+SaasPS --> SaasCFSS
+SaasPS --> SaasLRS
+SaasCFSS --> SaasRFSS
+SaasRFSS ..> SaasLRS : Req
+SaasRFSS ..> SaasLRS : Requires
+
+SIPO --> SIPS
+
+@enduml

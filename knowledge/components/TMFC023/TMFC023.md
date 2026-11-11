@@ -40,9 +40,13 @@ links:
     - id: TMFS016
       name: Prospect to Order for the SASE, (CPQ)
     - id: TMFS020
-      name: Multi Domain B2B2X Contract Management
+      name: Multi Domain B2B2X Selling & Order Capture
+    - id: TMFS026
+      name: Commercializing CAMARA APIs with Operate APIs
     - id: TMFS031
       name: Problem Management
+    - id: TMFS033
+      name: Communication Interaction Management
 yaml_spec_version: 1.1.2
 ---
 

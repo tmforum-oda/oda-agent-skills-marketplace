@@ -31,11 +31,11 @@
     "id": "TMFS002",
     "type": "use-case",
     "name": "Browse B2C Catalogue and Check Fiber Technical Eligibility",
-    "version": "3.1.2",
-    "status": "GA - TM Forum Approved",
+    "version": "3.2.0",
+    "status": "GA - Team Approved",
     "maturity": "GA",
-    "approval_status": "TM Forum Approved",
-    "release_status": "Production",
+    "approval_status": "Team Approved",
+    "release_status": "Pre-production",
     "components": [
       "TMFC001",
       "TMFC009",
@@ -56,11 +56,11 @@
     "id": "TMFS003",
     "type": "use-case",
     "name": "Order Capture - Fiber Contract",
-    "version": "9.0.0",
-    "status": "GA - TM Forum Approved",
+    "version": "9.1.0",
+    "status": "GA - Team Approved",
     "maturity": "GA",
-    "approval_status": "TM Forum Approved",
-    "release_status": "Production",
+    "approval_status": "Team Approved",
+    "release_status": "Pre-production",
     "components": [
       "TMFC001",
       "TMFC002",
@@ -447,20 +447,15 @@
   {
     "id": "TMFS020",
     "type": "use-case",
-    "name": "Multi Domain B2B2X Contract Management",
-    "version": "1.1.0",
-    "status": "GA - TM Forum Approved",
+    "name": "Multi Domain B2B2X Selling & Order Capture",
+    "version": "2.0.0",
+    "status": "GA - Team Approved",
     "maturity": "GA",
-    "approval_status": "TM Forum Approved",
-    "release_status": "Production",
-    "components": [
-      "TMFC033",
-      "TMFC036",
-      "TMFC039",
-      "TMFC050"
-    ],
+    "approval_status": "Team Approved",
+    "release_status": "Pre-production",
+    "components": [],
     "apis": [
-      "TMF679"
+      "TMF651"
     ],
     "path": "knowledge/use-cases/TMFS020/TMFS020.md"
   },
@@ -501,12 +496,20 @@
     "id": "TMFS026",
     "type": "use-case",
     "name": "Commercializing CAMARA APIs with Operate APIs",
-    "version": "2.0.0",
-    "status": "Alpha - Member Evaluated",
+    "version": "3.0.0",
+    "status": "Alpha - Team Approved",
     "maturity": "Alpha",
-    "approval_status": "Member Evaluated",
+    "approval_status": "Team Approved",
     "release_status": "Pre-production",
-    "components": [],
+    "components": [
+      "TMFC001",
+      "TMFC002",
+      "TMFC012",
+      "TMFC023",
+      "TMFC028",
+      "TMFC035",
+      "TMFC039"
+    ],
     "apis": [
       "TMF931",
       "TMF936"
@@ -610,10 +613,10 @@
     "id": "TMFS031",
     "type": "use-case",
     "name": "Problem Management",
-    "version": "1.0.0",
-    "status": "Alpha - Member Evaluated",
-    "maturity": "Alpha",
-    "approval_status": "Member Evaluated",
+    "version": "2.0.0",
+    "status": "Beta - Team Approved",
+    "maturity": "Beta",
+    "approval_status": "Team Approved",
     "release_status": "Pre-production",
     "components": [
       "TMFC023",
@@ -628,5 +631,49 @@
       "TMF701"
     ],
     "path": "knowledge/use-cases/TMFS031/TMFS031.md"
+  },
+  {
+    "id": "TMFS033",
+    "type": "use-case",
+    "name": "Communication Interaction Management",
+    "version": "1.0.0",
+    "status": "Alpha - Team Approved",
+    "maturity": "Alpha",
+    "approval_status": "Team Approved",
+    "release_status": "Pre-production",
+    "components": [
+      "TMFC001",
+      "TMFC002",
+      "TMFC005",
+      "TMFC007",
+      "TMFC015",
+      "TMFC022",
+      "TMFC023",
+      "TMFC024",
+      "TMFC027",
+      "TMFC027",
+      "TMFC029",
+      "TMFC040",
+      "TMFC051"
+    ],
+    "apis": [
+      "TMF620",
+      "TMF622",
+      "TMF629",
+      "TMF632",
+      "TMF635",
+      "TMF636",
+      "TMF637",
+      "TMF640",
+      "TMF641",
+      "TMF644",
+      "TMF666",
+      "TMF667",
+      "TMF676",
+      "TMF678",
+      "TMF681",
+      "TMF683"
+    ],
+    "path": "knowledge/use-cases/TMFS033/TMFS033.md"
   }
 ]

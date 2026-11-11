@@ -11,7 +11,93 @@
     "sha256": "d9e26d82203a45d5f05e23786eb49e4c9a061053381a2985601c4f3f5210abb6"
   },
   "links": {
-    "apis": [],
-    "use_cases": []
+    "apis": [
+      {
+        "id": "TMF632",
+        "name": "party-management-api"
+      },
+      {
+        "id": "TMF633",
+        "name": "service-catalog-management-api"
+      },
+      {
+        "id": "TMF634",
+        "name": "resource-catalog-management-api"
+      },
+      {
+        "id": "TMF638",
+        "name": "service-inventory-management-api"
+      },
+      {
+        "id": "TMF639",
+        "name": "resource-inventory-management-api"
+      },
+      {
+        "id": "TMF645",
+        "name": "service-qualification-management-api"
+      },
+      {
+        "id": "TMF669",
+        "name": "party-role-management-api"
+      },
+      {
+        "id": "TMF673",
+        "name": "geographic-address-management-api"
+      },
+      {
+        "id": "TMF674",
+        "name": "geographic-site-management-api"
+      },
+      {
+        "id": "TMF675",
+        "name": "geographic-location-management-api"
+      }
+    ],
+    "use_cases": [
+      {
+        "id": "TMFS002",
+        "name": "Browse B2C Catalogue and Check Fiber Technical Eligibility"
+      },
+      {
+        "id": "TMFS003",
+        "name": "Order Capture - Fiber Contract"
+      },
+      {
+        "id": "TMFS004",
+        "name": "Order Delivery \u2013 Fiber contract"
+      },
+      {
+        "id": "TMFS007",
+        "name": "TMFS007"
+      },
+      {
+        "id": "TMFS008",
+        "name": "Service and Resource Order Management for Postpaid Mobile Subscribers"
+      },
+      {
+        "id": "TMFS010",
+        "name": "ODA Flow with NaaS Support"
+      },
+      {
+        "id": "TMFS014",
+        "name": "5G Slice Management"
+      },
+      {
+        "id": "TMFS016",
+        "name": "Prospect to Order for the SASE, (CPQ)"
+      },
+      {
+        "id": "TMFS018",
+        "name": "Wholesale Broadband"
+      },
+      {
+        "id": "TMFS028",
+        "name": "End to End Modelling of Cloud Based VPN"
+      },
+      {
+        "id": "TMFS030",
+        "name": "Satellite Direct-to-Device \u2013 Wholesaling Non-Terrestrial Networks capacity to Mobile Network Operators"
+      }
+    ]
   }
 }

@@ -2,51 +2,130 @@
 id: TMFS026
 type: use-case
 name: Commercializing CAMARA APIs with Operate APIs
-version: 2.0.0
-status: Alpha - Member Evaluated
+version: 3.0.0
+status: Alpha - Team Approved
 source:
-  origin: "https://www.tmforum.org/resources/technical-specification/tmfs026-use-case-commercializing-camara-apis-with-operate-apis-v2-0-0/"
+  origin: "https://www.tmforum.org/resources/use-case/tmfs026-use-case-commercializing-camara-apis-with-operate-apis-v3-0-0/"
   license: RAND
-  retrieved: 2026-08-19
-  sha256: 90a959d088dce6ff801d36c9c8b39b976145849ec94679d7ea347e0ab214431d
-  raw_path: ../references/use-cases/TMFS026/TMFS026_v2.0.0.docx
+  retrieved: 2026-11-11
+  sha256: 08b1bdac208bd20dfb62f50ecde2391e9e5437f26cbf0d333ee4c3a793ca55be
+  raw_path: ../references/use-cases/TMFS026/TMFS026_v3.0.0.docx
 links:
-  components: []
+  components:
+    - id: TMFC001
+      name: Product Catalog Management
+    - id: TMFC002
+      name: Product Order Capture and Validation
+    - id: TMFC012
+      name: Resource Order Management
+    - id: TMFC023
+      name: Party Interaction management
+    - id: TMFC028
+      name: Party Management
+    - id: TMFC035
+      name: Permissions Management
+    - id: TMFC039
+      name: Agreement Management
   apis:
     - id: TMF931
-      name: "Open Gateway Operate API Onboarding and Ordering v [Channel Partner Onboarding Guide WA.101 v1.0.pdf] https://www.gsma.com/solutions and impact/gsma open gateway/wp content/uploads/2024/02/Channel Partner Onboarding Guide WA.101 v1.0.pdf"
+      name: Open Gateway Operate API Onboarding and Ordering v
       api_version: v5.1.2
     - id: TMF936
       name: Open Gateway Operate API Product Catalog beta1
       api_version: v5.0.0
   use_cases: []
 maturity: Alpha
-approval_status: Member Evaluated
+approval_status: Team Approved
 release_status: Pre-production
-team_approved: 2025-09-18
-published: 2025-09-22
+team_approved: 2026-09-24
+published: 2026-10-31
 sid_references: []
 ---
 
+# Executive Summary
+
+This use case demonstrates how a Channel Partner can commercialize CAMARA-based Service API products supplied by multiple Communications Service Providers using TM Forum Open Gateway Operate APIs. It examines two commercial models: an Aggregator model, in which the Channel Partner combines CSP offers into a unified product and manages the end-customer relationship, and a Marketplace model, in which the CSP retains control of its product, pricing, and commercial terms while the Channel Partner provides marketplace and invoicing capabilities. 
+
+The scenario follows a developer acting for an Application Owner who subscribes an existing application to a Geolocation API offer. It describes the supporting catalog, party, application, agreement, and product-order information, together with the interactions required for catalog synchronization, application onboarding, and API-product ordering. TMF936 is used for Open Gateway product-catalog interactions, while TMF931 supports application-owner onboarding, application registration, role management, and API-product ordering. CAMARA APIs are used for runtime service consumption, which is outside the principal Operate API flow examined by this document.
+
+The analysis identifies alternative implementation approaches for exposing Operate APIs. These include direct exposure by the relevant ODA components and exposure through an Open Gateway façade that maps standardized Operate API operations to internal component APIs. The use case highlights unresolved questions concerning orchestration ownership, party and party-role creation, error handling, and the responsibilities of the façade compared with the underlying CSP components. 
+
+The findings indicate that existing ODA components and TM Forum Open APIs provide substantial support for the scenario, but several areas require further clarification or evolution. These include the component responsible for application or resource onboarding, the representation of agreement items in SID, the relationship between TMF931 and its underlying party, role, resource, and order APIs, and the ownership of failures across façade-based implementations. These impacts require validation with the affected TM Forum projects before the use case progresses to publication.
+
 # Introduction
 
-This use case is set in the context of commercializing the CAMARA Geolocation Verification API, based on two distinct agreement models between a Channel Partners and several CSPs: the Wholesale Reseller and the Marketplace Aggregator.
+Open Gateway, a recent initiative within the telco industry, aims to create a standardized framework for APIs. This initiative is crucial for enabling telcos to offer their network capabilities as services that can be easily integrated into digital platforms and applications.
+
+![](media/open-gateway-api-framework-overview.png)
+*([text description](media/open-gateway-api-framework-overview.text-description.md))*
+
+**Figure 1. Open Gateway Overview**
+
+GSMA Open Gateway is a framework of common network Application Programmable Interfaces (APIs) designed to provide universal access to operator networks for developers The Framework aims for
+
+- **API Standardization and Interoperability:** By developing standardized APIs, Open Gateway simplifies the integration process for third-party developers. This is essential for creating a seamless digital ecosystem where telcos' services can be easily utilized by various industries, including automotive, healthcare, and smart cities.
+
+- **Accelerating Innovation and Service Delivery:** Standardized APIs enable faster and more efficient service deployment. Telcos can offer services like location-based services, identity verification, and network slicing to developers, who can then build innovative applications that leverage these capabilities.
+
+- **Enhancing Customer Experience:** By exposing network capabilities through APIs, telcos can offer more personalized and responsive services. For instance, APIs can enable real-time analytics and monitoring, allowing telcos to offer improved customer support and proactive maintenance.
+
+GSMA Open Gateway allows operators to expose and monetize telco capabilities to third party service providers in a programmatic manner through Application Programming Interfaces (APIs). These APIs pave the way for transforming telco networks into programmable service platforms, enabling the integration of the network with third-party applications, with frictionless interactions between them.
+
+Open Gateway defines the APIs Exposed by CSPs to fulfill the Open Gateway requirements in the categories below.
+
+![](media/open-gateway-northbound-api-types-scope.jpeg)
+*([text description](media/open-gateway-northbound-api-types-scope.text-description.md))*
+
+**Figure 2. Open Gateway APIs**
+
+- **Service & Service Management APIs**: Developed within the CAMARA domain. End Consumer (developer) APIs providing a product/service as well as manage/get data about offered services
+
+- **Operate APIs**: Developed within TMForum domain. APIs offering programmable access to Operation,Administration and Management (OAM) capabilities to facilitate the integration of the Open Gateway NaaS Platform with portals, marketplaces and other aggregator platforms
+
+-  **Federated APIs**: Federation between two operators conceptually refers to an agreement to allow exposure of Edge Cloud resources and Network capabilities by the other OP 
+
+- **Southbound APIs**: Raw APIs as defined by various SDOs
+
+This use case is set in the context of commercializing the CAMARA Geolocation Verification API, based on two distinct agreement models between a Channel Partners and several  CSPs: the Wholesale Reseller and the Marketplace Aggregator.
 
 These business models directly influence how the Channel Partner Product Catalog and its Supplier/Partner Product Catalog are designed and represented.
 
-The objective is to illustrate how the TMF Operate APIs support this commercialization logic, using structured views aligned with both the Channel Partner and CSP roles at Framework Agreement and Product Catalog, then Product Order levels.
+The objective is to illustrate how the TMF Operate APIs support this commercialization logic, using structured views aligned with both the Channel Partner and CSP roles at Framework Agreement and Product Catalog, then Product Order levels. 
 
-This use case will serve as a foundation for further developments, building upon the work initiated within the Operate API working group to ensure a comprehensive approach.
+This use case will serve as a foundation for further developments, building upon the work initiated within the Operate API working group to ensure a comprehensive approach
 
-## Context or Background
+## Context
 
-The GSMA Open Gateway initiative aims to define standardized Camara APIs and harmonized integration mechanisms, enabling consistent and interoperable interactions across different telecom ecosystems involving Channel Partners and Telco CSPs.
+Application Service Providers (ASPs) need to partner with Communications Service Providers (CSPs) for providing network service APIs. These partnerships can either be formed directly with the CSP or through intermediary channel partners like aggregators or hyperscalers.
+
+Each approach offers unique benefits and challenges, depending on the ASP's goals and strategic priorities**.**
+
+![](media/asp-channel-partner-csp-partnering-models.png)
+*([text description](media/asp-channel-partner-csp-partnering-models.text-description.md))*
+
+**Figure 3. Engagement Models**
+
+### Direct Partnership
+
+In a direct partnership, the ASP engages with the CSP without any third parties. This type of partnership allows the provider to negotiate terms, pricing, and service integration directly with the CSP, offering greater control over the relationship and the services provided. It facilitates close collaboration on product development and the ability to tailor offerings specifically for the provider's needs. However, this approach may require more internal resources for management and negotiation, and the ASP's market reach might be limited to the specific CSP's infrastructure and customer base.
+
+### Partnership via Channel Partners
+
+Alternatively, ASP can collaborate with CSPs through Channel partners such as aggregators or hyperscalers. Aggregators bundle services from multiple CSPs, providing a simpler, one-stop solution for ASPs who want to access a variety of networks and services. Hyperscalers (like AWS or Microsoft Azure) offer additional infrastructure or cloud platforms that complement the ASP's offerings. This approach facilitates broader access to customers and markets, it also simplifies agreement management and integration leading into high scalability. While this option simplifies engagement with multiple CSPs, it comes with trade-offs, including less control over pricing, terms, and customer relationships.
+
+The use case illustrates two business models defined by the GSMA Open Gateway initiative:
+
+- **Aggregator model** where the Channel Partner fully manages the service experience.
+
+- **Marketplace model** where the Channel Partner operates a marketplace platform where CSPs publish and manage their API products individually. Each API offering reflects the CSP’s own pricing and commercial terms. While the Channel Partner may group these offers in an aggregated view for ApplicationOwners for better discoverability, the CSP retains control over the commercial aspects of the product.
+
+To ensure a consistent experience for Application Owners, a unified user experience (UX) layer is typically implemented on the Channel Partner side, abstracting differences between CSPs regardless of the underlying business model. This approach solves the challenge of fragmentation by shielding developers from having to manage multiple CSP-specific integrations and behaviors.
 
 Depending on the agreement model, the end user of the Geolocation API offer may be either a customer of the Channel Partner such as an enterprise developing and commercializing applications or a direct customer of the telecom CSP, when the Channel Partner acts as a marketplace facilitator.
 
 The CAMARA APIs subscribed by the enterprise customer will be consumed by their applications, either explicitly or implicitly, in response to end-user interactions
 
-The use case is focused on the implementation of the TMF Operate APIs, especially which this supporting the onboarding and ordering between Channel Partners and CSPs. This Operate API facilitates interactions between Channel Partners and CSPs by allowing Channel Partners to:
+The use case is focused on the implementation of the TMF Operate APIs, especially which this supporting the onboarding and ordering between Channel Partners and CSPs. This Operate API facilitates interactions between Channel Partners and CSPs by allowing Channel Partners to:
 
 - Subscribe to and manage Service APIs
 
@@ -54,32 +133,67 @@ The use case is focused on the implementation of the TMF Operate APIs, especiall
 
 - Create and manage Applications for these Application Owners
 
-![](media/ecosystem-actor-chain-architecture.png)
-*([text description](media/ecosystem-actor-chain-architecture.text-description.md))*
-
-The use case illustrates two business models defined by the GSMA Open Gateway initiative:
-
-- **Wholesale Reseller model** where the Channel Partner fully manages the service experience.
-
-- **Marketplace Aggregator model** where the Channel Partner operates a marketplace platform where CSPs publish and manage their API products individually. Each API offering reflects the CSP’s own pricing and commercial terms. While the Channel Partner may group these offers in an aggregated view for ApplicationOwners for better discoverability, the CSP retains control over the commercial aspects of the product.
-
-To ensure a consistent experience for Application Owners, a unified user experience (UX) layer is typically implemented on the Channel Partner side, abstracting differences between CSPs regardless of the underlying business model. This approach solves the challenge of fragmentation by shielding developers from having to manage multiple CSP-specific integrations and behaviors.
-
-**Note: Terminology Alignment**
-
-As part of refining our use case documentation, we will implement the following terminology updates:
-
-- "Wholesale Reseller model" ==> "Aggregator model"
-
-- "Marketplace Aggregator model" ==> "Marketplace model"
-
-The terms originally used are derived from the **GSMA Open Gateway playbook (**[Channel-Partner-Onboarding-Guide-WA.101-v1.0.pdf](https://www.gsma.com/solutions-and-impact/gsma-open-gateway/wp-content/uploads/2024/02/Channel-Partner-Onboarding-Guide-WA.101-v1.0.pdf)**) **, but they may not fully reflect the operational reality in our context.
-
 ## Objective of the use case
 
-The objective of this use case is to illustrate the commercialization of Camara Telco APIs by a Channel Partner, who will use the TMF Operate APIs to interact with his suppliers who are Telco CSPs.
+The objective of this use case is to illustrate the commercialization of Camara Network APIs by a Channel Partner, who will use the TMF Operate APIs to interact with his suppliers who are Telco operators.
 
 It will permit to illustrate several options related to the ODA components able to provide/expose each Operate API.
+
+The Operate currently assessed for this domain are summarized below, with expected plans for later addition or detailed breakdown of the Operate API functions.
+
+| Function | Description | TMF # | Status |
+| --- | --- | --- | --- |
+| Application & Developer Management | Enables automation when registering developers and onboarding their Applications through Aggregator/Aggregator portal. Operators shall provide the capability for Aggregators to request the registration of ASPs and the onboarding of their Applications. This includes the end-to-end lifecycle management including validation of the legal entity, modification of existing Applications or management of T acceptance. | TMF 931 | Published |
+| API Catalogue Management | Provides a standard catalogue among Operators and Aggregator to align the lifecycle management of the Service APIs. Operators shall provide the capability for Aggregators to manage (CRUD) Service APIs building up the North Bound Open Gateway. Catalogue synchronization is needed, so that Channel Partners can keep up-to-date list of Service APIs made available for consumption to the developers | TMF 936 | Published |
+| Usage Reporting | Definition of a unified way to report usage information of the Service APIs, so that Aggregators can make it available to the developers accordingly. Information related to consumption of Service APIs is managed by Operators, who are the ones having an end-to-end view of the services and network resources. This information is exposed towards Aggregators for consolidation and billing management. | TMF 937 | Planned |
+| Service Assurance | Enabling a common framework for supervision activities over Service APIs. Operators need to provide developers and Aggregators the capability to supervise the status of running Service APIs, using appropriate performance management (e.g., monitoring) and fault management (i.e., issue/ticket management) mechanisms. | Planned | Planned |
+
+**Table 1. Operate Functions Assessment**
+
+The E2E journey for Service API exposure, once an agreement is established between a CSP and a Aggregator, consists of six distinct phases that represent the complete lifecycle of Service API management and consumption
+
+The following diagram showcases the flow covering operational setup of Aggregator and CSP Catalogues, onboarding, ordering, consumption, and usage reporting capabilities. The elaboration shows the segregation between the TM Forum supported operational phases and CAMARA supported runtime phase.
+
+Note: Service assurance is expected as a future domain within the journey, more information can be included once requirements and solution are ready.
+
+![](media/service-api-exposure-e2e-journey-sequence.png)
+*([PlantUML source](media/service-api-exposure-e2e-journey-sequence.puml))*
+
+**Figure 4. E2E Journey for Service API**
+
+### Aggregator/CSP Catalogue Sync
+
+This phase covers the synchronization of Service API product information between the CSP and Aggregator platforms, ensuring that the Channel Partner has an up-to-date catalogue of available network capabilities.
+
+The capabilities required for information sharing for this phase are covered by TMF936 Open Gateway Product Catalog API
+
+### Organization & Application Onboarding
+
+This phase covers the registration of developer organizations and their Applications in both the Aggregator and CSP systems, establishing the identities and relationships necessary for Service API access. Initial ASP and Application information is captured by the Aggregator but not propagated to any CSP until an initial Service API is requested by for an Application from that specific CSPs.  from that specific CSPs.
+
+Information capture is managed by the Aggregator and no Operate APIs are required to pass the information to the CSP at this phase.
+
+### Catalogue Browsing
+
+This phase depends on the catalogue being synchronized before the browsing and allows developers to explore the available Service API offerings through the Aggregator's interface, reviewing specifications and documentation to select suitable Service APIs for their Applications.
+
+Catalogue browsing by the developer is managed by the Aggregator and no Operate APIs are required to pass the information at this phase.
+
+### Service API Product Management
+
+This phase covers the subscription process where developers request access to specific APIs and receive the necessary credentials to make Service API calls. Information is captured and maintained by the CSP related to Application and Application Service Provider, as well as the selected Service API, it’s pricing model, purpose of use, etc.
+
+The capabilities required for information sharing for this phase are covered by TMF931 Open Gateway onboarding and ordering component suite API
+
+### Service API consumption
+
+This phase covers the actual use of the Service APIs, including the authentication flow and subsequent Service API calls as described in CAMARA documentation. No TMForum APIs are utilized for that phase.
+
+### Service API Usage Reporting
+
+This phase covers the tracking, reporting, and billing of Service API usage, providing visibility to all parties and enabling proper monetization of the API ecosystem. 
+
+The capabilities required for information sharing for this phase are covered by TMF937, which is still a work in progress.
 
 ## Scope and assumptions
 
@@ -95,7 +209,7 @@ This use case describes a simple interaction scenario involving key players:
 
 - 3 telecom CSPs **Op-Brazil**,** Op-France**, **Op-Belgium** that offer packaged Telco API services.
 
-The scenario will illustrate two agreement models between the channel partner Globy and the different telecom CSPs: **Aggregator Model** and **Marketplace Model.** Then it will present the resulting catalog views for the channel partner and his customers.
+The scenario will illustrate two agreement models between the channel partner Globy and the different telecom CSPs: **Aggregator Model** and **Marketplace Model.** Then it will present the resulting catalog views for the channel partner and its customers.
 
 And it will describe an order capture made by Tom on behalf of his company Country-Tour.
 
@@ -103,9 +217,23 @@ The delivery of this order, the usage and billing of the ordered products will b
 
 ### Assumptions
 
-The following assumptions outline the key differences in how Globy operates under the Aggregator and Marketplace models for the commercialization of network APIs, using the Geolocation API as an example. In this use case, the commercial name of the API is 'Geolocation,' but it relies on the CAMARA specification of the Location Verification API.
+The following assumptions outline the key differences in how Globy operates under the Aggregator and Marketplace models for the commercialization of network APIs, using the Geolocation API as an example. In this use case, the commercial name of the API is 'Geolocation,' but it relies on the CAMARA specification of the Location Verification API
 
-- **Aggregator Model with (Belgium & France): **
+For the purposes of this use case:
+
+- Globy acts as the Channel Partner and marketplace operator.
+
+- Op-France, Op-Belgium and Op-Brazil act as API Providers (CSPs) and expose CAMARA API products.
+
+- Country-Tour acts as the Application Owner and consumes API products through its application ZoneDeals.
+
+- Tom acts on behalf of Country-Tour as a developer and initiates onboarding and ordering activities.
+
+- In the Aggregator model, Country-Tour is a customer of Globy, while Globy is a customer/partner of the participating CSPs.
+
+- In the Marketplace model, Country-Tour remains a customer of the CSP providing the API service, while Globy acts as a marketplace operator and commercial intermediary.
+
+**Aggregator Model with (Belgium & France): **
 
 - The Channel Partner Globy will bundle a Geolocation Offer that provides access to geolocation services in both France and Belgium, including:
 
@@ -119,7 +247,7 @@ The following assumptions outline the key differences in how Globy operates unde
 
 - Globy will act as the main provider of the bundled geolocation service to the end customer.
 
-- **Marketplace Model with (Brazil):**
+**Marketplace Model with (Brazil):**
 
 - The Channel Partner will act as a broker, integrating the Geolocation API from Op-Brazil.
 
@@ -134,6 +262,8 @@ The following assumptions outline the key differences in how Globy operates unde
 | Commercial Relationship with End Customer | Assumes that Globy is responsible for managing Country-Tour relationship. | Assumes that the CSP is responsible for managing Country-Tour relationship. |
 | Billing | Assumes that Globy bills Country Tour directly. Globy invoices and reverses part of the revenue to CSPs based on the agreement. | Assumes that Globy bills on behalf of the CSP and takes a commission (for commercialization and invoicing). Billing is handled based on the agreement. |
 
+**Table 2. Agreement Model Exemplified**
+
 - This use case enables an existing application "ZoneDeals" already onboarded and managed by an ApplicationOwner(CountryTour) to subscribe to Geolocation API provided by channel partner and one or more Communication Service Providers (CSPs):
 
 - ApplicationOwner :CountryTour is already registered with the Channel Partner 
@@ -144,7 +274,7 @@ The following assumptions outline the key differences in how Globy operates unde
 
 Scenario Overview:
 
-The commercialization of the Geolocation API is structured through two distinct agreements between the Channel Partner (Globy) and the local mobile CSPs. Each agreement follows a different business model—Aggregator and Marketplace—defining how the API is priced, distributed, and invoiced.
+The commercialization of the Geolocation API is structured through two distinct agreements between the Channel Partner (Globy) and the local mobile CSPs. Each agreement follows a different business model—Aggregator and Marketplace—defining how the API is priced, distributed, and invoiced.
 
 - **Commercial Agreements Overview:**
 
@@ -154,14 +284,16 @@ The table below summarizes the two different agreements between the Channel Part
 | --- | --- | --- |
 | Business Model | Globy acts as the exclusive distributor of the Geolocation API from Op-Belgium and Op-France. | Globy acts as a broker, listing Op-Brazil's Geolocation API on its marketplace. |
 | Offer | A single, unified bundle managed and priced by Globy. | Each CSP publishes its own API separately. |
-| Pricing | Fixed pricing set by Globy: | Price set by Op-Brazil One-time fee: 5€ Usage-based fee: 0.40€ per API call |
-| Pricing | Fixed Price set by Op-France &Op-Belgium for Globy | Globy's commission on the order : 1€ Globy's commission per invoice: 0.50€ |
+| Pricing | Fixed pricing set by Globy: One-time fee: 10€ Usage-based fee: 0,70€ (centimes)per API call SLA fee: 5€/month | Price set by Op-Brazil One-time fee: 5€ Usage-based fee: 0.40€ per API call |
+| Pricing | Fixed Price set by Op-France &Op-Belgium for Globy Usage-based fee: 0.40€ per API call | Globy's commission on the order : 1€ Globy's commission per invoice: 0.50€ |
 | Special Commercial Terms | Volume discounts :10% off for 1000+ API calls/month | Seasonal discounts :10% during summer |
-| Customer Relationship | Managed by Globy (Globy is the main point of contact for customers).(Customers of Globy) | Managed by Op-Brazil(Customers of Op-Brazil) Globy invoices and takes a commission. Globy is not the CSP Customer CountryTour is the CSP's Customer |
-| Invoicing | Globy invoices customers directly | Globy invoices Country Tour on behalf of Op-Brazil on a monthly basis and retains a commission for each transaction, as defined in the Marketplace Agreement. |
-| settlement | Settlement over a one-month period calculated based on 0.40€ per API call. | Commission on the order and commission per invoice for Globy. |
+| Customer Relationship | Managed by Globy (Globy is the main point of contact for customers).(Customers of Globy) Country Tour is Globy customer , Globy is the CSPs customers | Managed by Op-Brazil(Customers of Op-Brazil) Globy invoices and takes a commission. Globy is not the CSP Customer CountryTour is the CSP's Customer |
+| Invoicing | Globy invoices customers directly Globy collects payments | Globy invoices Country Tour on behalf of Op-Brazil on a monthly basis and retains a commission for each transaction, as defined in the Marketplace Agreement. |
+| settlement | Settlement over a one-month period calculated based on 0.40€ per API call. Redistributes revenue to Op-Belgium & Op-France based on agreement. | Commission on the order and commission per invoice for Globy. |
 
-- **Customer Journey:**
+**Table 7. Commercial Agreement Overview**
+
+- ** Customer Journey:**
 
 Tom logs into the Globy portal (the Channel Partner) as a Developer at Country-Tour. Depending on the commercial model, Country-Tour may act either as a direct customer of Globy (in the Aggregator model) or as a customer of the CSP (in the Marketplace model). Tom browses the catalog and subscribes to the 'Geolocation API' packaged offer.
 
@@ -176,7 +308,11 @@ Marketplace Model (Brazil): "Globy" acts as a Marketplace, where the Brazilian C
 ![](media/globy-ordering-screen-flow-ui-mockup.png)
 *([text description](media/globy-ordering-screen-flow-ui-mockup.text-description.md))*
 
-# Information View
+**Figure 5. Ordering Screen Flow**
+
+# Views
+
+##  Information View
 
 This information model represents the Globy perspective components.
 
@@ -185,17 +321,23 @@ The use case does not currently cover the agreement's setup, it is considered as
 ![](media/globy-party-agreement-information-model.png)
 *([PlantUML source](media/globy-party-agreement-information-model.puml))*
 
-- The below diagrams details the information models for the channel partner and CSP product catalogs. It also depicts the framework agreements established between them. This information is also considered as pre-existing inputs.
+**Figure 6. Party Relationship View**
+
+- The diagrams below details the information models for the channel partner and CSP product catalogs. It also depicts the framework agreements established between them. This information is also considered as pre-existing inputs.
 
 The first modeling illustrates how, by following the Aggregator** agreement model**, the **offer and product catalog views** of the **Channel Partner** as well as the **involved CSPs in France and Belgium** are represented.
 
 ![](media/aggregator-scenario-catalog-agreement-information-model.png)
 *([PlantUML source](media/aggregator-scenario-catalog-agreement-information-model.puml))*
 
-The second modeling illustrates how, by following the **Marketplace agreement model**, the **offer and product catalog views** of the **Channel Partner** and the **involved CSP** are represented.
+**Figure 7. Product Catalog View in Aggregator Scenario**
+
+The second modeling illustrates how, by following the **Marketplace agreement model**, the **offer and product catalog views** of the **Channel Partner** and the **involved CSP** are represented.
 
 ![](media/marketplace-scenario-catalog-agreement-information-model.png)
 *([PlantUML source](media/marketplace-scenario-catalog-agreement-information-model.puml))*
+
+**Figure 8. Product Catalog View in Marketplace Scenario**
 
 **Note: « AgreementItem » will need to be reconsidered in the evolution of the ABE « Agreement » within the SID.**
 
@@ -204,14 +346,20 @@ The second modeling illustrates how, by following the **Marketplace agreement mo
 ![](media/tom-country-tour-product-order-information-model.png)
 *([PlantUML source](media/tom-country-tour-product-order-information-model.puml))*
 
-Below is the representation of the Product Order view for the order placed by Channel Partner Globy with the CSPs in France and Belgium.
+**Figure 9. Product Order View in Aggregator Scenario**
 
-This order enables the application ZoneDeals, managed by the ApplicationOwner Country-Tour, to access geolocation services provided by these CSPs. The API product will be consumed by the ZoneDeals application, which is owned by Country-Tour, to deliver location-based experiences to end users for marketing purposes.
+Below is the representation of the Product Order view for the order placed by Channel Partner Globy with the CSPs in France and Belgium.
+
+This order enables the application ZoneDeals, managed by the ApplicationOwner Country-Tour, to access geolocation services provided by these CSPs. The API product will be consumed by the ZoneDeals application, which is owned by  Country-Tour, to deliver location-based experiences to end users for marketing purposes.
 
 ![](media/channel-partner-csp-product-order-information-model.png)
 *([PlantUML source](media/channel-partner-csp-product-order-information-model.puml))*
 
-# Sequence diagrams:
+**Figure 10. Product Order View in in MarketplaceScenario**
+
+#  Diagrams
+
+## Sequence diagrams:
 
 In the sequence diagrams, the prerequisites to be considered for the two scenarios described below are:
 
@@ -233,15 +381,15 @@ In the sequence diagrams, the prerequisites to be considered for the two scenari
 
 - **Zone Deals** is considered as a logical resource.
 
-## Scenario 1 :
+### Aggregator Scenario
 
-- **The Channel Partner’s POOM component orchestrates the delegation of the order delivery by directly interacting with the CSP France and Belgium components.**
+- The Channel Partner’s POOM component orchestrates the delegation of the order delivery by directly interacting with the CSP France and Belgium components.
 
-- **The Channel Partner’s POOM component moreover orchestrates information creation prerequisites to the order delivery on CSP side (Party, PartyRole ...) **
+- The Channel Partner’s POOM component moreover orchestrates information creation prerequisites to the order delivery on CSP side (Party, PartyRole ...) 
 
-- **The CSP- Catalog Management component (TMFC001) exposes the TMF936 (Product Catalog API)**
+- The CSP- Catalog Management component (TMFC001) exposes the TMF936 (Product Catalog API)
 
-- ** while CSP-( Party Management (TMFC028), Resource Inventory (TMFC008), Party Role & Permission Management (TMFC035), and Product Order Capture & Validation (TMFC002) each expose only the relevant resource-specific parts of the TMF931 (Onboarding and Ordering API.))**
+-  while CSP-( Party Management (TMFC028), Resource Inventory (TMFC008), Party Role & Permission Management (TMFC035), and Product Order Capture & Validation (TMFC002) each expose only the relevant resource-specific parts of the TMF931 (Onboarding and Ordering API.))
 
 **Assumptions: **
 
@@ -289,6 +437,7 @@ BUNDLE CREATION:
 
 ![](media/scenario1-contract-catalog-sync-notification-sequence.png)
 *([PlantUML source](media/scenario1-contract-catalog-sync-notification-sequence.puml))*
+**Figure 10. Contract and Catalog Syncronization Sequence Diagram in Aggregator Scenario**
 
 ***Tom submits the order on the channel partner's website:***
 
@@ -324,7 +473,7 @@ The following part of the diagram illustrates how a Channel Partner orchestrates
 
 - Finalization: The CP assigns the role applicationApiConsumer (TMF669) to the ZoneDeals app to enable API consumption.
 
-Note:
+ Note :
 
 - The TMF931 specification does not allow for the direct creation of a Party entity. Currently, a Party is instantiated implicitly during the creation of the Party Role "applicationOwner."
 
@@ -332,16 +481,17 @@ We propose enhancing the API to enable the independent creation of a Party entit
 
 ![](media/scenario1-product-ordering-application-onboarding-sequence.png)
 *([PlantUML source](media/scenario1-product-ordering-application-onboarding-sequence.puml))*
+**Figure 11. Order Orchestration by a Channel Partner for a multi-country API product order in Aggregator Scenario**
 
-##  Scénario 2 :
+###  Marketplace Scenario
 
-- **The Channel Partner interacts exclusively with the CSP through the Open Gateway façade, using the standardized TMF931 (Onboarding & Ordering) and TMF936 (Product Catalog) Operate APIs.**
+- The Channel Partner interacts exclusively with the CSP through the Open Gateway façade, using the standardized TMF931 (Onboarding & Ordering) and TMF936 (Product Catalog) Operate APIs.
 
-- **The Channel Partner’s POOM component orchestrates the delegation of the order delivery  interacting via facade with the CSP France and Belgium components.**
+- The Channel Partner’s POOM component orchestrates the delegation of the order delivery  interacting via facade with the CSP France and Belgium components.
 
-- **The Channel Partner’s POOM component moreover orchestrates informtaion creation prequisites to the order delivery on CSP side (Party, PartyRole ...) **
+- The Channel Partner’s POOM component moreover orchestrates informtaion creation prequisites to the order delivery on CSP side (Party, PartyRole ...) 
 
-- **The façade does not implement any business process, it serves purely as a technical translation layer. It maps the external TMF931 and TMF936 requests to the appropriate internal APIs exposed by each CSP component**
+- The façade does not implement any business process, it serves purely as a technical translation layer. It maps the external TMF931 and TMF936 requests to the appropriate internal APIs exposed by each CSP component
 
 - TMF936  used for catalog discovery, mapped internally to the CSP’s TMF620 Product Catalog API
 
@@ -355,11 +505,11 @@ We propose enhancing the API to enable the independent creation of a Party entit
 
 - TMF669 Party Role API (for assigning roles such as applicationOwner)
 
-The façade is therefore an interoperability layer, ensuring that channel partners see a uniform interface (TMF936, TMF931), while each CSP can implement it by mapping to its own internal TMF APIs.
+ The façade is therefore an interoperability layer, ensuring that channel partners see a uniform interface (TMF936, TMF931), while each CSP can implement it by mapping to its own internal TMF APIs.
 
-Note that even with a façade, the internal TMF API will have to understand the payload from the Operate API. So in reality, will have to implement the additional attributes added in the Operate API. For instance the TMF632 Party Management API will have to manage the additional attributes that are not in this TMF632 definition, for instance "dateProtectionOfficer". So in reality the TMF632 internal API will have to be upgraded to be TMF931 compatible. the difference between an internal API that is able to manage Operate API specificities vs the Operate API itself could be null.Except the fact that the standard internal API manages more contextes that the only Open Gateway context.
+Note that even with a façade, the internal TMF API will have to understand the payload from the Operate API. So, in reality, will have to implement the additional attributes added in the Operate API. For instance, the TMF632 Party Management API will have to manage the additional attributes that are not in this TMF632 definition, for instance "dateProtectionOfficer". So, in reality the TMF632 internal API will have to be upgraded to be TMF931 compatible. the difference between an internal API that is able to manage Operate API specificities vs the Operate API itself could be null.Except the fact that the standard internal API manages more contextes that only the Open Gateway context.
 
-**Assumption:**
+**Assumption:** 
 
 - Each CSP exposes an **Open Gateway façade** that only publishes the standardized APIs (**TMF936 for Catalog** and **TMF931 for Onboarding & Ordering**).
 
@@ -369,6 +519,7 @@ Note that even with a façade, the internal TMF API will have to understand the 
 
 ![](media/scenario2-facade-catalog-sync-notification-sequence.png)
 *([PlantUML source](media/scenario2-facade-catalog-sync-notification-sequence.puml))*
+**Figure 12.  Contract and Catalog Syncronization Sequence Diagram in Marketplace Scenario**
 
 - ***Tom submits the order on the channel partner's website:  ***
 
@@ -394,6 +545,7 @@ Notes:
 
 ![](media/scenario2-product-ordering-application-onboarding-sequence.png)
 *([PlantUML source](media/scenario2-product-ordering-application-onboarding-sequence.puml))*
+**Figure 13. Order Capture in Marketplace Scenario**
 
 **NOTE :Additional Context – GSMA Approach**
 
@@ -411,21 +563,27 @@ This has been a choice of Operate API team in order to reduce the number of endp
 
 ## Lessons learned
 
-- A new **translation component (Open Gateway Façade)** is introduced: exposed by CSPs to Channel Partners, it plays only the role of technical translation between standardized APIs (TMF931, TMF936) and the native APIs exposed by internal ODA components (TMF620, TMF622, TMF632, TMF639, TMF669).
+The analysis demonstrated that CAMARA API commercialization can be supported using existing ODA components and Open Gateway Operate APIs. However, the use case also revealed several areas where architectural responsibilities, component ownership and implementation approaches require further clarification.**Open Gateway Façade Responsibilities**
 
-- The **POOM component of the Channel Partner** goes beyond its initial orchestration role: it actively creates the prerequisite entities on the CSP side (Party, PartyRole, Resource) required to complete the order fulfillment.
+The use case introduces an Open Gateway Façade exposed by CSPs towards Channel Partners. The façade provides a standardized TMF931 and TMF936 interface while interacting with native APIs exposed by underlying ODA components. While the use case demonstrates the feasibility of this approach, the exact responsibilities of the façade remain unclear, particularly regarding orchestration, lifecycle coordination and error management. 
 
-- Beyond the two implemented scenarios, other alternatives are possible  : for example, the POOM could delegate the creation of prerequisites and even the execution of the order directly to the CSPs’ POCV components.
+Note: The concept is similar to what has been discovered also in TMFS018 Wholesales Broadband and other B2B2X scenarios that should be aligned.**Application Resource Onboarding**
 
-- One **open question remains**: in Scenario 2, in case of anomalies or errors during execution, which component is accountable for handling them — the façade, or the underlying CSP components?
+The onboarding of an Application Resource emerged as a significant architectural topic. Applications are externally owned resources that must be registered, approved and managed within the CSP domain before API consumption can occur. One implementation approach identified in the use case relies on the Channel Partner POOM component creating prerequisite entities such as Party, PartyRole and Application Resources on the CSP side. Alternative approaches are also possible, including delegation of these responsibilities to CSP components. The use case highlights the need for clearer guidance regarding ownership and lifecycle management of externally owned Application Resources.**Boundary Between TMF931 and Underlying ODA Components**
 
-- In Scenario 3, in the next version on the asset would provide further elaboration on the option "rely on existing TMF931 implementation" where the façade orchestrates steps 8 to 13 during the onboarding, exposing a single call creating (applicationOwner) resource, instead of 2 calls for party and partyRole.
+The analysis revealed uncertainty regarding the allocation of responsibilities between TMF931 Operate APIs and the underlying ODA components used by CSP implementations. Further clarification may be required regarding the creation and lifecycle management of Application Owners, Application Resources and the relationship between Operate API resources and the underlying Party, PartyRole, Resource and Product Order domains. **Multi-Party Ownership and Error Handling**
+
+The Aggregator and Marketplace scenarios revealed unresolved questions regarding accountability across Channel Partners, CSPs, Open Gateway Façades and underlying ODA components. In particular, responsibility for error handling, retries, compensation actions and status management remains unclear when onboarding and ordering activities span multiple parties. **Future Investigation**
+
+The analysis identified additional implementation approaches that merit further investigation in future versions of the asset. In particular, further elaboration is required for approaches that rely on existing TMF931 implementations where onboarding activities are exposed through a consolidated operation while orchestration and creation of prerequisite entities are handled behind the API boundary.
 
 ## Impacts identified
 
-*<List of JIRA items identified at SID, Open APIs or ODA components inventory (IG1242) levels - or other impacts to reference inputs>*
+Document impacts identified during the analysis of the use case. Impacts may relate to APIs, ODA Components, Information Models, Use Cases, External Standards, or other relevant assets. Where follow-up work exists or has been identified, include references to the relevant work items in JIRA.
 
-# Appendix
+| Asset Type | Asset | Impact Description | Related Work Item(s) |
+| --- | --- | --- | --- |
+| ODA Component | Application/Resource Onboarding | Clarify ownership and lifecycle management of externally owned Application Resources. | [TAC-1379] Need components for Resource onboarding - TM Forum JIRA |
 
-*Refer to *[TMFS003](https://www.tmforum.org/resources/technical-specification/tmfs003-order-capture-fiber-contract-v9-0-0/)*:use case Order Capture :Fiber Contract (in sequence diagram section)*
+**Table 8. Impacts Identified**
 

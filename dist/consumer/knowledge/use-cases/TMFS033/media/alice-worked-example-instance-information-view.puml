@@ -1,0 +1,92 @@
+@startuml
+title Instance-level view of the entities read and produced for Alice across SD-1 to SD-5
+
+' Source caption: "Boxes are SID entities; shaded chips are instance values."
+' Legend: SID business entity; instance value from the worked example;
+' <<notRepresentable>> = instance value not representable in the published API;
+' package colour: ABE - existing component responsible / ABE - proposed component (dashed border).
+
+package "Party ABE - Party Management" {
+  class "Party" as Party {
+    Alice
+  }
+  class "ContactMedium" as ContactMedium {
+    mediumType="sms" preferred=true validFor from 12 Mar 2024
+    mediumType="email" preferred=false
+  }
+}
+
+package "Party Privacy ABE - Privacy Management" {
+  class "PrivacyProfile" as PrivacyProfile {
+    marketing: permitted (read at SD-1 flow 5)
+    marketing: withdrawn (written at SD-2, keyword STOP)
+  }
+}
+
+package "Customer ABE / Customer Account ABE" {
+  class "Customer" as Customer {
+    Alice - fibre broadband
+  }
+  class "BillingAccount" as BillingAccount {
+    EUR 48.60 overdue
+  }
+}
+
+package "Communication Interaction ABE - Communication Interaction Management (proposed - no identifier)" #FFF8DC {
+  class "CommunicationInteraction - four instances for Alice" as CI {
+    #1 order 4471 confirmed messageClass="transactional" state="completed"
+    #2 1 Gbps upgrade offer messageClass="marketing" state="cancelled"
+    #3 arrears notice messageClass="regulatory" state="completed"
+    #4 September bill notice messageClass="statutory" state="completed"
+  }
+  class "CommunicationInteractionItem" as CII {
+    the rendered SMS text of each of the four messages
+  }
+  class "CommunicationInteractionMeans - channel and route used" as CIM <<notRepresentable>> {
+    channel="sms" route via the SMPP bind
+    not represented in TMF681 - see 5.1.4
+  }
+  class "CommunicationInteractionResult - normalised delivery state" as CIR <<notRepresentable>> {
+    delivered, with timestamp, for #1 #3 #4
+    reason for non-delivery not represented in TMF681 - see 5.1.4
+  }
+  class "delivery record - contact address actually used" as DR {
+    the mobile number resolved at SD-1 flow 4
+  }
+}
+
+package "Party Interaction ABE - Party Interaction Management (TMFC023)" {
+  class "PartyInteraction - four instances" as PI {
+    3 x direction="outbound" channel="sms", relatedParty=Alice
+    1 x direction="inbound" reason="STOP"
+  }
+  class "interactionRelationship" as IR {
+    the inbound STOP -> the #1 outbound relationshipType="replyTo"
+  }
+}
+
+package "Document ABE - Document Management" {
+  class "Attachment" as Attachment {
+    not exercised by this example
+  }
+}
+
+package "Triggering entities - the notifying components of 2.1" {
+  class "Triggering entities" as Trig {
+    ProductOrder 4471 - raises #1
+    CustomerBill September, EUR 61.99 - raises #4
+    BillingAccount EUR 48.60 overdue - raises #3
+  }
+}
+
+CI --> Party : relatedParty
+PI --> CI : records
+CI ..> PrivacyProfile : suppressed by (#2)
+DR ..> ContactMedium : address used
+CII ..> Attachment : attachment
+Trig --> CI
+Party -- ContactMedium
+Party -- PrivacyProfile
+PI -- IR
+
+@enduml

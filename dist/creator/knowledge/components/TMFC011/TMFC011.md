@@ -11,8 +11,50 @@ source:
   sha256: d5b94ba095698b5a5260bf7c799d6c128d7cdae1b07a3d1e26f7b4fbe2a6928e
   raw_path: references/components/TMFC011/TMFC011_Resource_Order_Management_v1.1.2.pdf
 links:
-  apis: []
-  use_cases: []
+  apis:
+    - id: TMF632
+      name: party-management-api
+    - id: TMF634
+      name: resource-catalog-management-api
+    - id: TMF639
+      name: resource-inventory-management-api
+    - id: TMF646
+      name: appointment-management-api
+    - id: TMF652
+      name: resource-order-management-api
+    - id: TMF664
+      name: resource-function-activation-management-api
+    - id: TMF669
+      name: party-role-management-api
+    - id: TMF673
+      name: geographic-address-management-api
+    - id: TMF674
+      name: geographic-site-management-api
+    - id: TMF675
+      name: geographic-location-management-api
+    - id: TMF685
+      name: resource-pool-management-api
+    - id: TMF701
+      name: process-flow-management-api
+    - id: TMF702
+      name: resource-activation-management-api
+  use_cases:
+    - id: TMFS004
+      name: Order Delivery – Fiber contract
+    - id: TMFS007
+      name: TMFS007
+    - id: TMFS008
+      name: Service and Resource Order Management for Postpaid Mobile Subscribers
+    - id: TMFS011
+      name: Order Fallout Management
+    - id: TMFS014
+      name: 5G Slice Management
+    - id: TMFS025
+      name: Cloud Native Function Management
+    - id: TMFS028
+      name: End to End Modelling of Cloud Based VPN
+    - id: TMFS030
+      name: Satellite Direct-to-Device – Wholesaling Non-Terrestrial Networks capacity to Mobile Network Operators
 yaml_spec_version: 1.2.0
 ---
 

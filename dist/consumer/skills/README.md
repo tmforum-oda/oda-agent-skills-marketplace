@@ -59,7 +59,7 @@ Given a plain-language requirement, orchestrates the full Discover-to-Run chain 
 
 ### draft-architecture-diagram-from-usecase
 
-Given a TMFSxxx use-case id, reads its sequence-diagram images and linked component/API frontmatter, and emits a Mermaid sequence or architecture diagram as a design-doc-ready artifact, citing only real component/API ids. Use this when asked for an architecture diagram, sequence diagram, or component interaction diagram for a use case.
+Given a TMFSxxx use-case id, reads its PlantUML/sequence-diagram sources and linked component/API frontmatter, and emits a component overview diagram plus one Mermaid sequence diagram per step as a design-doc-ready artifact, citing only real component/API ids. Use this when asked for an architecture diagram, sequence diagram, class diagram, or component interaction diagram for a use case.
 
 **Example:**
 > Draw a sequence diagram for TMFS028's design phase service discovery. Save it as a .puml file

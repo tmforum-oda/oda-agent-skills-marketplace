@@ -31,6 +31,8 @@ links:
       name: Billing - Fiber Contract
     - id: TMFS030
       name: Satellite Direct-to-Device – Wholesaling Non-Terrestrial Networks capacity to Mobile Network Operators
+    - id: TMFS033
+      name: Communication Interaction Management
 yaml_spec_version: 2.1.1
 ---
 

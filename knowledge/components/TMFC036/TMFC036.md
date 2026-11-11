@@ -28,9 +28,7 @@ links:
       name: sales-management-api
     - id: TMF701
       name: process-flow-management-api
-  use_cases:
-    - id: TMFS020
-      name: Multi Domain B2B2X Contract Management
+  use_cases: []
 yaml_spec_version: 1.2.0
 ---
 

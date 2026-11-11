@@ -11,8 +11,26 @@ source:
   sha256: 29b199b657a5342657c79822614202408adb0585f08ea348a373c1e8daa41e65
   raw_path: references/components/TMFC030/TMFC030_Bill_Generation_Management_v2.2.0.pdf
 links:
-  apis: []
-  use_cases: []
+  apis:
+    - id: TMF632
+      name: party-management-api
+    - id: TMF637
+      name: product-inventory-management-api
+    - id: TMF666
+      name: account-management-api
+    - id: TMF667
+      name: document-management-api
+    - id: TMF669
+      name: party-role-management-api
+    - id: TMF676
+      name: payment-management-api
+    - id: TMF678
+      name: customer-bill-management-api
+    - id: TMF701
+      name: process-flow-management-api
+  use_cases:
+    - id: TMFS005
+      name: Billing - Fiber Contract
 yaml_spec_version: 2.0.0
 ---
 

@@ -67,7 +67,7 @@
       },
       {
         "use_case": "TMFS026",
-        "source": "matrix_only"
+        "source": "confirmed"
       },
       {
         "use_case": "TMFS028",
@@ -76,6 +76,10 @@
       {
         "use_case": "TMFS030",
         "source": "confirmed"
+      },
+      {
+        "use_case": "TMFS033",
+        "source": "frontmatter_only"
       }
     ]
   },
@@ -131,7 +135,7 @@
       },
       {
         "use_case": "TMFS026",
-        "source": "matrix_only"
+        "source": "confirmed"
       },
       {
         "use_case": "TMFS028",
@@ -140,6 +144,10 @@
       {
         "use_case": "TMFS030",
         "source": "confirmed"
+      },
+      {
+        "use_case": "TMFS033",
+        "source": "frontmatter_only"
       }
     ]
   },
@@ -260,6 +268,10 @@
       {
         "use_case": "TMFS030",
         "source": "confirmed"
+      },
+      {
+        "use_case": "TMFS033",
+        "source": "frontmatter_only"
       }
     ]
   },
@@ -360,6 +372,10 @@
       {
         "use_case": "TMFS030",
         "source": "confirmed"
+      },
+      {
+        "use_case": "TMFS033",
+        "source": "frontmatter_only"
       }
     ]
   },
@@ -578,6 +594,10 @@
         "source": "matrix_only"
       },
       {
+        "use_case": "TMFS026",
+        "source": "frontmatter_only"
+      },
+      {
         "use_case": "TMFS028",
         "source": "confirmed"
       },
@@ -656,6 +676,10 @@
       {
         "use_case": "TMFS009",
         "source": "confirmed"
+      },
+      {
+        "use_case": "TMFS033",
+        "source": "frontmatter_only"
       }
     ]
   },
@@ -700,6 +724,10 @@
       {
         "use_case": "TMFS001",
         "source": "confirmed"
+      },
+      {
+        "use_case": "TMFS033",
+        "source": "frontmatter_only"
       }
     ]
   },
@@ -742,8 +770,16 @@
         "source": "matrix_only"
       },
       {
+        "use_case": "TMFS026",
+        "source": "frontmatter_only"
+      },
+      {
         "use_case": "TMFS031",
         "source": "confirmed"
+      },
+      {
+        "use_case": "TMFS033",
+        "source": "frontmatter_only"
       }
     ]
   },
@@ -768,6 +804,10 @@
       {
         "use_case": "TMFS030",
         "source": "confirmed"
+      },
+      {
+        "use_case": "TMFS033",
+        "source": "frontmatter_only"
       }
     ]
   },
@@ -812,6 +852,10 @@
       {
         "use_case": "TMFS030",
         "source": "confirmed"
+      },
+      {
+        "use_case": "TMFS033",
+        "source": "frontmatter_only"
       }
     ]
   },
@@ -855,7 +899,7 @@
       },
       {
         "use_case": "TMFS026",
-        "source": "matrix_only"
+        "source": "confirmed"
       },
       {
         "use_case": "TMFS030",
@@ -936,10 +980,6 @@
       {
         "use_case": "TMFS007",
         "source": "matrix_only"
-      },
-      {
-        "use_case": "TMFS020",
-        "source": "frontmatter_only"
       }
     ]
   },
@@ -975,7 +1015,7 @@
       },
       {
         "use_case": "TMFS026",
-        "source": "matrix_only"
+        "source": "confirmed"
       },
       {
         "use_case": "TMFS031",
@@ -992,12 +1032,7 @@
     "source_origin": "https://raw.githubusercontent.com/tmforum-rand/TMForum-ODA-Ready-for-publication/v1.0.0/TMFC036-LeadAndOpportunityManagement/Specification/TMFC036-LeadAndOpportunityManagement.yaml",
     "path": "knowledge/components/TMFC036/component.yaml",
     "meta_path": "knowledge/components/TMFC036/component.meta.json",
-    "used_by": [
-      {
-        "use_case": "TMFS020",
-        "source": "frontmatter_only"
-      }
-    ]
+    "used_by": []
   },
   {
     "id": "TMFC039",
@@ -1019,11 +1054,11 @@
       },
       {
         "use_case": "TMFS020",
-        "source": "confirmed"
+        "source": "matrix_only"
       },
       {
         "use_case": "TMFS026",
-        "source": "matrix_only"
+        "source": "confirmed"
       },
       {
         "use_case": "TMFS030",
@@ -1048,6 +1083,10 @@
       {
         "use_case": "TMFS009",
         "source": "confirmed"
+      },
+      {
+        "use_case": "TMFS033",
+        "source": "frontmatter_only"
       }
     ]
   },
@@ -1068,10 +1107,6 @@
       {
         "use_case": "TMFS016",
         "source": "confirmed"
-      },
-      {
-        "use_case": "TMFS020",
-        "source": "frontmatter_only"
       }
     ]
   },
@@ -1088,6 +1123,10 @@
       {
         "use_case": "TMFS006",
         "source": "confirmed"
+      },
+      {
+        "use_case": "TMFS033",
+        "source": "frontmatter_only"
       }
     ]
   },

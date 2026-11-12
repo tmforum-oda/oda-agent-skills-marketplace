@@ -98,6 +98,8 @@ CREATOR_SKILLS = {
     "draft-new-usecase-from-scenario",
     "propose-component-or-api-extension",
     "lint-usecase-draft",
+    "tm-forum-document-quality-check",
+    "tm-forum-document-quality-individual",
 }
 
 # Useful to both audiences, so shipped in both plugins -- listed once
@@ -194,6 +196,12 @@ SKILL_EXAMPLES = {
     "lint-usecase-draft": [
         "Check my draft use-case DOCX for anything that will convert badly before I submit it to TM Forum.",
     ],
+    "tm-forum-document-quality-check": [
+        "Check my draft IG document for undeclared copied text, weak credits and borrowed images -- just score it, no report.",
+    ],
+    "tm-forum-document-quality-individual": [
+        "Run the IP and licence check on IG1412 AI Agent Specification Template v3.0.1 and give me the Word report.",
+    ],
     "generate-component-svg-diagram": [
         "Draw the TMFC001 Product Catalog Management architecture diagram as an SVG, including its security and management APIs.",
         "Diagram my component's Helm chart in ./charts/productcatalog -- which microservices implement which APIs?",
@@ -213,7 +221,7 @@ PLUGINS = {
     },
     "creator": {
         "name": "tm-forum-oda-creator",
-        "version": "1.1.0",
+        "version": "1.2.0",
         "description": "TM Forum ODA use cases, components, and Open APIs as a provenance-tracked knowledge base, queryable via Agent Skills -- for drafting and extending ODA itself.",
         "author": {"name": "Lester Thomas"},
         "skills": CREATOR_SKILLS | SHARED_SKILLS,

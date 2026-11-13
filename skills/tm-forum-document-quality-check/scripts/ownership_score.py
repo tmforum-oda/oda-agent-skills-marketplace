@@ -2,14 +2,15 @@
 classify both against the reference set.
 
 Items are material owned by non-Contributors. Each has:
-  weight  1.0 whole figure or word-for-word passage;
-          0.5 adapted figure, close paraphrase or unconfirmed origin
+  weight  1.0 whole figure, word-for-word passage, close paraphrase, or
+              reworded idea/structure from an identifiable outside work;
+          0.5 adapted figure or unconfirmed origin
   cited   1.0 complete credit (title, author, source, licence, date);
           0.75 complete but for the date;
           0.5 partial (right source, but no licence, author or quote marks);
           0   none, or credited to the wrong source
-Clip art and icons, contributing Members' own material and reworded ideas
-are not items.
+Clip art and icons, contributing Members' own material and ideas common
+across a field (no single identifiable source) are not items.
 
   ownership score              = sum(weight) per 1,000 words
   poorly cited ownership score = sum(weight * (1 - cited)) per 1,000 words

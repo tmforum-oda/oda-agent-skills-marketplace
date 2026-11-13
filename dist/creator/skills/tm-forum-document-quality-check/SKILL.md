@@ -589,9 +589,11 @@ ownership score is reported with its z for context:
 1. List each item of material owned by a non-Contributor (see "The
    central test" under Reference 1 in `references/reference-citations.md`),
    with:
-   - a **weight**: **1.0** for a whole figure or a word-for-word passage,
-     **0.5** for an adapted figure, a close paraphrase or an item of
-     unconfirmed origin;
+   - a **weight**: **1.0** for a whole figure, a word-for-word passage, a
+     close paraphrase, or a reworded idea, structure or convention taken
+     from an identifiable outside work (for example a named level scheme,
+     metric or model restated in the document's own words); **0.5** for an
+     adapted figure or an item of unconfirmed origin;
    - a **citation** value: **1.0** for a complete credit (Title, Author,
      Source and Licence, per Reference 5, and Date), **0.75** for a credit
      complete but for the date, **0.5** for a partial credit (the right
@@ -600,8 +602,14 @@ ownership score is reported with its z for context:
      gives the credit's parts; whether the source is the right one comes
      from opening it.
 
-   Don't count clip art and icons, contributing Members' own material,
-   or reworded ideas and conventions.
+   Don't count clip art and icons, or contributing Members' own material.
+   An idea or convention common across a field, with no single
+   identifiable source, isn't an item either. The reference set in
+   `references/ownership-reference.json` was weighted before close
+   paraphrase and reworded ideas counted 1.0, so z against it overstates
+   a document's score; the class rule is fixed thresholds and still
+   applies. Say so in the report when an item uses the 1.0 rewording
+   weight.
 2. Count the document's words (`text.txt`; use that count for the ownership score and say so, because the other scripts count words a little differently: they drop contents lines or the document's own identifier), then run:
 
    ```bash

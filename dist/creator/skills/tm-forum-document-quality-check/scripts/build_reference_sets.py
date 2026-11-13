@@ -107,11 +107,12 @@ def main():
         "ownership-reference.json": {
             "description": ("Ownership reference set: %d documents checked on 2026-10-20 and 2026-10-21 (the same "
                             "documents as the other reference sets; drafts still being written are left out). Items "
-                            "are material owned by non-Contributors. weight: whole figure or word-for-word passage "
-                            "1.0; adapted figure, close paraphrase or unconfirmed origin 0.5. cited: complete credit "
+                            "are material owned by non-Contributors. weight: whole figure, word-for-word passage, "
+                            "close paraphrase or reworded idea from an identifiable work 1.0; adapted figure or "
+                            "unconfirmed origin 0.5. cited: complete credit "
                             "(title, author, source, licence) 1.0; partial (right source, but no licence, author or "
                             "quotation marks) 0.5; none or wrong source 0. Clip art and icons, contributing "
-                            "Members' own material, and reworded ideas are excluded. Ownership score = total weight "
+                            "Members' own material, and ideas common across a field are excluded. Ownership score = total weight "
                             "per 1,000 words; poorly cited ownership score = total weight x (1 - cited) per 1,000 "
                             "words." % n),
             "sigma_multiplier": k,

@@ -338,6 +338,38 @@ python -I scripts/citation_dates.py "<output-dir>" --sources "<sources-dir>" [--
 Report the table under Reference 5, and the core citation, its date, its
 age and how it was chosen in one line under it.
 
+### Outside works named with no citation
+
+`credit_check.py` only sees text that carries a credit. A document can also
+lean on outside works it only names. These are standards, protocols,
+frameworks, runtimes, benchmarks and risk catalogues (for example "ODP-EL",
+"REP (Ripple Effect Protocol)", "A2A JSON-RPC 2.0", "NIST AAI001",
+"BIRD-SQL"), named as the basis of a field, rule or value with no citation
+anywhere. Find them while reading `text.txt` for the editorial check: look at
+acronyms and proper names in the normative sections, templates, tables and
+code blocks. A named work counts when **all** of these hold:
+
+- it isn't TM Forum's own (a TM Forum name, or a TMF, TMFC, GB, IG or TR
+  number);
+- the document relies on it, by saying a field, rule, value or design is
+  based on, follows, maps to or is inspired by it, or by using it as a
+  field's value; a passing mention doesn't count;
+- it has no entry in the document's References or Abbreviations, no outside
+  link next to it, and no `cited.txt` credit.
+
+Under Reference 5, after the credit check, add a section headed
+`### Outside works named with no citation`, with one row per work: **Work as
+named**, **Where it is named** (section numbers from the table of contents),
+**What the document attributes to it** (quote it), and **Citation given**
+("none", or what partial pointer there is, such as a link styled in a figure
+with no address). Say in one line that these works are named, not
+reproduced, so they aren't ownership items and don't change any score. If
+they are also an editorial "incomplete references" finding, say so in one
+line: there they are an editorial finding, here a credit finding. When the
+document names none, write "None found." under the heading. As everywhere
+in this skill, report the finding without saying what the citation should
+be.
+
 ## Checking images
 
 Check every image listed in `images.txt`, plus any in `media/` that it

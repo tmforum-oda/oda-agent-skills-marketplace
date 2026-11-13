@@ -1,0 +1,245 @@
+{
+ "note": "Editorial consistency reference set: every document in work/documents with an editorial.json. Expected weighted findings = a x (words/1000)^b, fitted on logs; score = weighted / expected; mean and sigma of the scores give z for context; the class is a fixed rule in editorial_score.py.",
+ "k": 0.8,
+ "n": 39,
+ "a": 13.7253,
+ "b": 0.6494,
+ "mean": 1.0364,
+ "sigma": 0.2649,
+ "documents": [
+  {
+   "key": "GB1022",
+   "words": 12155,
+   "weighted": 55,
+   "score": 0.791
+  },
+  {
+   "key": "GB1027",
+   "words": 10363,
+   "weighted": 65,
+   "score": 1.037
+  },
+  {
+   "key": "GB1059",
+   "words": 3027,
+   "weighted": 28,
+   "score": 0.994
+  },
+  {
+   "key": "GB1065",
+   "words": 5753,
+   "weighted": 35,
+   "score": 0.819
+  },
+  {
+   "key": "GB1077",
+   "words": 18742,
+   "weighted": 106,
+   "score": 1.151
+  },
+  {
+   "key": "GB1082",
+   "words": 15228,
+   "weighted": 61,
+   "score": 0.758
+  },
+  {
+   "key": "GB1096",
+   "words": 9238,
+   "weighted": 90,
+   "score": 1.548
+  },
+  {
+   "key": "GB998",
+   "words": 7771,
+   "weighted": 52,
+   "score": 1.0
+  },
+  {
+   "key": "IG1171",
+   "words": 2981,
+   "weighted": 29,
+   "score": 1.039
+  },
+  {
+   "key": "IG1222",
+   "words": 4620,
+   "weighted": 31,
+   "score": 0.836
+  },
+  {
+   "key": "IG1228",
+   "words": 1914,
+   "weighted": 24,
+   "score": 1.147
+  },
+  {
+   "key": "IG1242",
+   "words": 9603,
+   "weighted": 47,
+   "score": 0.788
+  },
+  {
+   "key": "IG1245",
+   "words": 7200,
+   "weighted": 42,
+   "score": 0.849
+  },
+  {
+   "key": "IG1251C",
+   "words": 10379,
+   "weighted": 61,
+   "score": 0.972
+  },
+  {
+   "key": "IG1251",
+   "words": 8508,
+   "weighted": 54,
+   "score": 0.98
+  },
+  {
+   "key": "IG1252",
+   "words": 10589,
+   "weighted": 54,
+   "score": 0.85
+  },
+  {
+   "key": "IG1266A",
+   "words": 6909,
+   "weighted": 53,
+   "score": 1.101
+  },
+  {
+   "key": "IG1280",
+   "words": 19549,
+   "weighted": 76,
+   "score": 0.803
+  },
+  {
+   "key": "IG1284",
+   "words": 1459,
+   "weighted": 16,
+   "score": 0.912
+  },
+  {
+   "key": "IG1320",
+   "words": 3111,
+   "weighted": 38,
+   "score": 1.325
+  },
+  {
+   "key": "IG1330",
+   "words": 10504,
+   "weighted": 67,
+   "score": 1.06
+  },
+  {
+   "key": "IG1351",
+   "words": 9092,
+   "weighted": 54,
+   "score": 0.938
+  },
+  {
+   "key": "IG1412",
+   "words": 17368,
+   "weighted": 78,
+   "score": 0.89
+  },
+  {
+   "key": "IG1434",
+   "words": 5737,
+   "weighted": 52,
+   "score": 1.218
+  },
+  {
+   "key": "IG1453",
+   "words": 9359,
+   "weighted": 68,
+   "score": 1.159
+  },
+  {
+   "key": "IG1502A",
+   "words": 3178,
+   "weighted": 36,
+   "score": 1.238
+  },
+  {
+   "key": "IG1523D",
+   "words": 5369,
+   "weighted": 49,
+   "score": 1.199
+  },
+  {
+   "key": "IG1523E",
+   "words": 6303,
+   "weighted": 59,
+   "score": 1.3
+  },
+  {
+   "key": "IG1524B",
+   "words": 3456,
+   "weighted": 28,
+   "score": 0.912
+  },
+  {
+   "key": "IG1525E",
+   "words": 3139,
+   "weighted": 35,
+   "score": 1.213
+  },
+  {
+   "key": "IG1526A",
+   "words": 3275,
+   "weighted": 27,
+   "score": 0.91
+  },
+  {
+   "key": "TAC-1012",
+   "words": 2466,
+   "weighted": 9,
+   "score": 0.365
+  },
+  {
+   "key": "TAC-1221",
+   "words": 4408,
+   "weighted": 51,
+   "score": 1.418
+  },
+  {
+   "key": "TAC-1422",
+   "words": 1332,
+   "weighted": 18,
+   "score": 1.089
+  },
+  {
+   "key": "TMF443",
+   "words": 13552,
+   "weighted": 118,
+   "score": 1.582
+  },
+  {
+   "key": "TMF444",
+   "words": 14961,
+   "weighted": 111,
+   "score": 1.396
+  },
+  {
+   "key": "TMF445",
+   "words": 13253,
+   "weighted": 112,
+   "score": 1.523
+  },
+  {
+   "key": "TR255",
+   "words": 25027,
+   "weighted": 61,
+   "score": 0.549
+  },
+  {
+   "key": "TR292",
+   "words": 3604,
+   "weighted": 24,
+   "score": 0.76
+  }
+ ]
+}

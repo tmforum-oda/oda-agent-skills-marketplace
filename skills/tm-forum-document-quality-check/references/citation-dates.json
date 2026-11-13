@@ -1,0 +1,125 @@
+{
+ "note": "Publication dates for credited sources that neither the credit nor a held source dates. Key: a document number as documents write it (\"RFC 6749\", \"3GPP TS 28.312\", \"MEF 55\") or a link exactly as cited.txt gives it. date: YYYY-MM-DD, YYYY-MM or YYYY. basis: where the date came from (the source's own page or front page opened during the web check, with its address; a copy the user supplied).",
+ "dates": {
+  "http://www.etsi.org/deliver/etsi_ts/103100_103199/10319502/01.01.01_60/ts_10319502v010101p.pdf": {
+   "date": "2018-05",
+   "basis": "front page of the PDF at this address, opened 2026-10-28: ETSI TS 103 195-2 V1.1.1 (2018-05)"
+  },
+  "https://snyk.io/blog/introduction-to-rego/": {
+   "date": "2023-11-02",
+   "basis": "datePublished on the page at this address, opened 2026-10-30 (Becki Lee, Snyk)"
+  },
+  "https://www.ngmn.org/wp-content/uploads/241001_Automation__Autonomous_system_Architecture_Framework-Phase-2_V1.0.pdf": {
+   "date": "2024-10-01",
+   "basis": "front page of the PDF at this address, opened 2026-11-03: NGMN Alliance, Automation and Autonomous System Architecture Framework - Phase 2, Version 1.0, 01 October 2024"
+  },
+  "https://datatracker.ietf.org/doc/draft-mackey-nmop-kg-for-netops/": {
+   "date": "2024-09-10",
+   "basis": "IETF datatracker and archive for draft-mackey-nmop-kg-for-netops-00 (the revision the document names), opened 2026-11-03: dated 10 September 2024; the page at this address now shows revision -04, 2026-04-07"
+  },
+  "https://nam12.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcandil-data-fabric.github.io%2Fyang-server-ontology%2Findex.html&data=05%7C02%7Cdmilham%40tmforum.org%7Cfcc1aa39dfed43351d1508dce3fce587%7C8c5f6f8d6dc640f6becc7ae321123747%7C0%7C0%7C638635922587832746%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&sdata=3Q8d5tggqG6ilp%2FUzZTGr4tyRNv5kFoWqjtZAbLyuKU%3D&reserved=0": {
+   "date": "2025-01-18",
+   "basis": "https://candil-data-fabric.github.io/yang-server-ontology/index.html (the page this link wraps), opened 2026-11-03: YANG Server Ontology revision 1.6.0, released 2025-01-18 (the edition held there, possibly later than the one the document used)"
+  },
+  "https://doi.org/10.6028/NIST.SP.1500-201": {
+   "date": "2017-06",
+   "basis": "title page of https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1500-201.pdf, opened 2026-11-03: NIST SP 1500-201, June 2017"
+  },
+  "https://datatracker.ietf.org/doc/html/rfc8345": {
+   "date": "2018-03",
+   "basis": "RFC 8345 page at this address, opened 2026-11-03: A YANG Data Model for Network Topologies, March 2018"
+  },
+  "https://www.w3.org/TR/json-ld11-api/": {
+   "date": "2020-07-16",
+   "basis": "W3C page at this address, opened 2026-11-03: JSON-LD 1.1 Processing Algorithms and API, W3C Recommendation 16 July 2020"
+  },
+  "https://www.w3.org/ns/json-ld": {
+   "date": "2020-03-30",
+   "basis": "W3C page at this address, opened 2026-11-03: The JSON-LD Vocabulary, published 2020-03-30"
+  },
+  "https://www.etsi.org/deliver/etsi_gs/CIM/001_099/013/02.01.01_60/gs_CIM013v020101p.pdf": {
+   "date": "2024-04",
+   "basis": "front page of the PDF at this address, opened 2026-11-03: ETSI GS CIM 013 V2.1.1 (2024-04)"
+  },
+  "https://www.ietf.org/archive/id/draft-polli-restapi-ld-keywords-02.html": {
+   "date": "2023-06-24",
+   "basis": "Internet-Draft at this address, opened 2026-11-03: draft-polli-restapi-ld-keywords-02, 24 June 2023"
+  },
+  "https://www.ietf.org/archive/id/draft-polli-restapi-ld-keywords-02.html?utm_source=chatgpt.com": {
+   "date": "2023-06-24",
+   "basis": "same draft as https://www.ietf.org/archive/id/draft-polli-restapi-ld-keywords-02.html, opened 2026-11-03: 24 June 2023"
+  },
+  "https://www.w3.org/TR/owl2-mapping-to-rdf/.%20": {
+   "date": "2012-12-11",
+   "basis": "W3C page https://www.w3.org/TR/owl2-mapping-to-rdf/ (the link carries a stray \".%20\"), opened 2026-11-03: W3C Recommendation 11 December 2012"
+  },
+  "https://www.w3.org/TR/owl2-rdf-based-semantics/": {
+   "date": "2012-12-11",
+   "basis": "W3C page at this address, opened 2026-11-03: W3C Recommendation 11 December 2012"
+  },
+  "https://www.w3.org/TR/shacl/?utm_source=chatgpt.com": {
+   "date": "2017-07-20",
+   "basis": "W3C page https://www.w3.org/TR/shacl/, opened 2026-11-03: W3C Recommendation 20 July 2017"
+  },
+  "https://www.w3.org/TR/swbp-vocab-pub/": {
+   "date": "2008-08-28",
+   "basis": "W3C page at this address, opened 2026-11-03: W3C Working Group Note 28 August 2008"
+  },
+  "https://www.etsi.org/deliver/etsi_gr/ENI/001_099/031/04.01.01_60/gr_ENI031v040101p.pdf": {
+   "date": "2024-05",
+   "basis": "front page of the PDF at this address, opened 2026-11-03: ETSI GR ENI 031 V4.1.1 (2024-05)"
+  },
+  "https://www.ietf.org/archive/id/draft-li-semantic-routing-architecture-00.html": {
+   "date": "2025-11-04",
+   "basis": "Internet-Draft at this address, opened 2026-11-03: draft-li-semantic-routing-architecture-00, 4 November 2025"
+  },
+  "https://ceur-ws.org/Vol-4064/SENTIS-paper6.pdf": {
+   "date": "2025-08",
+   "basis": "PDF at this address, opened 2026-11-03: CEUR-WS Vol-4064 paper, PDF dated 2025-08-08 (the credit gives September 2025)"
+  },
+  "https://perks-project.github.io/pk-ontology/pko/latest/index.html": {
+   "date": "2026-06-29",
+   "basis": "ontology page at this address, opened 2026-11-03: PKO version 2.0.0, issued 2026-06-29 (the edition held there; later than the 2025 edition the document names)"
+  },
+  "ETSI GR ENI 035": {
+   "date": "2023-12",
+   "basis": "front page of the PDF at https://www.etsi.org/deliver/etsi_gr/ENI/001_099/035/04.01.01_60/gr_ENI035v040101p.pdf, opened 2026-11-03: ETSI GR ENI 035 V4.1.1 (2023-12)"
+  },
+  "https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3554": {
+   "date": "2026-03-27",
+   "basis": "3GPP portal specification page at this address, opened 2026-11-05: TS 28.312 latest Release 19 version 19.5.0, uploaded 2026-03-27 (SA#111); held copy 28312-j50.docx front page V19.5.0 (2026-03)"
+  },
+  "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf?utm_source=chatgpt.com": {
+   "date": "2024-02-26",
+   "basis": "front page of https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf, opened 2026-11-05: The NIST Cybersecurity Framework (CSF) 2.0, February 26, 2024"
+  },
+  "https://genai.owasp.org/resource/securing-agentic-applications-guide-1-0/": {
+   "date": "2025-07-28",
+   "basis": "front page of the PDF linked from this address (https://genai.owasp.org/download/49059/), opened 2026-11-05: Securing Agentic Applications Guide, Version 1.0, July 28, 2025 (page lists July 27, 2025)"
+  },
+  "https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/": {
+   "date": "2025-02-17",
+   "basis": "resource page at this address, opened 2026-11-05: Agentic AI - Threats and Mitigations v1.0, February 17, 2025"
+  },
+  "https://www.adversa.ai/top-ai-security-incidents-report-2025-edition/": {
+   "date": "2025-07-30",
+   "basis": "report page at this address, opened 2026-11-05: Adversa AI, Top AI Security Incidents Report 2025 Edition, July 30, 2025"
+  },
+  "https://ai-agent-news.com/posts/zenity-38m-agentic-ai-security-governance/": {
+   "date": "2025-10-01",
+   "basis": "news page at this address, opened 2026-11-05: dated October 1, 2025"
+  },
+  "https://www.w3.org/TR/did-1.0/": {
+   "date": "2022-07-19",
+   "basis": "W3C page at this address, opened 2026-11-05: Decentralized Identifiers (DIDs) v1.0, W3C Recommendation 19 July 2022"
+  },
+  "Source: ETSI GR F5G 019 V1.1.1": {
+   "date": "2025-04",
+   "basis": "front page of https://www.etsi.org/deliver/etsi_gr/F5G/001_099/019/01.01.01_60/gr_F5G019v010101p.pdf, opened 2026-11-06: ETSI GR F5G 019 V1.1.1 (2025-04)"
+  },
+  "https://yaml.org/spec/1.2.2/": {
+   "date": "2021-10-01",
+   "basis": "the page at this address, opened 2026-11-11: YAML Ain't Markup Language Version 1.2, Revision 1.2.2 (2021-10-01)"
+  }
+ }
+}

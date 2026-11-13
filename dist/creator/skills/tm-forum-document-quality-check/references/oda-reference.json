@@ -1,0 +1,584 @@
+{
+  "description": "ODA content reference set: the same 38 documents as the other reference sets. Each document's score is the sum of its TM Forum terms per 1,000 words in seven parts of ODA (components, canvas, APIs, frameworks, use cases, HVS, solution packages), equal weights, after removing the document's own identifier. Only TM Forum's items count: names that are TM Forum's own always, published TMF and TMFC numbers only (references/tmforum-identifiers.json), and generic terms only in TM Forum context. excluded_own records any other own name that was removed (TMF443, TMF444 and TMF445 cite each other's numbers).",
+  "class_rule": {
+    "light_below": 5,
+    "heavy_above": 20,
+    "note": "Fixed rule set by Hugo Vaughan on 2026-10-22: light below 5, typical 5 to 20, heavy above 20, per 1,000 words."
+  },
+  "documents": [
+    {
+      "name": "IG1242 v26.0.0",
+      "words": 9656,
+      "rates": {
+        "components": 27.96,
+        "canvas": 2.38,
+        "APIs": 4.04,
+        "frameworks": 6.01,
+        "use cases": 0.21,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 40.6,
+      "categories": 4
+    },
+    {
+      "name": "TAC-1012 TMFC047 Party Problem Management",
+      "words": 2481,
+      "rates": {
+        "components": 8.46,
+        "canvas": 0.0,
+        "APIs": 19.35,
+        "frameworks": 4.84,
+        "use cases": 2.82,
+        "HVS": 0.0,
+        "solution packages": 2.82
+      },
+      "score": 38.29,
+      "categories": 5
+    },
+    {
+      "name": "IG1228 v16.0.0",
+      "words": 1909,
+      "rates": {
+        "components": 23.05,
+        "canvas": 0.0,
+        "APIs": 1.05,
+        "frameworks": 0.52,
+        "use cases": 13.62,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 38.24,
+      "categories": 3
+    },
+    {
+      "name": "IG1330 v1.1.1",
+      "words": 10615,
+      "rates": {
+        "components": 9.61,
+        "canvas": 13.94,
+        "APIs": 1.88,
+        "frameworks": 1.98,
+        "use cases": 7.25,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 34.67,
+      "categories": 5
+    },
+    {
+      "name": "IG1222 Part 1 v1.0.0",
+      "words": 4605,
+      "rates": {
+        "components": 12.16,
+        "canvas": 1.95,
+        "APIs": 3.69,
+        "frameworks": 11.73,
+        "use cases": 0.43,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 29.97,
+      "categories": 4
+    },
+    {
+      "name": "GB1022 v1.1.0",
+      "words": 12160,
+      "rates": {
+        "components": 0.33,
+        "canvas": 0.0,
+        "APIs": 12.17,
+        "frameworks": 13.57,
+        "use cases": 0.41,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 26.48,
+      "categories": 2,
+      "excluded_own": "(?:ODA )?Functional Architecture"
+    },
+    {
+      "name": "IG1171 v5.0.0",
+      "words": 2997,
+      "rates": {
+        "components": 18.02,
+        "canvas": 0.0,
+        "APIs": 1.67,
+        "frameworks": 2.67,
+        "use cases": 0.0,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 22.36,
+      "categories": 3
+    },
+    {
+      "name": "Tax Management inception form (TAC-1422)",
+      "words": 1342,
+      "rates": {
+        "components": 2.98,
+        "canvas": 0.0,
+        "APIs": 5.22,
+        "frameworks": 4.47,
+        "use cases": 6.71,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 19.37,
+      "categories": 4
+    },
+    {
+      "name": "TAC-1221 v13 (Cross Domain Intelligent Controller / SMIC inception form)",
+      "words": 4433,
+      "rates": {
+        "components": 3.61,
+        "canvas": 0.0,
+        "APIs": 4.51,
+        "frameworks": 4.51,
+        "use cases": 2.26,
+        "HVS": 0.23,
+        "solution packages": 0.0
+      },
+      "score": 15.11,
+      "categories": 4
+    },
+    {
+      "name": "GB1077 v2.0.0",
+      "words": 18958,
+      "rates": {
+        "components": 10.18,
+        "canvas": 0.0,
+        "APIs": 1.32,
+        "frameworks": 2.37,
+        "use cases": 0.63,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 14.51,
+      "categories": 3
+    },
+    {
+      "name": "IG1245 v1.0.0",
+      "words": 7199,
+      "rates": {
+        "components": 8.47,
+        "canvas": 0.28,
+        "APIs": 1.53,
+        "frameworks": 0.97,
+        "use cases": 0.14,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 11.39,
+      "categories": 2
+    },
+    {
+      "name": "TMF445 v1.0.0",
+      "words": 12834,
+      "rates": {
+        "components": 1.25,
+        "canvas": 0.0,
+        "APIs": 2.1,
+        "frameworks": 7.4,
+        "use cases": 0.0,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 10.75,
+      "categories": 3,
+      "excluded_own": "TMF ?44[345]"
+    },
+    {
+      "name": "IG1266A Component Workstream Tools v0.0.3",
+      "words": 7007,
+      "rates": {
+        "components": 3.71,
+        "canvas": 0.57,
+        "APIs": 0.0,
+        "frameworks": 6.42,
+        "use cases": 0.0,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 10.7,
+      "categories": 2
+    },
+    {
+      "name": "TMF444 v1.0.0",
+      "words": 14552,
+      "rates": {
+        "components": 0.76,
+        "canvas": 0.0,
+        "APIs": 1.86,
+        "frameworks": 6.12,
+        "use cases": 0.0,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 8.73,
+      "categories": 2,
+      "excluded_own": "TMF ?44[345]"
+    },
+    {
+      "name": "IG1351 ODA for Wholesale Broadband v1.0.0",
+      "words": 9054,
+      "rates": {
+        "components": 3.76,
+        "canvas": 0.0,
+        "APIs": 2.54,
+        "frameworks": 0.44,
+        "use cases": 0.44,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 7.18,
+      "categories": 2
+    },
+    {
+      "name": "IG1284 v2.0.0",
+      "words": 1458,
+      "rates": {
+        "components": 3.43,
+        "canvas": 0.0,
+        "APIs": 1.37,
+        "frameworks": 2.06,
+        "use cases": 0.0,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 6.86,
+      "categories": 3
+    },
+    {
+      "name": "GB1082 v1.0.0",
+      "words": 15295,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.07,
+        "APIs": 0.0,
+        "frameworks": 5.62,
+        "use cases": 0.59,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 6.28,
+      "categories": 1
+    },
+    {
+      "name": "IG1320 Conformance Ways of Working v2.0.0",
+      "words": 3110,
+      "rates": {
+        "components": 5.47,
+        "canvas": 0.32,
+        "APIs": 0.0,
+        "frameworks": 0.0,
+        "use cases": 0.32,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 6.11,
+      "categories": 1
+    },
+    {
+      "name": "IG1280 Bridging TM Forum ODA and 3GPP 5G Service Management v2.0.0",
+      "words": 19578,
+      "rates": {
+        "components": 0.15,
+        "canvas": 0.0,
+        "APIs": 2.2,
+        "frameworks": 3.12,
+        "use cases": 0.36,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 5.82,
+      "categories": 2
+    },
+    {
+      "name": "TMF443 v1.0.0",
+      "words": 13525,
+      "rates": {
+        "components": 1.55,
+        "canvas": 0.0,
+        "APIs": 1.77,
+        "frameworks": 2.14,
+        "use cases": 0.0,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 5.47,
+      "categories": 3,
+      "excluded_own": "TMF ?44[345]"
+    },
+    {
+      "name": "TR255 Resource Function Activation and Configuration v5.0.1",
+      "words": 25463,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 1.06,
+        "frameworks": 2.08,
+        "use cases": 1.1,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 4.24,
+      "categories": 3
+    },
+    {
+      "name": "IG1412 v3.0.0",
+      "words": 17647,
+      "rates": {
+        "components": 1.47,
+        "canvas": 0.28,
+        "APIs": 0.23,
+        "frameworks": 1.08,
+        "use cases": 0.06,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 3.12,
+      "categories": 2
+    },
+    {
+      "name": "GB1059 v1.1.0",
+      "words": 3026,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.0,
+        "frameworks": 0.0,
+        "use cases": 0.0,
+        "HVS": 1.98,
+        "solution packages": 0.33
+      },
+      "score": 2.31,
+      "categories": 1
+    },
+    {
+      "name": "GB1027 v6.0.0",
+      "words": 10384,
+      "rates": {
+        "components": 0.96,
+        "canvas": 0.0,
+        "APIs": 0.58,
+        "frameworks": 0.0,
+        "use cases": 0.19,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 1.73,
+      "categories": 0
+    },
+    {
+      "name": "IG1434 v2.0.0",
+      "words": 5736,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.0,
+        "frameworks": 0.7,
+        "use cases": 0.17,
+        "HVS": 0.7,
+        "solution packages": 0.0
+      },
+      "score": 1.57,
+      "categories": 0
+    },
+    {
+      "name": "IG1523D v2.0.0",
+      "words": 5375,
+      "rates": {
+        "components": 0.37,
+        "canvas": 0.0,
+        "APIs": 0.19,
+        "frameworks": 0.0,
+        "use cases": 0.0,
+        "HVS": 0.19,
+        "solution packages": 0.74
+      },
+      "score": 1.49,
+      "categories": 0
+    },
+    {
+      "name": "IG1502A v1.0.0",
+      "words": 3177,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.0,
+        "frameworks": 0.0,
+        "use cases": 0.0,
+        "HVS": 0.31,
+        "solution packages": 0.94
+      },
+      "score": 1.26,
+      "categories": 0
+    },
+    {
+      "name": "GB1065 v2.0.0",
+      "words": 5753,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.0,
+        "frameworks": 0.87,
+        "use cases": 0.35,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 1.22,
+      "categories": 0
+    },
+    {
+      "name": "IG1526A v1.0.0",
+      "words": 3295,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.0,
+        "frameworks": 0.0,
+        "use cases": 0.0,
+        "HVS": 0.3,
+        "solution packages": 0.91
+      },
+      "score": 1.21,
+      "categories": 0
+    },
+    {
+      "name": "IG1523E AN L4 IP Network Fault Management v2.0.0",
+      "words": 6315,
+      "rates": {
+        "components": 0.16,
+        "canvas": 0.0,
+        "APIs": 0.16,
+        "frameworks": 0.0,
+        "use cases": 0.0,
+        "HVS": 0.16,
+        "solution packages": 0.63
+      },
+      "score": 1.11,
+      "categories": 0
+    },
+    {
+      "name": "TR292 v3.6.0",
+      "words": 3612,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.83,
+        "frameworks": 0.0,
+        "use cases": 0.28,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 1.11,
+      "categories": 0
+    },
+    {
+      "name": "GB998 v2.1.0",
+      "words": 7788,
+      "rates": {
+        "components": 0.13,
+        "canvas": 0.0,
+        "APIs": 0.13,
+        "frameworks": 0.77,
+        "use cases": 0.0,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 1.03,
+      "categories": 0
+    },
+    {
+      "name": "IG1525E AN L4 IP Network Quality Optimization v1.0.0",
+      "words": 3138,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.0,
+        "frameworks": 0.0,
+        "use cases": 0.0,
+        "HVS": 0.32,
+        "solution packages": 0.64
+      },
+      "score": 0.96,
+      "categories": 0
+    },
+    {
+      "name": "IG1251 v1.0.1",
+      "words": 8523,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.47,
+        "frameworks": 0.47,
+        "use cases": 0.0,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 0.94,
+      "categories": 0
+    },
+    {
+      "name": "IG1524B AN L4 Core Network Change Management v1.0.0",
+      "words": 3455,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.0,
+        "frameworks": 0.0,
+        "use cases": 0.0,
+        "HVS": 0.29,
+        "solution packages": 0.58
+      },
+      "score": 0.87,
+      "categories": 0
+    },
+    {
+      "name": "IG1251C AN Level 4 Target Architecture v1.1.0",
+      "words": 10537,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.0,
+        "frameworks": 0.0,
+        "use cases": 0.09,
+        "HVS": 0.38,
+        "solution packages": 0.0
+      },
+      "score": 0.47,
+      "categories": 0
+    },
+    {
+      "name": "IG1453 v2.0.0",
+      "words": 9358,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.21,
+        "frameworks": 0.0,
+        "use cases": 0.0,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 0.21,
+      "categories": 0
+    },
+    {
+      "name": "IG1252 v1.2.0",
+      "words": 10588,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.0,
+        "frameworks": 0.09,
+        "use cases": 0.0,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 0.09,
+      "categories": 0
+    }
+  ]
+}

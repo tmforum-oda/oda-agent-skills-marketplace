@@ -1,0 +1,660 @@
+{
+  "description": "Ownership reference set: 38 documents checked on 2026-10-20 and 2026-10-21 (the same documents as the other reference sets; drafts still being written are left out). Items are material owned by non-Contributors. weight: whole figure or word-for-word passage 1.0; adapted figure, close paraphrase or unconfirmed origin 0.5. cited: complete credit (title, author, source, licence) 1.0; partial (right source, but no licence, author or quotation marks) 0.5; none or wrong source 0. Clip art and icons, contributing Members' own material, and reworded ideas are excluded. Ownership score = total weight per 1,000 words; poorly cited ownership score = total weight x (1 - cited) per 1,000 words.",
+  "sigma_multiplier": 0.8,
+  "class_rule": {
+    "good_at_most": 0.05,
+    "good_needs_no_uncredited_whole_item": true,
+    "bad_above": 0.15,
+    "note": "Poorly cited ownership is classed by a fixed rule, not by the mean and standard deviation of the reference set: good = no poorly cited material (score 0), bad = above 0.15 per 1,000 words (roughly one word-for-word passage with no credit per 6,700 words), improving = in between. Set by Hugo Vaughan on 2026-10-21 at 0.2 per 1,000 words (was above 2.0 per 10,000 words); lowered to 0.15 by Hugo Vaughan on 2026-10-23. Good widened by Hugo Vaughan on 2026-11-05 to a score up to 0.05 per 1,000 words, as long as no whole figure or word-for-word passage (weight 1.0) has no credit at all: with good = 0 only, every good document was short, because a long document almost never scores exactly 0."
+  },
+  "documents": [
+    {
+      "name": "IG1242 ODA Component Inventory v26.0.0",
+      "words": 9603,
+      "items": []
+    },
+    {
+      "name": "IG1266A Component Workstream Tools v0.0.3",
+      "words": 6909,
+      "items": []
+    },
+    {
+      "name": "Component Inception Form - Tax Management (TAC-1422)",
+      "words": 1332,
+      "items": []
+    },
+    {
+      "name": "IG1434 AN Organizational Capabilities v2.0.0",
+      "words": 5668,
+      "items": [
+        {
+          "item": "Figure 10, apparently copied",
+          "weight": 0.5,
+          "cited": 0
+        }
+      ]
+    },
+    {
+      "name": "TMF443 AI Agent Profile Template v1.0.0",
+      "words": 13529,
+      "items": [
+        {
+          "item": "OASF definition (AGNTCY, close)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "RPO definition (Spike.sh)",
+          "weight": 1.0,
+          "cited": 0
+        }
+      ]
+    },
+    {
+      "name": "TMF445 AI Agent Card Specification v1.0.0",
+      "words": 12917,
+      "items": [
+        {
+          "item": "OASF passages (AGNTCY)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "MIME definition (Wikipedia, credited to RFC 6838)",
+          "weight": 1.0,
+          "cited": 0
+        },
+        {
+          "item": "URL definition (RFC 3986, close)",
+          "weight": 0.5,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "TMF444 AI Agent Bootstrap Specification v1.0.0",
+      "words": 14548,
+      "items": [
+        {
+          "item": "OASF definition and taxonomy (AGNTCY)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Autonomy levels L1-L5 (Feng et al., adapted, credited by arXiv ID only)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "JSON-RPC definition (jsonrpc.org, credited to IETF)",
+          "weight": 1.0,
+          "cited": 0
+        },
+        {
+          "item": "RPO definition (Spike.sh)",
+          "weight": 1.0,
+          "cited": 0
+        }
+      ]
+    },
+    {
+      "name": "IG1412 AI Agent Specification Template v3.0.0",
+      "words": 17368,
+      "items": [
+        {
+          "item": "arXiv:2506.12469 Figure 1 (title and link only)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "arXiv:2506.12469 text (title and link only)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "OASF definition (AGNTCY, credits disagree)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Agent Spec definition (Oracle, link only)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Figure 1 adapted (Lil'Log)",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "Figure 2 adapted (AIMA, probable)",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "YAML definition (close; credited source not the source)",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "A/B Testing definition (close; credited source not the source)",
+          "weight": 0.5,
+          "cited": 0
+        }
+      ]
+    },
+    {
+      "name": "Component Inception Form - TMFC047 Party Problem Management (TAC-1012)",
+      "words": 2466,
+      "items": []
+    },
+    {
+      "name": "Component Inception Form - SMIC / xdcontrol (TAC-1221)",
+      "words": 4489,
+      "items": [
+        {
+          "item": "INT-FX-01 to INT-FX-07 function descriptions (Intent Handler presentation 1/4/2024; title and date only)",
+          "weight": 1.0,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "IG1280 Bridging TM Forum ODA and 3GPP 5G Service Management v2.0.0",
+      "words": 19549,
+      "items": [
+        {
+          "item": "Figure 23 'Service Multiplicity in 3GPP' (image27.png), reproduced from 3GPP TS 28.530 Figure 4.1.3.1 (Release 15 labels); credited only as 'detailed in Ref 10' (28530-f30)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Quoted 3GPP NSaaS passage, section before Figure 11 (43 words word for word with TS 28.530); in quotation marks, introduced as 'statement from 3GPP', no document number or licence",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Quoted 3GPP multi-tenancy passage ('The 3GPP management system provides multi-tenancy support ...'); in quotation marks, no document named; origin not confirmed against a held source",
+          "weight": 0.5,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "IG1251 Autonomous Networks Reference Architecture v1.0.1",
+      "words": 8508,
+      "items": [
+        {
+          "item": "Figure 5-1 right half: reproduction of ETSI GS ZSM 002 V1.1.1 Figure 6.2-1 (ZSM framework reference architecture), owner ETSI",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Section 2.1 first two sentences: TOGAF Standard architecture-principles definition reproduced with 'IT'/'all' removed, owner The Open Group, no credit",
+          "weight": 1.0,
+          "cited": 0
+        }
+      ],
+      "note": "maps ETSI ZSM onto the AN reference architecture"
+    },
+    {
+      "name": "IG1251C AN Level 4 Target Architecture v1.1.0",
+      "words": 10379,
+      "items": [
+        {
+          "item": "Figure 1 AN 3-Layer, 4-closed-loop (unconfirmed origin, no credit; label search found no outside copy)",
+          "weight": 0.5,
+          "cited": 0
+        }
+      ]
+    },
+    {
+      "name": "IG1252 Autonomous Network Levels Evaluation Methodology v1.2.0",
+      "words": 10589,
+      "items": [
+        {
+          "item": "Task categorisation text (Intent/Experience ... Execution, section 5.3.2.2.1): 41- and 17-word runs shared with 3GPP TS 28.100 (held V19.0.0, 2025-09) clause 4.3.4; direction of copying unconfirmed; TS 28.100 not cited",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "Background paragraph 'A common understanding of the levels of autonomous networks will be helpful...' (about 104 words): first sentence identical to 3GPP TR 28.810 cl. 4.1.3 and 3GPP SA5 WID S5-203220 (May-Jun 2020, source China Mobile, Huawei, China Telecom, CATT) except network/networks; remaining sentences close in wording (verified only in fragments); 3GPP not cited; direction: 3GPP text earlier than IG1252 v1.0.0 (May-2021)",
+          "weight": 0.5,
+          "cited": 0
+        }
+      ]
+    },
+    {
+      "name": "IG1523D AN L4 Transport Network Fault Management v2.0.0",
+      "words": 5369,
+      "items": []
+    },
+    {
+      "name": "IG1523E AN L4 IP Network Fault Management v2.0.0",
+      "words": 6303,
+      "items": []
+    },
+    {
+      "name": "IG1524B AN L4 Core Network Change Management v1.0.0",
+      "words": 3456,
+      "items": []
+    },
+    {
+      "name": "IG1525E AN L4 IP Network Quality Optimization v1.0.0",
+      "words": 3139,
+      "items": []
+    },
+    {
+      "name": "IG1526A AN L4 Wireless Energy Efficiency Optimization v1.0.0",
+      "words": 3275,
+      "items": [
+        {
+          "item": "Section 1 Scenario Description passages copied word for word from 3GPP TS 28.312 (longest run 73 words; the 20-word 'Operators are aiming...' sentence also in TS 28.310, TS 28.530 and TR 28.912 cl. 4.1.1); no credit at that location",
+          "weight": 1,
+          "cited": 0
+        },
+        {
+          "item": "Section 5.1 Step 2 wording copied from 3GPP TS 28.312 intent exploration procedure (14 words); no credit at that location",
+          "weight": 1,
+          "cited": 0
+        }
+      ]
+    },
+    {
+      "name": "IG1502A AN L4 Individual Mobile Service Delivery v1.0.0",
+      "words": 3178,
+      "items": [
+        {
+          "item": "3GPP TS 28.312 intent exploration sentence, close adaptation (14-word shared run) in Step3",
+          "weight": 0.5,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "IG1284 ODA Cloud Native Networks v2.0.0",
+      "words": 1453,
+      "items": []
+    },
+    {
+      "name": "GB1027 Zero Touch Partnering Reference Architecture v6.0.0",
+      "words": 10385,
+      "items": [
+        {
+          "item": "image21.png (Figure 2 position, caption 'IoT Layered Architecture'): 'OnBoarding' Service Provider screenshot, unconfirmed origin, no credit",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "image22.png (Figure 3 position, caption 'IoT Device Platform Integration via Commercial DDM'): 'Compose and Expose Product Offerings...' slide crop with cut-off logo, unconfirmed origin, no credit",
+          "weight": 0.5,
+          "cited": 0
+        }
+      ]
+    },
+    {
+      "name": "TR292 TM Forum Intent Ontology v3.6.0",
+      "words": 3604,
+      "items": []
+    },
+    {
+      "name": "TR255 Resource Function Activation and Configuration v5.0.1",
+      "words": 25027,
+      "items": [
+        {
+          "item": "ETSI GS NFV IFA011 quoted definition of VNFD Element Group (p18)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Wikipedia Service Level Agreement definition, glossary (p80-81); second sentence found word for word on graphsearch.epfl.ch (Wikipedia mirror) and pearltrees.com, web spot check 2026-10-21",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Wikipedia Software Factory definition, glossary (p81-83); opening sentence matches lead of en.wikipedia.org/wiki/Software_factory, web spot check 2026-10-21",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "ONAP Feature definition, glossary (p74)",
+          "weight": 0.5,
+          "cited": 0.5
+        }
+      ],
+      "note": "ETSI NFV and IETF concepts adopted throughout; not caught automatically"
+    },
+    {
+      "name": "IG1351 ODA for Wholesale Broadband v1.0.0",
+      "words": 9092,
+      "items": [
+        {
+          "item": "Page 12 analysis-flow diagram (German labels) credited by caption to Deutsche Telekom and Fit-Group, Germany; Fit-Group not a Contributor; origin unconfirmed",
+          "weight": 0.5,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "IG1453 Agent to Agent Protocol for Telecoms v2.0.0",
+      "words": 9842,
+      "items": [
+        {
+          "item": "RAN energy saving intent request JSON example (89 words word for word with 3GPP TS 28.312 example; TS 28.312 named in context, not credited as the source of the example)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Radio service delivery intent JSON example, reused in negotiation example (60+13+34 words word for word with 3GPP TS 28.312)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Definitions of generic intent, RadioNetworkExpectation and RadioServiceExpectation (13+20+12 words word for word with TS 28.312 and TS28312_IntentExpectations.yaml; attributed to TS 28.312, no quotation marks)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "image3.png Agent Card example ('Magic 8-ball', a2a-samples timestamp extension) adapted from A2A documentation (Linux Foundation); A2A extensions page linked in preceding paragraph",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "image4.png HTTP request example with X-A2A-Extensions header adapted from A2A documentation (Linux Foundation)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "Extension methods Steps 1-3 text, close paraphrase of the A2A extensions page (linked)",
+          "weight": 0.5,
+          "cited": 0.5
+        }
+      ],
+      "note": "extends the A2A protocol (Linux Foundation project), named only as A2A; not caught automatically"
+    },
+    {
+      "name": "GB1059 Autonomous Network Level Evaluation Tool v1.1.0",
+      "words": 3020,
+      "items": [
+        {
+          "item": "Section 3 L0-L4 fault root cause analysis level definitions: word-for-word from 3GPP TS 28.100 clause 7.3.2 (17-word run confirmed), owner 3GPP Organizational Partners",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Figure 6 upper half: reproduction of 3GPP TS 28.100 Figure 7.3.2-1, owner 3GPP Organizational Partners",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Figure 5 upper half: '3GPP Mobile Network Fault Management Tasks', adapted from TS 28.100 clause 7.3.1 task list, owner 3GPP Organizational Partners",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "Figure 7 left half: '3GPP Fault Type', reproduction of the alarmType attribute table of 3GPP TS 28.111, owner 3GPP Organizational Partners",
+          "weight": 1.0,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "IG1171 ODA Component Definition v5.0.0",
+      "words": 2981,
+      "items": []
+    },
+    {
+      "name": "GB998 ODA Concepts and Principles v2.1.0",
+      "words": 7771,
+      "items": [
+        {
+          "item": "Table 1 Components of Architecture Principles and intro (TOGAF, The Open Group; unconfirmed)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "Characteristics paragraph, Qualities of Principles text and Table 2 (TOGAF; unconfirmed; 'clear and unambiguous, so that violations, whether intentional or not, are minimized' found in Visual Paradigm's TOGAF Preliminary Phase booklet, not the full sentence)",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "Principles 01.05, 03.01-03.03, 04.01, 04.02, 05.05, 05.06 closely following TOGAF example principles (unconfirmed)",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "Information/Application/Technology architecture definitions, Source: TOGAF 9.2 (unconfirmed verbatim; web: information def no match, application def reported in US patents 9189203/9400637/9244655 not opened, technology def no exact match)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "Business architecture definition, Source: BIZBOK Guide, Business Architecture Guild (unconfirmed verbatim)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "'Faster horses' quotation attributed to Henry Ford (owner unknown; Quote Investigator and The Henry Ford find no evidence Ford said it)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "KDN 'borrows many ideas from other areas' passage with three references, apparently from the Knowledge-Defined Networking paper (unconfirmed, not credited; sentence not found on the web)",
+          "weight": 0.5,
+          "cited": 0
+        }
+      ]
+    },
+    {
+      "name": "IG1245 Principles to Define ODA Components v1.0.0",
+      "words": 7076,
+      "items": [
+        {
+          "item": "Rule 006 Implication sentence 'Operators are really at the beginning of using intent-based management ...' reported by web search as from Blue Planet (Ciena) blog 'Network heal thyself with analytics and AI' (2017); no credit; page fetch refused (HTTP 403) so word-for-word not confirmed on the page",
+          "weight": 1.0,
+          "cited": 0
+        },
+        {
+          "item": "Rule 008 Implication best-practice block (Data Backups ... Plan for failure) ending with a dangling '*' source marker and no note; origin unconfirmed",
+          "weight": 0.5,
+          "cited": 0
+        }
+      ]
+    },
+    {
+      "name": "IG1320 Conformance Ways of Working v2.0.0",
+      "words": 3072,
+      "items": []
+    },
+    {
+      "name": "GB1022 ODA Functional Architecture Guidebook v1.1.0",
+      "words": 12155,
+      "items": [
+        {
+          "item": "GANA Decision Element definition, Table 4.14 row 02 (ETSI TS 103 195-2; unconfirmed origin)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "Acumos Algorithm Management description, Table 4.14 row 03 (Acumos / Linux Foundation; close paraphrase)",
+          "weight": 0.5,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "IG1222 ODA Technical Architecture Overview Part 1 v1.0.0",
+      "words": 4481,
+      "items": [
+        {
+          "item": "Figure 3.3 OASIS SCA composite diagram (image6.png): labels identical to Figure 2-2 'SCA Composite Diagram' in OASIS SCA Assembly Model Specification v1.1 CD05 (OASIS, (c) OASIS 2005-2010); credited by name and link only, no licence/author/version",
+          "weight": 1.0,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "IG1330 ODA Identity and Access Management v1.1.1",
+      "words": 10872,
+      "items": [
+        {
+          "item": "RFC 6749 Fig 1 adapted (image6.png)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "RFC 6749 Fig 2 adapted (image10.png)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "RFC 6749 Fig 3 adapted (image7.png)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "RFC 6749 role definitions word for word",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "RFC 3198/2753 PDP and PEP definitions word for word",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "HTTP/1.1 User Agent definition word for word, credited to RFC 1616",
+          "weight": 1.0,
+          "cited": 0
+        },
+        {
+          "item": "HID Global OpenID Authentication Flows wording, close paraphrase",
+          "weight": 0.5,
+          "cited": 0
+        }
+      ],
+      "note": "profiles OAuth 2.0 (RFC 6749) and OpenID Connect for ODA"
+    },
+    {
+      "name": "IG1228 How to use ODA v16.0.0",
+      "words": 1914,
+      "items": []
+    },
+    {
+      "name": "GB1077 AI for ODA Components v2.0.0",
+      "words": 18742,
+      "items": [
+        {
+          "item": "Four bullets with numeric citation markers [2], [7], [6], [4] (Decision Model section) that point to no reference list; origin unconfirmed",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "BPMN swim-lane process diagram (Customer Service / Translation / Technical / Sales lanes) inside Figures 7 and 8; origin unconfirmed, no credit",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "Apple Calculator / Math Notes feature description (AI in ODA Component, Inside): close paraphrase of Apple Newsroom release 'iPadOS 18 introduces powerful intelligence features and apps for Apple Pencil' (10 June 2024), no credit",
+          "weight": 0.5,
+          "cited": 0
+        }
+      ]
+    },
+    {
+      "name": "GB1082 AI for BSS v1.0.0",
+      "words": 15296,
+      "items": [
+        {
+          "item": "image2.png Evolution of the billing system figure (Appledore Research): confirmed reproduced, identical to Figure 1 of Appledore Research 'Ericsson Charging and Billing Evolved' (John Abraham, 2026); GB1082 adds 'Incremental'/'Transformational' boxes",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "image3.png Evolution of the Charging System table (Appledore Research)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "image4.png Evolution of telco customer engagement systems figure (Appledore Research)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "image5.png Evolution of telco B2B2X commerce figure (Appledore Research; cell text matches Figure 2 of the Appledore whitepaper The CXO guide to telco B2B Commerce, Feb 2025)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "image6.png Telco Gen-AI Platform figure (Appledore Research)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "B2B commerce passage 'Telco B2B commerce systems have evolved slowly ...' matching the Appledore whitepaper The CXO guide to telco B2B Commerce (John Abraham, Feb 2025)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Billing-evolution prose (five paragraphs) under Source: Appledore Research; Appledore author John Abraham's parallel text found in the Ericsson Charging and Billing Evolved profile (close paraphrase, not word for word); source version not located",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "Charging-evolution prose (three paragraphs) under Source: Appledore Research; parallel text in the Ericsson Charging and Billing Evolved profile (close paraphrase); source version not located",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "Customer-engagement-evolution paragraph followed by Source: Appledore Research, origin unconfirmed",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "image12.png AI Agent framework (reused in image21, 23, 25, 29), resembles Lilian Weng 2023 'LLM Powered Autonomous Agents' agent overview figure, uncredited",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "image7.png embedded 'Ai' circuit-chip picture (also reused as an icon in image11), unknown origin",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "image7.png embedded brain-on-circuit-board picture, unknown origin",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "image7.png embedded 'AI as an actor' panel, screenshot of another work, unknown origin",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "image30-32.png AI development history timeline pages, unknown origin (style suggests a Huawei publication)",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "image33.png AI Embedded / AI Copilot / AI Agent slide (blurred), unknown origin",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "AI Agent / AI Co-pilot definition text: first sentence word for word, remainder near word for word with the Microsoft Learn Semantic Kernel glossary (agent and copilot entries) and 'What is an agent?' page; no credit",
+          "weight": 1.0,
+          "cited": 0
+        },
+        {
+          "item": "eKYC technology passages (vendor product-style copy), origin unconfirmed",
+          "weight": 0.5,
+          "cited": 0
+        }
+      ]
+    },
+    {
+      "name": "GB1065 E2E AIOps Lifecycle v2.0.0",
+      "words": 5785,
+      "items": []
+    }
+  ]
+}

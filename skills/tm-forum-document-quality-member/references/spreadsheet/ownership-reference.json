@@ -1,0 +1,174 @@
+{
+  "description": "Ownership reference set: 19 documents (the same documents as the other reference sets). Items are material owned by non-Contributors, taken from each document's entry.json as it stands. The check weights a whole figure, word-for-word passage, close paraphrase or reworded idea from an identifiable work 1.0 and an adapted figure or item of unconfirmed origin 0.5, and gives a complete credit (title, author, source, licence, date) 1.0, complete but for the date 0.75, partial 0.5, none or wrong source 0; some records weight close paraphrase 0.5, leave out reworded ideas and count a credit complete without its date, so z against this set is approximate. Clip art and icons, contributing Members' own material, and ideas common across a field are excluded. Ownership score = total weight per 1,000 words; poorly cited ownership score = total weight x (1 - cited) per 1,000 words.",
+  "sigma_multiplier": 0.8,
+  "class_rule": {
+    "good_at_most": 0.05,
+    "good_needs_no_uncredited_whole_item": true,
+    "bad_above": 0.15,
+    "note": "Poorly cited ownership is classed by a fixed rule, not by the mean and standard deviation of the reference set: good = a score up to 0.05 per 1,000 words, as long as no whole figure or word-for-word passage (weight 1.0) has no credit at all; bad = above 0.15 per 1,000 words (roughly one word-for-word passage with no credit per 6,700 words); improving = in between. Good isn't limited to a score of exactly 0, because a long document almost never scores exactly 0."
+  },
+  "documents": [
+    {
+      "name": "GB1090A v1.0.0",
+      "words": 14168,
+      "items": []
+    },
+    {
+      "name": "GB1502D v1.0.0",
+      "words": 2270,
+      "items": []
+    },
+    {
+      "name": "GB1503A v2.1.0",
+      "words": 9738,
+      "items": [
+        {
+          "item": "3GPP TS 28.100 cl. 7.1.1 Task F (Network issue demarcation) and Task G (Network issue root cause analysis) definitions, word for word (Questionnaire!J7 and the same text in J8), credited \"3GPP TS 28.100 7.1.1\" with no title, link, licence or date",
+          "weight": 1.0,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "GB1503D v2.0.0",
+      "words": 10118,
+      "items": []
+    },
+    {
+      "name": "GB1504A Individual Services Complaint Handling Questionnaire v1.1.0",
+      "words": 3301,
+      "items": []
+    },
+    {
+      "name": "GB1523 v1.1.1",
+      "words": 9952,
+      "items": [
+        {
+          "item": "3GPP TS 28.100 cl. 7.3.1 Tasks A-K (generic fault-management workflow), word for word apart from Task E's added words, with Tasks A and B repeated (Questionnaire!J6 to J14), credited \"3GPP TS 28.100 7.3.1\" with no title, link, licence or date",
+          "weight": 1.0,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "GB1523A RAN Fault Management Questionnaire v3.0.0",
+      "words": 7222,
+      "items": [
+        {
+          "item": "3GPP TS 28.100 cl. 7.3.1 Tasks A-K, word for word but for Task E's added words (RAN - Fault Management!K4:K11), credited \"3GPP TS 28.100 7.3.1\" with no link, licence or date",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "The same 3GPP TS 28.100 cl. 7.3.1 text repeated on the RAN - Fault Management V2.1 Rev sheet (K4:K11), same credit",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "alarmType definitions of 3GPP TS 28.111 (from ITU-T X.733 and X.736), word for word with \"alarm\" changed to \"alarm/fault\" (Guideline!B17:B21), credited \"based on the alarmType defined in 3GPP TS 28.111\"",
+          "weight": 1.0,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "GB1523B v2.2.0",
+      "words": 7364,
+      "items": []
+    },
+    {
+      "name": "GB1523C v1.1.0",
+      "words": 4342,
+      "items": []
+    },
+    {
+      "name": "GB1523D v2.1.1",
+      "words": 8191,
+      "items": [
+        {
+          "item": "Questionnaire Microwave!K5:K12 and OTN Questionnaire!K5:K12 (Source of the standard): the operational sub-task descriptions of ETSI GR F5G 019 V1.1.1 (2025-04) §7.1.3.1 (OTN maintenance: maintenance intent, network status collection, potential risk identification, fault identification, root cause analysis and location, resolution development, resolution decision, handling and service verification), word for word on both sheets (about 480 words); each cell names \"ETSI GR F5G 019 V1.1.1\" but gives no clause, quotation marks, licence or date; ETSI's notice permits no reproduction without its written permission",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Guideline!B23:B24 (OTN sub-scenarios 2 and 3): the Communications and Environmental alarm-type definitions of 3GPP TS 28.111 (which takes them from ITU-T X.733), word for word apart from \"alarm/fault\" (19 and 17 words), with no credit",
+          "weight": 1.0,
+          "cited": 0
+        }
+      ]
+    },
+    {
+      "name": "GB1523E v2.0.2",
+      "words": 3936,
+      "items": []
+    },
+    {
+      "name": "GB1524D v1.0.0",
+      "words": 6349,
+      "items": []
+    },
+    {
+      "name": "GB1524E v1.1.0",
+      "words": 6218,
+      "items": []
+    },
+    {
+      "name": "GB1525A RAN Network Quality Optimization Questionnaire v1.1.0",
+      "words": 3861,
+      "items": [
+        {
+          "item": "3GPP TS 28.100 cl. 7.1.1 Tasks A-E, I and J, word for word (RAN Network Optimization!Q4, Q5, Q6, Q9, Q10), credited \"3GPP TS 28.100 7.1.1\" with no title, link, licence or date",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "3GPP TS 28.100 cl. 7.1.1 Tasks F, G and H, word for word (RAN Network Optimization!Q7, Q8), no source named",
+          "weight": 1.0,
+          "cited": 0
+        }
+      ]
+    },
+    {
+      "name": "GB1525D OTN v1.0.0",
+      "words": 8439,
+      "items": []
+    },
+    {
+      "name": "GB1525D v2.0.0",
+      "words": 8834,
+      "items": []
+    },
+    {
+      "name": "GB1525E IP Network Quality Optimization Questionnaire v2.0.1",
+      "words": 3078,
+      "items": [
+        {
+          "item": "IETF draft-ietf-opsawg-oam-characterization-07 definition of Path-Congruent OAM, word for word (IP Network-Quality Optimization!E6 note 3), uncredited",
+          "weight": 1.0,
+          "cited": 0
+        },
+        {
+          "item": "Same draft, definition of Non-Path-Congruent OAM, close paraphrase (IP Network-Quality Optimization!E6 note 4), uncredited",
+          "weight": 0.5,
+          "cited": 0
+        }
+      ]
+    },
+    {
+      "name": "GB1526A v2.0.0",
+      "words": 10256,
+      "items": [
+        {
+          "item": "3GPP TR 28.910 cl. 6.1.1.2 \"Workflow\", Tasks A-J of the RAN energy-saving workflow, near word for word (Questionnaire!K4 to K13), credited \"3GPP TR 28.910\" with no clause, title, link, licence or date; matched against a public rendering of the clause, not the held 3GPP copy",
+          "weight": 1.0,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "GB997A v5.0.2",
+      "words": 24116,
+      "items": []
+    }
+  ]
+}

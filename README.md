@@ -233,6 +233,7 @@ why `skills/` itself stays flat).
 | [`propose-component-or-api-extension`](skills/propose-component-or-api-extension/SKILL.md) | a capability gap | a draft component skeleton (real IG1242 shape) or API schema extension |
 | [`lint-usecase-draft`](skills/lint-usecase-draft/SKILL.md) | a draft use-case document | a pre-submission check against known conversion-breaking document shapes |
 | [`generate-component-svg-diagram`](skills/generate-component-svg-diagram/SKILL.md) | a `TMFCxxx` id, `all`, or a component Helm chart | the same SVG architecture diagram as in the Consumer table — shipped in both plugins |
+| [`tm-forum-document-quality-member`](skills/tm-forum-document-quality-member/SKILL.md) | a TM Forum document (.docx, .xlsx or .pdf) | ⚙ Runs Python — IP and licence findings and scores (copied text, credits, images, ownership, dependence, AI indicators, ODA content, editorial consistency) as an A4 Word report plus a TM Forum-branded HTML copy; self-contained; not legal advice |
 
 Using these skills from another repository? Install
 [`tm-forum-oda-consumer`](dist/consumer/) and/or

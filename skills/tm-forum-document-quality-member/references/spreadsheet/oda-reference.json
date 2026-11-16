@@ -1,0 +1,295 @@
+{
+  "description": "ODA content reference set: the same 19 documents as the other reference sets. Each document's score is the sum of its TM Forum terms per 1,000 words in seven parts of ODA (components, canvas, APIs, frameworks, use cases, HVS, solution packages), equal weights, after removing the document's own identifier. Only TM Forum's items count: names that are TM Forum's own always, published TMF and TMFC numbers only (references/tmforum-identifiers.json), and generic terms only in TM Forum context. excluded_own records any other own name that was removed.",
+  "class_rule": {
+    "light_below": 5,
+    "heavy_above": 20,
+    "note": "Fixed rule: light below 5, typical 5 to 20, heavy above 20, per 1,000 words."
+  },
+  "documents": [
+    {
+      "name": "GB1090A v1.0.0",
+      "words": 14160,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.07,
+        "frameworks": 0.14,
+        "use cases": 0.0,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 0.2,
+      "categories": 0
+    },
+    {
+      "name": "GB1502D v1.0.0",
+      "words": 2269,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.0,
+        "frameworks": 0.0,
+        "use cases": 0.0,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 0.0,
+      "categories": 0
+    },
+    {
+      "name": "GB1503A v2.1.0",
+      "words": 9738,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.0,
+        "frameworks": 0.21,
+        "use cases": 0.0,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 0.2,
+      "categories": 0
+    },
+    {
+      "name": "GB1503D v2.0.0",
+      "words": 10118,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.0,
+        "frameworks": 0.0,
+        "use cases": 0.0,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 0.0,
+      "categories": 0
+    },
+    {
+      "name": "GB1504A Individual Services Complaint Handling Questionnaire v1.1.0",
+      "words": 3300,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.0,
+        "frameworks": 0.0,
+        "use cases": 0.0,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 0.0,
+      "categories": 0
+    },
+    {
+      "name": "GB1523 v1.1.1",
+      "words": 9952,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.0,
+        "frameworks": 0.0,
+        "use cases": 0.0,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 0.0,
+      "categories": 0
+    },
+    {
+      "name": "GB1523A RAN Fault Management Questionnaire v3.0.0",
+      "words": 7220,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.0,
+        "frameworks": 0.0,
+        "use cases": 0.0,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 0.0,
+      "categories": 0
+    },
+    {
+      "name": "GB1523B v2.2.0",
+      "words": 7363,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.0,
+        "frameworks": 0.0,
+        "use cases": 0.0,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 0.0,
+      "categories": 0
+    },
+    {
+      "name": "GB1523C v1.1.0",
+      "words": 4341,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.0,
+        "frameworks": 0.0,
+        "use cases": 0.0,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 0.0,
+      "categories": 0
+    },
+    {
+      "name": "GB1523D v2.1.1",
+      "words": 8190,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.0,
+        "frameworks": 0.0,
+        "use cases": 0.0,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 0.0,
+      "categories": 0
+    },
+    {
+      "name": "GB1523E v2.0.2",
+      "words": 3930,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.0,
+        "frameworks": 0.0,
+        "use cases": 0.0,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 0.0,
+      "categories": 0
+    },
+    {
+      "name": "GB1524D v1.0.0",
+      "words": 6349,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.16,
+        "frameworks": 0.0,
+        "use cases": 0.0,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 0.2,
+      "categories": 0
+    },
+    {
+      "name": "GB1524E v1.1.0",
+      "words": 6218,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.16,
+        "frameworks": 0.0,
+        "use cases": 0.0,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 0.2,
+      "categories": 0
+    },
+    {
+      "name": "GB1525A RAN Network Quality Optimization Questionnaire v1.1.0",
+      "words": 3860,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.0,
+        "frameworks": 0.0,
+        "use cases": 0.0,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 0.0,
+      "categories": 0
+    },
+    {
+      "name": "GB1525D OTN v1.0.0",
+      "words": 8439,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.0,
+        "frameworks": 0.0,
+        "use cases": 0.0,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 0.0,
+      "categories": 0
+    },
+    {
+      "name": "GB1525D v2.0.0",
+      "words": 8834,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.0,
+        "frameworks": 0.0,
+        "use cases": 0.0,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 0.0,
+      "categories": 0
+    },
+    {
+      "name": "GB1525E IP Network Quality Optimization Questionnaire v2.0.1",
+      "words": 3076,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.0,
+        "frameworks": 0.0,
+        "use cases": 0.0,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 0.0,
+      "categories": 0
+    },
+    {
+      "name": "GB1526A v2.0.0",
+      "words": 10256,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.0,
+        "frameworks": 0.0,
+        "use cases": 0.0,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 0.0,
+      "categories": 0
+    },
+    {
+      "name": "GB997A v5.0.2",
+      "words": 24115,
+      "rates": {
+        "components": 0.0,
+        "canvas": 0.0,
+        "APIs": 0.0,
+        "frameworks": 0.46,
+        "use cases": 0.0,
+        "HVS": 0.0,
+        "solution packages": 0.0
+      },
+      "score": 0.5,
+      "categories": 0
+    }
+  ]
+}

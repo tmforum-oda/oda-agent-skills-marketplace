@@ -1,0 +1,139 @@
+{
+ "note": "Editorial consistency reference set: every spreadsheet in work/documents with an editorial.json (Word documents have their own set in references/). Expected weighted findings = a x (words/1000)^b, fitted on logs; score = weighted / expected; mean and sigma of the scores give z for context; the class is set by rank (class_rule). a and b are frozen: a rebuild keeps them unless --refit is given.",
+ "class_rule": {
+  "shares": {
+   "consistent": 0.4,
+   "improving": 0.2,
+   "inconsistent": 0.2,
+   "very inconsistent": 0.2
+  },
+  "cuts": [
+   1.0743917782765209,
+   2.1863198583876615,
+   3.7677410690706767
+  ],
+  "note": "Classed by rank: consistent is the bottom 40% of the reference scores, then improving, inconsistent and very inconsistent 20% each. cuts are the scores that end consistent, improving and inconsistent."
+ },
+ "k": 0.8,
+ "n": 19,
+ "a": 6.7456,
+ "b": 0.1475,
+ "mean": 1.8124,
+ "sigma": 1.6097,
+ "documents": [
+  {
+   "key": "GB1090A",
+   "words": 14168,
+   "weighted": 50,
+   "score": 5.013
+  },
+  {
+   "key": "GB1502D",
+   "words": 2270,
+   "weighted": 10,
+   "score": 1.314
+  },
+  {
+   "key": "GB1503A",
+   "words": 9738,
+   "weighted": 2,
+   "score": 0.212
+  },
+  {
+   "key": "GB1503D",
+   "words": 10118,
+   "weighted": 1,
+   "score": 0.105
+  },
+  {
+   "key": "GB1504A",
+   "words": 3301,
+   "weighted": 19,
+   "score": 2.362
+  },
+  {
+   "key": "GB1523A",
+   "words": 7222,
+   "weighted": 39,
+   "score": 4.319
+  },
+  {
+   "key": "GB1523B",
+   "words": 7364,
+   "weighted": 15,
+   "score": 1.656
+  },
+  {
+   "key": "GB1523C",
+   "words": 4342,
+   "weighted": 9,
+   "score": 1.074
+  },
+  {
+   "key": "GB1523D",
+   "words": 8191,
+   "weighted": 12,
+   "score": 1.304
+  },
+  {
+   "key": "GB1523E",
+   "words": 3936,
+   "weighted": 1,
+   "score": 0.121
+  },
+  {
+   "key": "GB1523",
+   "words": 9952,
+   "weighted": 4,
+   "score": 0.423
+  },
+  {
+   "key": "GB1524D",
+   "words": 6349,
+   "weighted": 2,
+   "score": 0.226
+  },
+  {
+   "key": "GB1524E",
+   "words": 6218,
+   "weighted": 2,
+   "score": 0.226
+  },
+  {
+   "key": "GB1525A",
+   "words": 3861,
+   "weighted": 18,
+   "score": 2.186
+  },
+  {
+   "key": "GB1525DOTN",
+   "words": 8439,
+   "weighted": 39,
+   "score": 4.221
+  },
+  {
+   "key": "GB1525Dv2",
+   "words": 8834,
+   "weighted": 26,
+   "score": 2.795
+  },
+  {
+   "key": "GB1525E",
+   "words": 3078,
+   "weighted": 30,
+   "score": 3.768
+  },
+  {
+   "key": "GB1526A",
+   "words": 10256,
+   "weighted": 4,
+   "score": 0.421
+  },
+  {
+   "key": "GB997A",
+   "words": 24116,
+   "weighted": 29,
+   "score": 2.688
+  }
+ ]
+}

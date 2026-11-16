@@ -1,0 +1,1459 @@
+{
+  "description": "Ownership reference set: 95 documents (the same documents as the other reference sets). Items are material owned by non-Contributors, taken from each document's entry.json as it stands. The check weights a whole figure, word-for-word passage, close paraphrase or reworded idea from an identifiable work 1.0 and an adapted figure or item of unconfirmed origin 0.5, and gives a complete credit (title, author, source, licence, date) 1.0, complete but for the date 0.75, partial 0.5, none or wrong source 0; some records weight close paraphrase 0.5, leave out reworded ideas and count a credit complete without its date, so z against this set is approximate. Clip art and icons, contributing Members' own material, and ideas common across a field are excluded. Ownership score = total weight per 1,000 words; poorly cited ownership score = total weight x (1 - cited) per 1,000 words.",
+  "sigma_multiplier": 0.8,
+  "class_rule": {
+    "good_at_most": 0.05,
+    "good_needs_no_uncredited_whole_item": true,
+    "bad_above": 0.15,
+    "note": "Poorly cited ownership is classed by a fixed rule, not by the mean and standard deviation of the reference set: good = a score up to 0.05 per 1,000 words, as long as no whole figure or word-for-word passage (weight 1.0) has no credit at all; bad = above 0.15 per 1,000 words (roughly one word-for-word passage with no credit per 6,700 words); improving = in between. Good isn't limited to a score of exactly 0, because a long document almost never scores exactly 0."
+  },
+  "documents": [
+    {
+      "name": "GB1022 v1.1.0",
+      "words": 12155,
+      "items": [
+        {
+          "item": "GANA Decision Element definition, Table 4.14 row 02 (ETSI TS 103 195-2; unconfirmed origin)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "Acumos Algorithm Management description, Table 4.14 row 03 (Acumos / Linux Foundation; close paraphrase)",
+          "weight": 0.5,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "GB1027 v6.0.0",
+      "words": 10363,
+      "items": []
+    },
+    {
+      "name": "GB1059 v1.1.0",
+      "words": 3027,
+      "items": [
+        {
+          "item": "TS 28.100 s7.3.2 fault RCA level definitions (L2-L4), word for word, lines 275-277",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Figure 6 upper half reproduces TS 28.100 Figure 7.3.2-1",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Figure 7 left half, screenshot of TS 28.111 alarmType table",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Figure 5 upper half adapted from TS 28.100 s7.3.1 workflow",
+          "weight": 0.5,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "GB1064 v2.0.0",
+      "words": 21466,
+      "items": [
+        {
+          "item": "§6.3 Franklin and Graesser definition of an autonomous agent, word for word without quotation marks, credited [5] (title and link only)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "§3.5 CoALA working, episodic and semantic memory definitions word for word, procedural memory close, credited [6] (title and link only; CC BY 4.0 not stated)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "§6.3 agent characteristics (Autonomy, Perception, Decision-making, Action) from arXiv 2401.03428, three of four sentences word for word, credited [9]",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "§3.5 short-term and long-term memory definitions from arXiv 2401.03428, close paraphrase, credited [9]",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "§3.1 planning taxonomy from arXiv 2308.11432, close paraphrase, credited [8] (CC BY 4.0 not stated)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "§3.2 quotation on context and knowledge credited [11] in quotation marks; source not opened, wording not confirmed",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "§3.2.1 knowledge-representation approaches table, 'from [12]' (MDPI); source not opened",
+          "weight": 0.5,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "GB1065 v2.0.0",
+      "words": 5753,
+      "items": []
+    },
+    {
+      "name": "GB1077 v2.0.0",
+      "words": 18742,
+      "items": [
+        {
+          "item": "Marker [2] bullet (Faster Decision-Making)",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "Marker [7] bullet (Improved Accuracy)",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "Marker [6] bullet (Continuous Learning)",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "Marker [4] bullet (Enhanced Customer Experience)",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "Information Framework definition credited to GB921, wording near a generic Wikipedia definition",
+          "weight": 0.5,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "GB1080 v3.0.0",
+      "words": 13349,
+      "items": []
+    },
+    {
+      "name": "GB1081 v2.0.0",
+      "words": 10022,
+      "items": []
+    },
+    {
+      "name": "GB1082 v1.0.0",
+      "words": 15228,
+      "items": [
+        {
+          "item": "Appledore paragraph 1 (billing history, pre-1990s manual)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "Appledore paragraph 2 (billing history, 1990s mobile)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "Appledore paragraph 3 (billing history, 2000s digital)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "Appledore paragraph 4 (billing history, cloud era)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "Appledore paragraph 5 (billing history, 2020s intelligence)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "Appledore paragraph 6 (charging engines, three generations)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "Appledore paragraph 7 (second-generation OCS)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "Appledore paragraph 8 (third-generation charging, standalone 5G)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "Appledore paragraph 9 (customer engagement systems)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "Appledore paragraph 10 (B2B commerce systems)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "image2 billing evolution figure (Appledore)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "image3 charging generations figure (Appledore)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "image4 customer engagement figure (Appledore)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "image5 B2B commerce figure (Appledore)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "image6 Gen-AI platform figure (Appledore)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "image7 stock-style pictures and AI as an actor panel",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "image33 low-resolution AI Embedded/Copilot/Agent slide",
+          "weight": 0.5,
+          "cited": 0
+        }
+      ]
+    },
+    {
+      "name": "GB1082 v2.0.0",
+      "words": 20849,
+      "items": [
+        {
+          "item": "AI Agent architecture figure (image11, reused in image22, image24, image26, image31), probably adapted from Lilian Weng's LLM-powered autonomous agent overview figure (2023)",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "Pictures inside the evolution-of-AI figure (image9): stock or generated artwork and an 'AI as an actor' panel with its own caption, origin unknown",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "Gartner prediction (80% of common customer service issues by 2029, 30% cost reduction), close paraphrase of Gartner press release 5 March 2025, partial credit [8]",
+          "weight": 0.5,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "GB1086 v3.0.0",
+      "words": 11772,
+      "items": [
+        {
+          "item": "Â§10.1 Terminology, \"Agent\": the four agent properties (Autonomy, Social ability, Responsiveness, Proactiveness, about 110 words) quoted near verbatim from M. Wooldridge and N. R. Jennings, 1995; credited \"agenthood (Wooldridge and Jennings, 1995)\" with no title, source or licence",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Â§10.1 Terminology, \"AI Agent\": \"An AI agent is a system that autonomously performs tasks by designing workflows with available tools ...\" from IBM, \"What Are AI Agents?\" (A. Gutowska); credited \"Source IBM\" with title and link, no author, licence or date",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Â§10.1 Terminology, \"Data Custodian\": the definition from GOV.UK, \"Data Ownership in Government\" (Crown copyright, Open Government Licence v3.0); credited with title and link but without the OGL attribution statement",
+          "weight": 1.0,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "GB1087 v3.0.0",
+      "words": 17699,
+      "items": [
+        {
+          "item": "§1.6.8 Design and Development Phase controls, close paraphrase of OWASP Securing Agentic Applications Guide 1.0 (CC BY-SA 4.0)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "§1.6.8 Build and Deployment Phase controls, close paraphrase of OWASP Securing Agentic Applications Guide 1.0 (CC BY-SA 4.0)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "§1.6.8 Operations and Runtime Phase controls, close paraphrase of OWASP Securing Agentic Applications Guide 1.0 (CC BY-SA 4.0)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "§1.6.8 Multi-Agent Systems - Orchestrator Architectures controls, close paraphrase of OWASP guide §4.2, no credit in the subsection",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "§1.6.8 Multi-Agent Systems - Swarm Architectures controls, close paraphrase of OWASP guide, no credit in the subsection",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "§1.4 CSA MAESTRO description, word for word from CSA blog (Ken Huang, 2025-02-06)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "§4.2 CISSP definition, word for word from Wikipedia (CC BY-SA 4.0)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "§1.4 IDC forecast sentence, close to CRN article",
+          "weight": 0.5,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "GB1095 v1.0.0",
+      "words": 10445,
+      "items": []
+    },
+    {
+      "name": "GB1096 v1.0.0",
+      "words": 9238,
+      "items": [
+        {
+          "item": "References table, Open Policy Agent row, Description: 'OPA is purpose built for policy evaluation ...' word for word from openpolicyagent.org/docs/policy-language (credited by link)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "References table, Open Policy Agent row, Brief Use Summary: 'The Open Policy Agent (OPA, pronounced \"oh-pa\") ...' word for word from openpolicyagent.org/docs (row credits the policy-language page)",
+          "weight": 1.0,
+          "cited": 0
+        },
+        {
+          "item": "References table, Rego row, Brief Use Summary: 'Rego lets you express desired rules ...' word for word from openpolicyagent.org/docs/policy-language (row credits Snyk)",
+          "weight": 1.0,
+          "cited": 0
+        }
+      ]
+    },
+    {
+      "name": "GB997E-2 TM Forum DMM and AI & Data Playbook v1.0.0",
+      "words": 11075,
+      "items": []
+    },
+    {
+      "name": "GB998 v2.1.0",
+      "words": 7771,
+      "items": [
+        {
+          "item": "BIZBOK business architecture definition",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "TOGAF 9.2 Information architecture definition",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "TOGAF 9.2 Application architecture definition",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "TOGAF 9.2 Technology architecture definition",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "Table 1 Components of Architecture Principles (TOGAF)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "Qualities of Principles and Table 2 (TOGAF)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "TOGAF-example-style principles (information trustee etc.)",
+          "weight": 0.5,
+          "cited": 0.0
+        }
+      ]
+    },
+    {
+      "name": "IG1171 v5.0.0",
+      "words": 2981,
+      "items": []
+    },
+    {
+      "name": "IG1218F v2.1.0",
+      "words": 7343,
+      "items": []
+    },
+    {
+      "name": "IG1222 Part 1 v1.0.0",
+      "words": 4620,
+      "items": [
+        {
+          "item": "Figure 33 (image6) OASIS SCA Assembly v1.1 CD05 Fig 2-2 composite diagram reproduced (compared with OASIS image), partial credit, dead link",
+          "weight": 1.0,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "IG1228 v16.0.0",
+      "words": 1914,
+      "items": []
+    },
+    {
+      "name": "IG1242 v26.0.0",
+      "words": 9603,
+      "items": []
+    },
+    {
+      "name": "IG1242 ODA Component Inventory v24.0.0",
+      "words": 9527,
+      "items": []
+    },
+    {
+      "name": "IG1245 v1.0.0",
+      "words": 7200,
+      "items": [
+        {
+          "item": "Rule 006 sentence matching Ciena 'Network, heal thyself' article (unconfirmed on page)",
+          "weight": 0.5,
+          "cited": 0
+        }
+      ]
+    },
+    {
+      "name": "IG1251 v1.0.1",
+      "words": 8508,
+      "items": [
+        {
+          "item": "Figure 5-1 right half reproduces ETSI GS ZSM 002 Figure 6.2-1",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Scope and requirements framing, close paraphrase of ZSM 002 sections 1 and 5.1",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "Control-loop definition, close paraphrase of ZSM 002 Annex C, credited to IG1230",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "Section 2.1 principles sentences, TOGAF definition word for word",
+          "weight": 1.0,
+          "cited": 0
+        },
+        {
+          "item": "Federation definition credited to [FED], source not opened",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "Section 4.3.4 scaling and self-X sentences, close paraphrase of ANA project description, credited to IG1218",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "Section 5.1.1 ZSM group sentence, close paraphrase of ETSI ZSM FAQ",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "Table 9 Knowledge Base definition, close to Wikipedia Knowledge-based systems",
+          "weight": 0.5,
+          "cited": 0
+        }
+      ],
+      "note": "maps ETSI ZSM onto the AN reference architecture"
+    },
+    {
+      "name": "IG1251C AN Level 4 Target Architecture v1.1.0",
+      "words": 10379,
+      "items": [
+        {
+          "item": "Figure 1 AN 3-Layer, 4-closed-loop (unconfirmed origin, no credit; label search found no outside copy)",
+          "weight": 0.5,
+          "cited": 0
+        }
+      ]
+    },
+    {
+      "name": "IG1251C AN Level 4 Target Architecture v2.0.0",
+      "words": 10110,
+      "items": [
+        {
+          "item": "§4.4.6 Network State Modelling definition: close paraphrase of the Digital Twin Network definition (IETF draft-zhou-nmrg-digitaltwin-network-concepts, China Mobile, 2020; also ITU-T usage), no credit",
+          "weight": 0.5,
+          "cited": 0
+        }
+      ]
+    },
+    {
+      "name": "IG1252 v1.2.0",
+      "words": 10589,
+      "items": [
+        {
+          "item": "3GPP TS 28.100 Intent handling definition, word for word (41 words), uncredited",
+          "weight": 1.0,
+          "cited": 0
+        },
+        {
+          "item": "3GPP TS 28.100 Decision/Execution definitions and Task B wording, close paraphrase, uncredited",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "3GPP TR 28.810 cl. 4.1.3 / WID S5-203220 Background and benefits paragraph: one sentence word for word, rest close paraphrase, uncredited",
+          "weight": 0.5,
+          "cited": 0
+        }
+      ]
+    },
+    {
+      "name": "IG1256 v3.2.0",
+      "words": 9344,
+      "items": [
+        {
+          "item": "Â§8 Orange inter-operator cooperation: the quotation \"Turning off a RAN (2/3/4/5G) completely for certain periods could save a lot of energy, if it is feasible from a commercial and regulatory point of view.\", attributed \"(Omdia)[Manson]\" with inline references to R. Wood and C. Gabriel, Analysis Mason 2023 and G. Yang, Omdia 2023; in quotation marks with authors, titles and year, no licence; neither report opened (paywalled), so the wording and the owner are unconfirmed",
+          "weight": 0.5,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "IG1256B v2.0.0",
+      "words": 1701,
+      "items": []
+    },
+    {
+      "name": "IG1266A Component Workstream Tools v0.0.3",
+      "words": 6909,
+      "items": []
+    },
+    {
+      "name": "IG1280 Bridging TM Forum ODA and 3GPP 5G Service Management v2.0.0",
+      "words": 19549,
+      "items": [
+        {
+          "item": "Figure 23 'Service Multiplicity in 3GPP' (image27.png), reproduced from 3GPP TS 28.530 Figure 4.1.3.1 (Release 15 labels); credited only as 'detailed in Ref 10' (28530-f30)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Quoted 3GPP NSaaS passage, section before Figure 11 (43 words word for word with TS 28.530); in quotation marks, introduced as 'statement from 3GPP', no document number or licence",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Quoted 3GPP multi-tenancy passage ('The 3GPP management system provides multi-tenancy support ...'); in quotation marks, no document named; origin not confirmed against a held source",
+          "weight": 0.5,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "IG1284 v2.0.0",
+      "words": 1459,
+      "items": []
+    },
+    {
+      "name": "IG1293 v2.0.0",
+      "words": 12226,
+      "items": []
+    },
+    {
+      "name": "IG1320 Conformance Ways of Working v2.0.0",
+      "words": 3111,
+      "items": []
+    },
+    {
+      "name": "IG1330 v1.1.1",
+      "words": 10504,
+      "items": [
+        {
+          "item": "RFC 6749 Resource Owner definition, word for word",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "RFC 6749 Authorization Server definition, word for word",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "RFC 6749 Client definition, word for word",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "RFC 6749 Resource Server definition, word for word",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "HTTP User Agent definition, word for word, credited RFC1616",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "RFC 2753/3198 PDP definition, word for word",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "image6 adapted from RFC 6749 Fig 1",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "image10 adapted from RFC 6749 Fig 2",
+          "weight": 0.5,
+          "cited": 0.5
+        }
+      ],
+      "note": "profiles OAuth 2.0 (RFC 6749) and OpenID Connect for ODA"
+    },
+    {
+      "name": "IG1339 v2.5.0",
+      "words": 20331,
+      "items": [
+        {
+          "item": "RAN Energy Efficiency Optimization, Scenario Description first paragraph: 3GPP TS 28.312 energy-saving text word for word (runs of 73, 20 and 12 words), no credit",
+          "weight": 1.0,
+          "cited": 0
+        },
+        {
+          "item": "RAN Energy Efficiency Optimization, Scenario Description second paragraph: 3GPP TS 28.312 / TS 28.310 intent-driven energy-saving text word for word (runs of 39, 22, 18, 16 and 14 words), no credit to the work it comes from",
+          "weight": 1.0,
+          "cited": 0
+        },
+        {
+          "item": "Appendix A Customer Complaints Prevention: Bain retention statistic, close paraphrase, credited (BAIN) by name only",
+          "weight": 0.5,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "IG1343 v2.3.0",
+      "words": 13211,
+      "items": []
+    },
+    {
+      "name": "IG1348 v2.0.0",
+      "words": 4410,
+      "items": [
+        {
+          "item": "§2.2 Gartner statistic quoted word for word (with CFOs given as CEOs), credited to Gartner by name only",
+          "weight": 1.0,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "IG1351 ODA for Wholesale Broadband v1.0.0",
+      "words": 9092,
+      "items": [
+        {
+          "item": "Page 12 analysis-flow diagram (German labels) credited by caption to Deutsche Telekom and Fit-Group, Germany; Fit-Group not a Contributor; origin unconfirmed",
+          "weight": 0.5,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "IG1364A Agentic AI-based Data Intelligence Self Service Optimizes Home Broadband Service Operations v1.0.0",
+      "words": 3342,
+      "items": []
+    },
+    {
+      "name": "IG1365 v1.0.0",
+      "words": 988,
+      "items": []
+    },
+    {
+      "name": "IG1365C Experience-driven Digital Operations Boost B2B (2X) Business Development v1.0.0",
+      "words": 8690,
+      "items": [
+        {
+          "item": "§6.4 HKT company description paragraph, near word for word from HKT Trust and HKT Limited Annual Report 2022 (About HKT); credited only to DT4DI / GB1079",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "§6.4 HKT Digital Ventures / The Club / fintech paragraph, near word for word from HKT Annual Report 2022; credited only to DT4DI / GB1079",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "§6.4 DrGo paragraph (first four sentences), near word for word from HKT Annual Report 2022; credited only to DT4DI / GB1079",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Figure 1 quotation credited \"Source: Gartner\" (work not found)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "Figure 1 quotation and +9% statistic credited \"Source: Adobe\" (work not found)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "Figure 1 quotation credited \"Source: forbes\" (work not found)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "Figure 9 DSSN architecture, stated to be jointly developed by China Mobile, National Technical Committee 609 and industry partners (origin unconfirmed)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "Figure 6 HKT business portfolio with HKT and PCCW brand logos; labels match an HKT investor presentation (not opened); credited to GB1079",
+          "weight": 0.5,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "IG1367 v1.0.0",
+      "words": 7770,
+      "items": [
+        {
+          "item": "§3 AI technology & techniques: passage from \"The primary obstacle to AI adoption, as reported by 49% ...\" to \"... beyond productivity improvement.\" and \"GenAI has increased the degree of AI adoption ...\", word for word from the Gartner press release of 7 May 2024; credited by the article title and Gartner, but linked to a different Gartner release (29 Feb 2024); no licence, quotation unclosed",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "§3: the four foundational capabilities of AI-mature organisations, each lead clause word for word from the same Gartner release, with added explanation (adapted); credited only as \"As per Gartner\"",
+          "weight": 0.5,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "IG1404C CEO for Right Every Time v1.0.0",
+      "words": 3054,
+      "items": []
+    },
+    {
+      "name": "IG1412 v3.0.0",
+      "words": 17368,
+      "items": [
+        {
+          "item": "Levels of Autonomy figure (image9), reproduced from arXiv 2506.12469",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Paragraph under image9 (question/user-centered perspective), word for word from arXiv",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "arXiv design-decision passage, close",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "arXiv five-levels passage, close",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "Oracle Agent Spec sentence, near verbatim",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Optimizely A/B testing definition, close",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "OASF description, unconfirmed origin",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "YAML description, not in credited source",
+          "weight": 0.5,
+          "cited": 0.0
+        }
+      ]
+    },
+    {
+      "name": "IG1412 v3.0.1",
+      "words": 17267,
+      "items": [
+        {
+          "item": "Agent Spec description: first sentence near verbatim on the credited Oracle page, second a close paraphrase of Oracle's Agent Spec README",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "OASF description, word for word from the AGNTCY OASF documentation and README (not on the credited schema page)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Optimizely A/B testing definition, close paraphrase",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "YAML description, not in the credited source, not placed",
+          "weight": 0.5,
+          "cited": 0.0
+        },
+        {
+          "item": "Figure 2 (image2), adapted from the Russell and Norvig learning-agent figure, no credit",
+          "weight": 0.5,
+          "cited": 0.0
+        },
+        {
+          "item": "References row 'Agent Autonomy & Oversight Model': five-levels sentence word for word (after 'It defines') from Feng, McDonald, Zhang (arXiv 2506.12469) abstract, credited to this document's own Appendix A",
+          "weight": 1.0,
+          "cited": 0.0
+        },
+        {
+          "item": "Section 6.2.2 'agency and autonomy levels, which are separate design decisions from capability', close to Feng, McDonald, Zhang, no credit",
+          "weight": 1.0,
+          "cited": 0.0
+        },
+        {
+          "item": "Autonomy certificates backed by an autonomy case and renewed on change (§6.2.10, §6.3, §7.5, Appendix A): reworded from Feng, McDonald, Zhang (arXiv 2506.12469), no credit",
+          "weight": 1.0,
+          "cited": 0.0
+        },
+        {
+          "item": "MUI (Minimum User Involvement) metric (§6.2.9, §6.3): reworded from Feng, McDonald, Zhang's 'minimum level of user involvement', no credit",
+          "weight": 1.0,
+          "cited": 0.0
+        },
+        {
+          "item": "Five autonomy levels A1-A5 with A3 'Bounded Delegation' (§6.2.2): structure from Raskar, Chaddha, Reddy, Todkar, MIT Media Lab, 28 Sep 2026 (CC BY 4.0), level names reworded, no credit",
+          "weight": 1.0,
+          "cited": 0.0
+        }
+      ]
+    },
+    {
+      "name": "IG1434 v2.0.0",
+      "words": 5737,
+      "items": []
+    },
+    {
+      "name": "IG1444 Agentic AI for Autonomous Computing Networks v1.0.0",
+      "words": 6632,
+      "items": [
+        {
+          "item": "Introduction, Agentic AI Key Features: Problem-solving and Reasoning definitions word for word, Autonomy and Adaptability closely paraphrased, from the Cloud Security Alliance blog (Phil Munz, TrojAI); credited only by the §6 reference-list entry",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "§3.3 Security challenges: close paraphrase of the same Cloud Security Alliance blog; credited only by the §6 reference-list entry",
+          "weight": 0.5,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "IG1450 Embedding Experience Metrics to ODA Components v2.0.0",
+      "words": 7549,
+      "items": []
+    },
+    {
+      "name": "IG1453 v2.0.0",
+      "words": 9359,
+      "items": [
+        {
+          "item": "TS 28.312 RAN energy saving intent JSON (89 words)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "TS 28.312 radio service delivery intent JSON (60+13 words)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "TS 28.312 intent/RadioNetworkExpectation/RadioServiceExpectation definitions",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "image3.png A2A Agent Card sample (adapted)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "image4.png A2A HTTP request sample (adapted)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "Extension methods steps, close paraphrase of A2A extensions page",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "TS 28.312 34-word reuse in 6.5.3.3 negotiation example",
+          "weight": 1.0,
+          "cited": 0.5
+        }
+      ],
+      "note": "extends the A2A protocol (Linux Foundation project), named only as A2A; not caught automatically"
+    },
+    {
+      "name": "IG1453 v2.1.0",
+      "words": 11508,
+      "items": [
+        {
+          "item": "§6.3.3.3 RAN energy saving intent JSON, word for word from 3GPP TS 28.312 (89 words)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "§6.3.3.4 radio service delivery intent JSON, word for word from 3GPP TS 28.312 (60 + 13 words)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "§6.5.3.3 intent_8 structured alternative JSON, word for word from 3GPP TS 28.312 (34 words)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "§6.3.2.2 intent, RadioNetworkExpectation and RadioServiceExpectation definitions, word for word from 3GPP TS 28.312 and its YAML (20 + 13 + 12 + 12 words)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "image3.png A2A Agent Card sample, adapted from the A2A extensions page and samples (Linux Foundation, Apache 2.0)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "image4.png A2A HTTP request sample, adapted from the A2A extensions page and samples (Linux Foundation, Apache 2.0)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "§5 Extension methods Steps 1 to 3, close paraphrase of the A2A extensions page",
+          "weight": 0.5,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "IG1478 v1.3.0",
+      "words": 29179,
+      "items": []
+    },
+    {
+      "name": "IG1486 v3.1.0",
+      "words": 9746,
+      "items": []
+    },
+    {
+      "name": "IG1496 v1.0.0",
+      "words": 7980,
+      "items": []
+    },
+    {
+      "name": "IG1498 v1.0.0",
+      "words": 6714,
+      "items": []
+    },
+    {
+      "name": "IG1499 v2 draft",
+      "words": 3202,
+      "items": [
+        {
+          "item": "Figure 4, left panel (Physical link fault case): street-map base layer from an unidentified third-party web-map provider, no credit",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "Figure 4, middle panel (Traditional network device case): topology view in the one scenario the text says relies on equipment vendor platforms and excludes from China Unicom's own IP; owner unconfirmed, no credit",
+          "weight": 0.5,
+          "cited": 0
+        }
+      ]
+    },
+    {
+      "name": "IG1502A v1.0.0",
+      "words": 3178,
+      "items": [
+        {
+          "item": "3GPP TS 28.312 intent exploration sentence, close adaptation (14-word shared run) in Step3",
+          "weight": 0.5,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "IG1502G AN L4 Computing Network Service Delivery Solution Package v1.0.0",
+      "words": 4048,
+      "items": []
+    },
+    {
+      "name": "IG1503D v1.0.0",
+      "words": 4511,
+      "items": []
+    },
+    {
+      "name": "IG1504E AN L4 5G2B & IoT Complaint Handling Solution Package v1.0.0",
+      "words": 5756,
+      "items": []
+    },
+    {
+      "name": "IG1523D v2.0.0",
+      "words": 5369,
+      "items": []
+    },
+    {
+      "name": "IG1523E AN L4 IP Network Fault Management v2.0.0",
+      "words": 6303,
+      "items": []
+    },
+    {
+      "name": "IG1524B AN L4 Core Network Change Management v1.0.0",
+      "words": 3456,
+      "items": []
+    },
+    {
+      "name": "IG1525A v1.0.0",
+      "words": 16184,
+      "items": []
+    },
+    {
+      "name": "IG1525E AN L4 IP Network Quality Optimization v1.0.0",
+      "words": 3139,
+      "items": []
+    },
+    {
+      "name": "IG1526A v1.0.0",
+      "words": 3275,
+      "items": [
+        {
+          "item": "3GPP TS 28.312 text, Introduction (line 57)",
+          "weight": 1.0,
+          "cited": 0
+        },
+        {
+          "item": "3GPP TS 28.312 text, intent-driven paragraph (line 58)",
+          "weight": 1.0,
+          "cited": 0
+        },
+        {
+          "item": "3GPP TS 28.312/28.310/28.530 sentences (lines 57, 123)",
+          "weight": 1.0,
+          "cited": 0
+        }
+      ]
+    },
+    {
+      "name": "IG1541 v1.0.0",
+      "words": 2514,
+      "items": []
+    },
+    {
+      "name": "IG1542 v1.0.0",
+      "words": 7370,
+      "items": []
+    },
+    {
+      "name": "IG1543 Value driven Agentic AI Marketplace for iconic event management Use Case v2.0.0",
+      "words": 8743,
+      "items": [
+        {
+          "item": "Figure 1 (image1.png): central stadium illustration with the IOC Olympic rings and torch, and the vignette artwork, origin not confirmed, no credit",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "Figure 2 area (image3.png): stadium photograph (Venue A), origin not confirmed, no credit",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "Figure 2 area (image3.png): track and field venue photograph (Venue B), origin not confirmed, no credit",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "Figure 2 area (image3.png): aquatic venue photograph (Venue C), origin not confirmed, no credit",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "Figure 12 (image15.png): screenshots of an agent-catalogue application UI, owner not confirmed, no credit",
+          "weight": 0.5,
+          "cited": 0
+        }
+      ]
+    },
+    {
+      "name": "IG1546 v1.1.0",
+      "words": 9420,
+      "items": []
+    },
+    {
+      "name": "IG1553 v1.1.0",
+      "words": 7230,
+      "items": [
+        {
+          "item": "§2.3 (image5): three panels of simulation results labelled \"Fig. 5\", \"Fig. 6\" and \"Fig. 7\" (average cost against RSU and ES resources and vehicle numbers; \"Our Scheme\" against CIRTO, TORCO, FTPL&ECRA and NOIA), matching W. Fan, Y. Yu, C. Bao and Y. Liu, \"Vehicular Edge Intelligence: DRL-Based Resource Orchestration for Task Inference in Vehicle-RSU-Edge Collaborative Networks\", IEEE Transactions on Mobile Computing, 2025; no credit; the paper wasn't opened (paywalled), so the match is unconfirmed",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "§2.3 (image7): the nine-scenario vehicle-RSU-edge diagram (\"Scenario1\" to \"Scenario9\"), matching the paper's \"9 possible scenarios\"; no credit; unconfirmed for the same reason",
+          "weight": 0.5,
+          "cited": 0
+        }
+      ]
+    },
+    {
+      "name": "IG1553A v1.0.0",
+      "words": 2851,
+      "items": []
+    },
+    {
+      "name": "IG1559 v1.0.0",
+      "words": 11436,
+      "items": []
+    },
+    {
+      "name": "IG1565 (2026)",
+      "words": 4238,
+      "items": []
+    },
+    {
+      "name": "IG1572 v1.0.0",
+      "words": 4629,
+      "items": [
+        {
+          "item": "Â§3.2 and Â§6.1: IETF RFC 3198 definitions of a policy rule (\"the binding of a set of actions to a set of conditions\") and a policy (\"a set of rules to administer, manage, and control access to network resources\"), word for word, in quotation marks, credited to IETF RFC 3198 (title in References; no date, link or licence)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Â§3.6 and Â§6.1: 3GPP TS 28.100 Â§5 Note 2 definition of control information, in quotation marks and credited, but reworded inside the quotation (\"to assist or control the system in performing its tasks\" against TS 28.100 \"to assist/control the system to perform corresponding tasks\"); no version, date or licence",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "Â§3.6: 31-word definition of the Intent/Experience task group, in quotation marks and credited to IG1252 Â§5.3.2.2.1; the wording is 3GPP TS 28.100's, and IG1252 carries it without crediting 3GPP, so 3GPP isn't credited for it (stricter reading: credit to a source other than the owner's work)",
+          "weight": 1.0,
+          "cited": 0
+        }
+      ]
+    },
+    {
+      "name": "IG1579 v1.0.0",
+      "words": 7702,
+      "items": [
+        {
+          "item": "§2.1 accountable AI agent definition, word for word from NHI Mgmt Group's glossary (© all rights reserved), opened with a quotation mark and credited [16] (title only, no link in the reference list)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "§2.2 digital twin definition, close paraphrase of the Digital Twin Consortium definition, credited [15]",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "§8.1 Terminology: the same digital twin definition credited to 'John Vickers of NASA' (wrong source)",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "§9 References [17]: GOV.UK digital twin definition given as the entry's summary; wording not confirmed; credited without link or licence (Open Government Licence v3.0)",
+          "weight": 0.5,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "IG1585 v1.0.0",
+      "words": 11045,
+      "items": []
+    },
+    {
+      "name": "TAC-1012 TMFC047 Party Problem Management",
+      "words": 2466,
+      "items": []
+    },
+    {
+      "name": "TAC-1221 v13 (Cross Domain Intelligent Controller / SMIC inception form)",
+      "words": 4408,
+      "items": [
+        {
+          "item": "INT-FX-01 Intent Definition and Capture description, credited to Int handler ODA Comp presentation 1/4/2024 (non-Contributor, source not opened)",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "INT-FX-02 Intent Interpretation and Validation description, same credit",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "INT-FX-03 Intent Translation and Mapping description, same credit",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "INT-FX-04 Intent Lifecycle Management description, same credit",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "INT-FX-05 Intent Orchestration and Automation description, same credit",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "INT-FX-06 Intent Monitoring and Optimization description, same credit",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "INT-FX-07 Integration with Other ODA Components description, same credit",
+          "weight": 0.5,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "Tax Management inception form (TAC-1422)",
+      "words": 1332,
+      "items": []
+    },
+    {
+      "name": "TMF443 v1.0.0",
+      "words": 13552,
+      "items": []
+    },
+    {
+      "name": "TMF444 v1.0.0",
+      "words": 14961,
+      "items": [
+        {
+          "item": "JSON-RPC 2.0 definition, close paraphrase, credited 'IETF / JSON-RPC 2.0'",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "OASF definition, near word for word with OASF README (AGNTCY, Apache-2.0), credited 'OASF / IG1412 section 6.2.3'",
+          "weight": 1.0,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "TMF445 v1.0.0",
+      "words": 13253,
+      "items": [
+        {
+          "item": "OASF description (3 sentences), word for word, docs.agntcy.org, credited Linux Foundation / Agntcy",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "MIME definition, word for word, Wikipedia, credited RFC 6838",
+          "weight": 1.0,
+          "cited": 0
+        },
+        {
+          "item": "URL definition, near word for word, RFC 3986 s1.1.3",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Autonomy-level definition, close paraphrase, Feng et al. arXiv 2506.12469, credited IG1412",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "CRM definition, close paraphrase, origin unconfirmed, credited [General]",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "UTF-8 definition, close paraphrase, Wikipedia, credited Unicode / RFC 3629",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "URI definition, close paraphrase, RFC 3986 / RFC 2396",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "Agent Card definition, close paraphrase, A2A AgentCard description (a2a.proto), credited [TMF445 / A2A]",
+          "weight": 0.5,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "TMFS002 v3.2.0",
+      "words": 2258,
+      "items": []
+    },
+    {
+      "name": "TMFS003 v9.1.0",
+      "words": 5291,
+      "items": []
+    },
+    {
+      "name": "TMFS020 v2.0.0",
+      "words": 4961,
+      "items": []
+    },
+    {
+      "name": "TMFS026 v3.0.0",
+      "words": 6109,
+      "items": [
+        {
+          "item": "§1 Introduction: 'GSMA Open Gateway is a framework of common network Application Programmable Interfaces (APIs) designed to provide universal access to operator networks for developers', word for word from GSMA white paper 'The Ecosystem for Open Gateway NaaS API development' (May 2023), no credit",
+          "weight": 1.0,
+          "cited": 0
+        },
+        {
+          "item": "§1 Introduction: 'GSMA Open Gateway allows operators to expose and monetize telco capabilities ... with frictionless interactions between them' (two sentences), word for word from the same GSMA white paper, no credit",
+          "weight": 1.0,
+          "cited": 0
+        },
+        {
+          "item": "§1 Introduction: Operate APIs definition 'offering programmable access to Operation, Administration and Management (OAM) capabilities to facilitate the integration of the Open Gateway NaaS Platform with portals, marketplaces and other aggregator platforms', word for word from the same GSMA white paper, no credit",
+          "weight": 1.0,
+          "cited": 0
+        },
+        {
+          "item": "§1 Introduction: Federated APIs definition, close to GSMA Operator Platform Group 4.0 §2.1.1 (unconfirmed wording), no credit",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "Figure 1 Open Gateway Overview: GSMA Open Gateway graphic with CAMARA, GSMA and TM Forum logos and icon set; origin unconfirmed, no credit",
+          "weight": 0.5,
+          "cited": 0
+        },
+        {
+          "item": "Figure 3 Engagement Models: same icon set as Figure 1 (ASP, Channel Partner, CSP); origin unconfirmed, no credit",
+          "weight": 0.5,
+          "cited": 0
+        }
+      ]
+    },
+    {
+      "name": "TMFS031 v2.0.0",
+      "words": 3337,
+      "items": [
+        {
+          "item": "§1.1 Terminology alignment and issue categorization: definitions of incident, problem and service request closely paraphrase the ITIL 4 definitions (AXELOS/PeopleCert), e.g. \"A problem represents the underlying cause or potential cause of one or more incidents\" against ITIL 4 \"A cause, or potential cause, of one or more incidents\"; credited only as \"aligned with terminology from ITIL 4\", with ITIL v3 web pages in the References",
+          "weight": 0.5,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "TMFS033 v1.0.0",
+      "words": 8583,
+      "items": []
+    },
+    {
+      "name": "TR255 Resource Function Activation and Configuration v5.0.1",
+      "words": 25027,
+      "items": [
+        {
+          "item": "ETSI GS NFV IFA011 quoted definition of VNFD Element Group (p18)",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Wikipedia Service Level Agreement definition, glossary (p80-81); second sentence found word for word on graphsearch.epfl.ch (Wikipedia mirror) and pearltrees.com, web spot check 2026-10-21",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "Wikipedia Software Factory definition, glossary (p81-83); opening sentence matches lead of en.wikipedia.org/wiki/Software_factory, web spot check 2026-10-21",
+          "weight": 1.0,
+          "cited": 0.5
+        },
+        {
+          "item": "ONAP Feature definition, glossary (p74)",
+          "weight": 0.5,
+          "cited": 0.5
+        }
+      ],
+      "note": "ETSI NFV and IETF concepts adopted throughout; not caught automatically"
+    },
+    {
+      "name": "TR292 v3.6.0",
+      "words": 3604,
+      "items": []
+    },
+    {
+      "name": "TR292G Metrics and Observations v3.6.0",
+      "words": 2548,
+      "items": []
+    },
+    {
+      "name": "TR326 Operationalizing Ontologies for AI-Native Autonomous Networks v1.0.0",
+      "words": 26901,
+      "items": [
+        {
+          "item": "§1 Introduction: definition of knowledge reasoning and its list of reasoning types attributed to ITU-T Y.3064 [62]; source not opened (no free full text found), origin unconfirmed; credit gives number, title and year only",
+          "weight": 0.5,
+          "cited": 0.5
+        },
+        {
+          "item": "§20 References, ETSI GS CIM 013 entry: quoted \"create a context source registration using a JSON-LD @context obtained from the request payload\", near word for word a test-purpose name in ETSI GS CIM 013 V2.1.1 (credited by link, no author or licence)",
+          "weight": 0.5,
+          "cited": 0.5
+        }
+      ]
+    },
+    {
+      "name": "TS1523B v1.0.0",
+      "words": 16691,
+      "items": []
+    },
+    {
+      "name": "TSP0002 v3.0.0",
+      "words": 11843,
+      "items": []
+    }
+  ]
+}

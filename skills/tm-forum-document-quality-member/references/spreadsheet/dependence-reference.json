@@ -1,0 +1,276 @@
+{
+  "description": "Reference dependence measures for the same 19 documents (6 with a declared base, 10 that cite a source held in sdo-sources). pointer_rate = pointer phrases ('as defined in', 'see', 'according to' ...) followed within 10 words by a standards body or outside document identifier, per 1,000 words, contents lines excluded. Only pointer_rate is classed, separately for documents with and without a declared base. copied_per_1000 = words per 1,000 of the document's words in stretches of 12+ words shared word for word with an outside source in sdo-sources, with TM Forum's section 14.1 notice masked out; it is classed only against the documents that cite a held source (cites_held_source), since for the rest a zero only means their sources weren't held. Heavy also needs at least min_heavy_pointers pointers, because most documents without a declared base have none and one or two in a short document would otherwise class as heavy.",
+  "sigma_multiplier": 0.8,
+  "min_heavy_pointers": 3,
+  "copied_class_rule": {
+    "light_below": 1,
+    "heavy_above": 20,
+    "note": "Fixed rule: light below 1, typical 1 to 20, heavy above 20 copied words per 1,000 words. Mean - 0.8 sigma (mean 23.2, sigma 35.5) is below zero (-5.2), so classing at mean +/- 0.8 sigma could never give light."
+  },
+  "pointer_light_at_zero": [
+    "none"
+  ],
+  "pointer_light_note": "For documents without a declared base, light means no pointers at all, the same rule as the Word set: 4 of the 13 have none. Here mean - 0.8 sigma is 0.20, so the rule differs from classing at mean +/- 0.8 sigma only for a rate between 0 and 0.20.",
+  "documents": [
+    {
+      "name": "GB1090A v1.0.0",
+      "words": 13907,
+      "declared_base": [],
+      "pointer_rate": 0.0,
+      "mention_rate": 0.0,
+      "top_body": null,
+      "concentration": 0,
+      "doc_ids": 0,
+      "pointers": 0,
+      "copied_per_1000": 0.0,
+      "cites_held_source": false
+    },
+    {
+      "name": "GB1502D v1.0.0",
+      "words": 2269,
+      "declared_base": [],
+      "pointer_rate": 0.0,
+      "mention_rate": 0.0,
+      "top_body": null,
+      "concentration": 0,
+      "doc_ids": 0,
+      "pointers": 0,
+      "copied_per_1000": 0.0,
+      "cites_held_source": false
+    },
+    {
+      "name": "GB1503A v2.1.0",
+      "words": 9737,
+      "declared_base": [],
+      "pointer_rate": 1.13,
+      "mention_rate": 5.44,
+      "top_body": "3GPP",
+      "concentration": 1.0,
+      "doc_ids": 12,
+      "pointers": 11,
+      "copied_per_1000": 10.2,
+      "cites_held_source": true
+    },
+    {
+      "name": "GB1503D v2.0.0",
+      "words": 10114,
+      "declared_base": [
+        "BBF",
+        "MEF"
+      ],
+      "pointer_rate": 0.59,
+      "mention_rate": 4.55,
+      "top_body": "3GPP",
+      "concentration": 0.96,
+      "doc_ids": 12,
+      "pointers": 6,
+      "copied_per_1000": 0.0,
+      "cites_held_source": true
+    },
+    {
+      "name": "GB1504A Individual Services Complaint Handling Questionnaire v1.1.0",
+      "words": 3299,
+      "declared_base": [],
+      "pointer_rate": 0.0,
+      "mention_rate": 0.0,
+      "top_body": null,
+      "concentration": 0,
+      "doc_ids": 0,
+      "pointers": 0,
+      "copied_per_1000": 0.0,
+      "cites_held_source": false
+    },
+    {
+      "name": "GB1523 v1.1.1",
+      "words": 9950,
+      "declared_base": [
+        "3GPP"
+      ],
+      "pointer_rate": 1.01,
+      "mention_rate": 5.43,
+      "top_body": "3GPP",
+      "concentration": 1.0,
+      "doc_ids": 12,
+      "pointers": 10,
+      "copied_per_1000": 44.1,
+      "cites_held_source": true
+    },
+    {
+      "name": "GB1523A RAN Fault Management Questionnaire v3.0.0",
+      "words": 7222,
+      "declared_base": [
+        "3GPP"
+      ],
+      "pointer_rate": 1.66,
+      "mention_rate": 2.77,
+      "top_body": "3GPP",
+      "concentration": 1.0,
+      "doc_ids": 2,
+      "pointers": 12,
+      "copied_per_1000": 102.2,
+      "cites_held_source": true
+    },
+    {
+      "name": "GB1523B v2.2.0",
+      "words": 7364,
+      "declared_base": [],
+      "pointer_rate": 0.68,
+      "mention_rate": 5.98,
+      "top_body": "3GPP",
+      "concentration": 1.0,
+      "doc_ids": 12,
+      "pointers": 5,
+      "copied_per_1000": 0.0,
+      "cites_held_source": true
+    },
+    {
+      "name": "GB1523C v1.1.0",
+      "words": 4340,
+      "declared_base": [
+        "3GPP"
+      ],
+      "pointer_rate": 0.69,
+      "mention_rate": 2.53,
+      "top_body": "3GPP",
+      "concentration": 0.91,
+      "doc_ids": 1,
+      "pointers": 3,
+      "copied_per_1000": 0.0,
+      "cites_held_source": true
+    },
+    {
+      "name": "GB1523D v2.1.1",
+      "words": 8186,
+      "declared_base": [],
+      "pointer_rate": 0.61,
+      "mention_rate": 2.08,
+      "top_body": "ETSI",
+      "concentration": 0.94,
+      "doc_ids": 0,
+      "pointers": 5,
+      "copied_per_1000": 4.3,
+      "cites_held_source": false
+    },
+    {
+      "name": "GB1523E v2.0.2",
+      "words": 3927,
+      "declared_base": [],
+      "pointer_rate": 1.02,
+      "mention_rate": 3.06,
+      "top_body": "ETSI",
+      "concentration": 0.83,
+      "doc_ids": 1,
+      "pointers": 4,
+      "copied_per_1000": 0.0,
+      "cites_held_source": false
+    },
+    {
+      "name": "GB1524D v1.0.0",
+      "words": 6348,
+      "declared_base": [],
+      "pointer_rate": 0.63,
+      "mention_rate": 1.1,
+      "top_body": "ETSI",
+      "concentration": 1.0,
+      "doc_ids": 1,
+      "pointers": 4,
+      "copied_per_1000": 0.0,
+      "cites_held_source": false
+    },
+    {
+      "name": "GB1524E v1.1.0",
+      "words": 6216,
+      "declared_base": [],
+      "pointer_rate": 0.48,
+      "mention_rate": 0.97,
+      "top_body": "ETSI",
+      "concentration": 1.0,
+      "doc_ids": 1,
+      "pointers": 3,
+      "copied_per_1000": 0.0,
+      "cites_held_source": false
+    },
+    {
+      "name": "GB1525A RAN Network Quality Optimization Questionnaire v1.1.0",
+      "words": 3860,
+      "declared_base": [
+        "3GPP"
+      ],
+      "pointer_rate": 2.85,
+      "mention_rate": 3.37,
+      "top_body": "3GPP",
+      "concentration": 1.0,
+      "doc_ids": 3,
+      "pointers": 11,
+      "copied_per_1000": 74.1,
+      "cites_held_source": true
+    },
+    {
+      "name": "GB1525D OTN v1.0.0",
+      "words": 8438,
+      "declared_base": [],
+      "pointer_rate": 0.59,
+      "mention_rate": 5.21,
+      "top_body": "3GPP",
+      "concentration": 1.0,
+      "doc_ids": 12,
+      "pointers": 5,
+      "copied_per_1000": 0.0,
+      "cites_held_source": true
+    },
+    {
+      "name": "GB1525D v2.0.0",
+      "words": 8832,
+      "declared_base": [],
+      "pointer_rate": 0.57,
+      "mention_rate": 4.98,
+      "top_body": "3GPP",
+      "concentration": 1.0,
+      "doc_ids": 12,
+      "pointers": 5,
+      "copied_per_1000": 0.0,
+      "cites_held_source": true
+    },
+    {
+      "name": "GB1525E IP Network Quality Optimization Questionnaire v2.0.1",
+      "words": 3070,
+      "declared_base": [
+        "ETSI"
+      ],
+      "pointer_rate": 0.98,
+      "mention_rate": 3.26,
+      "top_body": "ETSI",
+      "concentration": 0.9,
+      "doc_ids": 1,
+      "pointers": 3,
+      "copied_per_1000": 0.0,
+      "cites_held_source": false
+    },
+    {
+      "name": "GB1526A v2.0.0",
+      "words": 10255,
+      "declared_base": [],
+      "pointer_rate": 1.37,
+      "mention_rate": 5.36,
+      "top_body": "3GPP",
+      "concentration": 1.0,
+      "doc_ids": 15,
+      "pointers": 14,
+      "copied_per_1000": 1.2,
+      "cites_held_source": true
+    },
+    {
+      "name": "GB997A v5.0.2",
+      "words": 23342,
+      "declared_base": [],
+      "pointer_rate": 0.0,
+      "mention_rate": 0.04,
+      "top_body": "IEEE",
+      "concentration": 1.0,
+      "doc_ids": 0,
+      "pointers": 0,
+      "copied_per_1000": 0.0,
+      "cites_held_source": false
+    }
+  ]
+}

@@ -98,8 +98,7 @@ CREATOR_SKILLS = {
     "draft-new-usecase-from-scenario",
     "propose-component-or-api-extension",
     "lint-usecase-draft",
-    "tm-forum-document-quality-check",
-    "tm-forum-document-quality-individual",
+    "tm-forum-document-quality-member",
 }
 
 # Useful to both audiences, so shipped in both plugins -- listed once
@@ -196,11 +195,8 @@ SKILL_EXAMPLES = {
     "lint-usecase-draft": [
         "Check my draft use-case DOCX for anything that will convert badly before I submit it to TM Forum.",
     ],
-    "tm-forum-document-quality-check": [
-        "Check my draft IG document for undeclared copied text, weak credits and borrowed images -- just score it, no report.",
-    ],
-    "tm-forum-document-quality-individual": [
-        "Run the IP and licence check on IG1412 AI Agent Specification Template v3.0.1 and give me the Word report.",
+    "tm-forum-document-quality-member": [
+        "Run the IP and licence check on IG1412 AI Agent Specification Template v3.0.1 and give me the Word and HTML reports.",
     ],
     "generate-component-svg-diagram": [
         "Draw the TMFC001 Product Catalog Management architecture diagram as an SVG, including its security and management APIs.",

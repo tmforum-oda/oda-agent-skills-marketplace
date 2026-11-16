@@ -1,0 +1,221 @@
+{
+  "description": "AI-indicator reference scores, computed by ai_indicators.py for the same 19 documents as the other reference sets.",
+  "sigma_multiplier": 0.8,
+  "class_rule": {
+    "low_share": 0.25,
+    "high_share": 0.2,
+    "note": "Classed by rank: low = at or below the score ending the bottom quarter of the reference set, high = at or above the score starting its top fifth, medium in between; any sign 1 or 2 is high (direct evidence). The scores pile up at zero (sigma larger than the mean), so mean +/- 0.8 sigma says little and z is given for context only."
+  },
+  "style_shift_rule": "Style shift: a long paragraph (40+ words) needs at least 2 AI-typical words, at 4 or more per 100 words and three times the document's rate.",
+  "documents": [
+    {
+      "name": "GB1090A v1.0.0",
+      "words": 14168,
+      "assistant": 0,
+      "provenance": 1,
+      "figure_mismatches": 0,
+      "style_shift": 0.0,
+      "wording_per_1000": 1.976285,
+      "em_dash_per_1000": 7.97572,
+      "score": 8.571429
+    },
+    {
+      "name": "GB1502D v1.0.0",
+      "words": 2270,
+      "assistant": 0,
+      "provenance": 0,
+      "figure_mismatches": 0,
+      "style_shift": 0.0,
+      "wording_per_1000": 0.0,
+      "em_dash_per_1000": 0.0,
+      "score": 0.0
+    },
+    {
+      "name": "GB1503A v2.1.0",
+      "words": 9738,
+      "assistant": 0,
+      "provenance": 0,
+      "figure_mismatches": 0,
+      "style_shift": 0.0,
+      "wording_per_1000": 0.0,
+      "em_dash_per_1000": 0.0,
+      "score": 0.0
+    },
+    {
+      "name": "GB1503D v2.0.0",
+      "words": 10118,
+      "assistant": 0,
+      "provenance": 0,
+      "figure_mismatches": 0,
+      "style_shift": 0.0,
+      "wording_per_1000": 0.0,
+      "em_dash_per_1000": 0.0,
+      "score": 0.0
+    },
+    {
+      "name": "GB1504A Individual Services Complaint Handling Questionnaire v1.1.0",
+      "words": 3301,
+      "assistant": 0,
+      "provenance": 0,
+      "figure_mismatches": 0,
+      "style_shift": 0.0,
+      "wording_per_1000": 0.302939,
+      "em_dash_per_1000": 0.0,
+      "score": 0.302939
+    },
+    {
+      "name": "GB1523 v1.1.1",
+      "words": 9952,
+      "assistant": 0,
+      "provenance": 0,
+      "figure_mismatches": 0,
+      "style_shift": 0.0,
+      "wording_per_1000": 0.0,
+      "em_dash_per_1000": 0.0,
+      "score": 0.0
+    },
+    {
+      "name": "GB1523A RAN Fault Management Questionnaire v3.0.0",
+      "words": 7222,
+      "assistant": 0,
+      "provenance": 0,
+      "figure_mismatches": 0,
+      "style_shift": 0.0,
+      "wording_per_1000": 0.553863,
+      "em_dash_per_1000": 0.0,
+      "score": 0.553863
+    },
+    {
+      "name": "GB1523B v2.2.0",
+      "words": 7364,
+      "assistant": 0,
+      "provenance": 0,
+      "figure_mismatches": 0,
+      "style_shift": 0.0,
+      "wording_per_1000": 0.0,
+      "em_dash_per_1000": 0.0,
+      "score": 0.0
+    },
+    {
+      "name": "GB1523C v1.1.0",
+      "words": 4342,
+      "assistant": 0,
+      "provenance": 0,
+      "figure_mismatches": 1,
+      "style_shift": 0.0,
+      "wording_per_1000": 0.0,
+      "em_dash_per_1000": 0.0,
+      "score": 0.0
+    },
+    {
+      "name": "GB1523D v2.1.1",
+      "words": 8191,
+      "assistant": 0,
+      "provenance": 0,
+      "figure_mismatches": 0,
+      "style_shift": 0.0,
+      "wording_per_1000": 0.488341,
+      "em_dash_per_1000": 0.0,
+      "score": 0.488341
+    },
+    {
+      "name": "GB1523E v2.0.2",
+      "words": 3936,
+      "assistant": 0,
+      "provenance": 0,
+      "figure_mismatches": 0,
+      "style_shift": 0.0,
+      "wording_per_1000": 0.0,
+      "em_dash_per_1000": 0.0,
+      "score": 0.0
+    },
+    {
+      "name": "GB1524D v1.0.0",
+      "words": 6349,
+      "assistant": 0,
+      "provenance": 0,
+      "figure_mismatches": 0,
+      "style_shift": 0.0,
+      "wording_per_1000": 0.0,
+      "em_dash_per_1000": 0.0,
+      "score": 0.0
+    },
+    {
+      "name": "GB1524E v1.1.0",
+      "words": 6218,
+      "assistant": 0,
+      "provenance": 0,
+      "figure_mismatches": 0,
+      "style_shift": 0.0,
+      "wording_per_1000": 0.0,
+      "em_dash_per_1000": 0.0,
+      "score": 0.0
+    },
+    {
+      "name": "GB1525A RAN Network Quality Optimization Questionnaire v1.1.0",
+      "words": 3861,
+      "assistant": 0,
+      "provenance": 0,
+      "figure_mismatches": 3,
+      "style_shift": 0.0,
+      "wording_per_1000": 0.0,
+      "em_dash_per_1000": 0.0,
+      "score": 0.0
+    },
+    {
+      "name": "GB1525D OTN v1.0.0",
+      "words": 8439,
+      "assistant": 0,
+      "provenance": 0,
+      "figure_mismatches": 3,
+      "style_shift": 0.0,
+      "wording_per_1000": 0.0,
+      "em_dash_per_1000": 0.0,
+      "score": 0.0
+    },
+    {
+      "name": "GB1525D v2.0.0",
+      "words": 8834,
+      "assistant": 0,
+      "provenance": 0,
+      "figure_mismatches": 0,
+      "style_shift": 0.0,
+      "wording_per_1000": 0.0,
+      "em_dash_per_1000": 0.0,
+      "score": 0.0
+    },
+    {
+      "name": "GB1525E IP Network Quality Optimization Questionnaire v2.0.1",
+      "words": 3078,
+      "assistant": 0,
+      "provenance": 0,
+      "figure_mismatches": 0,
+      "style_shift": 0.0,
+      "wording_per_1000": 0.0,
+      "em_dash_per_1000": 0.0,
+      "score": 0.0
+    },
+    {
+      "name": "GB1526A v2.0.0",
+      "words": 10256,
+      "assistant": 0,
+      "provenance": 0,
+      "figure_mismatches": 0,
+      "style_shift": 0.0,
+      "wording_per_1000": 0.0,
+      "em_dash_per_1000": 0.0,
+      "score": 0.0
+    },
+    {
+      "name": "GB997A v5.0.2",
+      "words": 24116,
+      "assistant": 0,
+      "provenance": 0,
+      "figure_mismatches": 0,
+      "style_shift": 0.084746,
+      "wording_per_1000": 8.915243,
+      "em_dash_per_1000": 0.870791,
+      "score": 9.936859
+    }
+  ]
+}
